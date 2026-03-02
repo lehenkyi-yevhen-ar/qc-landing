@@ -163,6 +163,98 @@ button {
   box-shadow: 0 2px 12px rgba(9, 192, 255, 0.15);
 }
 
+/* From Chaos to Clarity section */
+.qc-chaos-section {
+  padding: 6rem 0;
+}
+
+.qc-chaos-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.qc-chaos-heading {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0 0 1.25rem;
+  color: #111827;
+}
+
+.qc-chaos-heading-gradient {
+  background: linear-gradient(90deg, #3BA6FF, #A855F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.qc-chaos-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #6B7280;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.qc-chaos-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #CC99FF, #A855F7);
+  border-radius: 2px;
+  margin: 1.5rem auto 3rem;
+}
+
+.qc-chaos-label {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 20px;
+  color: #9CA3AF;
+  font-weight: 400;
+  margin-bottom: 0.35rem;
+}
+
+.qc-chaos-before-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #a2017a;
+  margin: 0;
+}
+
+.qc-chaos-after-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #3B82F6;
+  margin: 0;
+}
+
+.qc-chaos-card-before {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 24px 28px;
+  font-size: 0.9375rem;
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.qc-chaos-card-after {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
+  border-radius: 16px;
+  padding: 24px 28px;
+  font-size: 0.9375rem;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.06);
+}
+
 .qc-pill-label {
   display: inline-flex;
   align-items: center;
