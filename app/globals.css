@@ -172,15 +172,20 @@ button {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  overflow: visible;
 }
 
 .qc-chaos-heading {
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-size: 2.4rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin: 0 0 1.25rem;
   color: #111827;
+}
+
+.qc-chaos-heading-center {
+  text-align: center;
 }
 
 .qc-chaos-heading-gradient {
@@ -191,7 +196,7 @@ button {
 }
 
 .qc-chaos-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.7;
   color: #6B7280;
@@ -204,55 +209,155 @@ button {
 .qc-chaos-divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #CC99FF, #A855F7);
+  background: transparent;
   border-radius: 2px;
   margin: 1.5rem auto 3rem;
+}
+
+/* Header row: BEFORE | spacer | AFTER - same grid as rows */
+.qc-chaos-header-row {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) 64px minmax(420px, 1fr);
+  gap: 0;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.qc-chaos-arrow-spacer {
+  width: 64px;
+  min-width: 64px;
 }
 
 .qc-chaos-label {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 20px;
+  font-size: 19px;
   color: #9CA3AF;
   font-weight: 400;
   margin-bottom: 0.35rem;
 }
 
 .qc-chaos-before-title {
-  font-size: 2.5rem;
+  font-size: 1.95rem;
   font-weight: 600;
   color: #a2017a;
   margin: 0;
 }
 
 .qc-chaos-after-title {
-  font-size: 2.5rem;
+  font-size: 1.95rem;
   font-weight: 600;
-  color: #3B82F6;
   margin: 0;
 }
 
+.qc-chaos-after-title-blue {
+  color: #3B82F6;
+}
+
+.qc-chaos-after-title-gradient {
+  background: linear-gradient(90deg, #3B82F6, #A855F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Rows: each row = left card | arrow | right card */
+.qc-chaos-rows {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.qc-chaos-row {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) 64px minmax(420px, 1fr);
+  gap: 0;
+  align-items: stretch;
+  overflow: visible;
+}
+
+/* Left card (BEFORE) - taller, more padding, 16px font */
 .qc-chaos-card-before {
   background: #F9FAFB;
   border: 1px solid #E5E7EB;
   border-radius: 16px;
-  padding: 24px 28px;
-  font-size: 0.9375rem;
+  padding: 32px 36px;
+  font-size: 16px;
   color: #374151;
+  font-weight: 400;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+/* Connector column - arrow centers vertically in row, overflows to touch cards */
+.qc-chaos-arrow-join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  margin-left: -16px;
+  margin-right: 56px;
+  min-width: 108px;
+}
+
+.qc-chaos-arrow-img {
+  width: 80px !important;
+  height: auto !important;
+  min-width: 80px !important;
+  object-fit: contain;
+}
+
+/* Next.js Image wraps in span; size the inner img */
+.qc-chaos-arrow-join img {
+  width: 80px !important;
+  height: auto !important;
+  min-width: 80px !important;
+  object-fit: contain;
+}
+
+/* Right card (AFTER) - gradient, 16px font, semibold */
 .qc-chaos-card-after {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
   border-radius: 16px;
-  padding: 24px 28px;
-  font-size: 0.9375rem;
+  padding: 28px 32px;
+  font-size: 16px;
+  font-weight: 600;
   color: #374151;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   box-shadow: 0 1px 3px rgba(99, 102, 241, 0.06);
+  border: none;
+}
+
+.qc-chaos-card-after-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.qc-chaos-card-after-icon {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  object-fit: contain;
+}
+
+.qc-chaos-card-after img {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .qc-chaos-header-row,
+  .qc-chaos-row {
+    grid-template-columns: 1fr 64px 1fr;
+  }
 }
 
 .qc-pill-label {

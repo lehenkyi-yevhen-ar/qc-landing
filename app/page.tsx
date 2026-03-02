@@ -180,6 +180,14 @@ const interestOptions = [
   'Not sure yet'
 ];
 
+const chaosRows = [
+  { before: 'Hours lost in proposals and data entry', after: 'Proposals generated in minutes with auto-filled data', icon: '/chaos-icon-proposals.png' },
+  { before: 'Client info scattered across spreadsheets', after: 'Centralized client records and dashboards', icon: '/chaos-icon-dashboard.png' },
+  { before: 'Repetitive admin work draining the team', after: 'Automated workflows handling routine tasks', icon: '/chaos-icon-rocket.png' },
+  { before: 'No visibility into profitability or workload', after: 'Real-time reporting and margin tracking', icon: '/chaos-icon-target.png' },
+  { before: 'Disjointed client experience', after: 'Smooth, professional onboarding and communication', icon: '/chaos-icon-users.png' }
+];
+
 export default function Page() {
   const [activeSolution, setActiveSolution] = useState<SolutionKey>('consulting');
   const [activeCase, setActiveCase] = useState(0);
@@ -804,170 +812,62 @@ export default function Page() {
         </section>
 
         {/* From Chaos to Clarity */}
-        <section className="qc-section">
-          <div className="qc-container">
-            <h2 className="qc-section-title">
-              From Chaos to{''}
-              <span
-                style={{
-                  background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
-                  WebkitBackgroundClip: 'text',
-                  color: 'transparent'
-                }}
-              >
-                Clarity
-              </span>
+        <section className="qc-section qc-chaos-section">
+          <div className="qc-chaos-container">
+            <h2 className="qc-chaos-heading qc-chaos-heading-center">
+              From Chaos to{' '}
+              <span className="qc-chaos-heading-gradient">Clarity</span>
             </h2>
-            <p className="qc-section-subtitle">
+            <p className="qc-chaos-subtitle">
               See how intelligent automation reshapes your firm&apos;s daily operations—from
               scattered tasks to a centralized system.
             </p>
+            <div className="qc-chaos-divider" />
 
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr auto 1fr',
-                gap: '0 1rem',
-                alignItems: 'center',
-                marginTop: '2.5rem',
-                maxWidth: 900,
-                marginLeft: 'auto',
-                marginRight: 'auto'
-              }}
-            >
+            <div className="qc-chaos-header-row">
               <div>
-                <div style={{ marginBottom: '1rem' }}>
-                  <span
-                    style={{
-                      fontSize: '0.8rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: '#6b7280',
-                      fontWeight: 600
-                    }}
-                  >
-                    Before
-                  </span>
-                  <span
-                    style={{
-                      display: 'block',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      color: '#a855f7',
-                      marginTop: '0.2rem'
-                    }}
-                  >
-                    Manual & Reactive
-                  </span>
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                  {[
-                    'Hours lost in proposals and data entry',
-                    'Client info scattered across spreadsheets',
-                    'Repetitive admin work draining the team',
-                    'No visibility into profitability or workload',
-                    'Disjointed client experience'
-                  ].map(item => (
-                    <li
-                      key={item}
-                      style={{
-                        padding: '0.75rem 1rem',
-                        borderRadius: '12px',
-                        fontSize: '0.875rem',
-                        background: '#ffffff',
-                        border: '1px solid #e5e7eb',
-                        color: '#374151'
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="qc-chaos-label">Before</div>
+                <div className="qc-chaos-before-title">Manual & Reactive</div>
               </div>
-
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.65rem',
-                  alignItems: 'center',
-                  paddingTop: '2.5rem'
-                }}
-              >
-                <Image src="/chaos-arrow.png" alt="" width={48} height={24} style={{ width: 48, height: 24, objectFit: 'contain' }} />
-                <Image src="/chaos-arrow.png" alt="" width={48} height={24} style={{ width: 48, height: 24, objectFit: 'contain' }} />
-                <Image src="/chaos-arrow.png" alt="" width={48} height={24} style={{ width: 48, height: 24, objectFit: 'contain' }} />
-                <Image src="/chaos-arrow.png" alt="" width={48} height={24} style={{ width: 48, height: 24, objectFit: 'contain' }} />
-                <Image src="/chaos-arrow.png" alt="" width={48} height={24} style={{ width: 48, height: 24, objectFit: 'contain' }} />
-              </div>
-
+              <div className="qc-chaos-arrow-spacer" aria-hidden />
               <div>
-                <div style={{ marginBottom: '1rem' }}>
-                  <span
-                    style={{
-                      fontSize: '0.8rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: '#6b7280',
-                      fontWeight: 600
-                    }}
-                  >
-                    After
-                  </span>
-                  <span
-                    style={{
-                      display: 'block',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
-                      WebkitBackgroundClip: 'text',
-                      color: 'transparent',
-                      marginTop: '0.2rem'
-                    }}
-                  >
-                    Structured & Scalable
-                  </span>
+                <div className="qc-chaos-label">After</div>
+                <div className="qc-chaos-after-title">
+                  <span className="qc-chaos-after-title-gradient">Structured & Scalable</span>
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                  {[
-                    { text: 'Proposals generated in minutes with auto-filled data', icon: '/chaos-icon-proposals.png' },
-                    { text: 'Centralized client records and dashboards', icon: '/chaos-icon-dashboard.png' },
-                    { text: 'Automated workflows handling routine tasks', icon: '/chaos-icon-rocket.png' },
-                    { text: 'Real-time reporting and margin tracking', icon: '/chaos-icon-target.png' },
-                    { text: 'Smooth, professional onboarding and communication', icon: '/chaos-icon-users.png' }
-                  ].map(({ text, icon }) => (
-                    <li
-                      key={text}
-                      style={{
-                        padding: '0.75rem 1rem',
-                        borderRadius: '12px',
-                        fontSize: '0.875rem',
-                        background: 'linear-gradient(135deg, #eef2ff 0%, #f5f0ff 50%, #e0f2fe 100%)',
-                        border: '1px solid rgba(147, 197, 253, 0.4)',
-                        color: '#374151',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        gap: '0.75rem'
-                      }}
-                    >
-                      <span style={{ flex: 1 }}>{text}</span>
-                      <Image
-                        src={icon}
-                        alt=""
-                        width={28}
-                        height={28}
-                        style={{ width: 28, height: 28, objectFit: 'contain', flexShrink: 0 }}
-                      />
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
+
+            <ul className="qc-chaos-rows">
+              {chaosRows.map((row, i) => (
+                <li key={i} className="qc-chaos-row">
+                  <div className="qc-chaos-card-before">{row.before}</div>
+                  <div className="qc-chaos-arrow-join">
+                    <Image
+                      src="/chaos-arrow.png"
+                      alt=""
+                      width={120}
+                      height={36}
+                      className="qc-chaos-arrow-img"
+                    />
+                  </div>
+                  <div className="qc-chaos-card-after">
+                    <span className="qc-chaos-card-after-text">{row.after}</span>
+                    <Image
+                      src={row.icon}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="qc-chaos-card-after-icon"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-                {/* Real Firms – Case studies carousel */}
+        {/* Real Firms – Case studies carousel */}
         <section id="case-studies" className="qc-section qc-gradient-hero">
           <div className="qc-container">
             <div style={{ textAlign: 'center', marginBottom: '2.4rem' }}>
