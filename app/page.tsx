@@ -67,28 +67,32 @@ const services = [
     title: 'Custom Workflow Automation',
     pain: 'Too many manual steps stealing your team’s time?',
     solution:
-      'We design no-code workflows that handle data entry, task routing, and reporting—giving your team hours back every week.'
+      'We design no-code workflows that handle data entry, task routing, and reporting—giving your team hours back every week.',
+    image: '/service-workflow.png'
   },
   {
     id: 2,
     title: 'Data Infrastructure',
     pain: 'No single source of truth for your data?',
     solution:
-      'We connect your tools into a unified system with automated data flows and real-time dashboards that reveal your business metrics instantly.'
+      'We connect your tools into a unified system with automated data flows and real-time dashboards that reveal your business metrics instantly.',
+    image: '/service-data.png'
   },
   {
     id: 3,
     title: 'Custom Web Applications',
     pain: 'Existing software doesn’t fit your process?',
     solution:
-      'We build tailored apps and client portals on no-code platforms—built around how your firm actually operates.'
+      'We build tailored apps and client portals on no-code platforms—built around how your firm actually operates.',
+    image: '/service-webapp.png'
   },
   {
     id: 4,
     title: 'Discovery & Strategy',
     pain: 'Not sure where to start?',
     solution:
-      'We map your operations, identify automation opportunities, and create a detailed roadmap before development begins.'
+      'We analyze your operations, map automation opportunities, and create a detailed roadmap before development begins.',
+    image: '/service-discovery.png'
   }
 ];
 
@@ -109,7 +113,7 @@ const caseStudies: CaseStudy[] = [
     label: 'Consulting',
     title: 'Proposals generated in minutes instead of days',
     challenge:
-      'Consultants were rebuilding proposals from scratch for each opportunity, losing hours to copy‑paste work.',
+      'Consultants were rebuilding proposals from scratch for each opportunity, losing hours to copy\u2011paste work.',
     solution:
       'We designed a proposal engine that assembles scopes, pricing, and case studies automatically from a structured knowledge base.',
     metrics: ['4x faster proposal turnaround', 'Higher close rate', 'Consistent pricing & scope']
@@ -117,7 +121,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 3,
     label: 'Education',
-    title: 'Enrollment pipeline finally visible end‑to‑end',
+    title: 'Enrollment pipeline finally visible end\u2011to\u2011end',
     challenge:
       'An education provider had no clear view of lead status, enrollment stages, or team workload.',
     solution:
@@ -130,7 +134,7 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     quote:
-      'Our onboarding used to take a week. Now it’s less than a day. The system QuitCode built saves us at least 25 hours a month.',
+      'Our onboarding used to take a week. Now it\u2019s less than a day. The system QuitCode built saves us at least 25 hours a month.',
     name: 'Head of Operations',
     role: 'Private School',
     context: 'Verified client'
@@ -146,10 +150,10 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     quote:
-      'From proposals to reporting, everything is smoother. Our clients feel the difference—and so does our team.',
+      'From proposals to reporting, everything is smoother. Our clients feel the difference\u2014and so does our team.',
     name: 'Managing Partner',
     role: 'Consulting Firm',
-    context: 'No-code automation roll‑out'
+    context: 'No-code automation roll\u2011out'
   }
 ];
 
@@ -649,11 +653,9 @@ export default function Page() {
               }}
             >
               <div>
-                <h2 className="qc-section-title">Our Services</h2>
-                <p className="qc-section-subtitle">
-                  From quick wins to full transformation, we partner with your team at
-                  every step.
-                </p>
+                <h2 className="qc-section-title"
+                    style={{ fontWeight: 800 }}
+                >Our Services</h2>
               </div>
               <div
                 id="about"
@@ -681,47 +683,108 @@ export default function Page() {
                   className="qc-card"
                   style={{
                     borderRadius: '28px',
-                    padding: '1.9rem 1.8rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.85rem'
+                    padding: 0,
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    overflow: 'hidden'
                   }}
                 >
-                  <h3
-                    style={{
-                      margin: 0,
-                      fontSize: '1.2rem'
-                    }}
-                  >
-                    {service.title}
-                  </h3>
                   <div
                     style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'minmax(0, 0.9fr) minmax(0, 1.1fr)',
-                      gap: '1.3rem',
-                      fontSize: '0.9rem'
+                      background: '#ffffff',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '1.5rem',
+                      minHeight: 280
                     }}
                   >
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Pain</div>
-                      <p style={{ margin: '0.25rem 0 0.7rem', color: '#4b5563' }}>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={320}
+                      height={280}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        borderRadius: '16px'
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      background: '#ffffff',
+                      padding: '1.6rem 1.5rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.5rem',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <h3
+                      style={{
+                        margin: 0,
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                        background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        lineHeight: 1.25
+                      }}
+                    >
+                      {service.title}
+                    </h3>
+
+                    <div style={{ fontSize: '0.82rem' }}>
+                      <div
+                        style={{
+                          fontWeight: 700,
+                          fontSize: '0.7rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.06em',
+                          color: '#374151',
+                          marginTop: '0.4rem'
+                        }}
+                      >
+                        Pain
+                      </div>
+                      <p style={{ margin: '0.2rem 0 0.5rem', color: '#8b8b8b', lineHeight: 1.5 }}>
                         {service.pain}
                       </p>
                     </div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>
+
+                    <div style={{ fontSize: '0.82rem' }}>
+                      <div
+                        style={{
+                          fontWeight: 700,
+                          fontSize: '0.7rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.06em',
+                          background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
+                          WebkitBackgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
                         Solution
                       </div>
-                      <p style={{ margin: '0.25rem 0 0.7rem', color: '#4b5563' }}>
+                      <p style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563', lineHeight: 1.5, fontWeight: 600 }}>
                         {service.solution}
                       </p>
                     </div>
-                  </div>
-                  <div style={{ marginTop: '0.5rem' }}>
-                    <a href="#case-studies" className="qc-button-secondary">
-                      Learn more
-                    </a>
+
+                    <div style={{ marginTop: '0.3rem' }}>
+                      <a href="#case-studies" className="qc-button-gradient-border">
+                        Learn more
+                        <span style={{ display: 'inline-flex' }}>
+                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="3" y1="8" x2="13" y2="8" />
+                            <polyline points="9 4 13 8 9 12" />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </article>
               ))}
