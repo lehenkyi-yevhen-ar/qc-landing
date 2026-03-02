@@ -67,16 +67,15 @@ button {
 
 .qc-gradient-hero {
   background:
+    url('/BackgroundNoise.png') center center / cover,
     linear-gradient(180deg, #ffffff 0, #f5f0ff 32%, #e8f4ff 70%, #ffffff 100%),
     radial-gradient(circle at top left, rgba(204, 153, 255, 0.3) 0, transparent 55%),
     radial-gradient(circle at bottom right, rgba(9, 192, 255, 0.35) 0, transparent 60%);
 }
 
 .qc-card {
-  border-radius: var(--qc-radius-xl);
-  background: #ffffff;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-  border: 1px solid var(--qc-border-soft);
+  background-color: transparent;
 }
 
 .qc-button-primary {

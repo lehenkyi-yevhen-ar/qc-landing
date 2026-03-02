@@ -22,6 +22,22 @@ type Testimonial = {
   context: string;
 };
 
+const solutionIcons: Record<string, string> = {
+  'Client Management & Sales': '/icons/id-card-h.png',
+  'Project Operations': '/icons/system.png',
+  'Financial Operations': '/icons/blockchain.png',
+  'HR & Internal Operations': '/icons/healthy-recognition.png',
+  'Team & Resource Management': '/icons/every-user.png',
+  'Marketing & Business Development': '/icons/user-business.png',
+  'Creative Operations': '/icons/align-left-one.png',
+  'Production & Delivery': '/icons/click.png',
+  'Financial & Operations': '/icons/bank-card-one.png',
+  'Student Enrollment & Onboarding': '/icons/every-user.png',
+  'Course & Program Management': '/icons/align-left-one.png',
+  'Finance & Reporting': '/icons/bank-card-one.png',
+  'Staff Operations': '/icons/user-business.png',
+};
+
 const solutions: Record<SolutionKey, string[]> = {
   consulting: [
     'Client Management & Sales',
@@ -472,18 +488,15 @@ export default function Page() {
               <div
                 className="qc-card"
                 style={{
-                  padding: '1.2rem',
-                  borderRadius: '32px',
-                  background:
-                    'radial-gradient(circle at top left, rgba(204,153,255,0.28), transparent 55%), radial-gradient(circle at bottom, rgba(9,192,255,0.35), #ffffff 60%)',
-                  marginBottom: '2.4rem'
-                }}
+                  marginBottom: '2.4rem',
+                  borderRadius: '24px'
+                }}            
               >
                 <Image
                   src="/hero-dashboard.png"
                   alt="Operations dashboard preview"
                   width={960}
-                  height={420}
+                  height={520}
                   style={{
                     width: '100%',
                     height: 'auto',
@@ -606,29 +619,13 @@ export default function Page() {
                       justifyContent: 'center'
                     }}
                   >
-                    <div
-                      style={{
-                        width: 36,
-                        height: 36,
-                        borderRadius: 10,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                        <defs>
-                          <linearGradient id="icon-grad-lb-pk" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stopColor="#09C0FF" />
-                            <stop offset="100%" stopColor="#CC99FF" />
-                          </linearGradient>
-                        </defs>
-                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="url(#icon-grad-lb-pk)" />
-                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="url(#icon-grad-lb-pk)" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="url(#icon-grad-lb-pk)" />
-                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="url(#icon-grad-lb-pk)" />
-                      </svg>
-                    </div>
+                    <Image
+                      src={solutionIcons[item] || '/icons/system.png'}
+                      alt=""
+                      width={36}
+                      height={36}
+                      style={{ width: 36, height: 36, objectFit: 'contain' }}
+                    />
                     <div style={{ fontWeight: 500, fontSize: '1.25rem', color: '#4300b7' }}>
                       {item}
                     </div>
