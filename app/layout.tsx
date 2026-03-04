@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import Image from 'next/image';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import './globals.css';
 
@@ -13,7 +14,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <Header />
         {children}
+        <Footer />
         <ScrollToTopButton />
       </body>
     </html>
