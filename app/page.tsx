@@ -12,6 +12,8 @@ type CaseStudy = {
   challenge: string;
   solution: string;
   metrics: string[];
+  industryLabel?: string;
+  statsDetail?: { value: string; label: string }[];
 };
 
 type Testimonial = {
@@ -100,33 +102,51 @@ const caseStudies: CaseStudy[] = [
   {
     id: 1,
     label: 'Agency',
+    industryLabel: 'Industry Type',
     title:
-      '40% faster task completion after moving from spreadsheets to automated dashboards',
+      '40% Faster Task Completion after Transition from Google Sheets to Airtable Integration for SEO Backlink Agency',
     challenge:
-      'A growing marketing agency was tracking campaigns and deliverables across scattered sheets, making it impossible to see true workload or status.',
+      'Manual workflows, scattered data, and long proposal cycles slowed growth and exhausted the team.',
     solution:
-      'We built a unified Airtable and Make.com system that centralised client data, automated task assignment, and surfaced live KPIs for every project.',
-    metrics: ['40% faster task completion', '80+ active campaigns tracked', '1 unified dashboard']
+      'We built a custom automation system integrating Airtable, Make, and QuickBooks—centralizing operations and reducing admin work.',
+    metrics: ['40% faster task completion', '80+ active campaigns tracked', '1 unified dashboard'],
+    statsDetail: [
+      { value: '80%', label: 'faster proposal creation' },
+      { value: '40+', label: 'hours saved monthly' },
+      { value: 'Dashboard', label: 'Unified dashboards across finance and projects' }
+    ]
   },
   {
     id: 2,
     label: 'Consulting',
+    industryLabel: 'Industry Type',
     title: 'Proposals generated in minutes instead of days',
     challenge:
       'Consultants were rebuilding proposals from scratch for each opportunity, losing hours to copy\u2011paste work.',
     solution:
       'We designed a proposal engine that assembles scopes, pricing, and case studies automatically from a structured knowledge base.',
-    metrics: ['4x faster proposal turnaround', 'Higher close rate', 'Consistent pricing & scope']
+    metrics: ['4x faster proposal turnaround', 'Higher close rate', 'Consistent pricing & scope'],
+    statsDetail: [
+      { value: '4x', label: 'faster proposal turnaround' },
+      { value: 'Higher', label: 'close rate' },
+      { value: 'Consistent', label: 'pricing & scope' }
+    ]
   },
   {
     id: 3,
     label: 'Education',
+    industryLabel: 'Industry Type',
     title: 'Enrollment pipeline finally visible end\u2011to\u2011end',
     challenge:
       'An education provider had no clear view of lead status, enrollment stages, or team workload.',
     solution:
       'We implemented a no-code CRM and workflow layer that tracks every applicant from first touch to orientation, with automated reminders.',
-    metrics: ['Full-funnel visibility', 'Fewer dropped leads', 'Happier operations team']
+    metrics: ['Full-funnel visibility', 'Fewer dropped leads', 'Happier operations team'],
+    statsDetail: [
+      { value: 'Full-funnel', label: 'visibility' },
+      { value: 'Fewer', label: 'dropped leads' },
+      { value: 'Happier', label: 'operations team' }
+    ]
   }
 ];
 
@@ -847,7 +867,7 @@ export default function Page() {
                       src="/chaos-arrow.png"
                       alt=""
                       width={120}
-                      height={36}
+                      height={42}
                       className="qc-chaos-arrow-img"
                     />
                   </div>
@@ -867,211 +887,138 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Real Firms – Case studies carousel */}
-        <section id="case-studies" className="qc-section qc-gradient-hero">
+        {/* Glass CTA: "Curious what this transformation looks like in real firms?" */}
+        <section className="qc-glass-cta" aria-label="See real client results">
+          <div className="qc-glass-cta-blobs" aria-hidden="true" />
+          <div className="qc-glass-cta-icons" aria-hidden="true">
+            <img src="/glass-cta/Style_Swirl.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-1" />
+            <img src="/glass-cta/Asset_Icon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-2" />
+            <img src="/glass-cta/Style_Moon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-3" />
+            <img src="/glass-cta/Style_Swirl.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-4" />
+            <img src="/glass-cta/Style_Moon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-5" />
+            <img src="/glass-cta/Asset_Icon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-6" />
+          </div>
+          <div className="qc-glass-cta-glass">
+            <h2 className="qc-glass-cta-title">
+              Curious what this transformation
+              <br />
+              looks like in real firms?
+            </h2>
+            <a href="#case-studies" className="qc-glass-cta-link">
+              See real client results
+            </a>
+            <span className="qc-glass-cta-arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </span>
+          </div>
+        </section>
+
+        {/* Real Firms – Case studies: 3-card carousel */}
+        <section id="case-studies" className="qc-section qc-case-studies">
           <div className="qc-container">
-            <div style={{ textAlign: 'center', marginBottom: '2.4rem' }}>
-              <p
-                style={{
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  marginBottom: '0.5rem'
-                }}
-              >
-                Curious what this transformation looks like in real firms?
-              </p>
-              <a href="#case-studies" style={{ color: '#6366f1', fontSize: '0.9rem' }}>
-                See real client results
-              </a>
-              <h2
-                style={{
-                  marginTop: '2.1rem',
-                  fontSize: '2.2rem',
-                  fontWeight: 800
-                }}
-              >
+            <div className="qc-case-studies-header">
+              <h2 className="qc-case-studies-title">
                 Real Firms.{' '}
-                <span
-                  style={{
-                    background:
-                      'linear-gradient(90deg, var(--qc-blue), var(--qc-purple))',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent'
-                  }}
-                >
-                  Real Transformations.
-                </span>
+                <span className="qc-case-studies-title-gradient">Real Transformations.</span>
               </h2>
-              <p className="qc-section-subtitle">
+              <p className="qc-case-studies-subtitle">
                 Proof that intelligent automation delivers measurable impact.
               </p>
             </div>
 
-            <div
-              style={{
-                maxWidth: 880,
-                margin: '0 auto'
-              }}
-            >
-              {caseStudies.map((item, index) => {
-                const isActive = index === activeCase;
-                if (!isActive) return null;
-                return (
-                  <article
-                    key={item.id}
-                    className="qc-card"
-                    style={{
-                      borderRadius: '32px',
-                      padding: '2rem 2.1rem',
-                      display: 'grid',
-                      gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
-                      gap: '2rem'
-                    }}
-                  >
-                    <div>
-                      <div
-                        style={{
-                          fontSize: '0.75rem',
-                          fontWeight: 600,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.08em',
-                          marginBottom: '0.75rem',
-                          color: '#6b7280'
-                        }}
-                      >
-                        {item.label}
+            <div className="qc-case-studies-slide">
+              {[0, 1, 2].map(slideIndex =>
+                activeCase === slideIndex ? (
+                  <div key={slideIndex} className="qc-case-cards-row">
+                  <div className="qc-case-featured-wrapper">
+                    <div className="qc-case-featured">
+                      <div className="qc-case-featured-image">
+                        <Image
+                          src="/case-studies/getting-business-finances-in-order.png"
+                          alt=""
+                          fill
+                          sizes="(max-width: 900px) 45vw, 420px"
+                          style={{ objectFit: 'cover' }}
+                        />
                       </div>
-                      <h3
-                        style={{
-                          margin: 0,
-                          fontSize: '1.2rem'
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <div
-                        style={{
-                          display: 'grid',
-                          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-                          gap: '1.3rem',
-                          marginTop: '1.4rem',
-                          fontSize: '0.9rem'
-                        }}
-                      >
-                        <div>
-                          <div
-                            style={{
-                              fontSize: '0.75rem',
-                              fontWeight: 700,
-                              marginBottom: '0.25rem'
-                            }}
-                          >
-                            The Challenge
-                          </div>
-                          <p style={{ margin: 0, color: '#4b5563' }}>
-                            {item.challenge}
-                          </p>
-                        </div>
-                        <div>
-                          <div
-                            style={{
-                              fontSize: '0.75rem',
-                              fontWeight: 700,
-                              marginBottom: '0.25rem'
-                            }}
-                          >
-                            The Solution
-                          </div>
-                          <p style={{ margin: 0, color: '#4b5563' }}>
-                            {item.solution}
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          gap: '0.5rem',
-                          marginTop: '1.4rem'
-                        }}
-                      >
-                        {item.metrics.map(metric => (
-                          <span
-                            key={metric}
-                            style={{
-                              borderRadius: 999,
-                              padding: '0.35rem 0.9rem',
-                              fontSize: '0.75rem',
-                              background:
-                                'linear-gradient(90deg, #eef2ff, #f5f3ff)',
-                              color: '#4b5563'
-                            }}
-                          >
-                            {metric}
+                      <div className="qc-case-featured-content">
+                        <div className="qc-case-featured-top">
+                          <span className="qc-case-pill">
+                            {caseStudies[slideIndex].industryLabel ?? caseStudies[slideIndex].label}
                           </span>
-                        ))}
+                          <a href="#case-studies" className="qc-case-learn-more">
+                            Learn more <span aria-hidden>↗</span>
+                          </a>
+                        </div>
+                        <h3 className="qc-case-featured-title">{caseStudies[slideIndex].title}</h3>
+                        <div className="qc-case-featured-sections">
+                          <div>
+                            <div className="qc-case-label">THE CHALLENGE</div>
+                            <p className="qc-case-text">{caseStudies[slideIndex].challenge}</p>
+                          </div>
+                          <div>
+                            <div className="qc-case-label qc-case-label-solution">THE SOLUTION</div>
+                            <p className="qc-case-text">{caseStudies[slideIndex].solution}</p>
+                          </div>
+                        </div>
+                        <div className="qc-case-stats-row">
+                          {(caseStudies[slideIndex].statsDetail ?? caseStudies[slideIndex].metrics.map(m => {
+                            const parts = m.split(' ');
+                            return { value: parts[0], label: parts.slice(1).join(' ') };
+                          })).map((stat, i) => (
+                            <div key={i} className="qc-case-stat">
+                              <span className="qc-case-stat-value">{stat.value}</span>
+                              <span className="qc-case-stat-label">{stat.label}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div
-                      style={{
-                        borderRadius: '24px',
-                        overflow: 'hidden',
-                        background:
-                          'radial-gradient(circle at top, #dbeafe, #eef2ff)'
-                      }}
-                    >
-                      <Image
-                        src="/case-study-visual.png"
-                        alt="Case study visual"
-                        width={520}
-                        height={420}
-                        style={{ width: '100%', height: 'auto', display: 'block' }}
-                      />
-                    </div>
-                  </article>
-                );
-              })}
+                  </div>
+                  <div className="qc-case-small-card">
+                    <Image src="/case-studies/case-study-card.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <div className="qc-case-small-card-overlay" aria-hidden />
+                  </div>
+                  <div className="qc-case-small-card">
+                    <Image src="/case-studies/case-study-card-2.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <div className="qc-case-small-card-overlay" aria-hidden />
+                  </div>
+                </div>
+              ) : null
+              )}
+            </div>
 
-              <div
-                style={{
-                  marginTop: '1.75rem',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}
-              >
-                <div className="qc-dots">
-                  {caseStudies.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className={`qc-dot${
-                        index === activeCase ? ' qc-dot-active' : ''
-                      }`}
-                    />
-                  ))}
-                </div>
-                <div style={{ display: 'flex', gap: '0.6rem' }}>
+            <div className="qc-case-nav">
+              <div className="qc-dots">
+                {[0, 1, 2].map(index => (
                   <button
+                    key={index}
                     type="button"
-                    className="qc-button-secondary"
-                    onClick={() =>
-                      setActiveCase(
-                        (activeCase - 1 + caseStudies.length) % caseStudies.length
-                      )
-                    }
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    className="qc-button-primary"
-                    onClick={() =>
-                      setActiveCase((activeCase + 1) % caseStudies.length)
-                    }
-                  >
-                    →
-                  </button>
-                </div>
+                    className={`qc-dot${index === activeCase ? ' qc-dot-active' : ''}`}
+                    onClick={() => setActiveCase(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="qc-case-nav-buttons">
+                <button
+                  type="button"
+                  className="qc-case-btn qc-case-btn-prev"
+                  onClick={() => setActiveCase((activeCase - 1 + 3) % 3)}
+                  aria-label="Previous slide"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  className="qc-case-btn qc-case-btn-next"
+                  onClick={() => setActiveCase((activeCase + 1) % 3)}
+                  aria-label="Next slide"
+                >
+                  →
+                </button>
               </div>
             </div>
           </div>
