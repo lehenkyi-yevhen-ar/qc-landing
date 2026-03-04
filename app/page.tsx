@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 type SolutionKey = 'consulting' | 'creative' | 'education';
@@ -177,11 +177,39 @@ const testimonials: Testimonial[] = [
   }
 ];
 
-const technologies = {
-  Databases: ['Airtable', 'Xano', 'Supabase'],
-  Logic: ['Make.com', 'n8n', 'Zapier'],
-  Interfaces: ['Bubble', 'Softr', 'Stacker']
-};
+const techCategories: {
+  category: string;
+  categoryIcon: string;
+  tools: { name: string; logo: string }[];
+}[] = [
+  {
+    category: 'Databases',
+    categoryIcon: '/technologies/icon-databases.png',
+    tools: [
+      { name: 'Airtable', logo: '/technologies/logo-airtable.png' },
+      { name: 'Xano', logo: '/technologies/logo-xano.png' },
+      { name: 'Supabase', logo: '/technologies/logo-supabase.png' }
+    ]
+  },
+  {
+    category: 'Logic',
+    categoryIcon: '/technologies/icon-logic.png',
+    tools: [
+      { name: 'Make.com', logo: '/technologies/logo-make.png' },
+      { name: 'n8n', logo: '/technologies/logo-n8n.png' },
+      { name: 'Zapier', logo: '/technologies/logo-zapier.png' }
+    ]
+  },
+  {
+    category: 'Interfaces',
+    categoryIcon: '/technologies/icon-interfaces.png',
+    tools: [
+      { name: 'Bubble', logo: '/technologies/logo-bubble.png' },
+      { name: 'Softr', logo: '/technologies/logo-softr.png' },
+      { name: 'Stacker', logo: '/technologies/logo-stacker.png' }
+    ]
+  }
+];
 
 const FORM_DEFAULT = {
   name: '',
@@ -193,11 +221,23 @@ const FORM_DEFAULT = {
 };
 
 const interestOptions = [
-  'Workflow Automation',
-  'Data Infrastructure',
-  'Custom Web Apps',
-  'Discovery & Strategy',
-  'Not sure yet'
+  'Project Management Tools',
+  'Task Scheduling',
+  'Team Collaboration',
+  'Progress Tracking',
+  'Resource Allocation'
+];
+
+const industryOptions = ['Consulting', 'Creative', 'Education', 'Other'];
+
+const heroLogoCarouselLogos = [
+  { src: '/logos/softr.png', alt: 'Softr' },
+  { src: '/logos/zapier.png', alt: 'Zapier' },
+  { src: '/logos/make.png', alt: 'Make' },
+  { src: '/logos/jotform.png', alt: 'Jotform' },
+  { src: '/logos/bubble.png', alt: 'Bubble' },
+  { src: '/logos/airtable.png', alt: 'Airtable' },
+  { src: '/logos/docusign.png', alt: 'DocuSign' }
 ];
 
 const chaosRows = [
@@ -220,6 +260,24 @@ export default function Page() {
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>(
     'idle'
   );
+  const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
+  const industryDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        industryDropdownRef.current &&
+        !industryDropdownRef.current.contains(e.target as Node)
+      ) {
+        setIndustryDropdownOpen(false);
+      }
+    };
+    if (industryDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [industryDropdownOpen]);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleToggleInterest = (value: string) => {
@@ -404,7 +462,7 @@ export default function Page() {
         {/* Hero */}
         <section id="hero" className="qc-section qc-gradient-hero">
           <div className="qc-container">
-            <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+            <div className="hero-inner" style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
               <h1
                 style={{
                   fontSize: '3.1rem',
@@ -516,27 +574,62 @@ export default function Page() {
                   Get Free Discovery
                 </a>
               </div>
+            </div>
 
-              <div
-                className="qc-card"
-                style={{
-                  marginBottom: '2.4rem',
-                  borderRadius: '24px'
-                }}            
-              >
-                <Image
-                  src="/hero-dashboard.png"
-                  alt="Operations dashboard preview"
-                  width={960}
-                  height={520}
+            <div className="hero-media">
+              <div className="hero-mockup">
+                <div
+                  className="qc-card"
                   style={{
-                    width: '100%',
-                    height: 'auto',
+                    marginBottom: 0,
                     borderRadius: '24px'
                   }}
-                />
+                >
+                  <Image
+                    src="/hero-dashboard.png"
+                    alt="Operations dashboard preview"
+                    width={960}
+                    height={520}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      borderRadius: '24px'
+                    }}
+                  />
+                </div>
               </div>
 
+              <div className="hero-logos" aria-label="Platform integrations">
+                <div className="hero-logos-marquee" aria-label="Platforms we work with">
+                  <div className="hero-logos-track">
+                    {heroLogoCarouselLogos.map((logo, i) => (
+                      <img
+                        key={`a-${logo.alt}-${i}`}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="hero-logos-logo"
+                        width={160}
+                        height={44}
+                        loading="eager"
+                        decoding="async"
+                      />
+                    ))}
+                    {heroLogoCarouselLogos.map((logo, i) => (
+                      <img
+                        key={`b-${logo.alt}-${i}`}
+                        src={logo.src}
+                        alt=""
+                        aria-hidden
+                        className="hero-logos-logo"
+                        width={160}
+                        height={44}
+                        loading="eager"
+                        decoding="async"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1025,7 +1118,7 @@ export default function Page() {
         </section>
 
         {/* Real conversation – 2-col layout, light diagonal background, right photo card */}
-        <section id="journey" className="qc-section qc-conversation">
+        <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">
               <h2 className="qc-conversation-heading">
@@ -1062,6 +1155,7 @@ export default function Page() {
             </div>
             <div className="qc-conversation-right">
               <div className="qc-conversation-card">
+                <div className="qc-conversation-card-bg" aria-hidden />
                 <Image
                   src="/roman-sydorak.png"
                   alt="Roman Sydorak"
@@ -1074,187 +1168,183 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="qc-section qc-gradient-hero">
-          <div className="qc-container">
-            <div style={{ textAlign: 'center', marginBottom: '2.4rem' }}>
-              <h2 className="qc-section-title">What our clients say</h2>
-              <p className="qc-section-subtitle">
-                Real feedback from consulting, creative, and education teams we&apos;ve
-                helped streamline.
-              </p>
+        {/* Testimonials – sliding 3.5-card carousel */}
+        <section className="qc-section qc-testimonials">
+          <div className="qc-testimonials-outer">
+            <div className="qc-testimonials-header-row">
+              <div className="qc-testimonials-header-bars" aria-hidden>
+                <img src="/testimonials/frame-left.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-left" />
+                <img src="/testimonials/frame-right.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-right" />
+              </div>
+              <div className="qc-testimonials-header">
+                <h2 className="qc-testimonials-title">What our clients say</h2>
+                <p className="qc-testimonials-subtitle">
+                  Real feedback from consulting, creative, and education teams we&apos;ve helped streamline.
+                </p>
+              </div>
             </div>
 
-            <div
-              style={{
-                maxWidth: 720,
-                margin: '0 auto'
-              }}
-            >
-              {testimonials.map((item, index) => {
-                if (index !== activeTestimonial) return null;
-                return (
-                  <article
-                    key={item.id}
-                    className="qc-card"
-                    style={{
-                      borderRadius: '28px',
-                      padding: '2rem 2.1rem',
-                      textAlign: 'center'
-                    }}
-                  >
-                    <div
-                      style={{
-                        marginBottom: '0.75rem',
-                        color: '#f59e0b',
-                        fontSize: '1.1rem'
-                      }}
-                    >
-                      ★★★★★
-                    </div>
-                    <p
-                      style={{
-                        fontSize: '1.05rem',
-                        margin: '0 0 1.2rem',
-                        color: '#111827'
-                      }}
-                    >
-                      {item.quote}
-                    </p>
-                    <div
-                      style={{
-                        fontSize: '0.9rem',
-                        color: '#4b5563'
-                      }}
-                    >
-                      <div style={{ fontWeight: 600 }}>{item.name}</div>
-                      <div>{item.role}</div>
-                      <div
-                        style={{
-                          marginTop: '0.35rem',
-                          fontSize: '0.8rem',
-                          color: '#6366f1',
-                          fontWeight: 600
-                        }}
-                      >
-                        {item.context}
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-
+            <div className="qc-testimonials-viewport">
               <div
+                className="qc-testimonials-track"
                 style={{
-                  marginTop: '1.6rem',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
+                  transform: `translateX(${236 - activeTestimonial * 628}px)`
                 }}
               >
-                <div className="qc-dots">
-                  {testimonials.map((item, index) => (
+                {/* Left peek – faded */}
+                <div className="qc-testimonials-card qc-testimonials-card-peek qc-testimonials-card-peek-left">
+                  <div className="qc-testimonials-card-faded-content">
+                    <p>ake a week. The system least 25</p>
+                  </div>
+                </div>
+
+                {testimonials.map((item, index) => (
+                  <div key={item.id} className="qc-testimonials-pair">
+                    <article
+                      className={`qc-testimonials-card qc-testimonials-card-text ${index === activeTestimonial ? 'qc-testimonials-card-active' : ''}`}
+                      aria-hidden={index !== activeTestimonial}
+                    >
+                      <div className="qc-testimonials-stars">
+                        {[1, 2, 3, 4, 5].map(i => (
+                          <Image
+                            key={i}
+                            src="/testimonials/star-review.png"
+                            alt=""
+                            width={18}
+                            height={18}
+                            className="qc-testimonials-star"
+                          />
+                        ))}
+                      </div>
+                      <p className="qc-testimonials-quote">{item.quote}</p>
+                      <div className="qc-testimonials-author">
+                        <Image
+                          src="/testimonials/avatar.png"
+                          alt=""
+                          width={36}
+                          height={36}
+                          className="qc-testimonials-avatar"
+                        />
+                        <div className='qc-testimonials-verified-author-container'>
+                        <Image
+                          src="/testimonials/verified.png"
+                          alt="Verified client"
+                          width={75}
+                          height={19}
+                          className="qc-testimonials-verified"
+                        />
+                        <div className="qc-testimonials-role">{item.role}</div>
+                        </div>
+                        <div className="qc-testimonials-meta">
+                          <div className="qc-testimonials-name">{item.name}</div>
+                        </div>
+                      </div>
+                    </article>
                     <div
-                      key={item.id}
-                      className={`qc-dot${
-                        index === activeTestimonial ? ' qc-dot-active' : ''
-                      }`}
-                    />
-                  ))}
+                      className={`qc-testimonials-card qc-testimonials-card-video ${index === activeTestimonial ? 'qc-testimonials-card-active' : ''}`}
+                      aria-hidden={index !== activeTestimonial}
+                    >
+                      <Image
+                        src="/testimonials/card-review.png"
+                        alt="Client video testimonial"
+                        fill
+                        sizes="288px"
+                        style={{ objectFit: 'cover' }}
+                      />
+                      <div className="qc-testimonials-video-overlay" aria-hidden />
+                    </div>
+                  </div>
+                ))}
+
+                {/* Right peek – faded */}
+                <div className="qc-testimonials-card qc-testimonials-card-peek qc-testimonials-card-peek-right">
+                  <div className="qc-testimonials-card-faded-content">
+                    <p>Before work hours chasin proposals</p>
+                  </div>
                 </div>
-                <div style={{ display: 'flex', gap: '0.6rem' }}>
+              </div>
+            </div>
+
+            <div className="qc-testimonials-nav qc-case-nav">
+              <div className="qc-dots">
+                {testimonials.map((_, index) => (
                   <button
+                    key={index}
                     type="button"
-                    className="qc-button-secondary"
-                    onClick={() =>
-                      setActiveTestimonial(
-                        (activeTestimonial - 1 + testimonials.length) %
-                          testimonials.length
-                      )
-                    }
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    className="qc-button-primary"
-                    onClick={() =>
-                      setActiveTestimonial(
-                        (activeTestimonial + 1) % testimonials.length
-                      )
-                    }
-                  >
-                    →
-                  </button>
-                </div>
+                    className={`qc-dot${index === activeTestimonial ? ' qc-dot-active' : ''}`}
+                    onClick={() => setActiveTestimonial(index)}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="qc-case-nav-buttons">
+                <button
+                  type="button"
+                  className="qc-case-btn qc-case-btn-prev"
+                  onClick={() =>
+                    setActiveTestimonial(
+                      (activeTestimonial - 1 + testimonials.length) % testimonials.length
+                    )
+                  }
+                  aria-label="Previous testimonial"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  className="qc-case-btn qc-case-btn-next"
+                  onClick={() =>
+                    setActiveTestimonial((activeTestimonial + 1) % testimonials.length)
+                  }
+                  aria-label="Next testimonial"
+                >
+                  →
+                </button>
               </div>
             </div>
           </div>
         </section>
 
         {/* Technologies */}
-        <section className="qc-section" id="technologies">
+        <section className="qc-section qc-technologies" id="technologies">
           <div className="qc-container">
-            <h2 className="qc-section-title">Technologies</h2>
-            <p className="qc-section-subtitle">
-              We build with trusted no-code platforms.
-            </p>
+            <header className="qc-technologies-header">
+              <h2 className="qc-technologies-title">Technologies</h2>
+              <p className="qc-technologies-subtitle">
+                We build with trusted no-code platforms.
+              </p>
+            </header>
 
-            <div
-              style={{
-                marginTop: '2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem'
-              }}
-            >
-              {Object.entries(technologies).map(([category, items]) => (
-                <div
-                  key={category}
-                  className="qc-card"
-                  style={{
-                    padding: '1.6rem 1.8rem',
-                    borderRadius: '26px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    gap: '1.5rem'
-                  }}
-                >
-                  <div>
-                    <h3
-                      style={{
-                        margin: 0,
-                        fontSize: '1.05rem'
-                      }}
-                    >
-                      {category}
-                    </h3>
-                    <ul
-                      style={{
-                        margin: '0.9rem 0 0',
-                        padding: 0,
-                        listStyle: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.3rem',
-                        fontSize: '0.9rem',
-                        color: '#4b5563'
-                      }}
-                    >
-                      {items.map(item => (
-                        <li key={item}>{item}</li>
+            <div className="qc-technologies-grid">
+              {techCategories.map(({ category, categoryIcon, tools }) => (
+                <div key={category} className="qc-technologies-card-outer">
+                  <div className="qc-technologies-card-inner">
+                    <div className="qc-technologies-card-top">
+                      <h3 className="qc-technologies-category">{category}</h3>
+                      <div className="qc-technologies-icon-wrap">
+                        <Image
+                          src={categoryIcon}
+                          alt=""
+                          width={44}
+                          height={44}
+                        />
+                      </div>
+                    </div>
+                    <div className="qc-technologies-tools">
+                      {tools.map(({ name, logo }) => (
+                        <div key={name} className="qc-technologies-tool-row">
+                          <Image
+                            src={logo}
+                            alt=""
+                            width={24}
+                            height={24}
+                            className="qc-technologies-tool-logo"
+                          />
+                          <span className="qc-technologies-tool-name">{name}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      width: 72,
-                      height: 72,
-                      borderRadius: 24,
-                      background:
-                        'linear-gradient(145deg, #eef2ff, #e0f2fe, #f5f3ff)'
-                    }}
-                  />
                 </div>
               ))}
             </div>
@@ -1263,343 +1353,316 @@ export default function Page() {
 
         {/* Why no-code */}
         <section
-          className="qc-section"
-          style={{
-            paddingBottom: '4.5rem'
-          }}
+          className="qc-section qc-why-nocode"
+          style={{ paddingBottom: '4.5rem' }}
         >
-          <div className="qc-container">
-            <div
-              className="qc-card"
-              style={{
-                borderRadius: '40px',
-                padding: '2.8rem 2.6rem',
-                background:
-                  'radial-gradient(circle at top, #1d4ed8 0, #0f172a 45%, #4c1d95 90%)',
-                color: 'white',
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1.3fr) minmax(0, 1.2fr)',
-                gap: '2.4rem'
-              }}
-            >
-              <div>
-                <h2
-                  style={{
-                    fontSize: '2rem',
-                    margin: '0 0 0.5rem'
-                  }}
-                >
-                  Why no-code is the smarter way to scale operations
+          <div className="qc-why-nocode-wrap">
+            <div className="qc-why-nocode-panel">
+              <header className="qc-why-nocode-header">
+                <h2 className="qc-why-nocode-title">
+                  Why no-code is the smarter way to
+                  <br />
+                  scale operations
                 </h2>
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: '0.95rem',
-                    opacity: 0.88
-                  }}
-                >
-                  We build with trusted no-code platforms—so you can move fast without
-                  sacrificing reliability.
+                <p className="qc-why-nocode-subtitle">
+                  We build with trusted no-code platforms
                 </p>
-              </div>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.2fr)',
-                  gap: '1.2rem',
-                  fontSize: '0.9rem'
-                }}
-              >
+              </header>
+
+              <ul className="qc-why-nocode-list">
                 {[
                   {
                     title: 'Faster implementation',
-                    body: 'No waiting months for development. We design, test, and launch automation systems in weeks—not quarters.'
+                    body: 'No waiting months for development. We design, test, and launch automation systems in weeks — not quarters.',
+                    icon: '/why-nocode/icon-faster.png'
                   },
                   {
                     title: 'Lower cost, higher ROI',
-                    body: 'No-code means no full-time dev teams or expensive maintenance. You pay for business outcomes, not for code.'
+                    body: 'No-code means no full-time dev teams or expensive maintenance. You pay for business outcomes, not for code.',
+                    icon: '/why-nocode/icon-roi.png'
                   },
                   {
-                    title: 'Flexible and future‑proof',
-                    body: 'When your processes change, your system adapts. We build modular workflows that evolve with your firm.'
+                    title: 'Flexible and future-proof',
+                    body: 'When your processes change, your system adapts. We build modular workflows that evolve with your firm.',
+                    icon: '/why-nocode/icon-flexible.png'
                   },
                   {
                     title: 'Built for non-technical teams',
-                    body: 'Your team can update data, dashboards, and logic on their own—without needing IT to keep it running.'
+                    body: "You don't need IT to keep it running. Your team can update data, dashboards, and logic on their own.",
+                    icon: '/why-nocode/icon-teams.png'
                   }
                 ].map(item => (
-                  <div key={item.title}>
-                    <div
-                      style={{
-                        fontWeight: 600,
-                        marginBottom: '0.25rem'
-                      }}
-                    >
-                      {item.title}
+                  <li key={item.title} className="qc-why-nocode-row">
+                    <div className="qc-why-nocode-left">
+                      <Image
+                        src={item.icon}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="qc-why-nocode-icon"
+                      />
+                      <span className="qc-why-nocode-label">{item.title}</span>
                     </div>
-                    <p
-                      style={{
-                        margin: 0,
-                        opacity: 0.9
-                      }}
-                    >
-                      {item.body}
-                    </p>
-                  </div>
+                    <p className="qc-why-nocode-desc">{item.body}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Start your journey – form */}
-        <section id="journey" className="qc-section">
-          <div className="qc-container">
-            <h2 className="qc-section-title">Start your automation journey</h2>
-            <p className="qc-section-subtitle">
-              Tell us about your biggest operational challenge, and we&apos;ll outline
-              how automation could simplify it—in plain language, not tech talk.
-            </p>
+        {/* Start your automation journey – form */}
+        <section id="journey" className="qc-section qc-journey">
+          <div className="qc-journey-container">
+            <div className="qc-journey-grid">
+              <div className="qc-journey-form-col">
+                <h2 className="qc-journey-title">Start your automation journey</h2>
+                <p className="qc-journey-intro">
+                  Tell us about your biggest operational challenge, and we&apos;ll outline
+                  how automation could simplify it—in plain language, not tech talk.
+                </p>
 
-            <div
-              style={{
-                marginTop: '2.3rem',
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1.25fr) minmax(0, 1fr)',
-                gap: '2.5rem'
-              }}
-            >
-              <form onSubmit={handleSubmit}>
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                    gap: '1rem'
-                  }}
-                >
-                  <div>
-                    <label
-                      htmlFor="name"
-                      style={{ fontSize: '0.8rem', fontWeight: 600 }}
-                    >
-                      Name <span style={{ color: '#ef4444' }}>*</span>
-                    </label>
-                    <input
-                      id="name"
-                      required
-                      value={form.name}
-                      onChange={event =>
-                        setForm(current => ({
-                          ...current,
-                          name: event.target.value
-                        }))
-                      }
-                      style={{
-                        width: '100%',
-                        marginTop: '0.35rem',
-                        borderRadius: '999px',
-                        border: '1px solid #e5e7eb',
-                        padding: '0.7rem 0.9rem'
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      style={{ fontSize: '0.8rem', fontWeight: 600 }}
-                    >
-                      Email <span style={{ color: '#ef4444' }}>*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={event =>
-                        setForm(current => ({
-                          ...current,
-                          email: event.target.value
-                        }))
-                      }
-                      style={{
-                        width: '100%',
-                        marginTop: '0.35rem',
-                        borderRadius: '999px',
-                        border: '1px solid #e5e7eb',
-                        padding: '0.7rem 0.9rem'
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="company"
-                      style={{ fontSize: '0.8rem', fontWeight: 600 }}
-                    >
-                      Company name
-                    </label>
-                    <input
-                      id="company"
-                      value={form.company}
-                      onChange={event =>
-                        setForm(current => ({
-                          ...current,
-                          company: event.target.value
-                        }))
-                      }
-                      style={{
-                        width: '100%',
-                        marginTop: '0.35rem',
-                        borderRadius: '999px',
-                        border: '1px solid #e5e7eb',
-                        padding: '0.7rem 0.9rem'
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="industry"
-                      style={{ fontSize: '0.8rem', fontWeight: 600 }}
-                    >
-                      Industry
-                    </label>
-                    <input
-                      id="industry"
-                      value={form.industry}
-                      onChange={event =>
-                        setForm(current => ({
-                          ...current,
-                          industry: event.target.value
-                        }))
-                      }
-                      style={{
-                        width: '100%',
-                        marginTop: '0.35rem',
-                        borderRadius: '999px',
-                        border: '1px solid #e5e7eb',
-                        padding: '0.7rem 0.9rem'
-                      }}
-                    />
-                  </div>
-                </div>
-
-                <div style={{ marginTop: '1.3rem' }}>
-                  <label
-                    htmlFor="challenge"
-                    style={{ fontSize: '0.8rem', fontWeight: 600 }}
-                  >
-                    Tell us about your challenge
-                  </label>
-                  <textarea
-                    id="challenge"
-                    value={form.challenge}
-                    onChange={event =>
-                      setForm(current => ({
-                        ...current,
-                        challenge: event.target.value
-                      }))
-                    }
-                    rows={4}
-                    style={{
-                      width: '100%',
-                      marginTop: '0.35rem',
-                      borderRadius: '18px',
-                      border: '1px solid #e5e7eb',
-                      padding: '0.8rem 0.9rem',
-                      resize: 'vertical'
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginTop: '1.3rem' }}>
-                  <div
-                    style={{ fontSize: '0.8rem', fontWeight: 600, marginBottom: 8 }}
-                  >
-                    Which areas are you interested in?
-                  </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.4rem',
-                      fontSize: '0.9rem'
-                    }}
-                  >
-                    {interestOptions.map(option => (
-                      <label key={option} style={{ display: 'flex', gap: '0.4rem' }}>
+                <form onSubmit={handleSubmit} className="qc-journey-form">
+                  <div className="qc-journey-fields">
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="journey-name" className="qc-input-label qc-input-label-float qc-journey-label">
+                          Name <span className="qc-journey-required">*required</span>
+                        </label>
                         <input
-                          type="checkbox"
-                          checked={form.interests.includes(option)}
-                          onChange={() => handleToggleInterest(option)}
+                          id="journey-name"
+                          type="text"
+                          required
+                          value={form.name}
+                          onChange={e =>
+                            setForm(c => ({ ...c, name: e.target.value }))
+                          }
+                          placeholder="Type here..."
+                          className="qc-input qc-journey-input"
                         />
-                        <span>{option}</span>
-                      </label>
-                    ))}
+                        {form.name ? (
+                          <button
+                            type="button"
+                            className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                            onClick={() => setForm(c => ({ ...c, name: '' }))}
+                            aria-label="Clear name"
+                          >
+                            ×
+                          </button>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="journey-email" className="qc-input-label qc-input-label-float qc-journey-label">
+                          Email <span className="qc-journey-required">*required</span>
+                        </label>
+                        <input
+                          id="journey-email"
+                          type="email"
+                          required
+                          value={form.email}
+                          onChange={e =>
+                            setForm(c => ({ ...c, email: e.target.value }))
+                          }
+                          placeholder="Type here..."
+                          className="qc-input qc-journey-input"
+                        />
+                        {form.email ? (
+                          <button
+                            type="button"
+                            className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                            onClick={() => setForm(c => ({ ...c, email: '' }))}
+                            aria-label="Clear email"
+                          >
+                            ×
+                          </button>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="journey-company" className="qc-input-label qc-input-label-float qc-journey-label">
+                          Company name <span className="qc-journey-optional">optional</span>
+                        </label>
+                        <input
+                          id="journey-company"
+                          type="text"
+                          value={form.company}
+                          onChange={e =>
+                            setForm(c => ({ ...c, company: e.target.value }))
+                          }
+                          placeholder="Type here..."
+                          className="qc-input qc-journey-input"
+                        />
+                        {form.company ? (
+                          <button
+                            type="button"
+                            className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                            onClick={() => setForm(c => ({ ...c, company: '' }))}
+                            aria-label="Clear company"
+                          >
+                            ×
+                          </button>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="qc-journey-field qc-journey-field-dropdown" ref={industryDropdownRef}>
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="journey-industry" className="qc-input-label qc-input-label-float qc-journey-label">
+                          Industry
+                        </label>
+                        <button
+                          type="button"
+                          id="journey-industry"
+                          aria-haspopup="listbox"
+                          aria-expanded={industryDropdownOpen}
+                          aria-label="Industry"
+                          onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
+                          className="qc-input qc-journey-input qc-journey-dropdown-trigger"
+                        >
+                          {form.industry || 'Choose...'}
+                        </button>
+                        {form.industry ? (
+                          <button
+                            type="button"
+                            className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                            onClick={e => {
+                              e.stopPropagation();
+                              setForm(c => ({ ...c, industry: '' }));
+                            }}
+                            aria-label="Clear industry"
+                          >
+                            ×
+                          </button>
+                        ) : null}
+                        <span className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-chevron" aria-hidden>▼</span>
+                        {industryDropdownOpen && (
+                          <div
+                            className="qc-dropdown-panel"
+                            role="listbox"
+                            aria-label="Industry options"
+                          >
+                            {industryOptions.map((option) => (
+                              <button
+                                key={option}
+                                type="button"
+                                role="option"
+                                aria-selected={form.industry === option}
+                                onClick={() => {
+                                  setForm(c => ({ ...c, industry: option }));
+                                  setIndustryDropdownOpen(false);
+                                }}
+                                className="qc-dropdown-option"
+                              >
+                                {option}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <div style={{ marginTop: '1.6rem' }}>
-                  <button
-                    type="submit"
-                    className="qc-button-primary"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Sending…' : 'Send a request'}
-                  </button>
-                </div>
+                  <div className="qc-journey-checkbox-group">
+                    <div className="qc-journey-checkbox-heading">
+                      Which areas are you interested in?
+                    </div>
+                    <div className="qc-journey-checkbox-list">
+                      {interestOptions.map(option => (
+                        <label key={option} className="qc-journey-checkbox-label">
+                          <input
+                            type="checkbox"
+                            checked={form.interests.includes(option)}
+                            onChange={() => handleToggleInterest(option)}
+                            className="qc-journey-checkbox"
+                          />
+                          <span>{option}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
 
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.3rem',
-                    fontSize: '0.75rem',
-                    color: '#6b7280',
-                    marginTop: '1rem'
-                  }}
-                >
-                  <span>• Response within 24 hours</span>
-                  <span>• No sales pressure—just practical ideas</span>
-                  <span>• Your data is secure</span>
+                  <div className="qc-journey-field">
+                    <label htmlFor="journey-challenge" className="qc-journey-label">
+                      Tell us about your challenge
+                    </label>
+                    <textarea
+                      id="journey-challenge"
+                      value={form.challenge}
+                      onChange={e =>
+                        setForm(c => ({ ...c, challenge: e.target.value }))
+                      }
+                      placeholder="Describe where your operations get stuck or what you'd love to automate…"
+                      className="qc-journey-textarea"
+                      rows={5}
+                    />
+                  </div>
+
+                  <div className="qc-journey-upload-wrap">
+                    <button type="button" className="qc-journey-upload-btn">
+                      <svg className="qc-journey-upload-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
+                      Attach a file (optional)
+                    </button>
+                    <p className="qc-journey-upload-helper">
+                      Supported: PDF, DOCX, XLSX (max 10MB)
+                    </p>
+                  </div>
+
+                  <div className="qc-journey-cta-wrap">
+                    <button
+                      type="submit"
+                      className="qc-journey-cta qc-conversation-cta"
+                      disabled={isSubmitting}
+                    >
+                      <span>{isSubmitting ? 'Sending…' : 'Book Free Consultation'}</span>
+                      <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                    </button>
+                  </div>
+
+                  <ul className="qc-journey-trust">
+                    <li>
+                      <span className="qc-journey-trust-icon" aria-hidden>⚡</span>
+                      Response within 24 hours
+                    </li>
+                    <li>
+                      <span className="qc-journey-trust-icon" aria-hidden>⊘</span>
+                      No sales pressure—just practical ideas
+                    </li>
+                    <li>
+                      <span className="qc-journey-trust-icon" aria-hidden>🔒</span>
+                      Your data is secure
+                    </li>
+                  </ul>
                   {formStatus === 'success' && (
-                    <span style={{ color: '#16a34a' }}>
+                    <p className="qc-journey-form-status qc-journey-form-status-success">
                       Thanks—your request has been sent.
-                    </span>
+                    </p>
                   )}
                   {formStatus === 'error' && (
-                    <span style={{ color: '#dc2626' }}>
+                    <p className="qc-journey-form-status qc-journey-form-status-error">
                       Something went wrong. Please try again.
-                    </span>
+                    </p>
                   )}
-                </div>
-              </form>
+                </form>
+              </div>
 
-              <aside
-                style={{
-                  fontSize: '0.8rem',
-                  color: '#4b5563'
-                }}
-              >
-                <Image
-                  src="/journey-side.png"
-                  alt="Client working on laptop"
-                  width={420}
-                  height={560}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '28px',
-                    marginBottom: '1rem'
-                  }}
-                />
-                <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
-                  Privacy note
+              <aside className="qc-journey-aside">
+                <div className="qc-journey-card">
+                  <Image
+                    src="/journey-form-card.png"
+                    alt="Person working on laptop in modern space"
+                    fill
+                    sizes="(max-width: 900px) 100vw, 480px"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
-                <p style={{ margin: 0 }}>
-                  We respect your privacy. Your information is only used to contact you
-                  about your inquiry. We never share or sell your data, and we don&apos;t
-                  store form submissions in this application after they&apos;re sent to
-                  our secure webhook/email.
-                </p>
+                <div className="qc-journey-privacy">
+                  <div className="qc-journey-privacy-label">PRIVACY NOTE</div>
+                  <p className="qc-journey-privacy-text">
+                    We respect your privacy. Your information will only be used to contact you about your inquiry. We never share or sell your data.
+                  </p>
+                </div>
               </aside>
             </div>
           </div>
@@ -1607,123 +1670,92 @@ export default function Page() {
       </main>
 
       {/* Footer */}
-      <footer
-        style={{
-          background: '#f3f4ff',
-          padding: '3rem 0 2.2rem',
-          marginTop: '1.5rem'
-        }}
-      >
-        <div className="qc-container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 1fr)',
-              gap: '2.2rem',
-              alignItems: 'flex-start'
-            }}
-          >
-            <div>
-              <div
-                className="qc-card"
-                style={{
-                  borderRadius: '24px',
-                  padding: '1.4rem 1.6rem',
-                  marginBottom: '1.7rem'
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    marginBottom: '0.6rem'
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 999,
-                      background:
-                        'conic-gradient(from 210deg, #7b3eff, #2f7bff, #ff6ad5, #7b3eff)'
-                    }}
-                  />
-                  <span style={{ fontWeight: 700 }}>QuitCode</span>
-                </div>
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: '0.85rem',
-                    color: '#4b5563'
-                  }}
-                >
-                  We help high-value service firms automate operations and scale without
-                  chaos through intelligent no-code solutions.
-                </p>
+      <footer className="qc-footer">
+        <div className="qc-footer-gradient-bar" aria-hidden />
+        <div className="qc-footer-inner">
+          <div className="qc-footer-grid">
+            {/* Company Card */}
+            <div className="qc-footer-card">
+              <Image
+                src="/footer/quitcode-logo-big.png"
+                alt="QuitCode"
+                width={160}
+                height={40}
+                className="qc-footer-logo"
+              />
+              <p className="qc-footer-card-desc">
+                We help high-value service firms automate operations and scale without
+                chaos through intelligent no-code solutions.
+              </p>
+              <div className="qc-footer-social">
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <Image src="/footer/linkedin.png" alt="" width={24} height={24} />
+                </a>
+                <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+                  <Image src="/footer/xcom.png" alt="" width={24} height={24} />
+                </a>
               </div>
+            </div>
 
-              <div
-                style={{
-                  fontSize: '0.9rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.45rem'
-                }}
-              >
-                <div style={{ fontWeight: 600 }}>Services</div>
+            {/* Connector: Company → Services */}
+            <div className="qc-footer-connector qc-footer-connector--services" aria-hidden>
+              <Image
+                src="/footer/connecting-line.png"
+                alt=""
+                width={125}
+                height={20}
+                className="qc-footer-connector-img"
+              />
+            </div>
+
+            {/* Services */}
+            <div className="qc-footer-column">
+              <h3 className="qc-footer-title">Services</h3>
+              <nav className="qc-footer-links" aria-label="Services">
                 <a href="#services">Workflow Automation</a>
                 <a href="#services">Data Infrastructure</a>
                 <a href="#services">Custom Web Apps</a>
                 <a href="#services">Discovery & Strategy</a>
-              </div>
+              </nav>
             </div>
 
-            <div
-              style={{
-                fontSize: '0.9rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.6rem'
-              }}
-            >
-              <div style={{ fontWeight: 600 }}>Contact</div>
-              <div>hello@company.com</div>
-              <div>+1 (555) 123‑4567</div>
-              <div>Lviv, Ukraine</div>
+            {/* Connector: Services → Contact */}
+            <div className="qc-footer-connector qc-footer-connector--contact" aria-hidden>
+              <Image
+                src="/footer/connecting-line.png"
+                alt=""
+                width={125}
+                height={20}
+                className="qc-footer-connector-img"
+              />
+            </div>
 
-              <div
-                style={{
-                  marginTop: '1.3rem',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '1.2rem',
-                  fontSize: '0.85rem'
-                }}
-              >
-                <a href="#hero">Top</a>
-                <a href="#solutions">Solutions</a>
-                <a href="#services">Services</a>
-                <a href="#case-studies">Case studies</a>
-                <a href="#journey">Get Free Discovery</a>
+            {/* Contact */}
+            <div className="qc-footer-column">
+              <h3 className="qc-footer-title">Contact</h3>
+              <div className="qc-footer-contact">
+                <div className="qc-footer-contact-row">
+                  <Image src="/footer/mail.png" alt="" width={18} height={18} aria-hidden />
+                  <a href="mailto:hello@company.com">hello@company.com</a>
+                </div>
+                <div className="qc-footer-contact-row">
+                  <Image src="/footer/phone-telephone.png" alt="" width={18} height={18} aria-hidden />
+                  <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                </div>
+                <div className="qc-footer-contact-row">
+                  <Image src="/footer/location.png" alt="" width={18} height={18} aria-hidden />
+                  <span>Lviv, Ukraine</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div
-            style={{
-              marginTop: '2rem',
-              display: 'flex',
-              justifyContent: 'space-between',
-              gap: '1rem',
-              fontSize: '0.75rem',
-              color: '#6b7280'
-            }}
-          >
-            <div>© {new Date().getFullYear()} QuitCode. All rights reserved.</div>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
+          <div className="qc-footer-bottom">
+            <div>© 2025 QuitCode. All rights reserved.</div>
+            <div className="qc-footer-legal">
+              <a href="/privacy">Privacy Policy</a>
+              <span aria-hidden> · </span>
+              <a href="/terms">Terms of Service</a>
             </div>
           </div>
         </div>
