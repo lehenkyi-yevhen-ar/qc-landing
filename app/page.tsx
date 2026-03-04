@@ -1024,87 +1024,51 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Real conversation */}
-        <section className="qc-section">
-          <div className="qc-container">
-            <div
-              className="qc-card"
-              style={{
-                padding: '2.4rem 2.1rem',
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 0.9fr) minmax(0, 1.1fr)',
-                gap: '2rem',
-                background:
-                  'linear-gradient(135deg, #111827, #1d4ed8 40%, #7c3aed 80%)',
-                color: 'white'
-              }}
-            >
-              <div>
+        {/* Real conversation – 2-col layout, light diagonal background, right photo card */}
+        <section id="journey" className="qc-section qc-conversation">
+          <div className="qc-conversation-inner">
+            <div className="qc-conversation-left">
+              <h2 className="qc-conversation-heading">
+                Every project starts
+                <br />
+                with a <span className="qc-conversation-highlight">real conversation</span>
+              </h2>
+              <p className="qc-conversation-subtitle">
+                Meet Roman, our founder and automation strategist.
+              </p>
+              <p className="qc-conversation-para">
+                With 10+ years in optimising service operations and 50+ projects delivered, he helps
+                firms uncover what&apos;s slowing them down—and map a clear path to automation.
+              </p>
+              <a
+                href="https://calendly.com/quitcode/30min"
+                target="_blank"
+                rel="noreferrer"
+                className="qc-conversation-cta"
+              >
+                <span>Talk to Roman</span>
+                <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+              </a>
+              <div className="qc-conversation-benefits">
+                <span className="qc-conversation-benefit">
+                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  Free 30‑minute strategy session
+                </span>
+                <span className="qc-conversation-benefit">
+                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  No sales pressure—just practical insights
+                </span>
+              </div>
+            </div>
+            <div className="qc-conversation-right">
+              <div className="qc-conversation-card">
                 <Image
                   src="/roman-sydorak.png"
-                  alt="Roman Sydorak portrait"
-                  width={420}
-                  height={420}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '24px',
-                    marginBottom: '1rem'
-                  }}
+                  alt="Roman Sydorak"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 520px"
+                  style={{ objectFit: 'cover' }}
                 />
-                <div style={{ fontWeight: 600 }}>Roman Sydorak</div>
-                <div style={{ fontSize: '0.85rem', opacity: 0.85 }}>
-                  CEO & Strategic Operations Advisor
-                </div>
-              </div>
-              <div>
-                <h2
-                  style={{
-                    margin: '0 0 0.75rem',
-                    fontSize: '2.1rem'
-                  }}
-                >
-                  Every project starts with a{' '}
-                  <span style={{ color: '#a5b4fc' }}>real conversation</span>
-                </h2>
-                <p
-                  style={{
-                    margin: '0 0 1.1rem',
-                    fontSize: '0.98rem',
-                    maxWidth: 440
-                  }}
-                >
-                  Meet Roman, our founder and automation strategist. With 10+ years in
-                  optimising service operations and 50+ projects delivered, he helps
-                  firms uncover what&apos;s slowing them down—and map a clear path to
-                  automation.
-                </p>
-                <a
-                  href="https://calendly.com/quitcode/30min"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="qc-button-primary"
-                  style={{
-                    background:
-                      'linear-gradient(90deg, #111827, rgba(17,24,39,0.05))',
-                    border: '1px solid rgba(156,163,175,0.45)'
-                  }}
-                >
-                  Talk to Roman →
-                </a>
-                <div
-                  style={{
-                    marginTop: '1.25rem',
-                    fontSize: '0.8rem',
-                    opacity: 0.9,
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '0.9rem'
-                  }}
-                >
-                  <span>Free 30‑minute strategy session</span>
-                  <span>No sales pressure—just practical insights</span>
-                </div>
               </div>
             </div>
           </div>
