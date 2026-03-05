@@ -51,12 +51,11 @@ const VALUES = [
 ];
 
 const PEOPLE = [
-  { name: 'Roman Sydorak', role: 'Founder & Lead Automation', image: '/roman-sydorak.png', linkedin: true },
-  { name: 'Team Member', role: 'Operations', image: '/testimonials/avatar.png', linkedin: true },
-  { name: 'The people you\'ll meet', role: 'Descriptive card', description: 'These are the people you\'ll meet when you work with QuitCode. Experts in no-code platforms and process design.' },
-  { name: 'Team Member', role: 'Solutions', image: '/testimonials/avatar.png', linkedin: true },
-  { name: 'Team Member', role: 'Delivery', image: '/testimonials/avatar.png', linkedin: true },
-  { name: 'Join our team', role: 'See open vacancies', cta: true, image: '/about/avatar-stack.png' }
+  { name: 'Roman Sydorak', role: 'CEO & Strategic Operations Advisor', image: '/roman-sydorak.png', linkedin: 'https://linkedin.com' },
+  { name: 'Nastia Kotsinska', role: 'Sales Manager', image: '/team/nastia-kotsinska.png', linkedin: 'https://linkedin.com' },
+  { name: 'Olenka Leshchyshyn', role: 'Operations', image: '/team/olenka-leshchyshyn.png', linkedin: 'https://linkedin.com' },
+  { name: 'Taras Haioshko', role: 'Solutions', image: '/team/taras-haioshko.png', linkedin: 'https://linkedin.com' },
+  { name: 'Hryhorii Haponiuk', role: 'Delivery', image: '/team/hryhorii-haponiuk.png', linkedin: 'https://linkedin.com' }
 ];
 
 export default function AboutPage() {
@@ -81,10 +80,10 @@ export default function AboutPage() {
             </Link>
             <div className="qc-about-node-strip">
               <Image
-                src="/about/node-strip.png"
+                src="/about/node-strip-i.png"
                 alt="Platform integrations and automation"
                 width={480}
-                height={120}
+                height={120} 
                 className="qc-about-node-strip-img"
               />
             </div>
@@ -117,10 +116,11 @@ export default function AboutPage() {
                   We combine <span className="qc-about-split-highlight">no-code technology</span> and <span className="qc-about-split-highlight">AI-driven logic</span> to design workflows that save time, reduce human error, and unlock capacity for sustainable growth.
                 </h2>
                 <div className="qc-about-split-location">
-                  <span className="qc-about-split-location-icon">
+                  <div className='qc-about-split-location-icon-wrap'><span className="qc-about-split-location-icon">
                     <Image src="/footer/location.png" alt="" width={16} height={16} />
                   </span>
-                  <span>Founded in 2021 in Lviv, Ukraine</span>
+                  </div>
+                  <p className='qc-about-split-location-text'>Founded in 2021 in Lviv, Ukraine</p>
                 </div>
                 <p className="qc-about-split-desc">
                   QuitCode has grown into an international automation studio trusted by teams across the US, UK, Canada, and the EU.
@@ -234,44 +234,114 @@ export default function AboutPage() {
 
         {/* People at QuitCode */}
         <section className="qc-section qc-about-people">
-          <div className="qc-container">
-            <span className="qc-about-pill">WHAT MAKES US THE BEST</span>
+          <div className="qc-about-people-inner">
+            <span className="qc-about-people-badge">WHAT MAKES US THE BEST</span>
             <h2 className="qc-about-people-title">People at QuitCode</h2>
             <div className="qc-about-people-grid">
-              {PEOPLE.map((person, i) => (
-                <div
-                  key={i}
-                  className={`qc-about-person-card qc-card ${person.cta ? 'qc-about-person-card-cta' : ''} ${'description' in person && person.description ? 'qc-about-person-card-desc' : ''}`}
-                >
-                  {person.cta ? (
-                    <>
-                      <div className="qc-about-person-avatar-stack">
-                        <Image src={person.image} alt="" width={64} height={64} />
-                      </div>
-                      <h3 className="qc-about-person-name">{person.name}</h3>
-                      <a href="/#journey" className="qc-about-person-cta-link">See open vacancies</a>
-                    </>
-                  ) : 'description' in person && person.description ? (
-                    <>
-                      <h3 className="qc-about-person-name">These are the people you&apos;ll meet</h3>
-                      <p className="qc-about-person-desc">{person.description}</p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="qc-about-person-photo-wrap">
-                        <Image src={person.image ?? '/testimonials/avatar.png'} alt="" fill sizes="200px" style={{ objectFit: 'cover' }} />
-                        {person.linkedin && (
-                          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label="LinkedIn">
-                            <Image src="/footer/linkedin.png" alt="" width={20} height={20} />
-                          </a>
-                        )}
-                      </div>
-                      <h3 className="qc-about-person-name">{person.name}</h3>
-                      <p className="qc-about-person-role">{person.role}</p>
-                    </>
-                  )}
+              {/* Row 1: Roman, Nastia, Description (span 2) */}
+              <div className="qc-about-person-card">
+                <div className="qc-about-person-photo-wrap">
+                  <Image
+                    src={PEOPLE[0].image}
+                    alt={PEOPLE[0].name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="qc-about-person-overlay" aria-hidden />
+                  <p className="qc-about-person-name">{PEOPLE[0].name}</p>
+                  <p className="qc-about-person-role">{PEOPLE[0].role}</p>
+                  <a href={PEOPLE[0].linkedin} target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label={`${PEOPLE[0].name} on LinkedIn`}>
+                    <Image src="/about/linkedin-icon.png" alt="" width={18} height={18} aria-hidden />
+                  </a>
                 </div>
-              ))}
+              </div>
+              <div className="qc-about-person-card">
+                <div className="qc-about-person-photo-wrap">
+                  <Image
+                    src={PEOPLE[1].image}
+                    alt={PEOPLE[1].name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="qc-about-person-overlay" aria-hidden />
+                  <p className="qc-about-person-name">{PEOPLE[1].name}</p>
+                  <p className="qc-about-person-role">{PEOPLE[1].role}</p>
+                  <a href={PEOPLE[1].linkedin} target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label={`${PEOPLE[1].name} on LinkedIn`}>
+                    <Image src="/about/linkedin-icon.png" alt="" width={18} height={18} aria-hidden />
+                  </a>
+                </div>
+              </div>
+              <div className="qc-about-people-desc-card">
+                <div className="qc-about-people-desc-icon">
+                  <Image src="/about/people-desc-icon.png" alt="" width={60} height={60} aria-hidden />
+                </div>
+                <p className="qc-about-people-desc-text">
+                  These are the people you&apos;ll meet on calls and work with day to day.{' '}
+                  <span className="qc-about-people-desc-highlight">Real humans</span> with deep <span className="qc-about-people-desc-highlight">automation expertise</span>
+                </p>
+              </div>
+              {/* Row 2: Olenka, Taras, Hryhorii, Join our team */}
+              <div className="qc-about-person-card">
+                <div className="qc-about-person-photo-wrap">
+                  <Image
+                    src={PEOPLE[2].image}
+                    alt={PEOPLE[2].name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="qc-about-person-overlay" aria-hidden />
+                  <p className="qc-about-person-name">{PEOPLE[2].name}</p>
+                  <p className="qc-about-person-role">{PEOPLE[2].role}</p>
+                  <a href={PEOPLE[2].linkedin} target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label={`${PEOPLE[2].name} on LinkedIn`}>
+                    <Image src="/about/linkedin-icon.png" alt="" width={18} height={18} aria-hidden />
+                  </a>
+                </div>
+              </div>
+              <div className="qc-about-person-card">
+                <div className="qc-about-person-photo-wrap">
+                  <Image
+                    src={PEOPLE[3].image}
+                    alt={PEOPLE[3].name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="qc-about-person-overlay" aria-hidden />
+                  <p className="qc-about-person-name">{PEOPLE[3].name}</p>
+                  <p className="qc-about-person-role">{PEOPLE[3].role}</p>
+                  <a href={PEOPLE[3].linkedin} target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label={`${PEOPLE[3].name} on LinkedIn`}>
+                    <Image src="/about/linkedin-icon.png" alt="" width={18} height={18} aria-hidden />
+                  </a>
+                </div>
+              </div>
+              <div className="qc-about-person-card">
+                <div className="qc-about-person-photo-wrap">
+                  <Image
+                    src={PEOPLE[4].image}
+                    alt={PEOPLE[4].name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="qc-about-person-overlay" aria-hidden />
+                  <p className="qc-about-person-name">{PEOPLE[4].name}</p>
+                  <p className="qc-about-person-role">{PEOPLE[4].role}</p>
+                  <a href={PEOPLE[4].linkedin} target="_blank" rel="noreferrer" className="qc-about-person-linkedin" aria-label={`${PEOPLE[4].name} on LinkedIn`}>
+                    <Image src="/about/linkedin-icon.png" alt="" width={18} height={18} aria-hidden />
+                  </a>
+                </div>
+              </div>
+              <div className="qc-about-people-join-card">
+                <h3 className="qc-about-people-join-title">Join our team</h3>
+                <p className="qc-about-people-join-subtitle">and boost your experience</p>
+                <div className="qc-about-people-join-avatars">
+                  <Image src="/about/join-avatars.png" alt="" width={180} height={48} className="qc-about-people-join-avatars-img" />
+                </div>
+                <a href="/#journey" className="qc-about-people-join-link">See open vacancies</a>
+              </div>
             </div>
           </div>
         </section>
