@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const SCROLL_THRESHOLD = 200;
+const options: AddEventListenerOptions = { passive: true };
+
 
 export function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -20,9 +22,8 @@ export function ScrollToTopButton() {
     }
 
     handleScroll();
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, options);
+    return () => window.removeEventListener('scroll', handleScroll, options);
   }, []);
 
   function scrollToTop() {
