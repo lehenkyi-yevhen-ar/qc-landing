@@ -5,91 +5,91 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Workflow Automation – QuitCode',
+  title: 'Custom Web Applications – QuitCode',
   description:
-    'From three months of manual work to a structured, repeatable system — without spreadsheets, emails, or errors.',
+    'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
 };
 
 const whatYouGet = [
   {
-    title: 'Automated System',
-    description: 'Fully configured no-code automation platform connecting your key tools and processes',
-    icon: '/autom-system.png',
+    title: 'Custom Web Application',
+    description: 'Fully functional, responsive web app built on Bubble.com, tailored to your specific business requirements and branding',
+    icon: '/webapp-custom-app.png',
   },
   {
-    title: 'Documentation',
-    description: 'Detailed guides and step-by-step instructions for every automated workflow',
-    icon: '/documentation.png',
+    title: 'Database & Backend Setup',
+    description: 'Structured database architecture with secure data management, user authentication, and role-based access',
+    icon: '/webapp-database.png',
   },
   {
-    title: 'Integrations',
-    description: 'Seamless connections between CRM, email, project management, and more',
-    icon: '/integrations.png',
+    title: 'Professional UI/UX Design',
+    description: 'Intuitive, mobile-responsive interface optimized for all devices with modern aesthetics and seamless user experience',
+    icon: '/webapp-design.png',
   },
   {
-    title: 'Custom Dashboards',
-    description: 'Real-time monitoring to track workflow performance and key metrics',
-    icon: '/cus-dush.png',
+    title: 'Third-Party Integrations',
+    description: 'Seamless connections to your existing tools (CRM, payment systems, email platforms, analytics) via APIs',
+    icon: '/webapp-integrations.png',
   },
   {
-    title: 'Team Training',
-    description: 'Comprehensive resources and guides for smooth team adoption',
-    icon: '/team-train.png',
+    title: 'Admin Panel & Documentation',
+    description: 'Comprehensive admin dashboard for content management plus detailed user guides and technical documentation',
+    icon: '/webapp-admin.png',
   },
   {
-    title: 'ROI Report',
-    description: 'Analysis of time saved, efficiency gains, and performance optimization',
-    icon: '/roi-rep.png',
+    title: 'End User Training Materials',
+    description: 'Comprehensive guides and tutorials for all user types to ensure smooth adoption and maximize application value',
+    icon: '/webapp-training.png',
   },
 ];
 
 const rightForYouItems = [
   {
-    title: 'Repetitive Manual Tasks',
-    description: 'Your team spends hours on data entry, file transfers, status updates, or routine communications',
+    title: 'No Standard Solution Exists',
+    description: 'Your business processes require custom functionality that off-the-shelf software can\'t provide',
     highlighted: true,
-    icon: '/icons/repetitive-icon.png',
+    icon: '/icons/no-standard-icon.png',
   },
   {
-    title: 'Disconnected Tools',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: 'Client Experience Needs Upgrade',
+    description: 'You need a professional platform for client interactions, project tracking, or service delivery',
     highlighted: false,
-    icon: '/icons/disconnected-icon.png',
+    icon: '/icons/client-exp-icon.png',
   },
   {
-    title: 'Process Bottlenecks',
-    description: 'Approvals, onboarding, or handoffs are slowing down your operations',
+    title: 'Tools Don\'t Integrate',
+    description: 'You\'re juggling multiple platforms and need a unified solution that connects everything',
     highlighted: true,
-    icon: '/icons/bottlenecks-icon.png',
+    icon: '/icons/tools-integrate-icon.png',
   },
   {
-    title: 'Scaling Challenges',
-    description: "Current processes work but won't handle increased workload without hiring more staff",
+    title: 'Software Limiting Growth',
+    description: 'Current tools can\'t handle increased users, data, or functionality requirements as you scale',
     highlighted: false,
-    icon: '/icons/scaling-icon.png',
+    icon: '/icons/software-growth-icon.png',
   },
   {
-    title: 'Human Errors',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: 'Need Solution Fast',
+    description: 'You want professional web presence without the 6-12 month timeline of traditional development',
     highlighted: true,
-    icon: '/icons/human-errors-icon.png',
+    icon: '/icons/need-fast-icon.png',
   },
 ];
 
 const otherServices = [
+  {
+    title: 'Custom Workflow Automation',
+    description:
+      'Transform manual processes into intelligent automated workflows that eliminate bottlenecks and reduce errors.',
+    image: '/service-workflow.png',
+    href: '/services/custom-workflow-automation',
+  },
   {
     title: 'Data Infrastructure Optimization',
     description:
       'Transform disconnected data sources into a unified, intelligent system with real-time analytics and clear visibility.',
     image: '/service-data.png',
     href: '/services/data-infrastructure-optimization',
-  },
-  {
-    title: 'Custom Web Applications',
-    description:
-      'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
-    image: '/service-webapp.png',
-    href: '/services/custom-web-applications',
   },
   {
     title: 'Discovery & Strategy',
@@ -100,7 +100,7 @@ const otherServices = [
   },
 ];
 
-export default function CustomWorkflowAutomationPage() {
+export default function CustomWebApplicationsPage() {
   return (
     <div className="qc-page">
       <main>
@@ -114,7 +114,7 @@ export default function CustomWorkflowAutomationPage() {
             <Breadcrumb crumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/#solutions' },
-              { label: 'Custom Workflow Automation', href: '/services/custom-workflow-automation' },
+              { label: 'Custom Web Applications', href: '/services/custom-web-applications' },
             ]} />
 
             <div className="cwa-hero-grid">
@@ -145,39 +145,53 @@ export default function CustomWorkflowAutomationPage() {
                     color: '#111827',
                   }}
                 >
-                  Custom Workflow<br />Automation
+                  Custom Web<br />Applications
                 </h1>
                 <p
                   style={{
                     fontSize: '0.95rem',
                     color: '#2e2e2e',
                     lineHeight: 1.7,
-                    margin: 0,
+                    margin: '0 0 2rem',
                     maxWidth: 440,
                   }}
                 >
-                  From three months of manual work to a structured, repeatable system the
-                  school can run every year — without spreadsheets, emails, or errors.
+                  Build powerful, scalable web solutions that solve your unique business
+                  challenges. From client portals to management systems — delivered in weeks,
+                  not months, without traditional coding.
                 </p>
+                <a
+                  href="https://calendly.com/quitcode/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    background: 'linear-gradient(90deg, #3985F8, #09c0ff)',
+                    color: '#fff',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '10px',
+                    textDecoration: 'none',
+                    transition: 'opacity 0.2s',
+                  }}
+                >
+                  Build Your Application
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="3" y1="8" x2="13" y2="8" /><polyline points="9 4 13 8 9 12" />
+                  </svg>
+                </a>
               </div>
 
               {/* Right – mockup */}
               <div>
                 <Image
-                  src="/workflow-hero-mockup.png"
-                  alt="Make.com workflow automation interface"
+                  src="/webapp-hero-mockup.png"
+                  alt="Custom web application interface"
                   width={680}
                   height={460}
-                  className="cwa-hero-img-desktop"
-                  style={{ width: '100%', height: 'auto' }}
-                  priority
-                />
-                <Image
-                  src="/workflow-hero-mockup-tablet.png"
-                  alt="Make.com workflow automation interface"
-                  width={680}
-                  height={600}
-                  className="cwa-hero-img-tablet"
                   style={{ width: '100%', height: 'auto' }}
                   priority
                 />
@@ -311,7 +325,7 @@ export default function CustomWorkflowAutomationPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character (replace placeholder with actual image from Figma) */}
+              {/* Right – 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -321,9 +335,13 @@ export default function CustomWorkflowAutomationPage() {
                   minHeight: 380,
                 }}
               >
-             
-                <Image src="/right-for-you-character.png" alt="" width={420} height={520} style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }} />
-
+                <Image
+                  src="/right-for-you-character.png"
+                  alt=""
+                  width={420}
+                  height={520}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                />
               </div>
             </div>
           </div>
@@ -332,7 +350,6 @@ export default function CustomWorkflowAutomationPage() {
         {/* ── Our Process ── */}
         <section style={{ padding: '5rem 0', background: '#f5f9ff' }}>
           <div className="qc-container">
-            {/* Header */}
             <div
               style={{
                 display: 'flex',
@@ -367,8 +384,7 @@ export default function CustomWorkflowAutomationPage() {
               </div>
             </div>
 
-            {/* Timeline panel */}
-            <ProcessStepsSection />
+            <ProcessStepsSection variant="webapp" />
           </div>
         </section>
 
@@ -379,7 +395,7 @@ export default function CustomWorkflowAutomationPage() {
               <img
                 src="/glass-cta/Asset_Icon.png"
                 alt=""
-                style={{ width: 48, height: 48, marginBottom: '1rem', display: 'block', margin: '0 auto 1rem' }}
+                style={{ width: 48, height: 48, display: 'block', margin: '0 auto 1rem' }}
               />
               <h2
                 style={{
@@ -407,11 +423,9 @@ export default function CustomWorkflowAutomationPage() {
                     background: '#fff',
                   }}
                 >
-                  {/* Image area */}
                   <div
                     style={{
-                      background:
-                        'linear-gradient(135deg, rgba(57,133,248,0.05), rgba(204,153,255,0.08))',
+                      background: 'linear-gradient(135deg, rgba(57,133,248,0.05), rgba(204,153,255,0.08))',
                       height: 200,
                       display: 'flex',
                       alignItems: 'center',
@@ -428,7 +442,6 @@ export default function CustomWorkflowAutomationPage() {
                     />
                   </div>
 
-                  {/* Content */}
                   <div style={{ padding: '1.5rem' }}>
                     <span
                       style={{
@@ -470,18 +483,8 @@ export default function CustomWorkflowAutomationPage() {
                     <Link href={service.href} className="qc-button-gradient-border">
                       Learn more
                       <span style={{ display: 'inline-flex', marginLeft: 6 }}>
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <line x1="3" y1="8" x2="13" y2="8" />
-                          <polyline points="9 4 13 8 9 12" />
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="3" y1="8" x2="13" y2="8" /><polyline points="9 4 13 8 9 12" />
                         </svg>
                       </span>
                     </Link>
@@ -492,7 +495,7 @@ export default function CustomWorkflowAutomationPage() {
           </div>
         </section>
 
-        {/* ── Real conversation (reused section) ── */}
+        {/* ── Real conversation ── */}
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">

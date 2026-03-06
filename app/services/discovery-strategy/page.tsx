@@ -5,78 +5,80 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Workflow Automation – QuitCode',
+  title: 'Discovery & Strategy – QuitCode',
   description:
-    'From three months of manual work to a structured, repeatable system — without spreadsheets, emails, or errors.',
+    'Minimize project risks and costs with thorough research, technical validation, and detailed roadmaps before committing significant resources.',
 };
 
 const whatYouGet = [
   {
-    title: 'Automated System',
-    description: 'Fully configured no-code automation platform connecting your key tools and processes',
-    icon: '/autom-system.png',
+    title: 'Problem Research Report',
+    description: 'Comprehensive analysis of your business challenge, market context, and user needs with validated problem-solution fit',
+    icon: '/ds-problem-research.png',
   },
   {
-    title: 'Documentation',
-    description: 'Detailed guides and step-by-step instructions for every automated workflow',
-    icon: '/documentation.png',
+    title: 'Technical Feasibility Assessment',
+    description: 'Detailed evaluation of technology options, implementation complexity, and resource requirements for your project',
+    icon: '/ds-feasibility.png',
   },
   {
-    title: 'Integrations',
-    description: 'Seamless connections between CRM, email, project management, and more',
-    icon: '/integrations.png',
+    title: 'Product Backlog & Roadmap',
+    description: 'Prioritized feature list with development timeline, milestones, and clear project phases for implementation',
+    icon: '/ds-backlog-roadmap.png',
   },
   {
-    title: 'Custom Dashboards',
-    description: 'Real-time monitoring to track workflow performance and key metrics',
-    icon: '/cus-dush.png',
+    title: 'Risk Assessment & Mitigation',
+    description: 'Identification of potential project risks with strategies to minimize costs and avoid common pitfalls',
+    icon: '/ds-risk-assessment.png',
   },
   {
-    title: 'Team Training',
-    description: 'Comprehensive resources and guides for smooth team adoption',
-    icon: '/team-train.png',
-  },
-  {
-    title: 'ROI Report',
-    description: 'Analysis of time saved, efficiency gains, and performance optimization',
-    icon: '/roi-rep.png',
+    title: 'RFP Documentation',
+    description: 'Complete request for proposal materials enabling you to confidently engage with vendors and compare solutions',
+    icon: '/ds-rfp-docs.png',
   },
 ];
 
 const rightForYouItems = [
   {
-    title: 'Repetitive Manual Tasks',
-    description: 'Your team spends hours on data entry, file transfers, status updates, or routine communications',
+    title: 'Unsure About Feasibility',
+    description: 'You have a business idea but aren\'t sure if it\'s technically feasible or worth the investment',
     highlighted: true,
-    icon: '/icons/repetitive-icon.png',
+    icon: '/icons/unsure-feasibility-icon.png',
   },
   {
-    title: 'Disconnected Tools',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: 'Need Clear Roadmap',
+    description: 'Planning a major digital transformation but don\'t know where to start or how to prioritize',
     highlighted: false,
-    icon: '/icons/disconnected-icon.png',
+    icon: '/icons/clear-roadmap-icon.png',
   },
   {
-    title: 'Process Bottlenecks',
-    description: 'Approvals, onboarding, or handoffs are slowing down your operations',
+    title: 'Want to Avoid Failed Projects',
+    description: 'You\'ve had failed projects in the past and need thorough planning and risk assessment to ensure success',
     highlighted: true,
-    icon: '/icons/bottlenecks-icon.png',
+    icon: '/icons/failed-projects-icon.png',
   },
   {
-    title: 'Scaling Challenges',
-    description: "Current processes work but won't handle increased workload without hiring more staff",
+    title: 'Need Stakeholder Buy-In',
+    description: 'You need to present a solid business case to stakeholders or investors with detailed analysis and documentation',
     highlighted: false,
-    icon: '/icons/scaling-icon.png',
+    icon: '/icons/stakeholder-buyin-icon.png',
   },
   {
-    title: 'Human Errors',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: 'Evaluating Multiple Options',
+    description: 'You\'re evaluating multiple technology options and vendors and need objective assessment and clear criteria',
     highlighted: true,
-    icon: '/icons/human-errors-icon.png',
+    icon: '/icons/evaluating-options-icon.png',
   },
 ];
 
 const otherServices = [
+  {
+    title: 'Custom Workflow Automation',
+    description:
+      'Transform manual processes into intelligent automated workflows that eliminate bottlenecks and reduce errors.',
+    image: '/service-workflow.png',
+    href: '/services/custom-workflow-automation',
+  },
   {
     title: 'Data Infrastructure Optimization',
     description:
@@ -91,16 +93,9 @@ const otherServices = [
     image: '/service-webapp.png',
     href: '/services/custom-web-applications',
   },
-  {
-    title: 'Discovery & Strategy',
-    description:
-      'Minimize project risks with thorough research, technical validation, and detailed roadmaps before development begins.',
-    image: '/service-discovery.png',
-    href: '/services/discovery-strategy',
-  },
 ];
 
-export default function CustomWorkflowAutomationPage() {
+export default function DiscoveryStrategyPage() {
   return (
     <div className="qc-page">
       <main>
@@ -114,7 +109,7 @@ export default function CustomWorkflowAutomationPage() {
             <Breadcrumb crumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/#solutions' },
-              { label: 'Custom Workflow Automation', href: '/services/custom-workflow-automation' },
+              { label: 'Discovery & Strategy', href: '/services/discovery-strategy' },
             ]} />
 
             <div className="cwa-hero-grid">
@@ -145,39 +140,50 @@ export default function CustomWorkflowAutomationPage() {
                     color: '#111827',
                   }}
                 >
-                  Custom Workflow<br />Automation
+                  Discovery &amp; Strategy
                 </h1>
                 <p
                   style={{
                     fontSize: '0.95rem',
                     color: '#2e2e2e',
                     lineHeight: 1.7,
-                    margin: 0,
+                    margin: '0 0 2rem',
                     maxWidth: 440,
                   }}
                 >
-                  From three months of manual work to a structured, repeatable system the
-                  school can run every year — without spreadsheets, emails, or errors.
+                  Minimize project risks and costs with thorough research, technical validation,
+                  and detailed roadmaps. Make confident decisions about technology investments
+                  before committing significant resources.
                 </p>
+                <a
+                  href="https://calendly.com/quitcode/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    background: '#4300B7',
+                    color: '#fff',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    padding: '0.75rem 1.75rem',
+                    borderRadius: '10px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Validate Your Idea
+                  <span aria-hidden>→</span>
+                </a>
               </div>
 
               {/* Right – mockup */}
               <div>
                 <Image
-                  src="/workflow-hero-mockup.png"
-                  alt="Make.com workflow automation interface"
+                  src="/ds-hero-mockup.png"
+                  alt="Discovery and strategy interface"
                   width={680}
                   height={460}
-                  className="cwa-hero-img-desktop"
-                  style={{ width: '100%', height: 'auto' }}
-                  priority
-                />
-                <Image
-                  src="/workflow-hero-mockup-tablet.png"
-                  alt="Make.com workflow automation interface"
-                  width={680}
-                  height={600}
-                  className="cwa-hero-img-tablet"
                   style={{ width: '100%', height: 'auto' }}
                   priority
                 />
@@ -199,7 +205,7 @@ export default function CustomWorkflowAutomationPage() {
             >
               What You Get
             </h2>
-            <div className="cwa-wyg-grid">
+            <div className="cwa-wyg-grid--5">
               {whatYouGet.map((item) => (
                 <div
                   key={item.title}
@@ -311,7 +317,7 @@ export default function CustomWorkflowAutomationPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character (replace placeholder with actual image from Figma) */}
+              {/* Right – 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -321,9 +327,13 @@ export default function CustomWorkflowAutomationPage() {
                   minHeight: 380,
                 }}
               >
-             
-                <Image src="/right-for-you-character.png" alt="" width={420} height={520} style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }} />
-
+                <Image
+                  src="/right-for-you-character.png"
+                  alt=""
+                  width={420}
+                  height={520}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                />
               </div>
             </div>
           </div>
@@ -368,7 +378,7 @@ export default function CustomWorkflowAutomationPage() {
             </div>
 
             {/* Timeline panel */}
-            <ProcessStepsSection />
+            <ProcessStepsSection variant="ds" />
           </div>
         </section>
 
@@ -492,7 +502,7 @@ export default function CustomWorkflowAutomationPage() {
           </div>
         </section>
 
-        {/* ── Real conversation (reused section) ── */}
+        {/* ── Real conversation ── */}
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">

@@ -5,84 +5,79 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Workflow Automation – QuitCode',
+  title: 'Data Infrastructure Optimization – QuitCode',
   description:
-    'From three months of manual work to a structured, repeatable system — without spreadsheets, emails, or errors.',
+    'Transform disconnected data sources into a unified, intelligent system with real-time analytics and clear visibility.',
 };
 
 const whatYouGet = [
   {
-    title: 'Automated System',
-    description: 'Fully configured no-code automation platform connecting your key tools and processes',
-    icon: '/autom-system.png',
+    title: 'Unified Data Platform',
+    description: 'Centralized system connecting all your data sources with real-time synchronization and standardized formats',
+    icon: '/dio-unified-platform.png',
   },
   {
-    title: 'Documentation',
-    description: 'Detailed guides and step-by-step instructions for every automated workflow',
-    icon: '/documentation.png',
+    title: 'Custom Analytics Dashboards',
+    description: 'Interactive dashboards providing clear insights from raw data to business impact with automated reporting',
+    icon: '/dio-analytics-dashboards.png',
   },
   {
-    title: 'Integrations',
-    description: 'Seamless connections between CRM, email, project management, and more',
-    icon: '/integrations.png',
+    title: 'Data Streaming Infrastructure',
+    description: 'Robust pipeline architecture that captures and processes events with full context as they happen',
+    icon: '/dio-data-streaming.png',
   },
   {
-    title: 'Custom Dashboards',
-    description: 'Real-time monitoring to track workflow performance and key metrics',
-    icon: '/cus-dush.png',
+    title: 'Integration Documentation',
+    description: 'Comprehensive mapping of data flows, transformation rules, and system architecture for ongoing maintenance',
+    icon: '/dio-integration-docs.png',
   },
   {
-    title: 'Team Training',
-    description: 'Comprehensive resources and guides for smooth team adoption',
-    icon: '/team-train.png',
-  },
-  {
-    title: 'ROI Report',
-    description: 'Analysis of time saved, efficiency gains, and performance optimization',
-    icon: '/roi-rep.png',
+    title: 'Data Governance Framework',
+    description: 'Standardized procedures for data access, security, and compliance across your organization',
+    icon: '/dio-governance.png',
   },
 ];
 
 const rightForYouItems = [
   {
-    title: 'Repetitive Manual Tasks',
-    description: 'Your team spends hours on data entry, file transfers, status updates, or routine communications',
+    title: 'Data Silos Everywhere',
+    description: 'Customer info in CRM, financials in accounting, projects in management tools — creating manual reporting nightmares',
     highlighted: true,
-    icon: '/icons/repetitive-icon.png',
+    icon: '/icons/data-silos-icon.png',
   },
   {
-    title: 'Disconnected Tools',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: 'Outdated Information',
+    description: 'Reports take days to compile manually, and by the time you have insights, opportunities have already passed',
     highlighted: false,
-    icon: '/icons/disconnected-icon.png',
+    icon: '/icons/outdated-info-icon.png',
   },
   {
-    title: 'Process Bottlenecks',
-    description: 'Approvals, onboarding, or handoffs are slowing down your operations',
+    title: 'Report Creation Overload',
+    description: 'Your team spends hours collecting and formatting data instead of analyzing results and making strategic decisions',
     highlighted: true,
-    icon: '/icons/bottlenecks-icon.png',
+    icon: '/icons/report-overload-icon.png',
   },
   {
-    title: 'Scaling Challenges',
-    description: "Current processes work but won't handle increased workload without hiring more staff",
+    title: 'No Business Impact Visibility',
+    description: 'Unclear connection between marketing efforts, operational changes, and actual financial outcomes',
     highlighted: false,
-    icon: '/icons/scaling-icon.png',
+    icon: '/icons/no-visibility-icon.png',
   },
   {
-    title: 'Human Errors',
-    description: 'Information gets lost between systems, requiring manual data re-entry and causing delays',
+    title: "System Can't Scale",
+    description: 'Existing data setup slows down with more data, and scaling requires expensive manual processes',
     highlighted: true,
-    icon: '/icons/human-errors-icon.png',
+    icon: '/icons/cant-scale-icon.png',
   },
 ];
 
 const otherServices = [
   {
-    title: 'Data Infrastructure Optimization',
+    title: 'Custom Workflow Automation',
     description:
-      'Transform disconnected data sources into a unified, intelligent system with real-time analytics and clear visibility.',
-    image: '/service-data.png',
-    href: '/services/data-infrastructure-optimization',
+      'Transform manual processes into intelligent automated workflows that eliminate bottlenecks and reduce errors.',
+    image: '/service-workflow.png',
+    href: '/services/custom-workflow-automation',
   },
   {
     title: 'Custom Web Applications',
@@ -100,7 +95,7 @@ const otherServices = [
   },
 ];
 
-export default function CustomWorkflowAutomationPage() {
+export default function DataInfrastructureOptimizationPage() {
   return (
     <div className="qc-page">
       <main>
@@ -114,7 +109,7 @@ export default function CustomWorkflowAutomationPage() {
             <Breadcrumb crumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/#solutions' },
-              { label: 'Custom Workflow Automation', href: '/services/custom-workflow-automation' },
+              { label: 'Data Infrastructure Optimization', href: '/services/data-infrastructure-optimization' },
             ]} />
 
             <div className="cwa-hero-grid">
@@ -145,7 +140,7 @@ export default function CustomWorkflowAutomationPage() {
                     color: '#111827',
                   }}
                 >
-                  Custom Workflow<br />Automation
+                  Data Infrastructure<br />Optimization
                 </h1>
                 <p
                   style={{
@@ -156,28 +151,18 @@ export default function CustomWorkflowAutomationPage() {
                     maxWidth: 440,
                   }}
                 >
-                  From three months of manual work to a structured, repeatable system the
-                  school can run every year — without spreadsheets, emails, or errors.
+                  Transform disconnected data sources into a unified, intelligent system
+                  with real-time analytics and clear visibility — delivered in weeks, not months.
                 </p>
               </div>
 
               {/* Right – mockup */}
               <div>
                 <Image
-                  src="/workflow-hero-mockup.png"
-                  alt="Make.com workflow automation interface"
+                  src="/dio-hero-mockup.png"
+                  alt="Data infrastructure optimization interface"
                   width={680}
                   height={460}
-                  className="cwa-hero-img-desktop"
-                  style={{ width: '100%', height: 'auto' }}
-                  priority
-                />
-                <Image
-                  src="/workflow-hero-mockup-tablet.png"
-                  alt="Make.com workflow automation interface"
-                  width={680}
-                  height={600}
-                  className="cwa-hero-img-tablet"
                   style={{ width: '100%', height: 'auto' }}
                   priority
                 />
@@ -199,7 +184,7 @@ export default function CustomWorkflowAutomationPage() {
             >
               What You Get
             </h2>
-            <div className="cwa-wyg-grid">
+            <div className="cwa-wyg-grid--5">
               {whatYouGet.map((item) => (
                 <div
                   key={item.title}
@@ -311,7 +296,7 @@ export default function CustomWorkflowAutomationPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character (replace placeholder with actual image from Figma) */}
+              {/* Right – 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -321,9 +306,13 @@ export default function CustomWorkflowAutomationPage() {
                   minHeight: 380,
                 }}
               >
-             
-                <Image src="/right-for-you-character.png" alt="" width={420} height={520} style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }} />
-
+                <Image
+                  src="/right-for-you-character.png"
+                  alt=""
+                  width={420}
+                  height={520}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                />
               </div>
             </div>
           </div>
@@ -368,7 +357,7 @@ export default function CustomWorkflowAutomationPage() {
             </div>
 
             {/* Timeline panel */}
-            <ProcessStepsSection />
+            <ProcessStepsSection variant="dio" />
           </div>
         </section>
 
@@ -492,7 +481,7 @@ export default function CustomWorkflowAutomationPage() {
           </div>
         </section>
 
-        {/* ── Real conversation (reused section) ── */}
+        {/* ── Real conversation ── */}
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">

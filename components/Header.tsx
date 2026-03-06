@@ -5,45 +5,56 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-type SectionId = 'hero' | 'solutions' | 'services' | 'case-studies' | 'journey';
+const navItems = [
+  {
+    label: 'Services',
+    items: [
+      { label: 'Custom Workflow Automation', href: '/services/custom-workflow-automation' },
+      { label: 'Data Infrastructure Optimization', href: '/services/data-infrastructure-optimization' },
+      { label: 'Custom Web Applications', href: '/services/custom-web-applications' },
+      { label: 'Discovery & Strategy', href: '/services/discovery-strategy' },
+    ],
+  },
+  {
+    label: 'Platforms',
+    items: [
+      { label: 'Airtable', href: '/platforms/airtable' },
+      { label: 'Make', href: '/platforms/make' },
+      { label: 'Bubble', href: '/platforms/bubble' },
+    ],
+  },
+  {
+    label: 'Insights',
+    items: [
+      { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Blog', href: '/blog' },
+    ],
+  },
+  {
+    label: 'Company',
+    items: [
+      { label: 'About', href: '/about' },
+      { label: 'Career', href: '/career' },
+    ],
+  },
+];
 
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<SectionId>('hero');
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
 
-  const isAbout = pathname === '/about';
+  const handleMouseEnter = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDropdown(label);
+  };
 
-  useEffect(() => {
-    if (pathname !== '/') return;
-    const sectionIds: SectionId[] = [
-      'hero',
-      'solutions',
-      'services',
-      'case-studies',
-      'journey'
-    ];
-    const handleScroll = () => {
-      let current: SectionId = 'hero';
-      let minDistance = Number.POSITIVE_INFINITY;
-      sectionIds.forEach(id => {
-        const element = document.getElementById(id);
-        if (!element) return;
-        const rect = element.getBoundingClientRect();
-        const distance = Math.abs(rect.top - 96);
-        if (distance < minDistance && rect.bottom > 96) {
-          minDistance = distance;
-          current = id;
-        }
-      });
-      setActiveSection(current);
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -53,11 +64,9 @@ export function Header() {
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
-
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMobileMenuOpen(false);
     };
-
     const onPointerDown = (e: PointerEvent) => {
       const root = headerRef.current;
       if (!root) return;
@@ -65,7 +74,6 @@ export function Header() {
         setMobileMenuOpen(false);
       }
     };
-
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('pointerdown', onPointerDown);
     return () => {
@@ -75,6 +83,9 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const closeMenu = () => setMobileMenuOpen(false);
+
+  const isNavActive = (items: { href: string }[]) =>
+    items.some(item => pathname === item.href || pathname.startsWith(item.href + '/'));
 
   return (
     <header className="qc-header-shell">
@@ -97,47 +108,57 @@ export function Header() {
 
               <nav className="qc-header-nav" aria-label="Primary navigation">
                 <div className="qc-nav-links">
-                  <a
-                    href={pathname === '/' ? '#solutions' : '/#solutions'}
-                    onClick={closeMenu}
-                    className={`qc-nav-link${!isAbout && activeSection === 'solutions' ? ' qc-nav-link-active' : ''}`}
-                  >
-                    Operations
-                  </a>
-                  <a
-                    href={pathname === '/' ? '#services' : '/#services'}
-                    onClick={closeMenu}
-                    className={`qc-nav-link${!isAbout && activeSection === 'services' ? ' qc-nav-link-active' : ''}`}
-                  >
-                    Platform
-                  </a>
-                  <a
-                    href={pathname === '/' ? '#case-studies' : '/#case-studies'}
-                    onClick={closeMenu}
-                    className={`qc-nav-link${!isAbout && activeSection === 'case-studies' ? ' qc-nav-link-active' : ''}`}
-                  >
-                    Resources
-                  </a>
-                  <Link
-                    href="/about"
-                    onClick={closeMenu}
-                    className={`qc-nav-link${isAbout ? ' qc-nav-link-active' : ''}`}
-                  >
-                    Company
-                  </Link>
-                  <a
-                    href={pathname === '/' ? '#case-studies' : '/#case-studies'}
-                    onClick={closeMenu}
-                    className={`qc-nav-link${!isAbout && activeSection === 'case-studies' ? ' qc-nav-link-active' : ''}`}
-                  >
-                    Case Studies
-                  </a>
+                  {navItems.map((nav) => (
+                    <div
+                      key={nav.label}
+                      className="qc-nav-dropdown-wrap"
+                      onMouseEnter={() => handleMouseEnter(nav.label)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <button
+                        className={`qc-nav-link qc-nav-dropdown-trigger${isNavActive(nav.items) ? ' qc-nav-link-active' : ''}`}
+                        aria-expanded={openDropdown === nav.label}
+                        type="button"
+                      >
+                        {nav.label}
+                        <svg
+                          className={`qc-nav-chevron${openDropdown === nav.label ? ' qc-nav-chevron-open' : ''}`}
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </button>
+                      {openDropdown === nav.label && (
+                        <div className="qc-nav-dropdown-panel" role="menu">
+                          {nav.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className={`qc-nav-dropdown-item${pathname === item.href ? ' qc-nav-dropdown-item-active' : ''}`}
+                              role="menuitem"
+                              onClick={() => { setOpenDropdown(null); closeMenu(); }}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </nav>
 
               <div className="qc-header-right">
                 <a
-                  href={pathname === '/' ? '#journey' : '/#journey'}
+                  href="/#journey"
                   onClick={closeMenu}
                   className="qc-header-cta-discovery"
                 >
@@ -177,32 +198,12 @@ export function Header() {
                 type="button"
               >
                 {mobileMenuOpen ? (
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 ) : (
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="3" y1="6" x2="21" y2="6" />
                     <line x1="3" y1="12" x2="21" y2="12" />
                     <line x1="3" y1="18" x2="21" y2="18" />
@@ -221,24 +222,24 @@ export function Header() {
         aria-label="Menu"
       >
         <div className="qc-header-menu-links">
-          <a href={pathname === '/' ? '#solutions' : '/#solutions'} onClick={closeMenu}>
-            Operations
-          </a>
-          <a href={pathname === '/' ? '#services' : '/#services'} onClick={closeMenu}>
-            Platform
-          </a>
-          <a href={pathname === '/' ? '#case-studies' : '/#case-studies'} onClick={closeMenu}>
-            Resources
-          </a>
-          <Link href="/about" onClick={closeMenu}>
-            Company
-          </Link>
-          <a href={pathname === '/' ? '#case-studies' : '/#case-studies'} onClick={closeMenu}>
-            Case Studies
-          </a>
+          {navItems.map((nav) => (
+            <div key={nav.label} className="qc-mobile-nav-section">
+              <div className="qc-mobile-nav-label">{nav.label}</div>
+              {nav.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={`qc-mobile-nav-item${pathname === item.href ? ' qc-mobile-nav-item-active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          ))}
         </div>
         <div className="qc-header-menu-ctas">
-          <a href={pathname === '/' ? '#journey' : '/#journey'} onClick={closeMenu} className="qc-header-cta-discovery">
+          <a href="/#journey" onClick={closeMenu} className="qc-header-cta-discovery">
             <span>Get Free Discovery</span>
             <span className="arrow-icon" aria-hidden="true">
               <svg
