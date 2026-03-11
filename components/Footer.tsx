@@ -19,10 +19,10 @@ export function Footer() {
               chaos through intelligent no-code solutions.
             </p>
             <div className="qc-footer-social">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/quitcode" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <Image src="/footer/linkedin.png" alt="" width={24} height={24} />
               </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+              <a href="https://x.com/QuitCode" target="_blank" rel="noreferrer" aria-label="X">
                 <Image src="/footer/xcom.png" alt="" width={24} height={24} />
               </a>
             </div>
@@ -41,10 +41,10 @@ export function Footer() {
           <div className="qc-footer-column">
             <h3 className="qc-footer-title">Services</h3>
             <nav className="qc-footer-links" aria-label="Services">
-              <a href="/#services">Workflow Automation</a>
-              <a href="/#services">Data Infrastructure</a>
-              <a href="/#services">Custom Web Apps</a>
-              <a href="/#services">Discovery & Strategy</a>
+              <a href="/services/custom-workflow-automation">Workflow Automation</a>
+              <a href="/services/data-infrastructure-optimization">Data Infrastructure</a>
+              <a href="/services/custom-web-applications">Custom Web Apps</a>
+              <a href="/services/discovery-strategy">Discovery & Strategy</a>
             </nav>
           </div>
 

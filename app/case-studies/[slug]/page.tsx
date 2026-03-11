@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { getCaseStudy, CASE_STUDIES } from '@/lib/caseStudies';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
@@ -39,6 +40,25 @@ export default function CaseStudyDetailPage() {
   if (!cs) notFound();
 
   const relatedCases = CASE_STUDIES.filter(c => c.slug !== cs.slug).slice(0, 3);
+  const images = cs.solutionDesign.images;
+
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+
+  const openLightbox = (idx: number) => setLightboxIdx(idx);
+  const closeLightbox = () => setLightboxIdx(null);
+  const prevImage = () => setLightboxIdx(i => i === null ? null : (i - 1 + images.length) % images.length);
+  const nextImage = () => setLightboxIdx(i => i === null ? null : (i + 1) % images.length);
+
+  useEffect(() => {
+    if (lightboxIdx === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxIdx]);
 
   return (
     <div className="qc-page">
@@ -196,8 +216,14 @@ export default function CaseStudyDetailPage() {
             </div>
             <p className="qc-csd-emphasis">{cs.solutionDesign.emphasis}</p>
             <div className="qc-csd-images-grid">
-              {cs.solutionDesign.images.map((src, i) => (
-                <div key={i} className="qc-csd-image-cell">
+              {images.map((src, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="qc-csd-image-cell qc-csd-image-cell--btn"
+                  onClick={() => openLightbox(i)}
+                  aria-label={`Open image ${i + 1} of ${images.length}`}
+                >
                   <Image
                     src={src}
                     alt=""
@@ -205,7 +231,7 @@ export default function CaseStudyDetailPage() {
                     sizes="(max-width: 768px) 100vw, 380px"
                     style={{ objectFit: 'cover', borderRadius: 10 }}
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -376,6 +402,52 @@ export default function CaseStudyDetailPage() {
           </section>
         )}
       </main>
+
+      {/* ── Lightbox ── */}
+      {lightboxIdx !== null && (
+        <div className="qc-lightbox" role="dialog" aria-modal aria-label="Image gallery">
+          {/* Backdrop */}
+          <div className="qc-lightbox-backdrop" onClick={closeLightbox} />
+
+          {/* Close */}
+          <button type="button" className="qc-lightbox-close" onClick={closeLightbox} aria-label="Close gallery">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Image */}
+          <div className="qc-lightbox-img-wrap">
+            <Image
+              src={images[lightboxIdx]}
+              alt={`Image ${lightboxIdx + 1} of ${images.length}`}
+              fill
+              sizes="90vw"
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Prev */}
+          <button type="button" className="qc-lightbox-nav qc-lightbox-nav--prev" onClick={prevImage} aria-label="Previous image">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          {/* Next */}
+          <button type="button" className="qc-lightbox-nav qc-lightbox-nav--next" onClick={nextImage} aria-label="Next image">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          {/* Counter */}
+          <div className="qc-lightbox-counter">
+            {lightboxIdx + 1} / {images.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

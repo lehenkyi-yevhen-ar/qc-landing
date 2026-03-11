@@ -1347,10 +1347,12 @@ button {
   max-width: 70%;
   margin: 0 auto;
   padding: 0 1.5rem;
+  background: transparent;
 }
 
 .hero-mockup .qc-card {
   background: transparent;
+  box-shadow: none;
 }
 
 /* Logos row: absolute, full width of hero-media, behind mockup, on baseline */
@@ -4196,34 +4198,42 @@ button.qc-journey-input-icon-clear:hover {
 
 /* ── Home page: Our Solutions responsive ── */
 
+/* Desktop: 3-row grid — each button slot is pinned to its own row */
 .qc-solutions-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
-    "active grid"
-    "inactive grid";
+    "consulting grid"
+    "creative   grid"
+    "education  grid";
   column-gap: 2.5rem;
   row-gap: 0.65rem;
   margin-top: 2.5rem;
 }
 
-.qc-solutions-col-active {
-  grid-area: active;
-}
+/* Whichever row is active gets 1fr so the button expands to fill the space */
+.qc-solutions-layout[data-active="consulting"] { grid-template-rows: 1fr auto auto; }
+.qc-solutions-layout[data-active="creative"]   { grid-template-rows: auto 1fr auto; }
+.qc-solutions-layout[data-active="education"]  { grid-template-rows: auto auto 1fr; }
 
-.qc-solutions-col-inactive {
-  grid-area: inactive;
+/* Each button slot maps to its named area — never moves */
+.qc-solutions-btn-slot--consulting { grid-area: consulting; }
+.qc-solutions-btn-slot--creative   { grid-area: creative; }
+.qc-solutions-btn-slot--education  { grid-area: education; }
+.qc-solution-grid                  { grid-area: grid; }
+
+/* Active slot: flex column so its button can grow to fill the 1fr row */
+.qc-solutions-btn-slot.is-active {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
 }
 
-.qc-solution-grid {
-  grid-area: grid;
+.qc-solutions-btn-slot.is-active button {
+  flex: 1;
 }
 
-/* Tablet & mobile: reorder to active → grid → inactive */
+/* Tablet & mobile: flex column — active first, grid second, inactive last */
 @media (max-width: 960px) {
   .qc-solutions-layout {
     display: flex;
@@ -4232,9 +4242,9 @@ button.qc-journey-input-icon-clear:hover {
     max-width: 100%;
   }
 
-  .qc-solutions-col-active { order: 1; }
-  .qc-solution-grid { order: 2; }
-  .qc-solutions-col-inactive { order: 3; }
+  .qc-solutions-btn-slot.is-active  { order: 1; }
+  .qc-solution-grid                 { order: 2; }
+  .qc-solutions-btn-slot            { order: 3; } /* inactive buttons last */
 
   .qc-solution-grid {
     display: grid !important;
@@ -4256,15 +4266,16 @@ button.qc-journey-input-icon-clear:hover {
   }
 
   /* Scale down active button text on tablet/mobile */
-  .qc-solutions-col-active button {
+  .qc-solutions-btn-slot.is-active button {
     font-size: clamp(1.6rem, 6vw, 2.8rem) !important;
     padding: 1.25rem 1.2rem !important;
     align-items: center !important;
     overflow: hidden;
     box-sizing: border-box;
+    flex: unset;
   }
 
-  .qc-solutions-col-active button span:last-child {
+  .qc-solutions-btn-slot.is-active button span:last-child {
     font-size: 1.5rem !important;
     flex-shrink: 0;
   }
@@ -6180,6 +6191,99 @@ button.qc-journey-input-icon-clear:hover {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #e5e7eb;
+}
+
+.qc-csd-image-cell--btn {
+  cursor: zoom-in;
+  padding: 0;
+  background: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.qc-csd-image-cell--btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.14);
+}
+
+/* ── Lightbox ── */
+.qc-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qc-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 15, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.qc-lightbox-img-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(90vw, 960px);
+  height: min(80vh, 640px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.qc-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.qc-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.qc-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.qc-lightbox-nav:hover { background: rgba(255, 255, 255, 0.24); }
+.qc-lightbox-nav--prev { left: 1.25rem; }
+.qc-lightbox-nav--next { right: 1.25rem; }
+
+.qc-lightbox-counter {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
 }
 
 /* Numbered steps */
