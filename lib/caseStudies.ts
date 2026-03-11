@@ -48,7 +48,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     titleGradient: 'Automating Annual Payroll',
     titlePlain: 'for a 200-Person Private School',
     subtitle: 'From three months of manual work to a structured, repeatable system the school can run every year — without spreadsheets, emails, or errors.',
-    heroImage: '/case-studies/getting-business-finances-in-order.png',
+    heroImage: '/case-studies/case-1-hero.png',
     industry: 'Private education',
     process: 'Annual payroll',
     stack: [
@@ -111,10 +111,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
       emphasis: 'All data lived in one system — no duplicate files, no manual copying, no hidden versions.',
       images: [
-        '/case-studies/getting-business-finances-in-order.png',
-        '/case-studies/case-study-card.png',
-        '/case-studies/case-study-card-2.png',
-        '/case-studies/getting-business-finances-in-order.png',
+        '/case-studies/case-1-hero.png',
+        '/case-studies/case-1-images-1.png',
+        '/case-studies/case-1-images-2.png',
+        '/case-studies/case-1-images-3.png',
       ],
     },
     implementation: {

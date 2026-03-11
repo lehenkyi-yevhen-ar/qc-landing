@@ -400,65 +400,49 @@ export default function Page() {
             <div
               className="qc-solutions-layout"
             >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.65rem'
-                }}
-              >
-                {(['consulting', 'creative', 'education'] as SolutionKey[]).map(
-                  key => {
-                    const isActive = activeSolution === key;
+              {/* Active solution button — appears first on mobile */}
+              <div className="qc-solutions-col-active">
+                {(['consulting', 'creative', 'education'] as SolutionKey[])
+                  .filter(key => key === activeSolution)
+                  .map(key => {
                     const label =
                       key === 'consulting'
                         ? 'Consulting'
                         : key === 'creative'
                         ? 'Creative'
                         : 'Education';
-
                     return (
                       <button
                         key={key}
                         type="button"
                         onClick={() => setActiveSolution(key)}
                         style={{
-                          borderRadius: isActive ? '20px' : '14px',
-                          border: isActive
-                            ? '2px solid rgba(129, 140, 248, 0.6)'
-                            : '1px solid #e5e7eb',
-                          background: isActive
-                            ? 'linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%)'
-                            : '#ffffff',
-                          padding: isActive ? '2rem 1.6rem' : '1rem 1.4rem',
-                          flex: isActive ? '1' : '0 0 auto',
+                          borderRadius: '20px',
+                          border: '2px solid rgba(129, 140, 248, 0.6)',
+                          background: 'linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%)',
+                          padding: '2rem 1.6rem',
+                          width: '100%',
                           textAlign: 'left',
                           display: 'flex',
                           justifyContent: 'space-between',
-                          alignItems: isActive ? 'flex-end' : 'center',
+                          alignItems: 'flex-end',
                           cursor: 'pointer',
-                          boxShadow: isActive
-                            ? '0 8px 30px rgba(129, 140, 248, 0.15)'
-                            : 'none',
-                          fontWeight: isActive ? 700 : 600,
-                          fontSize: isActive ? '3.5rem' : '1.2rem',
-                          color: isActive ? '#3985F8' : '#374151',
+                          boxShadow: '0 8px 30px rgba(129, 140, 248, 0.15)',
+                          fontWeight: 700,
+                          fontSize: '3.5rem',
+                          color: '#3985F8',
                           transition: 'all 0.2s ease',
-                          fontFamily: isActive
-                            ? "'Karla', 'Montserrat', system-ui, sans-serif"
-                            : 'inherit'
+                          fontFamily: "'Karla', 'Montserrat', system-ui, sans-serif"
                         }}
                       >
                         <span>{label}</span>
-                        <span style={{ fontSize: '2.375rem', color: isActive ? '#3985F8' : '#9ca3af' }}>
-                          {isActive ? '←' : '→'}
-                        </span>
+                        <span style={{ fontSize: '2.375rem', color: '#3985F8' }}>←</span>
                       </button>
                     );
-                  }
-                )}
+                  })}
               </div>
 
+              {/* Solution items grid — appears second on mobile */}
               <div
                 className="qc-solution-grid"
                 style={{
@@ -490,11 +474,51 @@ export default function Page() {
                       height={36}
                       style={{ width: 36, height: 36, objectFit: 'contain' }}
                     />
-                    <div style={{ fontWeight: 500, fontSize: '1.25rem', color: '#4300b7' }}>
+                    <div style={{ fontWeight: 500, fontSize: '0.9rem', color: '#4300b7' }}>
                       {item}
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Inactive solution buttons — appears last on mobile */}
+              <div className="qc-solutions-col-inactive">
+                {(['consulting', 'creative', 'education'] as SolutionKey[])
+                  .filter(key => key !== activeSolution)
+                  .map(key => {
+                    const label =
+                      key === 'consulting'
+                        ? 'Consulting'
+                        : key === 'creative'
+                        ? 'Creative'
+                        : 'Education';
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setActiveSolution(key)}
+                        style={{
+                          borderRadius: '14px',
+                          border: '1px solid #e5e7eb',
+                          background: '#ffffff',
+                          padding: '1rem 1.4rem',
+                          width: '100%',
+                          textAlign: 'left',
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          cursor: 'pointer',
+                          fontWeight: 600,
+                          fontSize: '1.2rem',
+                          color: '#374151',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <span>{label}</span>
+                        <span style={{ fontSize: '2.375rem', color: '#9ca3af' }}>→</span>
+                      </button>
+                    );
+                  })}
               </div>
             </div>
           </div>
