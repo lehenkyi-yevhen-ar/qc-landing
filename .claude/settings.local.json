@@ -3,7 +3,12 @@
     "allow": [
       "Bash(node -e \":*)",
       "Bash(npx tsc --noEmit)",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(powershell -Command \"\\(Get-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Raw\\) -replace ''    pain: .Existing software does not fit your process\\\\?.'',''    pain: \"\"Existing software does not fit your process?\"\",'' | Set-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -NoNewline\")",
+      "Bash(powershell -Command \"$content = Get-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Raw; $line85 = \\($content -split ''\\\\n''\\)[84]; [System.Text.Encoding]::UTF8.GetBytes\\($line85[10..20]\\) | ForEach-Object { ''{0:X2}'' -f $_}\")",
+      "Bash(powershell -Command \"$content = Get-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Raw -Encoding UTF8; $content = $content -replace [char]0x2018, [char]0x27 -replace [char]0x2019, [char]0x27 -replace [char]0x201C, [char]0x22 -replace [char]0x201D, [char]0x22; Set-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Value $content -NoNewline -Encoding UTF8\")",
+      "Bash(powershell -File:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }

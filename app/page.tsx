@@ -61,10 +61,12 @@ const services = [
   {
     id: 1,
     title: 'Custom Workflow Automation',
-    pain: 'Too many manual steps stealing your team’s time?',
+    pain: "Too many manual steps stealing your team's time?",
     solution:
       'We design no-code workflows that handle data entry, task routing, and reporting—giving your team hours back every week.',
-    image: '/service-workflow.png'
+    image: '/service-workflow.png',
+    href: '/services/custom-workflow-automation',
+    imageAlt: 'workflow automation for service business operations',
   },
   {
     id: 2,
@@ -72,15 +74,19 @@ const services = [
     pain: 'No single source of truth for your data?',
     solution:
       'We connect your tools into a unified system with automated data flows and real-time dashboards that reveal your business metrics instantly.',
-    image: '/service-data.png'
+    image: '/service-data.png',
+    href: '/services/data-infrastructure-optimization',
+    imageAlt: 'business data infrastructure automation system',
   },
   {
     id: 3,
     title: 'Custom Web Applications',
-    pain: 'Existing software doesn’t fit your process?',
+    pain: "Existing software doesn't fit your process?",
     solution:
       'We build tailored apps and client portals on no-code platforms—built around how your firm actually operates.',
-    image: '/service-webapp.png'
+    image: '/service-webapp.png',
+    href: '/services/custom-web-applications',
+    imageAlt: 'custom no-code web application and client portal for service business',
   },
   {
     id: 4,
@@ -88,10 +94,11 @@ const services = [
     pain: 'Not sure where to start?',
     solution:
       'We analyze your operations, map automation opportunities, and create a detailed roadmap before development begins.',
-    image: '/service-discovery.png'
-  }
+    image: '/service-discovery.png',
+    href: '/services/discovery-strategy',
+    imageAlt: 'automation strategy workshop mapping business processes',
+  },
 ];
-
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
@@ -206,16 +213,23 @@ export default function Page() {
         {/* Hero */}
         <section id="hero" className="qc-section qc-gradient-hero">
           <div className="qc-container">
-            <div className="hero-inner" style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+            <div className="hero-inner" style={{ maxWidth: 1132, margin: '0 auto', textAlign: 'center' }}>
               <h1
+                className="type-title-72"
                 style={{
-                  fontSize: 'clamp(1.85rem, 4vw, 3.1rem)',
-                  lineHeight: 1.02,
-                  margin: '1.4rem 0 0.9rem'
+                  margin: '1.4rem 0 0'
                 }}
               >
                 Turn operational chaos into{' '}
-                <span style={{ color: 'var(--qc-purple)' }}>clarity</span> with{' '}
+                <span
+                  style={{
+                    background: 'linear-gradient(90deg, var(--qc-blue), var(--qc-pink))',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent'
+                  }}
+                >
+                  clarity
+                </span>{' '}with{' '}
                 <span
                   style={{
                     background:
@@ -228,10 +242,11 @@ export default function Page() {
                 </span>
               </h1>
               <p
+                className="type-body-lg"
                 style={{
-                  margin: '0 0 1.8rem',
-                  color: '#6b7280',
-                  fontSize: '0.98rem'
+                  margin: '31px auto 1.8rem',
+                  color: '#8b8b8b',
+                  maxWidth: '640px'
                 }}
               >
                 We help high-value service firms build intelligent systems that turn
@@ -260,26 +275,30 @@ export default function Page() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.8rem',
-                      padding: '0.35rem 0.4rem 0.35rem 0.35rem',
+                      padding: '8px',
                       borderRadius: 12,
                       background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
-                      boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)'
+                      boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',
+                      width: 340,
+                      height: 72,
+                      boxSizing: 'border-box'
                     }}
                   >
                     <div
                       style={{
                         borderRadius: 8,
                         overflow: 'hidden',
-                        width: 40,
-                        height: 40,
+                        width: 56,
+                        height: 56,
+                        flexShrink: 0,
                         border: 'none'
                       }}
                     >
                       <Image
                         src="/roman-avatar.png"
                         alt="Roman Sydorak"
-                        width={40}
-                        height={40}
+                        width={56}
+                        height={56}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
@@ -288,31 +307,31 @@ export default function Page() {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'flex-start',
-                        paddingRight: '1rem',
+                        flex: 1,
                         color: 'white'
                       }}
                     >
-                      <span
-                        style={{
-                          fontSize: '0.9rem',
-                          fontWeight: 700
-                        }}
-                      >
+                      <span className="type-body-lg-semibold">
                         Book a Call
                       </span>
                       <span
-                        style={{
-                          fontSize: '0.75rem',
-                          opacity: 0.9
-                        }}
+                        className="type-body-sm"
+                        style={{ opacity: 0.9 }}
                       >
                         Let&apos;s discuss your solution
                       </span>
                     </div>
+                    <Image
+                      src="/icons/arrow-right.png"
+                      alt=""
+                      width={24}
+                      height={24}
+                      style={{ flexShrink: 0, opacity: 0.9 }}
+                    />
                   </div>
                 </a>
 
-                <a href="#journey" className="qc-button-secondary">
+                <a href="#journey" className="qc-button-secondary type-body-lg-semibold" style={{ width: 244, height: 72, justifyContent: 'center', boxSizing: 'border-box' }}>
                   Get Free Discovery
                 </a>
               </div>
@@ -330,8 +349,8 @@ export default function Page() {
                   <Image
                     src="/hero-dashboard.png"
                     alt="Operations dashboard preview"
-                    width={960}
-                    height={520}
+                    width={1012}
+                    height={345}
                     style={{
                       width: '100%',
                       height: 'auto',
@@ -434,17 +453,17 @@ export default function Page() {
                         boxShadow: isActive
                           ? '0 8px 30px rgba(129, 140, 248, 0.15)'
                           : 'none',
-                        fontWeight: isActive ? 700 : 600,
-                        fontSize: isActive ? '3.5rem' : '1.2rem',
+                        fontFamily: "'Karla', sans-serif",
+                        fontWeight: 700,
+                        fontSize: isActive ? '56px' : '32px',
+                        letterSpacing: isActive ? '-3px' : '-2px',
+                        lineHeight: 1,
                         color: isActive ? '#3985F8' : '#374151',
                         transition: 'all 0.2s ease',
-                        fontFamily: isActive
-                          ? "'Karla', 'Montserrat', system-ui, sans-serif"
-                          : 'inherit'
                       }}
                     >
                       <span>{label}</span>
-                      <span style={{ fontSize: '2.375rem', color: isActive ? '#3985F8' : '#9ca3af' }}>
+                      <span style={{ fontSize: isActive ? '2.375rem' : '1.5rem', color: isActive ? '#3985F8' : '#9ca3af' }}>
                         {isActive ? '←' : '→'}
                       </span>
                     </button>
@@ -457,8 +476,10 @@ export default function Page() {
                 className="qc-solution-grid"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: `repeat(${Math.min(Math.ceil(solutions[activeSolution].length / 2), 3)}, 1fr)`,
-                  gap: '1.5rem'
+                  gridTemplateColumns: `repeat(${Math.min(Math.ceil(solutions[activeSolution].length / 2), 3)}, auto)`,
+                  gap: '0.65rem',
+                  justifyContent: 'start',
+                  alignContent: 'start',
                 }}
               >
                 {solutions[activeSolution].map(item => (
@@ -482,7 +503,7 @@ export default function Page() {
                       height={36}
                       style={{ width: 36, height: 36, objectFit: 'contain' }}
                     />
-                    <div style={{ fontWeight: 500, fontSize: '0.9rem', color: '#4300b7' }}>
+                    <div className="type-body-lg-medium" style={{ color: '#4300b7' }}>
                       {item}
                     </div>
                   </div>
@@ -507,7 +528,7 @@ export default function Page() {
             >
               <div>
                 <h2 className="qc-section-title"
-                    style={{ fontWeight: 800 }}
+                    style={{ fontWeight: 800, color: '#360092' }}
                 >Our Services</h2>
               </div>
               <div
@@ -515,21 +536,21 @@ export default function Page() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  fontSize: '0.85rem',
+                  gap: '4rem',
+                  fontSize: '1.25rem',
                   color: '#6b7280'
                 }}
               >
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 600, color: '#111827' }}>Team of experts</div>
-                  <div>Tailored to your needs.</div>
+                  <div style={{ fontWeight: 500, color: '#111827' }}>Team of experts</div>
+                  <div style={{fontWeight: 400, fontSize: 12}}>Tailored to your needs.</div>
                 </div>
                 <Image
                   src="/team-avatars.png"
                   alt="Team of experts"
-                  width={96}
-                  height={40}
-                  style={{ width: 96, height: 40, objectFit: 'contain' }}
+                  width={114}
+                  height={42}
+                  style={{ width: 114, height: 42, objectFit: 'contain' }}
                 />
               </div>
             </div>
@@ -559,7 +580,7 @@ export default function Page() {
                   >
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={service.imageAlt}
                       width={320}
                       height={280}
                       style={{
@@ -577,63 +598,53 @@ export default function Page() {
                       padding: '1.6rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '0.5rem',
+                      gap: '2rem',
                       justifyContent: 'center'
                     }}
                   >
                     <h3
+                      className="type-heading-b-32"
                       style={{
                         margin: 0,
-                        fontSize: '1.2rem',
-                        fontWeight: 700,
-                        background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        lineHeight: 1.25
+                        
                       }}
                     >
                       {service.title}
                     </h3>
 
-                    <div style={{ fontSize: '0.82rem' }}>
+                    <div>
                       <div
-                        style={{
-                          fontWeight: 700,
-                          fontSize: '0.7rem',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.06em',
-                          color: '#374151',
-                          marginTop: '0.4rem'
-                        }}
+                        className="type-caption-sm-bold"
+                        style={{ color: '#374151', marginTop: '0.4rem' }}
                       >
                         Pain
                       </div>
-                      <p style={{ margin: '0.2rem 0 0.5rem', color: '#8b8b8b', lineHeight: 1.5 }}>
+                      <p className="type-body" style={{ margin: '0.2rem 0 0.5rem', color: '#8b8b8b' }}>
                         {service.pain}
                       </p>
                     </div>
 
-                    <div style={{ fontSize: '0.82rem' }}>
+                    <div>
                       <div
+                        className="type-caption-sm-bold"
                         style={{
-                          fontWeight: 700,
-                          fontSize: '0.7rem',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.06em',
-                          background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
+                          display: 'inline-block',
+                          background: 'linear-gradient(90deg, #3985F8, #9291FC, #CC99FF)',
                           WebkitBackgroundClip: 'text',
+                          backgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
                           color: 'transparent'
                         }}
                       >
                         Solution
                       </div>
-                      <p style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563', lineHeight: 1.5, fontWeight: 600 }}>
+                      <p className="type-body-semibold" style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563' }}>
                         {service.solution}
                       </p>
                     </div>
 
                     <div style={{ marginTop: '0.3rem' }}>
-                      <a href="#case-studies" className="qc-button-gradient-border">
+                      <a href={service.href} className="qc-button-gradient-border">
                         Learn more
                         <span style={{ display: 'inline-flex' }}>
                           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -727,9 +738,7 @@ export default function Page() {
               See real client results
             </a>
             <span className="qc-glass-cta-arrow" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 5v14M19 12l-7 7-7-7" />
-              </svg>
+              <Image src="/icons/arrow-down.png" alt="" width={64} height={64} />
             </span>
           </div>
         </section>
@@ -900,7 +909,7 @@ export default function Page() {
         <section className="qc-section qc-technologies" id="technologies">
           <div className="qc-container">
             <header className="qc-technologies-header">
-              <h2 className="qc-technologies-title">Technologies</h2>
+              <h2 className="qc-technologies-title">We build with trusted no-code platforms</h2>
               <p className="qc-technologies-subtitle">
                 We build with trusted no-code platforms.
               </p>

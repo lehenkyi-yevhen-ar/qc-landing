@@ -6,8 +6,15 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Discovery & Strategy – QuitCode',
-  description:
-    'Minimize project risks and costs with thorough research, technical validation, and detailed roadmaps before committing significant resources.',
+  description: 'Minimize project risks and costs with thorough research, technical validation, and detailed roadmaps before committing significant resources.',
+  alternates: { canonical: 'https://www.quitcode.com/services/discovery-strategy' },
+  openGraph: {
+    title: 'Discovery & Strategy – QuitCode',
+    description: 'Thorough research and technical validation before committing to any build.',
+    url: 'https://www.quitcode.com/services/discovery-strategy',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image', title: 'Discovery & Strategy – QuitCode' },
 };
 
 const whatYouGet = [
@@ -131,20 +138,14 @@ export default function DiscoveryStrategyPage() {
                   Services
                 </span>
                 <h1
-                  style={{
-                    fontSize: '3.1rem',
-                    fontWeight: 800,
-                    lineHeight: 1.08,
-                    margin: '0 0 1.25rem',
-                    color: '#111827',
-                  }}
+                  className="type-heading-eb-48"
+                  style={{ margin: '0 0 1.25rem', color: '#111827' }}
                 >
                   Discovery &amp; Strategy
                 </h1>
                 <p
-                  style={{
-                    fontSize: '0.95rem',
-                    color: '#2e2e2e',
+                  className="type-body"
+                  style={{ color: '#2e2e2e',
                     lineHeight: 1.7,
                     margin: '0 0 2rem',
                     maxWidth: 440,
@@ -195,12 +196,8 @@ export default function DiscoveryStrategyPage() {
         <section className="qc-section">
           <div className="qc-container">
             <h2
-              style={{
-                fontSize: '2rem',
-                fontWeight: 800,
-                margin: '0 0 2.5rem',
-                color: '#111827',
-              }}
+              className="type-heading-eb-32"
+              style={{ margin: '0 0 2.5rem', color: '#111827' }}
             >
               What You Get
             </h2>
@@ -227,22 +224,14 @@ export default function DiscoveryStrategyPage() {
                   />
                   <div>
                     <h3
-                      style={{
-                        margin: '0 0 0.45rem',
-                        fontSize: '1.05rem',
-                        fontWeight: 700,
-                        color: '#111827',
-                      }}
+                      className="type-heading-b-28"
+                      style={{ margin: '0 0 0.45rem', color: '#111827' }}
                     >
                       {item.title}
                     </h3>
                     <p
-                      style={{
-                        margin: 0,
-                        fontSize: '0.875rem',
-                        color: '#6b7280',
-                        lineHeight: 1.65,
-                      }}
+                      className="type-body"
+                      style={{ margin: 0, color: '#6b7280' }}
                     >
                       {item.description}
                     </p>
@@ -260,12 +249,8 @@ export default function DiscoveryStrategyPage() {
               {/* Left */}
               <div>
                 <h2
-                  style={{
-                    fontSize: '2rem',
-                    fontWeight: 800,
-                    margin: '0 0 2rem',
-                    color: '#111827',
-                  }}
+                  className="type-heading-eb-32"
+                  style={{ margin: '0 0 2rem', color: '#111827' }}
                 >
                   Is This Right for You?
                 </h2>
@@ -294,20 +279,14 @@ export default function DiscoveryStrategyPage() {
                         style={{ objectFit: 'contain' }}
                       />
                       <div
-                        style={{
-                          fontWeight: 700,
-                          fontSize: '0.95rem',
-                          color: '#111827',
-                        }}
+                        className="type-body-semibold"
+                        style={{ color: '#111827' }}
                       >
                         {item.title}
                       </div>
                       <div
-                        style={{
-                          fontSize: '0.85rem',
-                          color: item.highlighted ? '#3985F8' : '#6b7280',
-                          lineHeight: 1.55,
-                        }}
+                        className="type-body"
+                        style={{ color: item.highlighted ? '#3985F8' : '#6b7280' }}
                       >
                         {item.description}
                       </div>
@@ -350,7 +329,7 @@ export default function DiscoveryStrategyPage() {
                 marginBottom: '2.5rem',
               }}
             >
-              <h2 style={{ fontSize: '2rem', fontWeight: 800, margin: 0, color: '#111827' }}>
+              <h2 className="type-heading-eb-32" style={{ margin: 0, color: '#111827' }}>
                 Our Process
               </h2>
               <div
@@ -391,16 +370,12 @@ export default function DiscoveryStrategyPage() {
                 style={{ width: 48, height: 48, marginBottom: '1rem', display: 'block', margin: '0 auto 1rem' }}
               />
               <h2
-                style={{
-                  fontSize: '2rem',
-                  fontWeight: 800,
-                  margin: '0 0 0.75rem',
-                  color: '#111827',
-                }}
+                className="type-heading-eb-32"
+                style={{ margin: '0 0 0.75rem', color: '#111827' }}
               >
                 Not Quite What You&apos;re Looking For?
               </h2>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: '#6b7280' }}>
+              <p className="type-body" style={{ margin: 0, color: '#6b7280' }}>
                 Explore our other services to find the perfect solution for your business
               </p>
             </div>
@@ -456,23 +431,14 @@ export default function DiscoveryStrategyPage() {
                       Services
                     </span>
                     <h3
-                      style={{
-                        margin: '0 0 0.6rem',
-                        fontSize: '1.15rem',
-                        fontWeight: 800,
-                        color: '#111827',
-                        lineHeight: 1.25,
-                      }}
+                      className="type-heading-eb-28"
+                      style={{ margin: '0 0 0.6rem', color: '#111827' }}
                     >
                       {service.title}
                     </h3>
                     <p
-                      style={{
-                        margin: '0 0 1.25rem',
-                        fontSize: '0.85rem',
-                        color: '#6b7280',
-                        lineHeight: 1.6,
-                      }}
+                      className="type-body"
+                      style={{ margin: '0 0 1.25rem', color: '#6b7280' }}
                     >
                       {service.description}
                     </p>

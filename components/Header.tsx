@@ -103,8 +103,8 @@ export function Header() {
                   <Image
                     src="/quitcode/QuitCode/Horizontal.png"
                     alt="QuitCode"
-                    width={160}
-                    height={36}
+                    width={197}
+                    height={45}
                     style={{ height: 'auto', width: 'auto' }}
                     priority
                   />
