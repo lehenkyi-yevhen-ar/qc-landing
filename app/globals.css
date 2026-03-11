@@ -360,7 +360,7 @@ button {
 .qc-about-hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 35%, #8b5cf6 65%, #a855f7 100%);
+  background: url('/about/about-bg-hero.png') center center / cover no-repeat;
   z-index: 0;
 }
 
@@ -471,13 +471,13 @@ button {
 .qc-about-split {
   position: relative;
   overflow: visible;
-  padding-top: 2rem;
+  padding-top: 0rem;
 }
 
 .qc-about-split-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(224, 231, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%);
+  background: #ffffff;
   pointer-events: none;
 }
 
@@ -847,7 +847,7 @@ button {
 .qc-about-people-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 100px 24px;
+  padding: 0px 24px;
 }
 
 .qc-about-people-badge {
@@ -1317,6 +1317,14 @@ button {
   padding-top: 0;
 }
 
+.qc-platforms-hero {
+  background:
+    url('/platforms-background.png') center center / cover no-repeat,
+    radial-gradient(ellipse at 20% 60%, rgba(204, 153, 255, 0.55) 0, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(9, 192, 255, 0.35) 0, transparent 50%),
+    linear-gradient(135deg, #f5eeff 0%, #eef6ff 50%, #f0faff 100%);
+}
+
 @media (max-width: 768px) {
   .qc-gradient-hero {
     margin-top: 0;
@@ -1474,7 +1482,7 @@ button {
 .qc-button-secondary {
   border-radius: var(--qc-radius-pill);
   padding: 0.85rem 1.9rem;
-  border: 2px solid var(--qc-border-strong);
+  border: none;
   background: #ffffff;
   font-weight: 600;
   color: #4300b7;
@@ -1483,12 +1491,29 @@ button {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.12s ease, border-color 0.12s ease;
+  position: relative;
+  z-index: 0;
+  transition: background-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.qc-button-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--qc-radius-pill);
+  padding: 2px;
+  background: linear-gradient(90deg, #3985F8, #9291fc, #CC99FF);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .qc-button-secondary:hover {
-  background: #f9fafb;
-  border-color: var(--qc-border-soft);
+  background: #f5f0ff;
+  box-shadow: 0 4px 20px rgba(99, 91, 255, 0.25);
 }
 
 .qc-button-gradient-border {
@@ -2596,7 +2621,7 @@ align-self: self-start;
 }
 
 .qc-why-nocode-wrap {
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -2639,9 +2664,13 @@ align-self: self-start;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  justify-self: center;
+  grid-template-columns: 350px 1fr;
   row-gap: 48px;
-  align-items: start;
+  column-gap: 48px;
+  align-items: center;
+  justify-items: start;
+  max-width: 80%;
 }
 
 .qc-why-nocode-row {
@@ -2652,12 +2681,12 @@ align-self: self-start;
   grid-column: 1;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 36px;
 }
 
 .qc-why-nocode-row .qc-why-nocode-desc {
   grid-column: 2;
-  margin: 0;
+  margin: 0 auto;
   font-size: 0.95rem;
   line-height: 1.5;
   opacity: 0.75;
@@ -3169,6 +3198,57 @@ button.qc-journey-input-icon-clear:hover {
   border-color: #7c3aed;
 }
 
+.qc-journey-upload-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.qc-journey-upload-list {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.qc-journey-upload-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  background: #f5f0ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #4b5563;
+  max-width: 320px;
+}
+
+.qc-journey-upload-item span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qc-journey-upload-remove {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 0;
+  line-height: 1;
+}
+
+.qc-journey-upload-remove:hover {
+  color: #ef4444;
+}
+
 .qc-journey-upload-icon {
   flex-shrink: 0;
   width: 16px;
@@ -3532,9 +3612,9 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-header-cta-discovery {
   border-radius: 12px;
-  padding: 0.5rem 1.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.9);
+  padding: 0.65rem 1.5rem;
+  border: none;
+  background: white;
   color: #5b21b6;
   font-weight: 600;
   font-size: 0.875rem;
@@ -3543,14 +3623,30 @@ button.qc-journey-input-icon-clear:hover {
   gap: 0.4rem;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
   white-space: nowrap;
+  position: relative;
+  z-index: 0;
+}
+
+.qc-header-cta-discovery::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(90deg, #3985F8, #9291fc, #CC99FF);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .qc-header-cta-discovery:hover {
-  background: #fff;
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: #f5f0ff;
+  box-shadow: 0 4px 20px rgba(99, 91, 255, 0.25);
 }
 
 .qc-header-cta-discovery .arrow-icon {
@@ -3566,7 +3662,7 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-header-cta-book {
   border-radius: 12px;
-  padding: 0.5rem 1.35rem;
+  padding: 0.65rem 1.5rem;
   border: none;
   background: #1e1b4b;
   color: #ffffff;
@@ -4395,7 +4491,9 @@ button.qc-journey-input-icon-clear:hover {
 }
 
 .plt-wyb-card {
-  background: linear-gradient(150deg, #3d1fa3 0%, #1a0060 100%);
+  background:
+    url('/platforms-cards-pattern.png') bottom right / 70% auto no-repeat,
+    #4300b7;
   border-radius: 16px;
   padding: 1.5rem 1.25rem;
   min-height: 170px;
@@ -4884,11 +4982,20 @@ button.qc-journey-input-icon-clear:hover {
 }
 
 .qc-careers-why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 260px 260px;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
+
+.qc-careers-why-row {
+  display: flex;
+  gap: 12px;
+  height: 280px;
+}
+
+.qc-careers-why-row .qc-careers-why-card--gradient { flex: 5; }
+.qc-careers-why-row .qc-careers-why-card:not(.qc-careers-why-card--gradient) { flex: 4; }
+.qc-careers-why-row .qc-careers-why-photo { flex: 3; }
 
 .qc-careers-why-cell {
   position: relative;
@@ -5025,21 +5132,16 @@ button.qc-journey-input-icon-clear:hover {
   box-shadow: 0 4px 16px rgba(108, 123, 255, 0.12);
 }
 
-.qc-careers-job-card--featured {
-  border-color: #6C7BFF;
-  border-width: 2px;
-}
-
 .qc-careers-job-title {
   font-family: 'Karla', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #6C7BFF;
+  color: #111827;
   margin: 0 0 0.5rem;
 }
 
-.qc-careers-job-card:not(.qc-careers-job-card--featured) .qc-careers-job-title {
-  color: #111827;
+.qc-careers-job-card:hover .qc-careers-job-title {
+  color: #6C7BFF;
 }
 
 .qc-careers-job-meta {
@@ -5080,10 +5182,6 @@ button.qc-journey-input-icon-clear:hover {
   transition: border-color 0.2s, background 0.2s;
 }
 
-.qc-careers-job-card--featured .qc-careers-job-arrow {
-  border-color: #6C7BFF;
-  color: #4300b7;
-}
 
 .qc-careers-job-card:hover .qc-careers-job-arrow {
   background: #f0f0ff;
@@ -5286,12 +5384,15 @@ button.qc-journey-input-icon-clear:hover {
     margin-bottom: 0;
     margin-top: 1.5rem;
   }
-  .qc-careers-why-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: unset;
+  .qc-careers-why-row {
+    flex-wrap: wrap;
+    height: auto;
   }
-  .qc-careers-why-card--gradient {
-    grid-column: span 2;
+  .qc-careers-why-row .qc-careers-why-card--gradient,
+  .qc-careers-why-row .qc-careers-why-card:not(.qc-careers-why-card--gradient),
+  .qc-careers-why-row .qc-careers-why-photo {
+    flex: 1 1 calc(50% - 6px);
+    min-height: 220px;
   }
   .qc-careers-form-grid {
     grid-template-columns: 1fr;
@@ -5306,11 +5407,15 @@ button.qc-journey-input-icon-clear:hover {
 }
 
 @media (max-width: 640px) {
-  .qc-careers-why-grid {
-    grid-template-columns: 1fr;
+  .qc-careers-why-row {
+    flex-direction: column;
+    height: auto;
   }
-  .qc-careers-why-card--gradient {
-    grid-column: unset;
+  .qc-careers-why-row .qc-careers-why-card--gradient,
+  .qc-careers-why-row .qc-careers-why-card:not(.qc-careers-why-card--gradient),
+  .qc-careers-why-row .qc-careers-why-photo {
+    flex: 1 1 100%;
+    min-height: 200px;
   }
   .qc-careers-hero-right {
     height: auto;
@@ -5439,13 +5544,28 @@ button.qc-journey-input-icon-clear:hover {
 .qc-job-apply-card {
   background: #fff;
   border-radius: 20px;
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
   width: 100%;
-  max-width: 340px;
+  max-width: 460px;
+  min-height: 240px;
   box-shadow: 0 8px 32px rgba(108, 123, 255, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.qc-job-apply-card-circle {
+  position: absolute;
+  right: -40px;
+  bottom: -20px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3985f8 0%, #9291fc 55%, #cc99ff 100%);
+  pointer-events: none;
 }
 
 .qc-job-apply-card-top {

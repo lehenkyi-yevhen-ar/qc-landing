@@ -189,11 +189,11 @@ const heroLogoCarouselLogos = [
 ];
 
 const chaosRows = [
-  { before: 'Hours lost in proposals and data entry', after: 'Proposals generated in minutes with auto-filled data', icon: '/chaos-icon-proposals.png' },
-  { before: 'Client info scattered across spreadsheets', after: 'Centralized client records and dashboards', icon: '/chaos-icon-dashboard.png' },
-  { before: 'Repetitive admin work draining the team', after: 'Automated workflows handling routine tasks', icon: '/chaos-icon-rocket.png' },
-  { before: 'No visibility into profitability or workload', after: 'Real-time reporting and margin tracking', icon: '/chaos-icon-target.png' },
-  { before: 'Disjointed client experience', after: 'Smooth, professional onboarding and communication', icon: '/chaos-icon-users.png' }
+  { beforeBold: 'Hours lost', beforeRest: ' in proposals and data entry', after: 'Proposals generated in minutes with auto-filled data', icon: '/chaos-icon-proposals.png' },
+  { beforeBold: 'Client info scattered', beforeRest: ' across spreadsheets', after: 'Centralized client records and dashboards', icon: '/chaos-icon-dashboard.png' },
+  { beforeBold: 'Repetitive admin work', beforeRest: ' draining the team', after: 'Automated workflows handling routine tasks', icon: '/chaos-icon-rocket.png' },
+  { beforeBold: 'No visibility', beforeRest: ' into profitability or workload', after: 'Real-time reporting and margin tracking', icon: '/chaos-icon-target.png' },
+  { beforeBold: 'Disjointed', beforeRest: ' client experience', after: 'Smooth, professional onboarding and communication', icon: '/chaos-icon-users.png' }
 ];
 
 export default function Page() {
@@ -262,10 +262,8 @@ export default function Page() {
                       gap: '0.8rem',
                       padding: '0.35rem 0.4rem 0.35rem 0.35rem',
                       borderRadius: 12,
-                      background:
-                        'linear-gradient(90deg, var(--qc-blue), var(--qc-pink))',
-                      boxShadow:
-                        '0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)'
+                      background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
+                      boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)'
                     }}
                   >
                     <div
@@ -274,7 +272,7 @@ export default function Page() {
                         overflow: 'hidden',
                         width: 40,
                         height: 40,
-                        border: '2px solid rgba(255,255,255,0.85)'
+                        border: 'none'
                       }}
                     >
                       <Image
@@ -682,7 +680,7 @@ export default function Page() {
             <ul className="qc-chaos-rows">
               {chaosRows.map((row, i) => (
                 <li key={i} className="qc-chaos-row">
-                  <div className="qc-chaos-card-before">{row.before}</div>
+                  <div className="qc-chaos-card-before"><strong>{row.beforeBold}</strong>{row.beforeRest}</div>
                   <div className="qc-chaos-arrow-join">
                     <Image
                       src="/chaos-arrow.png"

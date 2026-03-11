@@ -329,7 +329,7 @@ export default function CustomWorkflowAutomationPage() {
         </section>
 
         {/* ── Our Process ── */}
-        <section style={{ padding: '5rem 0', background: '#f5f9ff' }}>
+        <section style={{ padding: '5rem 0', background: '#fff' }}>
           <div className="qc-container">
             {/* Header */}
             <div

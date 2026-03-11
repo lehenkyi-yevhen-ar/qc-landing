@@ -338,7 +338,7 @@ export default function MakePlatformPage() {
       <main>
 
         {/* ── 1. Hero ── */}
-        <section className="qc-section qc-gradient-hero" style={{ paddingTop: '7rem', paddingBottom: '3rem' }}>
+        <section className="qc-section qc-gradient-hero qc-platforms-hero" style={{ paddingTop: '7rem', paddingBottom: '3rem' }}>
           <div className="qc-container">
             <div className="cwa-hero-grid">
               {/* Left */}
@@ -560,8 +560,12 @@ export default function MakePlatformPage() {
             <div className="plt-automation-grid">
               {/* Left – section image */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Image src="/make-automations-section.png" alt="Make automation and integrations"
-                  width={520} height={360} style={{ width: '100%', height: 'auto', borderRadius: '16px' }} />
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <Image src="/make-automations-section.png" alt="Make automation and integrations"
+                    width={520} height={360} style={{ width: '100%', height: 'auto', borderRadius: '16px' }} />
+                  <Image src="/user-quitcode-mouse.png" alt="" width={120} height={60}
+                    style={{ position: 'absolute', bottom: '1rem', right: '1rem', width: '120px', height: 'auto', pointerEvents: 'none' }} />
+                </div>
               </div>
 
               {/* Right */}

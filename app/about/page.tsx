@@ -52,7 +52,7 @@ const VALUES = [
 
 const PEOPLE = [
   { name: 'Roman Sydorak', role: 'CEO & Strategic Operations Advisor', image: '/roman-sydorak.png', linkedin: 'https://linkedin.com' },
-  { name: 'Nastia Kotsinska', role: 'Sales Manager', image: '/team/nastia-kotsinska.png', linkedin: 'https://linkedin.com' },
+  { name: 'Nastia Kotsinska', role: 'Sales Manager', image: '/careers/nastia-photo.png', linkedin: 'https://linkedin.com' },
   { name: 'Olenka Leshchyshyn', role: 'Operations', image: '/team/olenka-leshchyshyn.png', linkedin: 'https://linkedin.com' },
   { name: 'Taras Haioshko', role: 'Solutions', image: '/team/taras-haioshko.png', linkedin: 'https://linkedin.com' },
   { name: 'Hryhorii Haponiuk', role: 'Delivery', image: '/team/hryhorii-haponiuk.png', linkedin: 'https://linkedin.com' }

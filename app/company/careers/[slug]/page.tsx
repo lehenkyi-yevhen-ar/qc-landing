@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
-import { JOBS, getJob } from '@/lib/jobs';
+import { getJob } from '@/lib/jobs';
 
 function CheckIcon() {
   return (
@@ -118,35 +118,16 @@ export default function JobPage() {
 
             <div className="qc-job-hero-right">
               <div className="qc-job-apply-card">
-                <div className="qc-job-apply-card-top">
-                  <div>
-                    <p className="qc-job-apply-card-title">Apply for this role</p>
-                    <p className="qc-job-apply-card-sub">and join a team of professionals</p>
-                  </div>
-                  <div className="qc-job-apply-card-avatar-wrap">
-                    <div className="qc-job-apply-card-avatars">
-                      <Image src="/careers/nastia-photo.png" alt="" width={36} height={36} className="qc-job-apply-card-avatar" style={{ objectFit: 'cover' }} />
-                      <Image src="/roman-avatar.png" alt="" width={36} height={36} className="qc-job-apply-card-avatar" style={{ objectFit: 'cover' }} />
-                      <Image src="/hero-avatar.png" alt="" width={36} height={36} className="qc-job-apply-card-avatar" style={{ objectFit: 'cover' }} />
-                    </div>
-                    <div className="qc-job-apply-card-profile">
-                      <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden>
-                        <circle cx="20" cy="20" r="20" fill="url(#profile-grad)" />
-                        <ellipse cx="20" cy="16" rx="7" ry="7" fill="white" fillOpacity="0.7" />
-                        <ellipse cx="20" cy="36" rx="13" ry="10" fill="white" fillOpacity="0.5" />
-                        <defs>
-                          <linearGradient id="profile-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#a5b4fc" />
-                            <stop offset="1" stopColor="#818cf8" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                  </div>
+                <div>
+                  <p className="qc-job-apply-card-title">Apply for this role</p>
+                  <p className="qc-job-apply-card-sub">and join a team of professionals</p>
                 </div>
-                <Link href="#apply" className="qc-job-apply-card-btn">
-                  Apply now →
-                </Link>
+                <div className="qc-job-apply-card-avatars">
+                  <Image src="/team-avatars.png" alt="Team" width={160} height={60} style={{ objectFit: 'contain' }} />
+                </div>
+                <div className="qc-job-apply-card-circle" aria-hidden>
+                  <Image src="/careers/avatar.png" alt="" fill style={{ objectFit: 'contain', objectPosition: 'bottom center' }} />
+                </div>
               </div>
             </div>
           </div>

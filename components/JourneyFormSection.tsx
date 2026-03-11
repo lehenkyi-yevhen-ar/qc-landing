@@ -14,6 +14,21 @@ export function JourneyFormSection() {
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
   const industryDropdownRef = useRef<HTMLDivElement>(null);
+  const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = Array.from(e.target.files || []);
+    setAttachedFiles(prev => {
+      const combined = [...prev, ...selected];
+      return combined.slice(0, 3);
+    });
+    e.target.value = '';
+  };
+
+  const removeFile = (index: number) => {
+    setAttachedFiles(prev => prev.filter((_, i) => i !== index));
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -237,13 +252,39 @@ export function JourneyFormSection() {
               </div>
 
               <div className="qc-journey-upload-wrap">
-                <button type="button" className="qc-journey-upload-btn">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf,.docx,.xlsx"
+                  multiple
+                  style={{ display: 'none' }}
+                  onChange={handleFileChange}
+                />
+                <button
+                  type="button"
+                  className="qc-journey-upload-btn"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={attachedFiles.length >= 3}
+                >
                   <svg className="qc-journey-upload-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
                   Attach a file (optional)
                 </button>
                 <p className="qc-journey-upload-helper">
-                  Supported: PDF, DOCX, XLSX (max 10MB)
+                  Supported: PDF, DOCX, XLSX (max 10MB) · up to 3 files
                 </p>
+                {attachedFiles.length > 0 && (
+                  <ul className="qc-journey-upload-list">
+                    {attachedFiles.map((file, i) => (
+                      <li key={i} className="qc-journey-upload-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span>{file.name}</span>
+                        <button type="button" className="qc-journey-upload-remove" onClick={() => removeFile(i)} aria-label="Remove file">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="qc-journey-cta-wrap">

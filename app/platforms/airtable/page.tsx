@@ -183,7 +183,6 @@ function AirtableFormSection() {
               (or planning to), and we&apos;ll help you{' '}
               <span style={{ color: '#3985f8' }}>design a clean, scalable system</span>{' '}
               — not just another base.{' '}
-              <span style={{ fontSize: '1.5rem' }}>🎯</span>
             </h2>
             <p style={{ margin: 0, fontSize: '0.92rem', color: '#6b7280' }}>
               Practical recommendations. No sales pressure.
@@ -339,7 +338,7 @@ export default function AirtablePlatformPage() {
       <main>
 
         {/* ── 1. Hero ── */}
-        <section className="qc-section qc-gradient-hero" style={{ paddingTop: '7rem', paddingBottom: '3rem' }}>
+        <section className="qc-section qc-gradient-hero qc-platforms-hero" style={{ paddingTop: '7rem', paddingBottom: '3rem' }}>
           <div className="qc-container">
             <div className="cwa-hero-grid">
               {/* Left */}
@@ -561,8 +560,12 @@ export default function AirtablePlatformPage() {
             <div className="plt-automation-grid">
               {/* Left – section image */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Image src="/airtable-automations-section.png" alt="Airtable automation and integrations"
-                  width={520} height={360} style={{ width: '100%', height: 'auto', borderRadius: '16px' }} />
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <Image src="/airtable-automations-section.png" alt="Airtable automation and integrations"
+                    width={520} height={360} style={{ width: '100%', height: 'auto', borderRadius: '16px' }} />
+                  <Image src="/user-quitcode-mouse.png" alt="" width={120} height={60}
+                    style={{ position: 'absolute', bottom: '1rem', right: '1rem', width: '120px', height: 'auto', pointerEvents: 'none' }} />
+                </div>
               </div>
 
               {/* Right */}

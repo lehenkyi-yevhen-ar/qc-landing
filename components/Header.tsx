@@ -168,21 +168,7 @@ export function Header() {
                   className="qc-header-cta-discovery"
                 >
                   <span>Get Free Discovery</span>
-                  <span className="arrow-icon" aria-hidden="true">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="3" y1="13" x2="13" y2="3" />
-                      <polyline points="6 3 13 3 13 10" />
-                    </svg>
-                  </span>
+                 
                 </a>
                 <a
                   href="https://calendly.com/quitcode/30min"
@@ -242,21 +228,7 @@ export function Header() {
         <div className="qc-header-menu-ctas">
           <a href="/#journey" onClick={closeMenu} className="qc-header-cta-discovery">
             <span>Get Free Discovery</span>
-            <span className="arrow-icon" aria-hidden="true">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="3" y1="13" x2="13" y2="3" />
-                <polyline points="6 3 13 3 13 10" />
-              </svg>
-            </span>
+           
           </a>
           <a
             href="https://calendly.com/quitcode/30min"

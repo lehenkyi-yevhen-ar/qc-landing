@@ -193,32 +193,38 @@ export default function CareersPage() {
           <div className="qc-container">
             <h2 className="qc-careers-why-title">Why Join QuitCode</h2>
             <div className="qc-careers-why-grid">
-              {WHY_JOIN.map((item, i) => {
-                if (item.type === 'photo') {
-                  return (
+              {/* Row 1: wide(white) | square(photo) | widest(gradient) */}
+              <div className="qc-careers-why-row">
+                {[WHY_JOIN[2], WHY_JOIN[1], WHY_JOIN[0]].map((item, i) => {
+                  if (item.type === 'photo') return (
                     <div key={i} className="qc-careers-why-cell qc-careers-why-photo">
-                      <Image
-                        src={item.src!}
-                        alt={item.alt!}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 400px"
-                        style={{ objectFit: 'cover' }}
-                      />
+                      <Image src={item.src!} alt={item.alt!} fill sizes="400px" style={{ objectFit: 'cover' }} />
                     </div>
                   );
-                }
-                return (
-                  <div
-                    key={i}
-                    className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}
-                  >
-                    <div className="qc-careers-why-card-icon">
-                      {item.iconFallback}
+                  return (
+                    <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
+                      <div className="qc-careers-why-card-icon">{item.iconFallback}</div>
+                      <p className="qc-careers-why-card-text">{item.text}</p>
                     </div>
-                    <p className="qc-careers-why-card-text">{item.text}</p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              {/* Row 2: widest(gradient) | wide(white) | square(photo) */}
+              <div className="qc-careers-why-row">
+                {[WHY_JOIN[3], WHY_JOIN[4], WHY_JOIN[5]].map((item, i) => {
+                  if (item.type === 'photo') return (
+                    <div key={i} className="qc-careers-why-cell qc-careers-why-photo">
+                      <Image src={item.src!} alt={item.alt!} fill sizes="400px" style={{ objectFit: 'cover' }} />
+                    </div>
+                  );
+                  return (
+                    <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
+                      <div className="qc-careers-why-card-icon">{item.iconFallback}</div>
+                      <p className="qc-careers-why-card-text">{item.text}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
