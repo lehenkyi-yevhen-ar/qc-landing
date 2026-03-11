@@ -32,7 +32,7 @@ export default function BlogPage() {
             <Breadcrumb
               crumbs={[
                 { label: 'Home', href: '/' },
-                { label: 'Company', href: '#', inactive: true },
+                { label: 'Insights', href: '#', inactive: true },
                 { label: 'Blog', href: '/blog' },
               ]}
             />
