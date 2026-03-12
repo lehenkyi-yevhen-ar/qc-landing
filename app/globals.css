@@ -400,19 +400,22 @@ button {
 }
 
 .qc-about-hero-title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-family: 'Karla', sans-serif;
+  font-size: 48px;
   font-weight: 800;
   color: #ffffff;
   margin: 0 0 0.75rem;
-  line-height: 1.15;
+  line-height: 1;
+  letter-spacing: -3px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .qc-about-hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 20px;
+  letter-spacing: -0.6px;
   color: rgba(255, 255, 255, 0.92);
   margin: 0 auto 1.75rem;
-  line-height: 1.55;
+  line-height: 1.2;
   max-width: 640px;
 }
 
@@ -547,11 +550,13 @@ button {
 }
 
 .qc-about-split-title {
-  font-size: 1.35rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 28px;
   font-weight: 700;
   color: #1e1b4b;
   margin: 0 0 1rem;
-  line-height: 1.4;
+  line-height: 1;
+  letter-spacing: -2px;
 }
 
 .qc-about-split-highlight {
@@ -591,9 +596,10 @@ button {
 }
 
 .qc-about-split-desc {
-  font-size: 0.95rem;
+  font-size: 16px;
+  letter-spacing: -0.6px;
   color: #6b7280;
-  line-height: 1.6;
+  line-height: 1.2;
   margin: 0;
   width: 100%;
 }
@@ -610,8 +616,11 @@ button {
 /* Track record */
 .qc-about-track-title {
   text-align: center;
-  font-size: 1.75rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 32px;
   font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
   color: #1b0049;
   margin: 0 0 2rem;
 }
@@ -636,11 +645,12 @@ button {
 }
 
 .qc-about-track-card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
   color: #1e1b4b;
   margin: 0 0 1rem;
-  line-height: 1.35;
+  line-height: 1.2;
 }
 
 .qc-about-track-highlight {
@@ -658,8 +668,11 @@ button {
 }
 
 .qc-about-track-metric {
-  font-size: 2rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 32px;
   font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
   background: linear-gradient(90deg, #2563eb, #6C7BFF);
   -webkit-background-clip: text;
   background-clip: text;
@@ -668,10 +681,11 @@ button {
 }
 
 .qc-about-track-desc {
-  font-size: 0.9rem;
+  font-size: 12px;
+  letter-spacing: -0.6px;
   color: #6b7280;
   margin: 0 0 1rem;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .qc-about-track-score {
@@ -749,8 +763,11 @@ button {
 }
 
 .qc-about-mission-heading {
-  font-size: 2.3rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
   font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
   margin: 0.25rem 0 0;
   color: #fff;
 }
@@ -765,10 +782,11 @@ button {
 }
 
 .qc-about-mission-title {
-  font-size: 1.35rem;
+  font-size: 20px;
   font-weight: 400;
+  letter-spacing: -0.6px;
   margin: 0 0 1rem;
-  line-height: 1.4;
+  line-height: 1.2;
   color: #fff;
 }
 
@@ -777,9 +795,10 @@ button {
 }
 
 .qc-about-mission-para {
-  font-size: 0.95rem;
+  font-size: 16px;
+  letter-spacing: -0.6px;
   color: rgba(255, 255, 255, 0.92);
-  line-height: 1.6;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -795,8 +814,11 @@ button {
 }
 
 .qc-about-mission-values-heading {
-  font-size: 2.3rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
   font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
   margin: 0.25rem 0 0;
   color: #fff;
 }
@@ -837,16 +859,19 @@ button {
 
 .qc-about-value-title {
   display: block;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #fff;
 }
 
 .qc-about-value-text {
-  font-size: 0.9rem;
+  font-size: 12px;
+  letter-spacing: -0.6px;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -872,8 +897,11 @@ button {
 }
 
 .qc-about-people-title {
+  font-family: 'Karla', sans-serif;
   font-size: 40px;
   font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1;
   margin-top: 12px;
   margin-bottom: 0;
   color: #1e1b4b;
@@ -1025,12 +1053,16 @@ button {
 .qc-about-people-join-title {
   font-size: 20px;
   font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
   color: #1e1b4b;
   margin: 0 0 4px;
 }
 
 .qc-about-people-join-subtitle {
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
   color: #6B7280;
   margin: 0;
 }
@@ -5917,20 +5949,21 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-cs-title {
   margin: 0;
-  font-size: 2.6rem;
+  font-size: 48px;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1;
   color: #111827;
-  font-family: 'Karla', 'Montserrat', system-ui, sans-serif;
-  letter-spacing: -0.02em;
+  font-family: 'Karla', sans-serif;
+  letter-spacing: -3px;
 }
 
 .qc-cs-subtitle {
   margin: 0;
   max-width: 580px;
-  font-size: 0.95rem;
+  font-size: 16px;
+  letter-spacing: -0.6px;
   color: #6b7280;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 /* Articles list */
@@ -6132,7 +6165,8 @@ button.qc-journey-input-icon-clear:hover {
 
 @media (max-width: 768px) {
   .qc-cs-title {
-    font-size: 2rem;
+    font-size: 32px;
+    letter-spacing: -2px;
   }
 
   .qc-cs-card {
@@ -6154,7 +6188,8 @@ button.qc-journey-input-icon-clear:hover {
   }
 
   .qc-cs-title {
-    font-size: 1.75rem;
+    font-size: 28px;
+    letter-spacing: -2px;
   }
 
   .qc-cs-articles-section {
@@ -6839,19 +6874,21 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-blog-title {
   margin: 0;
-  font-size: 2.8rem;
+  font-size: 48px;
   font-weight: 800;
+  line-height: 1;
   color: #111827;
-  font-family: 'Karla', 'Montserrat', system-ui, sans-serif;
-  letter-spacing: -0.02em;
+  font-family: 'Karla', sans-serif;
+  letter-spacing: -3px;
 }
 
 .qc-blog-subtitle {
   margin: 0;
   max-width: 560px;
-  font-size: 0.9rem;
+  font-size: 16px;
+  letter-spacing: -0.6px;
   color: #6b7280;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 /* Posts section */
@@ -6950,7 +6987,8 @@ button.qc-journey-input-icon-clear:hover {
 
 @media (max-width: 580px) {
   .qc-blog-title {
-    font-size: 2rem;
+    font-size: 32px;
+    letter-spacing: -2px;
   }
 
   .qc-blog-grid {
