@@ -1,42 +1,72 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { testimonialsData } from '@/lib/data';
+
+const PAIR_WIDTH = 1220; // 600 text + 20 gap + 600 video
 
 export function TestimonialsSection() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isMobile, setIsMobile] = useState(
     () => typeof window !== 'undefined' && window.innerWidth <= 768
   );
+  const [isTablet, setIsTablet] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth > 768 && window.innerWidth <= 1024
+  );
+  const [tabletStep, setTabletStep] = useState(560);
+  const sectionRef = useRef<HTMLElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 768);
+    const check = () => {
+      const w = window.innerWidth;
+      setIsMobile(w <= 768);
+      setIsTablet(w > 768 && w <= 1024);
+    };
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  useEffect(() => {
+    const recalc = () => {
+      if (viewportRef.current && isTablet) {
+        setTabletStep(viewportRef.current.offsetWidth - 32);
+      }
+    };
+    recalc();
+    window.addEventListener('resize', recalc);
+    return () => window.removeEventListener('resize', recalc);
+  }, [isTablet]);
+
+  const scrollToSection = () => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const getTranslate = () => {
+    if (isMobile) return -activeTestimonial * 280;
+    if (isTablet) return -activeTestimonial * tabletStep;
+    return -activeTestimonial * PAIR_WIDTH;
+  };
+
   return (
-    <section className="qc-section qc-testimonials">
+    <section className="qc-section qc-testimonials" ref={sectionRef}>
       <div className="qc-testimonials-outer">
         <div className="qc-testimonials-header-row">
-          <div className="qc-testimonials-header-bars" aria-hidden>
-            <img src="/testimonials/frame-left.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-left" />
-            <img src="/testimonials/frame-right.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-right" />
-          </div>
+          <img src="/testimonials/frame-left.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-left" aria-hidden />
           <div className="qc-testimonials-header">
-            <h2 className="qc-testimonials-title">What our clients say</h2>
+            <h2 className="qc-testimonials-title">Let our clients speak for us</h2>
             <p className="qc-testimonials-subtitle">
-              Real feedback from consulting, creative, and education teams we&apos;ve helped streamline.
+              The best way to understand QuitCode isn&apos;t through our words &mdash; it&apos;s through the experiences of the teams we work with.
             </p>
           </div>
+          <img src="/testimonials/frame-right.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-right" aria-hidden />
         </div>
 
-        <div className="qc-testimonials-viewport">
+        <div className="qc-testimonials-viewport" ref={viewportRef}>
           <div
             className="qc-testimonials-track"
-            style={{
-              transform: `translateX(${isMobile ? -activeTestimonial * 280 : 236 - activeTestimonial * 628}px)`
-            }}
+            style={{ transform: `translateX(${getTranslate()}px)` }}
           >
             <div className="qc-testimonials-card qc-testimonials-card-peek qc-testimonials-card-peek-left">
               <div className="qc-testimonials-card-faded-content">
@@ -56,8 +86,8 @@ export function TestimonialsSection() {
                         key={i}
                         src="/testimonials/star-review.png"
                         alt=""
-                        width={18}
-                        height={18}
+                        width={40}
+                        height={40}
                         className="qc-testimonials-star"
                       />
                     ))}
@@ -67,22 +97,22 @@ export function TestimonialsSection() {
                     <Image
                       src="/testimonials/avatar.png"
                       alt=""
-                      width={36}
-                      height={36}
+                      width={56}
+                      height={56}
                       className="qc-testimonials-avatar"
                     />
                     <div className="qc-testimonials-verified-author-container">
-                      <Image
-                        src="/testimonials/verified.png"
-                        alt="Verified client"
-                        width={75}
-                        height={19}
-                        className="qc-testimonials-verified"
-                      />
+                      <div className="qc-testimonials-verified-name-row">
+                        <Image
+                          src="/testimonials/verified.png"
+                          alt="Verified client"
+                          width={75}
+                          height={19}
+                          className="qc-testimonials-verified"
+                        />
+                        <div className="qc-testimonials-name">{item.name}</div>
+                      </div>
                       <div className="qc-testimonials-role">{item.role}</div>
-                    </div>
-                    <div className="qc-testimonials-meta">
-                      <div className="qc-testimonials-name">{item.name}</div>
                     </div>
                   </div>
                 </article>
@@ -126,24 +156,26 @@ export function TestimonialsSection() {
             <button
               type="button"
               className="qc-case-btn qc-case-btn-prev"
-              onClick={() =>
+              onClick={() => {
                 setActiveTestimonial(
                   (activeTestimonial - 1 + testimonialsData.length) % testimonialsData.length
-                )
-              }
+                );
+                scrollToSection();
+              }}
               aria-label="Previous testimonial"
             >
-              ←
+              <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
             </button>
             <button
               type="button"
               className="qc-case-btn qc-case-btn-next"
-              onClick={() =>
-                setActiveTestimonial((activeTestimonial + 1) % testimonialsData.length)
-              }
+              onClick={() => {
+                setActiveTestimonial((activeTestimonial + 1) % testimonialsData.length);
+                scrollToSection();
+              }}
               aria-label="Next testimonial"
             >
-              →
+              <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { JourneyFormSection } from '@/components/JourneyFormSection';
@@ -206,6 +206,11 @@ const chaosRows = [
 export default function Page() {
   const [activeSolution, setActiveSolution] = useState<SolutionKey>('consulting');
   const [activeCase, setActiveCase] = useState(0);
+  const caseStudiesRef = useRef<HTMLElement>(null);
+
+  const scrollToCaseStudies = () => {
+    caseStudiesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="qc-page">
@@ -279,7 +284,7 @@ export default function Page() {
                       borderRadius: 12,
                       background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
                       boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',
-                      width: 340,
+                      minWidth: 260,
                       height: 72,
                       boxSizing: 'border-box'
                     }}
@@ -331,7 +336,7 @@ export default function Page() {
                   </div>
                 </a>
 
-                <a href="#journey" className="qc-button-secondary type-body-lg-semibold" style={{ width: 244, height: 72, justifyContent: 'center', boxSizing: 'border-box' }}>
+                <a href="#journey" className="qc-button-secondary type-body-lg-semibold" style={{ minWidth: 200, height: 72, justifyContent: 'center', boxSizing: 'border-box', padding: '0 1.5rem' }}>
                   Get Free Discovery
                 </a>
               </div>
@@ -744,7 +749,7 @@ export default function Page() {
         </section>
 
         {/* Real Firms – Case studies: 3-card carousel */}
-        <section id="case-studies" className="qc-section qc-case-studies">
+        <section id="case-studies" className="qc-section qc-case-studies" ref={caseStudiesRef}>
           <div className="qc-container">
             <div className="qc-case-studies-header">
               <h2 className="qc-case-studies-title">
@@ -834,18 +839,18 @@ export default function Page() {
                 <button
                   type="button"
                   className="qc-case-btn qc-case-btn-prev"
-                  onClick={() => setActiveCase((activeCase - 1 + 3) % 3)}
+                  onClick={() => { setActiveCase((activeCase - 1 + 3) % 3); scrollToCaseStudies(); }}
                   aria-label="Previous slide"
                 >
-                  ←
+                  <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
                 </button>
                 <button
                   type="button"
                   className="qc-case-btn qc-case-btn-next"
-                  onClick={() => setActiveCase((activeCase + 1) % 3)}
+                  onClick={() => { setActiveCase((activeCase + 1) % 3); scrollToCaseStudies(); }}
                   aria-label="Next slide"
                 >
-                  →
+                  <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
                 </button>
               </div>
             </div>
@@ -879,11 +884,11 @@ export default function Page() {
               </a>
               <div className="qc-conversation-benefits">
                 <span className="qc-conversation-benefit">
-                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  <Image src="/icons/star-conv.png" alt="" width={20} height={20} className="qc-conversation-star" aria-hidden />
                   Free 30‑minute strategy session
                 </span>
                 <span className="qc-conversation-benefit">
-                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  <Image src="/icons/star-conv.png" alt="" width={20} height={20} className="qc-conversation-star" aria-hidden />
                   No sales pressure—just practical insights
                 </span>
               </div>
@@ -909,7 +914,7 @@ export default function Page() {
         <section className="qc-section qc-technologies" id="technologies">
           <div className="qc-container">
             <header className="qc-technologies-header">
-              <h2 className="qc-technologies-title">We build with trusted no-code platforms</h2>
+              <h2 className="qc-technologies-title">Technologies</h2>
               <p className="qc-technologies-subtitle">
                 We build with trusted no-code platforms.
               </p>

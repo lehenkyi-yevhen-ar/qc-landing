@@ -10,8 +10,8 @@ export function Footer() {
             <Image
               src="/footer/quitcode-logo-big.png"
               alt="QuitCode"
-              width={160}
-              height={40}
+              width={314}
+              height={72}
               className="qc-footer-logo"
             />
             <p className="qc-footer-card-desc">

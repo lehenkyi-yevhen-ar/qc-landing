@@ -102,16 +102,15 @@ export function JourneyFormSection() {
                       placeholder="Type here..."
                       className="qc-input qc-journey-input"
                     />
-                    {form.name ? (
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, name: '' }))}
-                        aria-label="Clear name"
-                      >
-                        ×
-                      </button>
-                    ) : null}
+                    <button
+                      type="button"
+                      className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                      onClick={() => setForm(c => ({ ...c, name: '' }))}
+                      aria-label="Clear name"
+                    >
+                      <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                      <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                    </button>
                   </div>
                 </div>
                 <div className="qc-journey-field">
@@ -128,16 +127,15 @@ export function JourneyFormSection() {
                       placeholder="Type here..."
                       className="qc-input qc-journey-input"
                     />
-                    {form.email ? (
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, email: '' }))}
-                        aria-label="Clear email"
-                      >
-                        ×
-                      </button>
-                    ) : null}
+                    <button
+                      type="button"
+                      className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                      onClick={() => setForm(c => ({ ...c, email: '' }))}
+                      aria-label="Clear email"
+                    >
+                      <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                      <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                    </button>
                   </div>
                 </div>
                 <div className="qc-journey-field">
@@ -153,16 +151,15 @@ export function JourneyFormSection() {
                       placeholder="Type here..."
                       className="qc-input qc-journey-input"
                     />
-                    {form.company ? (
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, company: '' }))}
-                        aria-label="Clear company"
-                      >
-                        ×
-                      </button>
-                    ) : null}
+                    <button
+                      type="button"
+                      className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                      onClick={() => setForm(c => ({ ...c, company: '' }))}
+                      aria-label="Clear company"
+                    >
+                      <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                      <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                    </button>
                   </div>
                 </div>
                 <div className="qc-journey-field qc-journey-field-dropdown" ref={industryDropdownRef}>
@@ -191,10 +188,13 @@ export function JourneyFormSection() {
                         }}
                         aria-label="Clear industry"
                       >
-                        ×
+                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
                       </button>
                     ) : null}
-                    <span className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-chevron" aria-hidden>▼</span>
+                    <span className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-chevron" aria-hidden>
+                      <Image src="/icons/dropdown-forms-icon.png" alt="" width={25} height={25} />
+                    </span>
                     {industryDropdownOpen && (
                       <div className="qc-dropdown-panel" role="listbox" aria-label="Industry options">
                         {industryOptions.map(option => (
@@ -238,7 +238,7 @@ export function JourneyFormSection() {
               </div>
 
               <div className="qc-journey-field">
-                <label htmlFor="journey-challenge" className="qc-journey-label">
+                <label htmlFor="journey-challenge" className="qc-journey-label qc-journey-label-mult">
                   Tell us about your challenge
                 </label>
                 <textarea
@@ -266,7 +266,7 @@ export function JourneyFormSection() {
                   onClick={() => fileInputRef.current?.click()}
                   disabled={attachedFiles.length >= 3}
                 >
-                  <svg className="qc-journey-upload-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
+                  <Image src="/icons/attach-icon.png" alt="" width={24} height={24} />
                   Attach a file (optional)
                 </button>
                 <p className="qc-journey-upload-helper">
