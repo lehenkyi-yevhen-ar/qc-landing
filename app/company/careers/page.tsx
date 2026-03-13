@@ -297,14 +297,15 @@ export default function CareersPage() {
                         onChange={e => setForm(c => ({ ...c, firstName: e.target.value }))}
                         className="qc-input qc-journey-input"
                       />
-                      {form.firstName && (
-                        <button
-                          type="button"
-                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                          onClick={() => setForm(c => ({ ...c, firstName: '' }))}
-                          aria-label="Clear first name"
-                        >×</button>
-                      )}
+                      <button
+                        type="button"
+                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                        onClick={() => setForm(c => ({ ...c, firstName: '' }))}
+                        aria-label="Clear first name"
+                      >
+                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                      </button>
                     </div>
                   </div>
 
@@ -322,14 +323,15 @@ export default function CareersPage() {
                         onChange={e => setForm(c => ({ ...c, lastName: e.target.value }))}
                         className="qc-input qc-journey-input"
                       />
-                      {form.lastName && (
-                        <button
-                          type="button"
-                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                          onClick={() => setForm(c => ({ ...c, lastName: '' }))}
-                          aria-label="Clear last name"
-                        >×</button>
-                      )}
+                      <button
+                        type="button"
+                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                        onClick={() => setForm(c => ({ ...c, lastName: '' }))}
+                        aria-label="Clear last name"
+                      >
+                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                      </button>
                     </div>
                   </div>
 
@@ -346,14 +348,15 @@ export default function CareersPage() {
                         onChange={e => setForm(c => ({ ...c, linkedin: e.target.value }))}
                         className="qc-input qc-journey-input"
                       />
-                      {form.linkedin && (
-                        <button
-                          type="button"
-                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                          onClick={() => setForm(c => ({ ...c, linkedin: '' }))}
-                          aria-label="Clear LinkedIn"
-                        >×</button>
-                      )}
+                      <button
+                        type="button"
+                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                        onClick={() => setForm(c => ({ ...c, linkedin: '' }))}
+                        aria-label="Clear LinkedIn"
+                      >
+                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                      </button>
                     </div>
                   </div>
 
@@ -367,47 +370,47 @@ export default function CareersPage() {
                         placeholder="Any questions or context you'd like to share?"
                         value={form.message}
                         onChange={e => setForm(c => ({ ...c, message: e.target.value }))}
-                        className="qc-input qc-journey-input qc-careers-textarea"
+                        className="qc-journey-textarea"
                         rows={4}
                       />
                     </div>
                   </div>
 
-                  <div className="qc-careers-upload-wrap">
-                    <button
-                      type="button"
-                      className="qc-careers-upload-btn"
-                      onClick={() => fileInputRef.current?.click()}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                        <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
-                      </svg>
-                      {form.cvFile ? form.cvFile.name : 'Upload CV'}
-                    </button>
+                  <div className="qc-journey-upload-wrap">
                     <input
                       ref={fileInputRef}
                       type="file"
                       accept=".pdf,.docx"
-                      className="qc-careers-file-input"
+                      style={{ display: 'none' }}
                       onChange={e => setForm(c => ({ ...c, cvFile: e.target.files?.[0] ?? null }))}
                       aria-label="Upload CV"
                     />
+                    <button
+                      type="button"
+                      className="qc-journey-upload-btn"
+                      onClick={() => fileInputRef.current?.click()}
+                    >
+                      <Image src="/icons/attach-icon.png" alt="" width={24} height={24} />
+                      {form.cvFile ? form.cvFile.name : 'Attach CV (optional)'}
+                    </button>
                     <p className="qc-journey-upload-helper">Supported: PDF, DOCX (max 10MB)</p>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="qc-careers-submit-btn"
-                    disabled={isSubmitting}
-                  >
-                    <span>{isSubmitting ? 'Sending…' : 'Submit'}</span>
-                    <span aria-hidden>→</span>
-                  </button>
+                  <div className="qc-journey-cta-wrap">
+                    <button
+                      type="submit"
+                      className="qc-journey-cta qc-conversation-cta"
+                      disabled={isSubmitting}
+                    >
+                      <span>{isSubmitting ? 'Sending…' : 'Submit Application'}</span>
+                      <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                    </button>
+                  </div>
 
-                  <p className="qc-careers-form-note">
-                    <span className="qc-careers-form-note-star" aria-hidden>✦</span>
-                    Nastia usually replies within 1–2 business days
-                  </p>
+                  <ul className="qc-journey-trust">
+                    <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Nastia usually replies within 1–2 business days</li>
+                    <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
+                  </ul>
 
                   {formStatus === 'success' && (
                     <p className="qc-journey-form-status qc-journey-form-status-success">

@@ -551,12 +551,12 @@ button {
 
 .qc-about-split-title {
   font-family: 'Karla', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e1b4b;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
   margin: 0 0 1rem;
   line-height: 1;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
 }
 
 .qc-about-split-highlight {
@@ -617,11 +617,11 @@ button {
 .qc-about-track-title {
   text-align: center;
   font-family: 'Karla', sans-serif;
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 800;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
   line-height: 1;
-  color: #1b0049;
+  color: #111827;
   margin: 0 0 2rem;
 }
 
@@ -764,7 +764,7 @@ button {
 
 .qc-about-mission-heading {
   font-family: 'Karla', sans-serif;
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 800;
   letter-spacing: -3px;
   line-height: 1;
@@ -815,9 +815,9 @@ button {
 
 .qc-about-mission-values-heading {
   font-family: 'Karla', sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: -3px;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -2px;
   line-height: 1;
   margin: 0.25rem 0 0;
   color: #fff;
@@ -898,13 +898,13 @@ button {
 
 .qc-about-people-title {
   font-family: 'Karla', sans-serif;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 800;
   letter-spacing: -3px;
   line-height: 1;
   margin-top: 12px;
   margin-bottom: 0;
-  color: #1e1b4b;
+  color: #111827;
   margin: 0 auto;
   align-self: center;
   display: block;
@@ -4299,7 +4299,8 @@ button.qc-journey-input-icon-clear:hover {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start;
+  padding-top: 70px;
 }
 
 .cwa-hero-img-desktop { display: block; }
@@ -4567,7 +4568,7 @@ button.qc-journey-input-icon-clear:hover {
   }
 
   .type-heading-eb-48 {
-    font-size: 36px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
@@ -4743,7 +4744,7 @@ button.qc-journey-input-icon-clear:hover {
 .plt-capabilities-label-gradient {
   display: inline-block;
   height: fit-content;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: 0;
@@ -5072,19 +5073,20 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-careers-hero-title {
   font-family: 'Karla', sans-serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: 48px;
   font-weight: 800;
+  letter-spacing: -3px;
   color: #111827;
-  line-height: 1.15;
+  line-height: 1;
   margin: 0 0 1rem;
 }
 
 .qc-careers-hero-subtitle {
-  font-size: 0.95rem;
-  color: #4b5563;
+  font-size: 1rem;
+  color: #6b7280;
   line-height: 1.65;
   margin: 0 0 2rem;
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .qc-careers-hero-cta {
@@ -5158,8 +5160,10 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-careers-why-title {
   font-family: 'Karla', sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: 48px;
   font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
   color: #111827;
   margin: 0 0 2rem;
 }
@@ -5266,8 +5270,10 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-careers-positions-title {
   font-family: 'Karla', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 48px;
   font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
   color: #111827;
   margin: 0 0 0.75rem;
 }
@@ -5432,10 +5438,11 @@ button.qc-journey-input-icon-clear:hover {
 
 .qc-careers-form-title {
   font-family: 'Karla', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: 48px;
   font-weight: 800;
+  letter-spacing: -3px;
   color: #111827;
-  line-height: 1.2;
+  line-height: 1;
   margin: 0 0 1.5rem;
 }
 
@@ -6022,10 +6029,12 @@ button.qc-journey-input-icon-clear:hover {
 }
 
 .qc-cs-card-title {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.4;
+  margin: 0 0 1rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
   background: linear-gradient(90deg, #1d4ed8, #7c3aed);
   -webkit-background-clip: text;
   background-clip: text;
@@ -6962,11 +6971,13 @@ button.qc-journey-input-icon-clear:hover {
 }
 
 .qc-blog-card-title {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
+  margin: 0 0 0.5rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
   color: #111827;
-  line-height: 1.4;
+  line-height: 1.2;
   flex: 1;
 }
 
@@ -7039,7 +7050,7 @@ button.qc-journey-input-icon-clear:hover {
 .type-heading-eb-32,
 .type-heading-eb-28 {
   font-family: 'Karla', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -2px;
 }
@@ -7099,7 +7110,7 @@ button.qc-journey-input-icon-clear:hover {
 .type-body-medium,
 .type-body-semibold {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.6px;
 }

@@ -10,8 +10,8 @@ export function Breadcrumb({ crumbs }: { crumbs: Crumb[] }) {
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
-        marginBottom: '2.5rem',
-        fontSize: '0.85rem',
+        marginBottom: '64px',
+        fontSize: '16px',
         color: '#6b7280',
       }}
     >

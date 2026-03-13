@@ -137,14 +137,14 @@ export default function CustomWebApplicationsPage() {
                     textTransform: 'uppercase',
                     padding: '0.3rem 0.85rem',
                     borderRadius: '6px',
-                    marginBottom: '1.25rem',
+                    marginBottom: '32px',
                   }}
                 >
                   Services
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 1.25rem', color: '#111827' }}
+                  style={{ margin: '0 0 32px', color: '#111827' }}
                 >
                   Custom Web<br />Applications
                 </h1>
@@ -200,7 +200,7 @@ export default function CustomWebApplicationsPage() {
         <section className="qc-section">
           <div className="qc-container">
             <h2
-              className="type-heading-eb-32"
+              className="type-heading-eb-48"
               style={{ margin: '0 0 2.5rem', color: '#111827' }}
             >
               What You Get
@@ -228,7 +228,7 @@ export default function CustomWebApplicationsPage() {
                   />
                   <div>
                     <h3
-                      className="type-heading-b-28"
+                      className="type-heading-eb-32"
                       style={{ margin: '0 0 0.45rem', color: '#111827' }}
                     >
                       {item.title}
@@ -253,7 +253,7 @@ export default function CustomWebApplicationsPage() {
               {/* Left */}
               <div>
                 <h2
-                  className="type-heading-eb-32"
+                  className="type-heading-eb-48"
                   style={{ margin: '0 0 2rem', color: '#111827' }}
                 >
                   Is This Right for You?
@@ -324,40 +324,6 @@ export default function CustomWebApplicationsPage() {
         {/* ── Our Process ── */}
         <section style={{ padding: '5rem 0', background: '#fff' }}>
           <div className="qc-container">
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '2.5rem',
-              }}
-            >
-              <h2 className="type-heading-eb-32" style={{ margin: 0, color: '#111827' }}>
-                Our Process
-              </h2>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  fontSize: '0.85rem',
-                  color: '#6b7280',
-                }}
-              >
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 600, color: '#111827' }}>Team of experts</div>
-                  <div>Tailored to your needs</div>
-                </div>
-                <Image
-                  src="/team-avatars.png"
-                  alt="Team of experts"
-                  width={96}
-                  height={40}
-                  style={{ width: 96, height: 40, objectFit: 'contain' }}
-                />
-              </div>
-            </div>
-
             <ProcessStepsSection variant="webapp" />
           </div>
         </section>
@@ -372,10 +338,13 @@ export default function CustomWebApplicationsPage() {
                 style={{ width: 48, height: 48, display: 'block', margin: '0 auto 1rem' }}
               />
               <h2
-                className="type-heading-eb-32"
+                className="type-heading-eb-48"
                 style={{ margin: '0 0 0.75rem', color: '#111827' }}
               >
-                Not Quite What You&apos;re Looking For?
+                Not Quite{' '}
+                <span style={{ background: 'linear-gradient(90deg, #3985f8, #9291fc, #cc99ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  What You&apos;re Looking For?
+                </span>
               </h2>
               <p className="type-body" style={{ margin: 0, color: '#6b7280' }}>
                 Explore our other services to find the perfect solution for your business
@@ -391,6 +360,8 @@ export default function CustomWebApplicationsPage() {
                     border: '1px solid #e5e7eb',
                     overflow: 'hidden',
                     background: '#fff',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}
                 >
                   <div
@@ -412,14 +383,15 @@ export default function CustomWebApplicationsPage() {
                     />
                   </div>
 
-                  <div style={{ padding: '1.5rem' }}>
+                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <span
                       style={{
                         display: 'inline-block',
-                        background: '#4300B7',
+                        alignSelf: 'flex-start',
+                        background: 'linear-gradient(90deg, #09C0FF, #CC99FF)',
                         color: '#fff',
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
+                        fontSize: '16px',
+                        fontWeight: 600,
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
                         padding: '0.25rem 0.75rem',
@@ -430,7 +402,7 @@ export default function CustomWebApplicationsPage() {
                       Services
                     </span>
                     <h3
-                      className="type-heading-eb-28"
+                      className="type-heading-eb-32"
                       style={{ margin: '0 0 0.6rem', color: '#111827' }}
                     >
                       {service.title}
@@ -441,7 +413,7 @@ export default function CustomWebApplicationsPage() {
                     >
                       {service.description}
                     </p>
-                    <Link href={service.href} className="qc-button-gradient-border">
+                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: 'auto' }}>
                       Learn more
                       <span style={{ display: 'inline-flex', marginLeft: 6 }}>
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -460,7 +432,7 @@ export default function CustomWebApplicationsPage() {
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">
-              <h2 className="qc-conversation-heading">
+              <h2 className="type-heading-eb-48">
                 Every project starts
                 <br />
                 with a <span className="qc-conversation-highlight">real conversation</span>

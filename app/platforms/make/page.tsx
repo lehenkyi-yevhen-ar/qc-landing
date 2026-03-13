@@ -168,7 +168,7 @@ function MakeFormSection() {
           </div>
           <div className="qc-platform-form-heading-content">
             <h2
-              className="type-heading-eb-32"
+              className="type-heading-eb-48"
               style={{
                 color: '#111827',
                 margin: '0 0 0.75rem',
@@ -350,11 +350,11 @@ export default function MakePlatformPage() {
                   display: 'inline-block', background: '#7c3aed', color: '#fff',
                   fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em',
                   textTransform: 'uppercase', padding: '0.3rem 0.85rem',
-                  borderRadius: '6px', marginBottom: '1.25rem',
+                  borderRadius: '6px', marginBottom: '32px',
                 }}>
                   Technology
                 </span>
-                <h1 className="type-heading-eb-48" style={{ margin: '0 0 0.6rem', color: '#111827' }}>
+                <h1 className="type-heading-eb-48" style={{ margin: '0 0 32px', color: '#111827' }}>
                   <span style={{ color: '#7c3aed' }}>Make</span> Automation
                 </h1>
                 <p className="type-body-lg" style={{ color: '#6b7280', margin: '0 0 1.5rem' }}>
@@ -394,7 +394,7 @@ export default function MakePlatformPage() {
         {/* ── 2. What we build with Make ── */}
         <section className="qc-section" style={{ background: '#f5f9ff' }}>
           <div className="qc-container">
-            <h2 className="type-heading-eb-40" style={{ margin: '0 0 2rem', color: '#111827', textAlign: 'center' }}>
+            <h2 className="type-heading-eb-48" style={{ margin: '0 0 2rem', color: '#111827', textAlign: 'center' }}>
               What we build with <span style={{ color: '#7c3aed' }}>Make</span>
             </h2>
 
@@ -447,6 +447,7 @@ export default function MakePlatformPage() {
                             style={{
                               color: '#111827',
                               marginBottom: '0.3rem',
+                              fontSize: 24,
                             }}
                           >
                             {cap.title}
@@ -456,6 +457,7 @@ export default function MakePlatformPage() {
                             style={{
                               color: '#6b7280',
                               lineHeight: 1.6,
+                              fontSize: 16,
                             }}
                           >
                             {cap.description}
@@ -498,7 +500,7 @@ export default function MakePlatformPage() {
                             <span className="qc-case-pill">{caseStudies[slideIndex].industryLabel}</span>
                             <a href="#case-studies" className="qc-case-learn-more">Learn more <span aria-hidden>↗</span></a>
                           </div>
-                          <h3 className="qc-case-featured-title">{caseStudies[slideIndex].title}</h3>
+                          <h3 className="type-heading-eb-32">{caseStudies[slideIndex].title}</h3>
                           <div className="qc-case-featured-sections">
                             <div>
                               <div className="qc-case-label">THE CHALLENGE</div>
@@ -543,9 +545,13 @@ export default function MakePlatformPage() {
               </div>
               <div className="qc-case-nav-buttons">
                 <button type="button" className="qc-case-btn qc-case-btn-prev"
-                  onClick={() => setActiveCase((activeCase - 1 + 3) % 3)} aria-label="Previous">←</button>
+                  onClick={() => setActiveCase((activeCase - 1 + 3) % 3)} aria-label="Previous slide">
+                  <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
+                </button>
                 <button type="button" className="qc-case-btn qc-case-btn-next"
-                  onClick={() => setActiveCase((activeCase + 1) % 3)} aria-label="Next">→</button>
+                  onClick={() => setActiveCase((activeCase + 1) % 3)} aria-label="Next slide">
+                  <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
+                </button>
               </div>
             </div>
           </div>
@@ -567,17 +573,17 @@ export default function MakePlatformPage() {
 
               {/* Right */}
               <div>
-                <h2 className="type-heading-eb-32" style={{ margin: '0 0 0.75rem', color: '#111827' }}>
+                <h2 className="type-heading-eb-48" style={{ margin: '0 0 16px', color: '#111827' }}>
                   Automation &amp; integrations
                 </h2>
-                <p className="type-body" style={{ color: '#6b7280', margin: '0 0 1.5rem' }}>
+                <p className="type-body" style={{ color: '#2e2e2e', fontWeight: 500, margin: '0 0 64px' }}>
                   Make acts as the process engine behind your operations. It structures execution, controls workflow logic, and keeps processes running reliably.
                 </p>
 
-                <div className="type-caption-sm-bold" style={{ color: '#7c3aed', marginBottom: '0.75rem' }}>
+                <div style={{ color: '#2e2e2e', fontSize: '16px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
                   WE AUTOMATE
                 </div>
-                <ul style={{ margin: '0 0 1.5rem', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <ul style={{ margin: '0 0 64px', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {weAutomate.map((item) => (
                     <li key={item.text} className="type-body" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#374151' }}>
                       <Image src={item.icon} alt="" width={24} height={24} style={{ objectFit: 'contain', flexShrink: 0 }} />
@@ -586,10 +592,10 @@ export default function MakePlatformPage() {
                   ))}
                 </ul>
 
-                <div className="type-caption-sm-bold" style={{ color: '#111827', marginBottom: '0.4rem' }}>
+                <div style={{ color: '#2e2e2e', fontSize: '16px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
                   RESULT
                 </div>
-                <div className="type-body-lg-semibold" style={{ color: '#7c3aed' }}>
+                <div style={{ fontSize: '40px', fontWeight: 700, lineHeight: 1.1, background: 'linear-gradient(90deg, #3985F8, #9291FC, #CC99FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   Fewer manual handoffs, reduced operational risk, and predictable execution at scale.
                 </div>
               </div>
@@ -609,7 +615,7 @@ export default function MakePlatformPage() {
                   <div className="type-caption-sm-bold" style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '0.85rem' }}>
                     WHY &amp; WHEN
                   </div>
-                  <h2 className="type-heading-eb-32" style={{ color: '#fff', margin: 0 }}>
+                  <h2 className="type-heading-eb-48" style={{ color: '#fff', margin: 0 }}>
                     We recommend<br />
                     Make when<br />
                     clients need:
@@ -621,14 +627,14 @@ export default function MakePlatformPage() {
                   {whenClientsNeed.map((item) => (
                     <div key={item.text} style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
                       <div style={{
-                        width: 45, height: 45, borderRadius: '999px',
+                        width: 76, height: 76, borderRadius: '999px',
                         border: '1px solid rgba(255,255,255,0.25)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0,
                       }}>
-                        <Image src={item.icon} alt="" width={22} height={22} style={{ objectFit: 'contain' }} />
+                        <Image src={item.icon} alt="" width={38} height={38} style={{ objectFit: 'contain' }} />
                       </div>
-                      <span className="type-body" style={{ color: 'rgba(255,255,255,0.82)', marginBottom: 48, marginTop: 12 }}>
+                      <span style={{ color: 'rgba(255,255,255,0.82)', marginBottom: 48, marginTop: 12, fontFamily: 'Karla, sans-serif', fontSize: 32, fontWeight: 600, lineHeight: 1.2 }}>
                         {item.text}
                       </span>
                     </div>
@@ -663,7 +669,7 @@ export default function MakePlatformPage() {
             <div className="plt-tech-grid">
               {/* Left */}
               <div className="plt-tech-left">
-                <h2 className="type-heading-eb-32" style={{ color: '#111827', margin: '0 0 0.75rem' }}>
+                <h2 className="type-heading-eb-48" style={{ color: '#111827', margin: '0 0 2rem' }}>
                   Explore our core technologies
                 </h2>
                 <p className="type-body" style={{ color: '#6b7280', margin: 0 }}>
@@ -698,7 +704,7 @@ export default function MakePlatformPage() {
                       }}>
                         Technology
                       </span>
-                      <h3 className="type-body-lg-semibold" style={{ margin: '0 0 0.85rem', color: '#111827' }}>
+                      <h3 className="type-heading-eb-32" style={{ margin: '0 0 0.85rem', color: '#111827' }}>
                         {tech.title}
                       </h3>
                       <Link href={tech.href} className="qc-button-gradient-border">

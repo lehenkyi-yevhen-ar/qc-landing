@@ -111,49 +111,43 @@ export default function CustomWorkflowAutomationPage() {
   return (
     <div className="qc-page">
       <main>
-
         {/* ── Hero ── */}
-        <section
-          className="qc-section qc-gradient-hero"
-          style={{ paddingTop: '7rem', paddingBottom: '3rem' }}
-        >
+        <section className="qc-section qc-gradient-hero" style={{ paddingTop: "7rem", paddingBottom: "3rem" }}>
           <div className="qc-container">
             <div className="cwa-hero-grid">
               {/* Left */}
               <div>
-                <Breadcrumb crumbs={[
-                  { label: 'Home', href: '/' },
-                  { label: 'Services', href: '/services', inactive: true },
-                  { label: 'Custom Workflow Automation', href: '/services/custom-workflow-automation' },
-                ]} />
+                <Breadcrumb
+                  crumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services", inactive: true },
+                    { label: "Custom Workflow Automation", href: "/services/custom-workflow-automation" },
+                  ]}
+                />
                 <span
                   style={{
-                    display: 'inline-block',
-                    background: 'linear-gradient(90deg, #09c0ff, #cc99ff)',
-                    color: '#fff',
-                    fontSize: '0.68rem',
+                    display: "inline-block",
+                    background: "linear-gradient(90deg, #09c0ff, #cc99ff)",
+                    color: "#fff",
+                    fontSize: "0.68rem",
                     fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    padding: '0.3rem 0.85rem',
-                    borderRadius: '6px',
-                    marginBottom: '1.25rem',
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    padding: "0.3rem 0.85rem",
+                    borderRadius: "6px",
+                    marginBottom: "32px",
                   }}
                 >
                   Services
                 </span>
-                <h1
-                  className="type-heading-eb-48"
-                  style={{ margin: '0 0 1.25rem', color: '#111827' }}
-                >
-                  Custom Workflow<br />Automation
+                <h1 className="type-heading-eb-48" style={{ margin: "0 0 32px", color: "#111827" }}>
+                  Custom Workflow
+                  <br />
+                  Automation
                 </h1>
-                <p
-                  className="type-body"
-                  style={{ color: '#2e2e2e', margin: 0, maxWidth: 440 }}
-                >
-                  From three months of manual work to a structured, repeatable system the
-                  school can run every year — without spreadsheets, emails, or errors.
+                <p className="type-body" style={{ color: "#2e2e2e", margin: 0, maxWidth: 440 }}>
+                  From three months of manual work to a structured, repeatable system the school can run every year —
+                  without spreadsheets, emails, or errors.
                 </p>
               </div>
 
@@ -165,7 +159,7 @@ export default function CustomWorkflowAutomationPage() {
                   width={680}
                   height={460}
                   className="cwa-hero-img-desktop"
-                  style={{ width: '100%', height: 'auto' }}
+                  style={{ width: "100%", height: "auto" }}
                   priority
                 />
                 <Image
@@ -174,7 +168,7 @@ export default function CustomWorkflowAutomationPage() {
                   width={680}
                   height={600}
                   className="cwa-hero-img-tablet"
-                  style={{ width: '100%', height: 'auto' }}
+                  style={{ width: "100%", height: "auto" }}
                   priority
                 />
               </div>
@@ -185,10 +179,7 @@ export default function CustomWorkflowAutomationPage() {
         {/* ── What You Get ── */}
         <section className="qc-section">
           <div className="qc-container">
-            <h2
-              className="type-heading-eb-32"
-              style={{ margin: '0 0 2.5rem', color: '#111827' }}
-            >
+            <h2 className="type-heading-eb-48" style={{ margin: "0 0 2.5rem", color: "#111827" }}>
               What You Get
             </h2>
             <div className="cwa-wyg-grid">
@@ -196,33 +187,21 @@ export default function CustomWorkflowAutomationPage() {
                 <div
                   key={item.title}
                   style={{
-                    padding: '1.75rem 1.5rem',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.9rem',
-                    border: '1px solid #e5e7eb',
-                    background: '#fff',
+                    padding: "1.75rem 1.5rem",
+                    borderRadius: "16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.9rem",
+                    border: "1px solid #e5e7eb",
+                    background: "#fff",
                   }}
                 >
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    width={72}
-                    height={72}
-                    style={{ objectFit: 'contain' }}
-                  />
+                  <Image src={item.icon} alt="" width={154} height={154} style={{ objectFit: "contain" }} />
                   <div>
-                    <h3
-                      className="type-heading-b-28"
-                      style={{ margin: '0 0 0.45rem', color: '#111827' }}
-                    >
+                    <h3 className="type-heading-eb-32" style={{ margin: "0 0 1rem", color: "#111827" }}>
                       {item.title}
                     </h3>
-                    <p
-                      className="type-body"
-                      style={{ margin: 0, color: '#6b7280' }}
-                    >
+                    <p className="type-body" style={{ margin: 0, color: "#6b7280" }}>
                       {item.description}
                     </p>
                   </div>
@@ -238,46 +217,31 @@ export default function CustomWorkflowAutomationPage() {
             <div className="cwa-rfy-grid">
               {/* Left */}
               <div>
-                <h2
-                  className="type-heading-eb-32"
-                  style={{ margin: '0 0 2rem', color: '#111827' }}
-                >
+                <h2 className="type-heading-eb-48" style={{ margin: "0 0 2rem", color: "#111827" }}>
                   Is This Right for You?
                 </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   {rightForYouItems.map((item) => (
                     <div
                       key={item.title}
                       className="cwa-rfy-item"
                       style={{
-                        display: 'grid',
-                        gridTemplateColumns: '48px 220px 1fr',
-                        gap: '1rem',
-                        padding: '0.85rem 1rem',
-                        borderRadius: '12px',
+                        display: "grid",
+                        gridTemplateColumns: "56px 340px 1fr",
+                        gap: "1rem",
+                        padding: "0.85rem 1rem",
+                        borderRadius: "12px",
                         background: item.highlighted
-                          ? 'linear-gradient(90deg, rgba(57,133,248,0.06), rgba(204,153,255,0.06))'
-                          : 'transparent',
-                        alignItems: 'center',
+                          ? "linear-gradient(90deg, rgba(57,133,248,0.06), rgba(204,153,255,0.06))"
+                          : "transparent",
+                        alignItems: "center",
                       }}
                     >
-                      <Image
-                        src={item.icon}
-                        alt=""
-                        width={40}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
-                      />
-                      <div
-                        className="type-body-semibold"
-                        style={{ color: '#111827' }}
-                      >
+                      <Image src={item.icon} alt="" width={50} height={50} style={{ objectFit: "contain" }} />
+                      <div className="type-body-semibold" style={{ color: "#111827", fontSize: 28 }}>
                         {item.title}
                       </div>
-                      <div
-                        className="type-body"
-                        style={{ color: item.highlighted ? '#3985F8' : '#6b7280' }}
-                      >
+                      <div className="type-body" style={{ color: item.highlighted ? "#3985F8" : "#6b7280" }}>
                         {item.description}
                       </div>
                     </div>
@@ -288,60 +252,28 @@ export default function CustomWorkflowAutomationPage() {
               {/* Right – 3D character (replace placeholder with actual image from Figma) */}
               <div
                 style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  position: 'relative',
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
                   minHeight: 380,
                 }}
               >
-             
-                <Image src="/right-for-you-character.png" alt="" width={420} height={520} style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }} />
-
+                <Image
+                  src="/right-for-you-character.png"
+                  alt=""
+                  width={420}
+                  height={520}
+                  style={{ width: "100%", height: "auto", objectFit: "contain", maxWidth: 420 }}
+                />
               </div>
             </div>
           </div>
         </section>
 
         {/* ── Our Process ── */}
-        <section style={{ padding: '5rem 0', background: '#fff' }}>
+        <section style={{ padding: "5rem 0", background: "#fff" }}>
           <div className="qc-container">
-            {/* Header */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '2.5rem',
-              }}
-            >
-              <h2 className="type-heading-eb-32" style={{ margin: 0, color: '#111827' }}>
-                Our Process
-              </h2>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  fontSize: '0.85rem',
-                  color: '#6b7280',
-                }}
-              >
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 600, color: '#111827' }}>Team of experts</div>
-                  <div>Tailored to your needs</div>
-                </div>
-                <Image
-                  src="/team-avatars.png"
-                  alt="Team of experts"
-                  width={96}
-                  height={40}
-                  style={{ width: 96, height: 40, objectFit: 'contain' }}
-                />
-              </div>
-            </div>
-
-            {/* Timeline panel */}
             <ProcessStepsSection />
           </div>
         </section>
@@ -349,19 +281,28 @@ export default function CustomWorkflowAutomationPage() {
         {/* ── Not Quite What You're Looking For? ── */}
         <section className="qc-section">
           <div className="qc-container">
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <img
+            <div style={{ textAlign: "center", marginBottom: "6.25rem" }}>
+              <Image
                 src="/glass-cta/Asset_Icon.png"
                 alt=""
-                style={{ width: 48, height: 48, marginBottom: '1rem', display: 'block', margin: '0 auto 1rem' }}
+                width={60}
+                height={60}
+                style={{ display: "block", margin: "0 auto 1rem" }}
               />
-              <h2
-                className="type-heading-eb-32"
-                style={{ margin: '0 0 0.75rem', color: '#111827' }}
-              >
-                Not Quite What You&apos;re Looking For?
+              <h2 className="type-heading-eb-56" style={{ margin: "0 0 1rem", color: "#111827", fontSize: 56 }}>
+                Not Quite{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #3985f8, #9291fc, #cc99ff)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  What You&apos;re Looking For?
+                </span>
               </h2>
-              <p className="type-body" style={{ margin: 0, color: '#6b7280' }}>
+              <p className="type-body" style={{ margin: 0, color: "#6b7280" }}>
                 Explore our other services to find the perfect solution for your business
               </p>
             </div>
@@ -371,22 +312,23 @@ export default function CustomWorkflowAutomationPage() {
                 <div
                   key={service.title}
                   style={{
-                    borderRadius: '20px',
-                    border: '1px solid #e5e7eb',
-                    overflow: 'hidden',
-                    background: '#fff',
+                    borderRadius: "20px",
+                    border: "1px solid #e5e7eb",
+                    overflow: "hidden",
+                    background: "#fff",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
                   {/* Image area */}
                   <div
                     style={{
-                      background:
-                        'linear-gradient(135deg, rgba(57,133,248,0.05), rgba(204,153,255,0.08))',
+                      background: "linear-gradient(135deg, rgba(57,133,248,0.05), rgba(204,153,255,0.08))",
                       height: 200,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: '1rem',
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "1rem",
                     }}
                   >
                     <Image
@@ -394,43 +336,41 @@ export default function CustomWorkflowAutomationPage() {
                       alt={service.title}
                       width={300}
                       height={180}
-                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
                     />
                   </div>
 
                   {/* Content */}
-                  <div style={{ padding: '1.5rem' }}>
+                  <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
                     <span
                       style={{
-                        display: 'inline-block',
-                        background: '#4300B7',
-                        color: '#fff',
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '5px',
-                        marginBottom: '0.75rem',
+                        display: "inline-block",
+                        alignSelf: "flex-start",
+                        background: "linear-gradient(90deg, #09C0FF, #CC99FF)",
+                        color: "#fff",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        padding: "0.25rem 0.75rem",
+                        borderRadius: "5px",
+                        marginBottom: "2rem",
                       }}
                     >
                       Services
                     </span>
                     <h3
-                      className="type-heading-eb-28"
-                      style={{ margin: '0 0 0.6rem', color: '#111827' }}
+                      className="type-heading-eb-32"
+                      style={{ margin: "0 0 2rem", color: "#111827", fontSize: 40, fontWeight: 800 }}
                     >
                       {service.title}
                     </h3>
-                    <p
-                      className="type-body"
-                      style={{ margin: '0 0 1.25rem', color: '#6b7280' }}
-                    >
+                    <p className="type-body" style={{ margin: "0 0 2rem", color: "#6b7280" }}>
                       {service.description}
                     </p>
-                    <Link href={service.href} className="qc-button-gradient-border">
+                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: "auto" }}>
                       Learn more
-                      <span style={{ display: 'inline-flex', marginLeft: 6 }}>
+                      <span style={{ display: "inline-flex", marginLeft: 6 }}>
                         <svg
                           width="14"
                           height="14"
@@ -457,18 +397,15 @@ export default function CustomWorkflowAutomationPage() {
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">
-              <h2 className="qc-conversation-heading">
+              <h2 className="type-heading-eb-48">
                 Every project starts
                 <br />
                 with a <span className="qc-conversation-highlight">real conversation</span>
               </h2>
-              <p className="qc-conversation-subtitle">
-                Meet Roman, our founder and automation strategist.
-              </p>
+              <p className="qc-conversation-subtitle">Meet Roman, our founder and automation strategist.</p>
               <p className="qc-conversation-para">
-                With 10+ years in optimising service operations and 50+ projects delivered, he
-                helps firms uncover what&apos;s slowing them down—and map a clear path to
-                automation.
+                With 10+ years in optimising service operations and 50+ projects delivered, he helps firms uncover
+                what&apos;s slowing them down—and map a clear path to automation.
               </p>
               <a
                 href="https://calendly.com/quitcode/30min"
@@ -477,15 +414,21 @@ export default function CustomWorkflowAutomationPage() {
                 className="qc-conversation-cta"
               >
                 <span>Talk to Roman</span>
-                <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                <span className="qc-conversation-cta-arrow" aria-hidden>
+                  →
+                </span>
               </a>
               <div className="qc-conversation-benefits">
                 <span className="qc-conversation-benefit">
-                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  <span className="qc-conversation-star" aria-hidden>
+                    ☆
+                  </span>
                   Free 30‑minute strategy session
                 </span>
                 <span className="qc-conversation-benefit">
-                  <span className="qc-conversation-star" aria-hidden>☆</span>
+                  <span className="qc-conversation-star" aria-hidden>
+                    ☆
+                  </span>
                   No sales pressure—just practical insights
                 </span>
               </div>
@@ -498,14 +441,13 @@ export default function CustomWorkflowAutomationPage() {
                   alt="Roman Sydorak"
                   fill
                   sizes="(max-width: 900px) 100vw, 520px"
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             </div>
           </div>
         </section>
-
       </main>
     </div>
-  );
+  )
 }
