@@ -546,6 +546,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
 
   return (
     <div
+      className="pss-wrapper"
       style={{
         background: "linear-gradient(135deg, #eef2ff 0%, #f5f0ff 100%)",
         borderRadius: "24px",
@@ -554,6 +555,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
     >
       {/* Header */}
       <div
+        className="pss-header"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -571,6 +573,8 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
             gap: "0.75rem",
             fontSize: "0.85rem",
             color: "#6b7280",
+            letterSpacing: "-0.6px",
+            fontFamily: "Montserrat, sans-serif",
           }}
         >
           <div style={{ textAlign: "right" }}>
@@ -612,6 +616,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
           >
             {/* Left: step card */}
             <div
+              className="pss-step-left"
               style={{
                 background: "#ffffff",
                 borderRadius: "16px",
@@ -627,27 +632,32 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
               }}
             >
               <div
+                className="pss-step-label"
                 style={{
                   fontSize: "28px",
                   fontWeight: 700,
-                  letterSpacing: "0.1em",
+                  letterSpacing: "-0.6px",
                   textTransform: "uppercase",
                   color: active ? "#3985F8" : "#9ca3af",
                   marginBottom: "8px",
+                  fontFamily: "Montserrat, sans-serif",
                 }}
               >
                 {step.step}
               </div>
               <div
+                className="pss-step-title"
                 style={{
                   fontSize: "3rem",
                   fontWeight: 800,
                   lineHeight: 1.2,
                   whiteSpace: "pre-line",
+                  letterSpacing: "-3px",
                   background: active ? "linear-gradient(135deg, #3985F8, #09C0FF)" : "none",
                   WebkitBackgroundClip: active ? "text" : "unset",
                   color: active ? "transparent" : "#111827",
                   transition: "all 0.4s ease",
+                  fontFamily: "Karla, sans-serif",
                 }}
               >
                 {step.title}
@@ -656,6 +666,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
 
             {/* Center: dot + line */}
             <div
+              className="pss-step-center"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -689,11 +700,12 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
             </div>
 
             {/* Right: icon + description */}
-            <div style={{ paddingTop: "1.6rem", paddingLeft: "0.25rem" }}>
+            <div className="pss-step-right" style={{ paddingTop: "1.6rem", paddingLeft: "0.25rem" }}>
               <div style={{ marginBottom: "0.5rem", lineHeight: 1, transition: "all 0.4s ease", width: 44, height: 44, display: "flex", alignItems: "center" }}>
                 {step.icon(iconColor)}
               </div>
               <p
+                className="pss-step-desc"
                 style={{
                   margin: 0,
                   fontSize: "20px",
@@ -701,7 +713,9 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
                   color: active ? "#2e2e2e" : "#6b7280",
                   lineHeight: 1.65,
                   maxWidth: 480,
+                  letterSpacing: "-0.6px",
                   transition: "all 0.4s ease",
+                  fontFamily: "Montserrat, sans-serif",
                 }}
               >
                 {step.description}

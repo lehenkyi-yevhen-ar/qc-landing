@@ -80,7 +80,10 @@ export function JourneyFormSection() {
       <div className="qc-journey-container">
         <div className="qc-journey-grid">
           <div className="qc-journey-form-col">
-            <h2 className="qc-journey-title">Start your automation journey</h2>
+            <h2 className="qc-journey-title">
+              <span className="qc-journey-title-desktop">Start your automation journey</span>
+              <span className="qc-journey-title-mobile">Get <span className="qc-journey-title-gradient">Free Discovery</span></span>
+            </h2>
             <p className="qc-journey-intro">
               Tell us about your biggest operational challenge, and we&apos;ll outline
               how automation could simplify it—in plain language, not tech talk.

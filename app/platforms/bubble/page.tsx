@@ -354,10 +354,10 @@ export default function BubblePlatformPage() {
                 }}>
                   Technology
                 </span>
-                <h1 className="type-heading-eb-48" style={{ margin: '0 0 32px', color: '#111827' }}>
+                <h1 className="type-heading-eb-48" style={{ margin: '0 0 32px', color: '#111827', fontSize: 64 }}>
                   <span style={{ color: '#1a56db' }}>Bubble</span> Application Development
                 </h1>
-                <p className="type-body-lg" style={{ color: '#6b7280', margin: '0 0 1.5rem' }}>
+                <p className="type-body-lg" style={{ color: '#6b7280', margin: '0 0 6.25rem' }}>
                   Custom web applications — without traditional engineering overhead
                 </p>
 
@@ -369,12 +369,12 @@ export default function BubblePlatformPage() {
                     <Image src="/logos/bubble-circle.png" alt="Bubble" width={86} height={86} style={{ objectFit: 'contain' }} />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', gap: 24 }}>
-                    <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440 }}>
+                    <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440, fontFamily: 'Karla', letterSpacing: -2, fontSize: 32 }}>
                       <strong style={{ color: '#1a56db' }}>Bubble</strong> is the platform we
                       use to build fully custom web applications — client portals, SaaS
                       products, internal systems, and operational platforms.
                     </p>
-                    <p className="type-body" style={{ color: '#6b7280', margin: 0, maxWidth: 440 }}>
+                    <p className="type-body" style={{ color: '#8b8b8b', margin: 0, maxWidth: 440 }}>
                       We design Bubble when the system requires custom logic, tailored UX, and product-level flexibility beyond standard no-code tools.
                     </p>
                   </div>
@@ -684,21 +684,21 @@ export default function BubblePlatformPage() {
               {/* Right – technology cards */}
               <div className="plt-tech-cards">
                 {coreTechnologies.map((tech) => (
-                  <div key={tech.title} style={{ borderRadius: '16px', border: '1px solid #e5e7eb', overflow: 'hidden', background: '#fff' }}>
+                  <div key={tech.title} style={{ borderRadius: '16px', overflow: 'hidden', background: '#fff' }}>
                     {/* Logo area */}
-                    <div style={{ background: '#f5f7fb', height: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+                    <div style={{ background: '#f5f7fb', height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
                       <Image src={tech.logo} alt={tech.logoAlt} width={tech.logoWidth} height={48} style={{ objectFit: 'contain', maxWidth: '70%' }} />
                     </div>
                     {/* Content */}
                     <div style={{ padding: '1.25rem 1.5rem' }}>
-                      <span className="type-caption-sm-bold" style={{
+                      <span className="type-caption-bold" style={{
                         display: 'inline-block', background: '#1a56db', color: '#fff',
                         padding: '0.2rem 0.65rem',
-                        borderRadius: '5px', marginBottom: '0.65rem',
+                        borderRadius: '5px', marginBottom: '32px',
                       }}>
                         Technology
                       </span>
-                      <h3 className="type-heading-eb-32" style={{ margin: '0 0 0.85rem', color: '#111827' }}>
+                      <h3 className="type-heading-eb-40" style={{ margin: '0 0 40px', color: '#111827', fontWeight: 800 }}>
                         {tech.title}
                       </h3>
                       <Link href={tech.href} className="qc-button-gradient-border">

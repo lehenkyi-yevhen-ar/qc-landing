@@ -131,7 +131,7 @@ export default function CustomWebApplicationsPage() {
                     display: 'inline-block',
                     background: 'linear-gradient(90deg, #09c0ff, #cc99ff)',
                     color: '#fff',
-                    fontSize: '0.68rem',
+                    fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
@@ -144,7 +144,7 @@ export default function CustomWebApplicationsPage() {
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 32px', color: '#111827' }}
+                  style={{ margin: '0 0 32px', color: '#111827',  fontSize: 64 }}
                 >
                   Custom Web<br />Applications
                 </h1>
@@ -164,14 +164,15 @@ export default function CustomWebApplicationsPage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    background: 'linear-gradient(90deg, #3985F8, #09c0ff)',
-                    color: '#fff',
+ background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
+                      boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',                    color: '#fff',
                     fontWeight: 700,
-                    fontSize: '0.9rem',
+                    fontSize: '1rem',
                     padding: '0.75rem 1.5rem',
                     borderRadius: '10px',
                     textDecoration: 'none',
                     transition: 'opacity 0.2s',
+                    height: 56
                   }}
                 >
                   Build Your Application
@@ -229,7 +230,7 @@ export default function CustomWebApplicationsPage() {
                   <div>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: '0 0 0.45rem', color: '#111827' }}
+                      style={{ margin: '0 0 16px', color: '#111827' }}
                     >
                       {item.title}
                     </h3>
@@ -254,7 +255,7 @@ export default function CustomWebApplicationsPage() {
               <div>
                 <h2
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 2rem', color: '#111827' }}
+                  style={{ margin: '0 0 4rem', color: '#111827' }}
                 >
                   Is This Right for You?
                 </h2>
@@ -278,8 +279,8 @@ export default function CustomWebApplicationsPage() {
                       <Image
                         src={item.icon}
                         alt=""
-                        width={40}
-                        height={40}
+                        width={41}
+                        height={41}
                         style={{ objectFit: 'contain' }}
                       />
                       <div

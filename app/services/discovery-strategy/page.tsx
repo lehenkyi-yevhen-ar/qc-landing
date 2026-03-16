@@ -126,7 +126,7 @@ export default function DiscoveryStrategyPage() {
                     display: 'inline-block',
                     background: 'linear-gradient(90deg, #09c0ff, #cc99ff)',
                     color: '#fff',
-                    fontSize: '0.68rem',
+                    fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
@@ -139,7 +139,7 @@ export default function DiscoveryStrategyPage() {
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 32px', color: '#111827' }}
+                  style={{ margin: '0 0 32px', color: '#111827',  fontSize: 64 }}
                 >
                   Discovery &amp; Strategy
                 </h1>
@@ -225,7 +225,7 @@ export default function DiscoveryStrategyPage() {
                   <div>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: '0 0 0.45rem', color: '#111827' }}
+                      style={{ margin: '0 0 16px', color: '#111827' }}
                     >
                       {item.title}
                     </h3>
@@ -250,7 +250,7 @@ export default function DiscoveryStrategyPage() {
               <div>
                 <h2
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 2rem', color: '#111827' }}
+                  style={{ margin: '0 0 4rem', color: '#111827' }}
                 >
                   Is This Right for You?
                 </h2>
@@ -274,8 +274,8 @@ export default function DiscoveryStrategyPage() {
                       <Image
                         src={item.icon}
                         alt=""
-                        width={40}
-                        height={40}
+                        width={41}
+                        height={41}
                         style={{ objectFit: 'contain' }}
                       />
                       <div

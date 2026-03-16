@@ -129,7 +129,7 @@ export default function CustomWorkflowAutomationPage() {
                     display: "inline-block",
                     background: "linear-gradient(90deg, #09c0ff, #cc99ff)",
                     color: "#fff",
-                    fontSize: "0.68rem",
+                    fontSize: "1rem",
                     fontWeight: 700,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
@@ -140,7 +140,7 @@ export default function CustomWorkflowAutomationPage() {
                 >
                   Services
                 </span>
-                <h1 className="type-heading-eb-48" style={{ margin: "0 0 32px", color: "#111827" }}>
+                <h1 className="type-heading-eb-48" style={{ margin: "0 0 32px", color: "#111827",  fontSize: 64}}>
                   Custom Workflow
                   <br />
                   Automation
@@ -198,7 +198,7 @@ export default function CustomWorkflowAutomationPage() {
                 >
                   <Image src={item.icon} alt="" width={154} height={154} style={{ objectFit: "contain" }} />
                   <div>
-                    <h3 className="type-heading-eb-32" style={{ margin: "0 0 1rem", color: "#111827" }}>
+                    <h3 className="type-heading-eb-32" style={{ margin: "0 0 16px", color: "#111827" }}>
                       {item.title}
                     </h3>
                     <p className="type-body" style={{ margin: 0, color: "#6b7280" }}>
@@ -217,7 +217,7 @@ export default function CustomWorkflowAutomationPage() {
             <div className="cwa-rfy-grid">
               {/* Left */}
               <div>
-                <h2 className="type-heading-eb-48" style={{ margin: "0 0 2rem", color: "#111827" }}>
+                <h2 className="type-heading-eb-48" style={{ margin: "0 0 4rem", color: "#111827" }}>
                   Is This Right for You?
                 </h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -237,7 +237,7 @@ export default function CustomWorkflowAutomationPage() {
                         alignItems: "center",
                       }}
                     >
-                      <Image src={item.icon} alt="" width={50} height={50} style={{ objectFit: "contain" }} />
+                      <Image src={item.icon} alt="" width={41} height={41} style={{ objectFit: "contain" }} />
                       <div className="type-body-semibold" style={{ color: "#111827", fontSize: 28 }}>
                         {item.title}
                       </div>

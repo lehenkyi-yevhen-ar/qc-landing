@@ -126,7 +126,7 @@ export default function DataInfrastructureOptimizationPage() {
                     display: 'inline-block',
                     background: 'linear-gradient(90deg, #09c0ff, #cc99ff)',
                     color: '#fff',
-                    fontSize: '0.68rem',
+                    fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
@@ -139,7 +139,7 @@ export default function DataInfrastructureOptimizationPage() {
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 32px', color: '#111827' }}
+                  style={{ margin: '0 0 32px', color: '#111827',  fontSize: 64 }}
                 >
                   Data Infrastructure<br />Optimization
                 </h1>
@@ -204,7 +204,7 @@ export default function DataInfrastructureOptimizationPage() {
                   <div>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: '0 0 0.45rem', color: '#111827' }}
+                      style={{ margin: '0 0 16px', color: '#111827' }}
                     >
                       {item.title}
                     </h3>
@@ -229,7 +229,7 @@ export default function DataInfrastructureOptimizationPage() {
               <div>
                 <h2
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 2rem', color: '#111827' }}
+                  style={{ margin: '0 0 4rem', color: '#111827' }}
                 >
                   Is This Right for You?
                 </h2>
@@ -240,7 +240,7 @@ export default function DataInfrastructureOptimizationPage() {
                       className="cwa-rfy-item"
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: '48px 220px 1fr',
+                        gridTemplateColumns: '48px 320px 1fr',
                         gap: '1rem',
                         padding: '0.85rem 1rem',
                         borderRadius: '12px',
@@ -253,8 +253,8 @@ export default function DataInfrastructureOptimizationPage() {
                       <Image
                         src={item.icon}
                         alt=""
-                        width={40}
-                        height={40}
+                        width={41}
+                        height={41}
                         style={{ objectFit: 'contain' }}
                       />
                       <div

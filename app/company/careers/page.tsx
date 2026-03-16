@@ -27,12 +27,7 @@ const OPEN_POSITIONS = [
 const WHY_JOIN = [
   {
     type: 'text' as const,
-    icon: '/careers/icon-strategy.png',
-    iconFallback: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden>
-        <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6zM9 6h6M6 9v6M18 9v6M9 18h6" />
-      </svg>
-    ),
+    icon: '/icons/chess-icon.png',
     text: 'No-code and AI are the future – and we\'re already building it.',
     gradient: true,
   },
@@ -43,36 +38,19 @@ const WHY_JOIN = [
   },
   {
     type: 'text' as const,
-    icon: '/careers/icon-cv.png',
-    iconFallback: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3985f8" strokeWidth="1.5" aria-hidden>
-        <rect x="4" y="2" width="16" height="20" rx="2" />
-        <path d="M8 7h8M8 11h8M8 15h5" />
-      </svg>
-    ),
+    icon: '/icons/journal-icon.png',
     text: 'We believe in people, not just CVs – we\'ll train and support you from day one.',
     gradient: false,
   },
   {
     type: 'text' as const,
-    icon: '/careers/icon-impact.png',
-    iconFallback: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden>
-        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-      </svg>
-    ),
+    icon: '/icons/star-icon.png',
     text: 'Real impact, real projects, and real career opportunities.',
     gradient: true,
   },
   {
     type: 'text' as const,
-    icon: '/careers/icon-team.png',
-    iconFallback: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3985f8" strokeWidth="1.5" aria-hidden>
-        <circle cx="9" cy="7" r="3" /><circle cx="15" cy="7" r="3" />
-        <path d="M3 20c0-3.3 2.7-6 6-6h6c3.3 0 6 2.7 6 6" />
-      </svg>
-    ),
+    icon: '/icons/men-icon.png',
     text: 'You\'ll join a company that\'s growing fast and values initiative, creativity, and learning.',
     gradient: false,
   },
@@ -159,11 +137,7 @@ export default function CareersPage() {
               </p>
               <Link href="#open-positions" className="qc-careers-hero-cta">
                 <span>View open roles</span>
-                <span className="qc-careers-hero-cta-icon" aria-hidden>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M12 4v16m-8-8 8 8 8-8" />
-                  </svg>
-                </span>
+                  <img src="/icons/arrow-down-circle.png" alt="Arrow down in circle" style={{width: 25, height: 25}} />
               </Link>
             </div>
 
@@ -193,9 +167,9 @@ export default function CareersPage() {
           <div className="qc-container">
             <h2 className="qc-careers-why-title">Why Join QuitCode</h2>
             <div className="qc-careers-why-grid">
-              {/* Row 1: wide(white) | square(photo) | widest(gradient) */}
+              {/* Row 1: gradient(wide) | photo(square) | plain(longest) */}
               <div className="qc-careers-why-row">
-                {[WHY_JOIN[2], WHY_JOIN[1], WHY_JOIN[0]].map((item, i) => {
+                {[WHY_JOIN[0], WHY_JOIN[1], WHY_JOIN[2]].map((item, i) => {
                   if (item.type === 'photo') return (
                     <div key={i} className="qc-careers-why-cell qc-careers-why-photo">
                       <Image src={item.src!} alt={item.alt!} fill sizes="400px" style={{ objectFit: 'cover' }} />
@@ -203,15 +177,23 @@ export default function CareersPage() {
                   );
                   return (
                     <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
-                      <div className="qc-careers-why-card-icon">{item.iconFallback}</div>
-                      <p className="qc-careers-why-card-text">{item.text}</p>
+                      <div style={{
+                        width: 76, height: 76, borderRadius: 16, flexShrink: 0,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        background: 'rgba(255,255,255,0.2)',
+                        backdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255,255,255,0.35)',
+                      }}>
+                        <Image src={item.icon!} alt="" width={44} height={44} style={{ objectFit: 'contain' }} />
+                      </div>
+                      <p style={{ margin: 0, fontFamily: 'Karla, sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
                     </div>
                   );
                 })}
               </div>
-              {/* Row 2: widest(gradient) | wide(white) | square(photo) */}
+              {/* Row 2: plain(longest) | gradient(wide) | photo(square) */}
               <div className="qc-careers-why-row">
-                {[WHY_JOIN[3], WHY_JOIN[4], WHY_JOIN[5]].map((item, i) => {
+                {[WHY_JOIN[4], WHY_JOIN[3], WHY_JOIN[5]].map((item, i) => {
                   if (item.type === 'photo') return (
                     <div key={i} className="qc-careers-why-cell qc-careers-why-photo">
                       <Image src={item.src!} alt={item.alt!} fill sizes="400px" style={{ objectFit: 'cover' }} />
@@ -219,8 +201,16 @@ export default function CareersPage() {
                   );
                   return (
                     <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
-                      <div className="qc-careers-why-card-icon">{item.iconFallback}</div>
-                      <p className="qc-careers-why-card-text">{item.text}</p>
+                      <div style={{
+                        width: 76, height: 76, borderRadius: 16, flexShrink: 0,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        background: 'rgba(255,255,255,0.2)',
+                        backdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255,255,255,0.35)',
+                      }}>
+                        <Image src={item.icon!} alt="" width={44} height={44} style={{ objectFit: 'contain' }} />
+                      </div>
+                      <p style={{ margin: 0, fontFamily: 'Karla, sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
                     </div>
                   );
                 })}
@@ -250,7 +240,7 @@ export default function CareersPage() {
                     <h3 className="qc-careers-job-title">{job.title}</h3>
                     <div className="qc-careers-job-meta">
                       <span className="qc-careers-job-location">
-                        <LocationIcon />
+                        <img src="/icons/location-icon-black.png" alt="Location icon black" style={{width: 32, height: 32}} />
                         {job.location}
                       </span>
                       {job.tags.map((tag) => (
@@ -259,14 +249,14 @@ export default function CareersPage() {
                     </div>
                   </div>
                   <span className="qc-careers-job-arrow">
-                    <ArrowIcon />
+                    <img src="/icons/arrow-link-blue.png" alt="Arrow link blue" style={{width: 28, height: 28}} />
                   </span>
                 </Link>
               ))}
             </div>
             <div className="qc-careers-positions-footer">
               <Link href="#" className="qc-careers-view-all">VIEW ALL</Link>
-            </div>
+            </div>   
           </div>
         </section>
 
@@ -282,85 +272,87 @@ export default function CareersPage() {
                 </h2>
 
             
-                <form onSubmit={handleSubmit} className="qc-careers-form">
-                  <div className="qc-careers-form-row">
-                    <div className="qc-input-wrap qc-journey-input-wrap">
-                      <label htmlFor="careers-firstname" className="qc-input-label qc-input-label-float qc-journey-label">
-                        First name <span className="qc-journey-required">*required</span>
-                      </label>
-                      <input
-                        id="careers-firstname"
-                        type="text"
-                        required
-                        placeholder="Input"
-                        value={form.firstName}
-                        onChange={e => setForm(c => ({ ...c, firstName: e.target.value }))}
-                        className="qc-input qc-journey-input"
-                      />
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, firstName: '' }))}
-                        aria-label="Clear first name"
-                      >
-                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
-                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
-                      </button>
+                <form onSubmit={handleSubmit} className="qc-journey-form">
+                  <div className="qc-journey-fields">
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="careers-firstname" className="qc-input-label qc-input-label-float qc-journey-label">
+                          First name <span className="qc-journey-required">*required</span>
+                        </label>
+                        <input
+                          id="careers-firstname"
+                          type="text"
+                          required
+                          placeholder="Type here..."
+                          value={form.firstName}
+                          onChange={e => setForm(c => ({ ...c, firstName: e.target.value }))}
+                          className="qc-input qc-journey-input"
+                        />
+                        <button
+                          type="button"
+                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                          onClick={() => setForm(c => ({ ...c, firstName: '' }))}
+                          aria-label="Clear first name"
+                        >
+                          <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                          <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="careers-lastname" className="qc-input-label qc-input-label-float qc-journey-label">
+                          Last name <span className="qc-journey-required">*required</span>
+                        </label>
+                        <input
+                          id="careers-lastname"
+                          type="text"
+                          required
+                          placeholder="Type here..."
+                          value={form.lastName}
+                          onChange={e => setForm(c => ({ ...c, lastName: e.target.value }))}
+                          className="qc-input qc-journey-input"
+                        />
+                        <button
+                          type="button"
+                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                          onClick={() => setForm(c => ({ ...c, lastName: '' }))}
+                          aria-label="Clear last name"
+                        >
+                          <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                          <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="qc-journey-field">
+                      <div className="qc-input-wrap qc-journey-input-wrap">
+                        <label htmlFor="careers-linkedin" className="qc-input-label qc-input-label-float qc-journey-label">
+                          LinkedIn profile
+                        </label>
+                        <input
+                          id="careers-linkedin"
+                          type="url"
+                          placeholder="Type here..."
+                          value={form.linkedin}
+                          onChange={e => setForm(c => ({ ...c, linkedin: e.target.value }))}
+                          className="qc-input qc-journey-input"
+                        />
+                        <button
+                          type="button"
+                          className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
+                          onClick={() => setForm(c => ({ ...c, linkedin: '' }))}
+                          aria-label="Clear LinkedIn"
+                        >
+                          <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
+                          <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
+                        </button>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="qc-careers-form-row">
-                    <div className="qc-input-wrap qc-journey-input-wrap">
-                      <label htmlFor="careers-lastname" className="qc-input-label qc-input-label-float qc-journey-label">
-                        Last name <span className="qc-journey-required">*required</span>
-                      </label>
-                      <input
-                        id="careers-lastname"
-                        type="text"
-                        required
-                        placeholder="Input"
-                        value={form.lastName}
-                        onChange={e => setForm(c => ({ ...c, lastName: e.target.value }))}
-                        className="qc-input qc-journey-input"
-                      />
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, lastName: '' }))}
-                        aria-label="Clear last name"
-                      >
-                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
-                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="qc-careers-form-row">
-                    <div className="qc-input-wrap qc-journey-input-wrap">
-                      <label htmlFor="careers-linkedin" className="qc-input-label qc-input-label-float qc-journey-label">
-                        LinkedIn profile
-                      </label>
-                      <input
-                        id="careers-linkedin"
-                        type="url"
-                        placeholder="Input"
-                        value={form.linkedin}
-                        onChange={e => setForm(c => ({ ...c, linkedin: e.target.value }))}
-                        className="qc-input qc-journey-input"
-                      />
-                      <button
-                        type="button"
-                        className="qc-input-icon qc-journey-input-icon qc-journey-input-icon-clear"
-                        onClick={() => setForm(c => ({ ...c, linkedin: '' }))}
-                        aria-label="Clear LinkedIn"
-                      >
-                        <Image src="/icons/inactive-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-inactive" />
-                        <Image src="/icons/active-cross.png" alt="" width={25} height={25} className="qc-clear-icon qc-clear-icon-active" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="qc-careers-form-row">
+                  <div className="qc-journey-field">
                     <div className="qc-input-wrap qc-journey-input-wrap">
                       <label htmlFor="careers-message" className="qc-input-label qc-input-label-float qc-journey-label">
                         Your message <span className="qc-journey-optional">optional</span>
@@ -399,11 +391,11 @@ export default function CareersPage() {
                   <div className="qc-journey-cta-wrap">
                     <button
                       type="submit"
-                      className="qc-journey-cta qc-conversation-cta"
+                      className="qc-journey-cta qc-conversation-cta qc-careers-apply-cta"
                       disabled={isSubmitting}
                     >
                       <span>{isSubmitting ? 'Sending…' : 'Submit Application'}</span>
-                      <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                      <Image src="/icons/arrow-right.png" alt="" width={24} height={24} />
                     </button>
                   </div>
 

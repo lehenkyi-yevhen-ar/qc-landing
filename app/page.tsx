@@ -259,6 +259,7 @@ export default function Page() {
               </p>
 
               <div
+                className="hero-cta-row"
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
@@ -271,11 +272,13 @@ export default function Page() {
                   href="https://calendly.com/quitcode/30min"
                   target="_blank"
                   rel="noreferrer"
+                  className="hero-cta-book-link"
                   style={{
                     textDecoration: 'none'
                   }}
                 >
                   <div
+                    className="hero-cta-book-inner"
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -284,8 +287,6 @@ export default function Page() {
                       borderRadius: 12,
                       background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
                       boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',
-                      minWidth: 260,
-                      height: 72,
                       boxSizing: 'border-box'
                     }}
                   >
@@ -336,7 +337,7 @@ export default function Page() {
                   </div>
                 </a>
 
-                <a href="#journey" className="qc-button-secondary type-body-lg-semibold" style={{ minWidth: 200, height: 72, justifyContent: 'center', boxSizing: 'border-box', padding: '0 1.5rem' }}>
+                <a href="#journey" className="hero-cta-discovery qc-button-secondary type-body-lg-semibold" style={{ justifyContent: 'center', boxSizing: 'border-box', padding: '0 1.5rem' }}>
                   Get Free Discovery
                 </a>
               </div>
@@ -439,6 +440,7 @@ export default function Page() {
                   >
                     <button
                       type="button"
+                      className={`qc-solutions-btn${isActive ? ' qc-solutions-btn--active' : ''}`}
                       onClick={() => setActiveSolution(key)}
                       style={{
                         borderRadius: isActive ? '20px' : '14px',
@@ -460,15 +462,13 @@ export default function Page() {
                           : 'none',
                         fontFamily: "'Karla', sans-serif",
                         fontWeight: 700,
-                        fontSize: isActive ? '56px' : '32px',
-                        letterSpacing: isActive ? '-3px' : '-2px',
                         lineHeight: 1,
                         color: isActive ? '#3985F8' : '#374151',
                         transition: 'all 0.2s ease',
                       }}
                     >
                       <span>{label}</span>
-                      <span style={{ fontSize: isActive ? '2.375rem' : '1.5rem', color: isActive ? '#3985F8' : '#9ca3af' }}>
+                      <span className="qc-solutions-btn-arrow" style={{ color: isActive ? '#3985F8' : '#9ca3af' }}>
                         {isActive ? '←' : '→'}
                       </span>
                     </button>

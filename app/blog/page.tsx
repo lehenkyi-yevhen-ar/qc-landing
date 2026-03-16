@@ -66,18 +66,18 @@ export default function BlogPage() {
                     <div className="qc-blog-card-meta">
                       <span className="qc-blog-tag">{post.category.toUpperCase()}</span>
                       <span className="qc-blog-date">
-                        <CalendarIcon />
+                        <img src="/icons/calender-blue.png" alt="Calender blue icon" style={{width: 28, height: 28}} />
                         {post.date}
                       </span>
                     </div>
 
-                    <h2 className="qc-blog-card-title">{post.title}</h2>
+                    <div className='qc-blog-card-title-container'>
+                      <h2 className="qc-blog-card-title">{post.title}</h2>
+                    </div> 
 
                     <Link href={post.href} className="qc-button-gradient-border">
                       Read more
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-                        <path d="M7 17L17 7M7 7h10v10" />
-                      </svg>
+                      <img src="/icons/arrow-link.png" alt="Arrow link violet" style={{width: 28, height: 28}} />
                     </Link>
                   </div>
                 </article>
@@ -106,7 +106,7 @@ export default function BlogPage() {
                     disabled={page === 0}
                     aria-label="Previous page"
                   >
-                    ←
+                    <img src="/icons/arrow-left-purple.png" alt="Arrow left purple" style={{width: 28, height: 28}} />
                   </button>
                   <button
                     type="button"
@@ -115,7 +115,7 @@ export default function BlogPage() {
                     disabled={page === totalPages - 1}
                     aria-label="Next page"
                   >
-                    →
+                    <img src="/icons/arrow-right-purple.png" alt="Arrow right purple" style={{width: 28, height: 28}} />
                   </button>
                 </div>
               </div>
@@ -154,8 +154,7 @@ export default function BlogPage() {
               className="qc-cs-cta-btn"
             >
               <span>Talk to Roman</span>
-              <span aria-hidden>→</span>
-            </a>
+<img src="/icons/arrow-right.png" alt="arrow right white" style={{width: 28, height: 28}}/>            </a>
           </div>
         </section>
       </main>

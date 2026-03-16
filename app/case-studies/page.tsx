@@ -27,7 +27,7 @@ export default function CaseStudiesPage() {
     <div className="qc-page">
       <main>
         {/* ── Hero ── */}
-        <section className="qc-cs-hero">
+        <section className="qc-cs-hero" style={{paddingTop: 145}}>
           <div className="qc-container qc-cs-hero-inner">
             <Breadcrumb
               crumbs={[
@@ -84,14 +84,14 @@ export default function CaseStudiesPage() {
 
                     <div className="qc-cs-card-footer">
                       <span className="qc-cs-location">
-                        <LocationIcon />
+                        <img src="/icons/location-icon.png" alt="Location mark" style={{height: 28, width: 'auto'
+                        }} />
                         {article.location}
                       </span>
                       <Link href={`/case-studies/${article.slug}`} className="qc-cs-view-btn">
                         View project
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-                          <path d="M7 17L17 7M7 7h10v10" />
-                        </svg>
+                        <img src="/icons/arrow-link.png" alt="Arrow gradient icon" style={{width: 28, height: 28}} />
+                        
                       </Link>
                     </div>
                   </div>

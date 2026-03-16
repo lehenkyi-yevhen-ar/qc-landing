@@ -75,7 +75,7 @@ export default function AboutPage() {
             <Link href="#journey" className="qc-about-hero-cta">
               <span className="qc-about-hero-cta-text">Start your automation journey</span>
               <span className="qc-about-hero-cta-arrow-wrap" aria-hidden>
-                <span className="qc-about-hero-cta-arrow">→</span>
+                <img src="/icons/arrow-right.png" alt="Arrow right white" style={{width: 28, height: 28}}/>
               </span>
             </Link>
             <div className="qc-about-node-strip">
@@ -94,9 +94,11 @@ export default function AboutPage() {
         <section className="qc-section qc-about-split">
           <div className="qc-about-split-bg" aria-hidden />
           <div className="qc-about-split-cube">
-            <Image src="/about/cube.png?v=2" alt="" width={120} height={120} aria-hidden unoptimized />
+            <Image src="/about/cube.png" alt="" width={320} height={320}  />
           </div>
-          <div className="qc-container">
+          <div className='qc-upcontainer'>
+            <div className="qc-container">
+          
             <div className="qc-about-split-grid">
               <div className="qc-about-split-media">
                 <div className="qc-about-split-image-wrap">
@@ -117,16 +119,17 @@ export default function AboutPage() {
                 </h2>
                 <div className="qc-about-split-location">
                   <div className='qc-about-split-location-icon-wrap'><span className="qc-about-split-location-icon">
-                    <Image src="/footer/location.png" alt="" width={16} height={16} />
+                    <Image src="/icons/location-icon.png" alt="" width={16} height={16} />
                   </span>
                   </div>
                   <p className='qc-about-split-location-text'>Founded in 2021 in Lviv, Ukraine</p>
                 </div>
                 <p className="qc-about-split-desc">
-                  QuitCode has grown into an international automation studio trusted by teams across the US, UK, Canada, and the EU.
+                  QuitCode has grown into an international automation studio trusted by teams across the <strong style={{fontWeight: 600}}>US, UK, Canada, and the EU.</strong>
                 </p>
               </div>
             </div>
+          </div>
           </div>
         </section>
 
@@ -199,7 +202,7 @@ export default function AboutPage() {
                     <h2 className="qc-about-mission-heading">Mission</h2>
                   </div>
                   <div className="qc-about-mission-right">
-                    <Image src="/about/mission-cube.png" alt="" width={48} height={48} className="qc-about-mission-icon" aria-hidden />
+                    <Image src="/about/mission-cube.png" alt="" width={76} height={76} className="qc-about-mission-icon" aria-hidden />
                     <h3 className="qc-about-mission-title">
                       We deliver <strong>automation solutions</strong> that <strong>slingshot your big ideas.</strong>
                     </h3>
@@ -217,7 +220,7 @@ export default function AboutPage() {
                     {VALUES.map((v, i) => (
                       <li key={i} className="qc-about-value-item">
                         <div className="qc-about-value-icon-wrap">
-                          <Image src={v.icon} alt="" width={28} height={28} className="qc-about-value-icon-img" />
+                          <Image src={v.icon} alt="" width={44} height={44} className="qc-about-value-icon-img" />
                         </div>
                         <div>
                           <strong className="qc-about-value-title">{v.title}</strong>
