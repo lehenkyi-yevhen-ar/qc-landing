@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Custom Workflow Automation – QuitCode',
     description: 'Structured, repeatable workflow automation — no spreadsheets, no errors.',
     url: 'https://www.quitcode.com/services/custom-workflow-automation',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-custom-workflow-automations.png', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Custom Workflow Automation – QuitCode' },
 };
@@ -361,11 +361,11 @@ export default function CustomWorkflowAutomationPage() {
                     </span>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: "0 0 2rem", color: "#111827", fontSize: 40, fontWeight: 800 }}
+                      style={{ margin: "0 0 0.6rem", color: "#111827" }}
                     >
                       {service.title}
                     </h3>
-                    <p className="type-body" style={{ margin: "0 0 2rem", color: "#6b7280" }}>
+                    <p className="type-body" style={{ margin: "0 0 1.25rem", color: "#6b7280" }}>
                       {service.description}
                     </p>
                     <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: "auto" }}>

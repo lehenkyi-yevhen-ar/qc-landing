@@ -9,7 +9,7 @@ export function Breadcrumb({ crumbs }: { crumbs: Crumb[] }) {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '0.5rem',
+        gap: '24px',
         marginBottom: '64px',
         fontSize: '16px',
         color: '#6b7280',
@@ -18,7 +18,7 @@ export function Breadcrumb({ crumbs }: { crumbs: Crumb[] }) {
       {crumbs.map((crumb, i) => {
         const isLast = i === crumbs.length - 1;
         return (
-          <span key={crumb.href + i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+          <span key={crumb.href + i} style={{ display: 'inline-flex', alignItems: 'center', gap: '24px' }}>
             {i > 0 && <span aria-hidden>/</span>}
             {isLast ? (
               <a

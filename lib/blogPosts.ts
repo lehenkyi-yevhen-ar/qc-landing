@@ -1,57 +1,63 @@
 export type BlogPost = {
   slug: string;
   category: string;
-  date: string;
+  date: string; // DD/MM/YYYY
   title: string;
   image?: string;
   href: string;
 };
 
-export const BLOG_POSTS: BlogPost[] = [
+function parseDate(d: string): number {
+  const [day, month, year] = d.split('/').map(Number);
+  return new Date(year, month - 1, day).getTime();
+}
+
+const ALL_POSTS: BlogPost[] = [
   {
-    slug: 'contract-automation-airtable-docusign',
+    slug: 'contract-automation-by-airtable-docusign-integration',
     category: 'Integrations',
-    date: '12/02/2026',
+    date: '20/12/2024',
     title: 'Contract Automation by Airtable Docusign Integration',
-    image: '/blog/workflow-automation.png',
-    href: '/blog/contract-automation-airtable-docusign',
-  },
-  {
-    slug: 'automated-company-data-search-openai',
-    category: 'Integrations',
-    date: '12/02/2026',
-    title: 'Automated company data search powered by OpenAI Assistant',
-    href: '/blog/automated-company-data-search-openai',
+    image: '/blog/blog-contract-automation-by-airtable-docusign-integration-1.png',
+    href: '/blog/contract-automation-by-airtable-docusign-integration',
   },
   {
     slug: 'employee-birthday-reminder',
     category: 'Integrations',
-    date: '12/02/2026',
+    date: '11/04/2025',
     title: 'Employee Birthday reminder',
+    image: '/blog/blog-employee-birthday-reminder-1.webp',
     href: '/blog/employee-birthday-reminder',
   },
   {
-    slug: 'stripe-airtable-invoices',
+    slug: 'how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click',
     category: 'Integrations',
-    date: '12/02/2026',
+    date: '11/04/2025',
     title: 'How to integrate Stripe to Airtable and send invoices with 1 click?',
-    href: '/blog/stripe-airtable-invoices',
+    image: '/blog/blog-how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click-1.webp',
+    href: '/blog/how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click',
   },
   {
-    slug: 'document-workflow-airtable-docusign',
+    slug: 'automated-company-data-search-powered-by-openai-assistant',
     category: 'Integrations',
-    date: '12/02/2026',
+    date: '20/12/2024',
+    title: 'Automated company data search powered by OpenAI Assistant',
+    image: '/blog/blog-automated-company-data-search-powered-by-openai-assistant-1.png',
+    href: '/blog/automated-company-data-search-powered-by-openai-assistant',
+  },
+  {
+    slug: 'airtable-docusign-document-workflow-automation',
+    category: 'Integrations',
+    date: '03/12/2024',
     title: 'Document Workflow Automation Powered by Airtable & Docusign',
-    href: '/blog/document-workflow-airtable-docusign',
-  },
-  {
-    slug: 'airtable-make-crm-automation',
-    category: 'Integrations',
-    date: '12/02/2026',
-    title: 'Building a CRM Automation Pipeline with Airtable and Make',
-    href: '/blog/airtable-make-crm-automation',
+    image: '/blog/blog-airtable-docusign-document-workflow-automation-1.png',
+    href: '/blog/airtable-docusign-document-workflow-automation',
   },
 ];
+
+export const BLOG_POSTS: BlogPost[] = [...ALL_POSTS].sort(
+  (a, b) => parseDate(b.date) - parseDate(a.date)
+);
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find(p => p.slug === slug);

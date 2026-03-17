@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Careers at QuitCode – Join Our Automation Team',
     description: 'Work on real no-code and AI automation projects. Join a fast-growing team building the future of operations.',
     url: 'https://www.quitcode.com/company/careers',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-careers.png', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Careers at QuitCode' },
 };

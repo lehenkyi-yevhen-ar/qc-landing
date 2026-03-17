@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Custom Web Applications – QuitCode',
     description: 'Scalable web solutions — client portals to management systems — delivered in weeks.',
     url: 'https://www.quitcode.com/services/custom-web-applications',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-custom-web-applications.png', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Custom Web Applications – QuitCode' },
 };

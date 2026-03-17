@@ -4,54 +4,62 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { testimonialsData } from '@/lib/data';
 
-const PAIR_WIDTH = 1220; // 600 text + 20 gap + 600 video
+type Slide =
+  | { type: 'text'; item: (typeof testimonialsData)[0] }
+  | { type: 'video'; item: (typeof testimonialsData)[0] };
+
+// Alternate: text, video, text, video …
+const slides: Slide[] = testimonialsData.flatMap(item => [
+  { type: 'text', item },
+  { type: 'video', item },
+]);
+
+const SLIDE_RATIO = 0.72; // slide occupies 72% of viewport width
+const SLIDE_GAP = 24;     // px gap between slides
+
+function sendYTCommand(iframe: HTMLIFrameElement | null, func: 'playVideo' | 'pauseVideo') {
+  iframe?.contentWindow?.postMessage(
+    JSON.stringify({ event: 'command', func, args: [] }),
+    '*'
+  );
+}
 
 export function TestimonialsSection() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth <= 768
-  );
-  const [isTablet, setIsTablet] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth > 768 && window.innerWidth <= 1024
-  );
-  const [tabletStep, setTabletStep] = useState(560);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+  const [viewportW, setViewportW] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const iframeRefs = useRef<Record<number, HTMLIFrameElement | null>>({});
 
+  // Measure viewport width
   useEffect(() => {
-    const check = () => {
-      const w = window.innerWidth;
-      setIsMobile(w <= 768);
-      setIsTablet(w > 768 && w <= 1024);
-    };
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const el = viewportRef.current;
+    if (!el) return;
+    setViewportW(el.offsetWidth);
+    const ro = new ResizeObserver(() => setViewportW(el.offsetWidth));
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
+  const slideW = Math.round(viewportW * SLIDE_RATIO);
+  const trackPadding = Math.round((viewportW - slideW) / 2);
+
+  // Play active video slide, pause all others
   useEffect(() => {
-    const recalc = () => {
-      if (viewportRef.current && isTablet) {
-        setTabletStep(viewportRef.current.offsetWidth - 32);
-      }
-    };
-    recalc();
-    window.addEventListener('resize', recalc);
-    return () => window.removeEventListener('resize', recalc);
-  }, [isTablet]);
+    slides.forEach((slide, i) => {
+      if (slide.type !== 'video') return;
+      sendYTCommand(iframeRefs.current[i] ?? null, i === active ? 'playVideo' : 'pauseVideo');
+    });
+  }, [active]);
 
-  const scrollToSection = () => {
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const getTranslate = () => {
-    if (isMobile) return -activeTestimonial * 280;
-    if (isTablet) return -activeTestimonial * tabletStep;
-    return -activeTestimonial * PAIR_WIDTH;
-  };
+  const go = (index: number) => setActive(index);
+  const prev = () => go((active - 1 + slides.length) % slides.length);
+  const next = () => go((active + 1) % slides.length);
 
   return (
-    <section className="qc-section qc-testimonials" ref={sectionRef}>
+    <section className="qc-section qc-testimonials">
       <div className="qc-testimonials-outer">
+
+        {/* Header */}
         <div className="qc-testimonials-header-row">
           <img src="/testimonials/frame-left.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-left" aria-hidden />
           <div className="qc-testimonials-header">
@@ -63,27 +71,29 @@ export function TestimonialsSection() {
           <img src="/testimonials/frame-right.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-right" aria-hidden />
         </div>
 
+        {/* Single-card viewport */}
         <div className="qc-testimonials-viewport" ref={viewportRef}>
           <div
-            className="qc-testimonials-track"
-            style={{ transform: `translateX(${getTranslate()}px)` }}
+            className="qc-testimonials-track qc-testimonials-track-single"
+            style={{
+              transform: `translateX(${-(active * (slideW + SLIDE_GAP))}px)`,
+              paddingLeft: `${trackPadding}px`,
+              paddingRight: `${trackPadding}px`,
+              gap: `${SLIDE_GAP}px`,
+            }}
           >
-            <div className="qc-testimonials-card qc-testimonials-card-peek qc-testimonials-card-peek-left">
-              <div className="qc-testimonials-card-faded-content">
-                <p>ake a week. The system least 25</p>
-              </div>
-            </div>
-
-            {testimonialsData.map((item, index) => (
-              <div key={item.id} className="qc-testimonials-pair">
+            {slides.map((slide, i) =>
+              slide.type === 'text' ? (
                 <article
-                  className={`qc-testimonials-card qc-testimonials-card-text ${index === activeTestimonial ? 'qc-testimonials-card-active' : ''}`}
-                  aria-hidden={index !== activeTestimonial}
+                  key={i}
+                  className="qc-testimonials-card qc-testimonials-card-text qc-testimonials-card-active qc-testimonials-slide"
+                  aria-hidden={i !== active}
+                  style={{ width: slideW || undefined }}
                 >
                   <div className="qc-testimonials-stars">
-                    {[1, 2, 3, 4, 5].map(i => (
+                    {[1, 2, 3, 4, 5].map(j => (
                       <Image
-                        key={i}
+                        key={j}
                         src="/testimonials/star-review.png"
                         alt=""
                         width={40}
@@ -92,7 +102,7 @@ export function TestimonialsSection() {
                       />
                     ))}
                   </div>
-                  <p className="qc-testimonials-quote">{item.quote}</p>
+                  <p className="qc-testimonials-quote">{slide.item.quote}</p>
                   <div className="qc-testimonials-author">
                     <Image
                       src="/testimonials/avatar.png"
@@ -110,75 +120,58 @@ export function TestimonialsSection() {
                           height={19}
                           className="qc-testimonials-verified"
                         />
-                        <div className="qc-testimonials-name">{item.name}</div>
+                        <div className="qc-testimonials-name">{slide.item.name}</div>
                       </div>
-                      <div className="qc-testimonials-role">{item.role}</div>
+                      <div className="qc-testimonials-role">{slide.item.role}</div>
                     </div>
                   </div>
                 </article>
+              ) : (
                 <div
-                  className={`qc-testimonials-card qc-testimonials-card-video ${index === activeTestimonial ? 'qc-testimonials-card-active' : ''}`}
-                  aria-hidden={index !== activeTestimonial}
+                  key={i}
+                  className="qc-testimonials-slide qc-testimonials-slide-video-wrapper"
+                  aria-hidden={i !== active}
+                  style={{ width: slideW || undefined }}
                 >
-                  <Image
-                    src="/testimonials/card-review.png"
-                    alt="Client video testimonial"
-                    fill
-                    sizes="288px"
-                    style={{ objectFit: 'cover' }}
-                  />
-                  <div className="qc-testimonials-video-overlay" aria-hidden />
+                  <div className="qc-testimonials-card qc-testimonials-card-video qc-testimonials-card-active">
+                    <iframe
+                      ref={el => { iframeRefs.current[i] = el; }}
+                      src={`https://www.youtube.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1`}
+                      title={`Testimonial video – ${slide.item.name}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="qc-testimonials-yt-iframe"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-
-            <div className="qc-testimonials-card qc-testimonials-card-peek qc-testimonials-card-peek-right">
-              <div className="qc-testimonials-card-faded-content">
-                <p>Before work hours chasin proposals</p>
-              </div>
-            </div>
+              )
+            )}
           </div>
         </div>
 
+        {/* Nav */}
         <div className="qc-testimonials-nav qc-case-nav">
           <div className="qc-dots">
-            {testimonialsData.map((_, index) => (
+            {slides.map((_, i) => (
               <button
-                key={index}
+                key={i}
                 type="button"
-                className={`qc-dot${index === activeTestimonial ? ' qc-dot-active' : ''}`}
-                onClick={() => setActiveTestimonial(index)}
-                aria-label={`Go to testimonial ${index + 1}`}
+                className={`qc-dot${i === active ? ' qc-dot-active' : ''}`}
+                onClick={() => go(i)}
+                aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
           <div className="qc-case-nav-buttons">
-            <button
-              type="button"
-              className="qc-case-btn qc-case-btn-prev"
-              onClick={() => {
-                setActiveTestimonial(
-                  (activeTestimonial - 1 + testimonialsData.length) % testimonialsData.length
-                );
-                scrollToSection();
-              }}
-              aria-label="Previous testimonial"
-            >
+            <button type="button" className="qc-case-btn qc-case-btn-prev" onClick={prev} aria-label="Previous">
               <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
             </button>
-            <button
-              type="button"
-              className="qc-case-btn qc-case-btn-next"
-              onClick={() => {
-                setActiveTestimonial((activeTestimonial + 1) % testimonialsData.length);
-                scrollToSection();
-              }}
-              aria-label="Next testimonial"
-            >
+            <button type="button" className="qc-case-btn qc-case-btn-next" onClick={next} aria-label="Next">
               <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
             </button>
           </div>
         </div>
+
       </div>
     </section>
   );

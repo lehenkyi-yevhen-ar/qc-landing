@@ -8,7 +8,8 @@
       "Bash(powershell -Command \"$content = Get-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Raw; $line85 = \\($content -split ''\\\\n''\\)[84]; [System.Text.Encoding]::UTF8.GetBytes\\($line85[10..20]\\) | ForEach-Object { ''{0:X2}'' -f $_}\")",
       "Bash(powershell -Command \"$content = Get-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Raw -Encoding UTF8; $content = $content -replace [char]0x2018, [char]0x27 -replace [char]0x2019, [char]0x27 -replace [char]0x201C, [char]0x22 -replace [char]0x201D, [char]0x22; Set-Content ''c:\\\\Users\\\\Dell\\\\qc-landing\\\\app\\\\page.tsx'' -Value $content -NoNewline -Encoding UTF8\")",
       "Bash(powershell -File:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(find 'c:\\\\Users\\\\meist\\\\OneDrive\\\\Робочий стіл\\\\QC\\\\qc-landing' -name globals.css -o -name *.css)"
     ]
   }
 }

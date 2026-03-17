@@ -178,7 +178,7 @@ export default function CareersPage() {
                   return (
                     <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
                       <div style={{
-                        width: 76, height: 76, borderRadius: 16, flexShrink: 0,
+                        width: 76, height: 76, borderRadius: 32, flexShrink: 0,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         background: 'rgba(255,255,255,0.2)',
                         backdropFilter: 'blur(8px)',
@@ -202,7 +202,7 @@ export default function CareersPage() {
                   return (
                     <div key={i} className={`qc-careers-why-cell qc-careers-why-card${item.gradient ? ' qc-careers-why-card--gradient' : ''}`}>
                       <div style={{
-                        width: 76, height: 76, borderRadius: 16, flexShrink: 0,
+                        width: 76, height: 76, borderRadius: 32, flexShrink: 0,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         background: 'rgba(255,255,255,0.2)',
                         backdropFilter: 'blur(8px)',
@@ -221,9 +221,6 @@ export default function CareersPage() {
 
         {/* ── Open Positions ── */}
         <section id="open-positions" className="qc-section qc-careers-positions">
-          <div className="qc-careers-positions-sparkle" aria-hidden>
-            <Image src="/careers/sparkle-3d.png" alt="" width={120} height={120} unoptimized />
-          </div>
           <div className="qc-container">
             <div className="qc-careers-positions-header">
               <span className="qc-careers-apply-pill">APPLY</span>
@@ -231,6 +228,9 @@ export default function CareersPage() {
               <p className="qc-careers-positions-subtitle">
                 We&apos;re always looking for people who want to grow, take ownership, and build systems that matter.
               </p>
+              <div className="qc-careers-positions-sparkle" aria-hidden>
+                <Image src="/careers/sparkle-3d.png" alt="" width={120} height={120} unoptimized />
+              </div>
             </div>
             <p className="qc-careers-positions-count">{OPEN_POSITIONS.length} OPEN JOBS</p>
             <div className="qc-careers-positions-list">
@@ -243,20 +243,23 @@ export default function CareersPage() {
                         <img src="/icons/location-icon-black.png" alt="Location icon black" style={{width: 32, height: 32}} />
                         {job.location}
                       </span>
-                      {job.tags.map((tag) => (
-                        <span key={tag} className="qc-careers-job-tag">{tag}</span>
-                      ))}
+                      <div className="qc-careers-job-tags">
+                        {job.tags.map((tag) => (
+                          <span key={tag} className="qc-careers-job-tag">{tag}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <span className="qc-careers-job-arrow">
+                  <div className="qc-careers-job-footer">
+                    <span>Learn more</span>
                     <img src="/icons/arrow-link-blue.png" alt="Arrow link blue" style={{width: 28, height: 28}} />
-                  </span>
+                  </div>
                 </Link>
               ))}
             </div>
             <div className="qc-careers-positions-footer">
               <Link href="#" className="qc-careers-view-all">VIEW ALL</Link>
-            </div>   
+            </div>
           </div>
         </section>
 
