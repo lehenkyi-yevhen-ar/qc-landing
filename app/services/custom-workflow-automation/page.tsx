@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Workflow Automation for Service Firms | QuitCode',
     description: 'Replace repetitive manual work with intelligent automation workflows built around your real business processes.',
     url: 'https://quitcode.com/services/workflow-automation',
-    images: [{ url: '/ogs/og-custom-workflow-automations.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-custom-workflow-automations.webp', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Workflow Automation for Service Firms | QuitCode' },
 };
@@ -269,9 +269,9 @@ export default function CustomWorkflowAutomationPage() {
                 <Image
                   src="/right-for-you-character.png"
                   alt=""
-                  width={420}
-                  height={520}
-                  style={{ width: "100%", height: "auto", objectFit: "contain", maxWidth: 420 }}
+                  width={1080}
+                  height={1337}
+                  style={{ width: "100%", height: "auto", objectFit: "contain" }}
                 />
               </div>
             </div>

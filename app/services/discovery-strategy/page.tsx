@@ -314,9 +314,9 @@ export default function DiscoveryStrategyPage() {
                 <Image
                   src="/right-for-you-character.png"
                   alt=""
-                  width={420}
-                  height={520}
-                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                  width={1080}
+                  height={1337}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
             </div>

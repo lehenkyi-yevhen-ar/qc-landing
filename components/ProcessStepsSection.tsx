@@ -578,15 +578,15 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
           }}
         >
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontWeight: 600, color: "#111827" }}>Team of experts</div>
-            <div>Tailored to your needs</div>
+            <div style={{ fontWeight: 600, color: "#111827", fontSize: 20 }}>Team of experts</div>
+            <div style={{ fontSize: 12 }}>Tailored to your needs</div>
           </div>
           <Image
             src="/team-avatars.png"
             alt="Team of experts"
-            width={96}
-            height={40}
-            style={{ width: 96, height: 40, objectFit: "contain" }}
+            width={114}
+            height={42}
+            style={{ width: 114, height: 42, objectFit: "contain" }}
           />
         </div>
       </div>

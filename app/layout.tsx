@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'AI & No-Code Automation for Service Firms | QuitCode',
     description:
       'Turn manual operations into structured automation systems using Airtable, Make, and custom no-code apps.',
-    images: [{ url: '/ogs/og-main.png', width: 1200, height: 630, alt: 'QuitCode - Automation & AI Studio' }],
+    images: [{ url: '/ogs/og-main.webp', width: 1200, height: 630, alt: 'QuitCode - Automation & AI Studio' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'AI & No-Code Automation for Service Firms | QuitCode',
     description:
       'Turn manual operations into structured automation systems using Airtable, Make, and custom no-code apps.',
-    images: ['/ogs/og-main.png'],
+    images: ['/ogs/og-main.webp'],
   },
 };
 

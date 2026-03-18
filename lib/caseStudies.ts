@@ -43,7 +43,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     challenge: 'Manual workflows, scattered data, and a once-a-year payroll process that took months of accountant time.',
     solution: 'We built a centralized payroll system using Airtable, Softr, Make, and Zapier - replacing spreadsheets with automated validation and calculations.',
     description: 'From three months of manual work to a structured, repeatable system the school can run every year - without spreadsheets, emails, or errors.',
-    cardImage: '/case-studies/getting-business-finances-in-order.png',
+    cardImage: '/case-studies/getting-business-finances-in-order.webp',
     location: 'USA, New York City',
     titleGradient: 'Automating Annual Payroll',
     titlePlain: 'for a 200-Person Private School',

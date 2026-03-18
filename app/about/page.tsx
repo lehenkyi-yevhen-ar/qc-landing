@@ -52,8 +52,8 @@ const VALUES = [
 
 const PEOPLE = [
   { name: 'Roman Sydorak', role: 'CEO & Strategic Operations Advisor', image: '/roman-sydorak.png', linkedin: 'https://www.linkedin.com/in/roman-sydorak/' },
-  { name: 'Olenka Leshchyshyn', role: 'Sales Manager', image: '/about/olena-leshchyshyn.jpeg', linkedin: 'https://www.linkedin.com/in/olena-leshchyshyn-8686a8311/' },
-  { name: 'Taras-Vasyl Haioshko', role: 'Project Manager', image: '/about/taras-hayoshko.jpg', linkedin: 'https://www.linkedin.com/in/taras-vasyl-haioshko-901494218/' },
+  { name: 'Olenka Leshchyshyn', role: 'Sales Manager', image: '/about/olena-leshchyshyn.webp', linkedin: 'https://www.linkedin.com/in/olena-leshchyshyn-8686a8311/' },
+  { name: 'Taras-Vasyl Haioshko', role: 'Project Manager', image: '/about/taras-hayoshko.webp', linkedin: 'https://www.linkedin.com/in/taras-vasyl-haioshko-901494218/' },
   { name: 'Hryhorii Haponiuk', role: 'Automation Expert, Team Lead', image: '/about/hryhorii-haponiuk.jpg', linkedin: 'https://www.linkedin.com/in/hryhorii-haponiuk-131582289/' },
   { name: 'Maryan Andrushchak', role: 'Automation Expert, Tech Lead', image: '/about/maryan-andrushchak.jpg', linkedin: 'https://www.linkedin.com/in/mar-andrushchak/' },
 ];
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <div className="qc-about-split-media">
                 <div className="qc-about-split-image-wrap">
                   <Image
-                    src="/about/lviv.png?v=2"
+                    src="/about/lviv.webp?v=2"
                     alt="Lviv, Ukraine"
                     fill
                     sizes="(max-width: 900px) 100vw, 55vw"

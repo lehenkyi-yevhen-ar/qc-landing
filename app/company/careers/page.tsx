@@ -33,7 +33,7 @@ const WHY_JOIN = [
   },
   {
     type: 'photo' as const,
-    src: '/careers/quitcode-team-careers.png',
+    src: '/careers/quitcode-team-careers.webp',
     alt: 'QuitCode team building automation systems',
   },
   {
@@ -56,7 +56,7 @@ const WHY_JOIN = [
   },
   {
     type: 'photo' as const,
-    src: '/careers/photo-office.png',
+    src: '/careers/photo-office.webp',
     alt: 'Team in office',
   },
 ];
@@ -147,7 +147,7 @@ export default function CareersPage() {
               </div>
               <div className="qc-careers-hero-photo-wrap">
                 <Image
-                  src="/careers/quitcode-careers-hero.png"
+                  src="/careers/quitcode-careers-hero.webp"
                   alt="careers at QuitCode in automation and AI"
                   fill
                   sizes="(max-width: 540px) 80svw, 520px"
@@ -434,7 +434,7 @@ export default function CareersPage() {
               <aside className="qc-careers-form-aside">
                 <div className="qc-careers-form-photo-wrap">
                   <Image
-                    src="/careers/nastia-kotsinska-careers.png"
+                    src="/careers/nastia-kotsinska-careers.webp"
                     alt="Nastia Kotsinska HR Manager at QuitCode"
                     fill
                     sizes="(max-width: 900px) 100vw, 480px"

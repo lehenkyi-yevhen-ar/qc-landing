@@ -18,7 +18,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Integrations',
     date: '20/12/2024',
     title: 'Contract Automation by Airtable Docusign Integration',
-    image: '/blog/blog-contract-automation-by-airtable-docusign-integration-1.png',
+    image: '/blog/contract-automation-og.webp',
     href: '/blog/contract-automation-by-airtable-docusign-integration',
   },
   {
@@ -26,7 +26,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Integrations',
     date: '11/04/2025',
     title: 'Employee Birthday reminder',
-    image: '/blog/blog-employee-birthday-reminder-1.webp',
+    image: '/blog/employee-birthday-og.webp',
     href: '/blog/employee-birthday-reminder',
   },
   {
@@ -34,7 +34,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Integrations',
     date: '11/04/2025',
     title: 'How to integrate Stripe to Airtable and send invoices with 1 click?',
-    image: '/blog/blog-how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click-1.webp',
+    image: '/blog/how-to-integrate-stripe-og.webp',
     href: '/blog/how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click',
   },
   {
@@ -42,7 +42,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Integrations',
     date: '20/12/2024',
     title: 'Automated company data search powered by OpenAI Assistant',
-    image: '/blog/blog-automated-company-data-search-powered-by-openai-assistant-1.png',
+    image: '/blog/automated-company-data-search-og.webp',
     href: '/blog/automated-company-data-search-powered-by-openai-assistant',
   },
   {
@@ -50,7 +50,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Integrations',
     date: '03/12/2024',
     title: 'Document Workflow Automation Powered by Airtable & Docusign',
-    image: '/blog/blog-airtable-docusign-document-workflow-automation-1.png',
+    image: '/blog/document-wotfklow-automation-og.webp',
     href: '/blog/airtable-docusign-document-workflow-automation',
   },
 ];

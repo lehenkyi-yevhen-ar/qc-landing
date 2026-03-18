@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { JourneyFormSection } from '@/components/JourneyFormSection';
 import { CASE_STUDIES } from '@/lib/caseStudies';
+import React from 'react';
 
 type SolutionKey = 'consulting' | 'creative' | 'education';
 
@@ -380,7 +381,7 @@ export default function Page() {
                         borderRadius: isActive ? '20px' : '14px',
                         border: isActive
                           ? '2px solid rgba(129, 140, 248, 0.6)'
-                          : '1px solid #e5e7eb',
+                          : '2px solid #f0ebf9',
                         background: isActive
                           ? 'linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%)'
                           : '#ffffff',
@@ -457,6 +458,13 @@ export default function Page() {
           <div className="qc-container">
             <div
               style={{
+                padding: '64px',
+                borderRadius: '50px',
+                background: '#3985F80D',
+              }}
+            >
+            <div
+              style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-start',
@@ -481,8 +489,8 @@ export default function Page() {
                 }}
               >
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 500, color: '#111827' }}>Team of experts</div>
-                  <div style={{fontWeight: 400, fontSize: 12}}>Tailored to your needs.</div>
+                  <div style={{ fontWeight: 500, color: '#111827', fontSize: 20 }}>Team of experts</div>
+                  <div style={{ fontWeight: 400, fontSize: 12 }}>Tailored to your needs.</div>
                 </div>
                 <Image
                   src="/team-avatars.png"
@@ -578,7 +586,7 @@ export default function Page() {
                       >
                         Solution
                       </div>
-                      <p className="type-body-semibold" style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563' }}>
+                      <p className="type-body-medium" style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563' }}>
                         {service.solution}
                       </p>
                     </div>
@@ -597,6 +605,7 @@ export default function Page() {
                   </div>
                 </article>
               ))}
+            </div>
             </div>
           </div>
         </section>
@@ -677,9 +686,9 @@ export default function Page() {
             <a href="#case-studies" className="qc-glass-cta-link">
               See real client results
             </a>
-            <span className="qc-glass-cta-arrow" aria-hidden="true">
+            <a href="#case-studies" className="qc-glass-cta-arrow" aria-hidden="true">
               <Image src="/icons/arrow-down.png" alt="" width={64} height={64} />
-            </span>
+            </a>
           </div>
         </section>
 
@@ -706,7 +715,8 @@ export default function Page() {
                           src={cs.cardImage}
                           alt=""
                           fill
-                          sizes="(max-width: 900px) 45vw, 420px"
+                          sizes="(max-width: 900px) 90vw, 50vw"
+                          quality={90}
                           style={{ objectFit: 'cover' }}
                         />
                       </div>
@@ -874,22 +884,22 @@ export default function Page() {
                 {[
                   {
                     title: 'Faster implementation',
-                    body: 'No waiting months for development. We design, test, and launch automation systems in weeks - not quarters.',
+                    body: 'No waiting months for development.\n We design, test, and launch automation systems in weeks - not quarters.',
                     icon: '/why-nocode/icon-faster.png'
                   },
                   {
                     title: 'Lower cost, higher ROI',
-                    body: 'No-code means no full-time dev teams or expensive maintenance. You pay for business outcomes, not for code.',
+                    body: 'No-code means no full-time dev teams or expensive maintenance.\nYou pay for business outcomes, not for code.',
                     icon: '/why-nocode/icon-roi.png'
                   },
                   {
                     title: 'Flexible and future-proof',
-                    body: 'When your processes change, your system adapts. We build modular workflows that evolve with your firm.',
+                    body: 'When your processes change, your system adapts.\nWe build modular workflows that evolve with your firm.',
                     icon: '/why-nocode/icon-flexible.png'
                   },
                   {
                     title: 'Built for non-technical teams',
-                    body: "You don't need IT to keep it running. Your team can update data, dashboards, and logic on their own.",
+                    body: "You don't need IT to keep it running.\nYour team can update data, dashboards, and logic on their own.",
                     icon: '/why-nocode/icon-teams.png'
                   }
                 ].map(item => (
@@ -904,7 +914,14 @@ export default function Page() {
                       />
                       <span className="qc-why-nocode-label">{item.title}</span>
                     </div>
-                    <p className="qc-why-nocode-desc">{item.body}</p>
+                    <p className="qc-why-nocode-desc">
+  {item.body.split('\n').map((line, i, arr) => (
+    <React.Fragment key={i}>
+      {line}
+      {i < arr.length - 1 && <br />}
+    </React.Fragment>
+  ))}
+</p>
                   </li>
                 ))}
               </ul>

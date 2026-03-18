@@ -81,7 +81,7 @@ export function JourneyFormSection() {
         <div className="qc-journey-grid">
           <div className="qc-journey-form-col">
             <h2 className="qc-journey-title">
-              <span className="qc-journey-title-desktop">Start your automation journey</span>
+              <span className="qc-journey-title-desktop">Start your <span className='qc-journey-title-highlight'>automation</span> journey</span>
               <span className="qc-journey-title-mobile">Get <span className="qc-journey-title-gradient">Free Discovery</span></span>
             </h2>
             <p className="qc-journey-intro">
@@ -322,7 +322,7 @@ export function JourneyFormSection() {
           <aside className="qc-journey-aside">
             <div className="qc-journey-card">
               <Image
-                src="/journey-form-card.png"
+                src="/journey-form-card.webp"
                 alt="Person working on laptop in modern space"
                 fill
                 sizes="(max-width: 900px) 100vw, 480px"

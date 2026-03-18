@@ -37,10 +37,9 @@ export default function BlogPage() {
               ]}
             />
             <h1 className="qc-blog-title">Blog</h1>
-            <p className="qc-blog-subtitle">
-              QuitCode is an Automation &amp; AI Company that helps high-value service firms - from consulting agencies
-              to private schools - transform fragmented operations into connected, intelligent systems.
-            </p>
+            <h2 className="qc-blog-subtitle">
+              Insights on automation, no-code, and operations
+            </h2>
           </div>
         </section>
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Contract Automation by Airtable Docusign Integration - QuitCode',
     description: 'How Airtable and DocuSign integration automates contract creation, e-signatures, and document management.',
     url: 'https://www.quitcode.com/blog/contract-automation-by-airtable-docusign-integration',
-    images: [{ url: '/blog/blog-contract-automation-by-airtable-docusign-integration-1.png', width: 1200, height: 630 }],
+    images: [{ url: '/blog/blog-contract-automation-by-airtable-docusign-integration-1.webp', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Contract Automation by Airtable Docusign Integration - QuitCode' },
 };

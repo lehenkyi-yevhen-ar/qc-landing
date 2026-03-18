@@ -316,7 +316,7 @@ export default function JobPage() {
               <aside className="qc-careers-form-aside">
                 <div className="qc-careers-form-photo-wrap">
                   <Image
-                    src="/careers/apply-photo.png"
+                    src="/careers/apply-photo.webp"
                     alt=""
                     fill
                     sizes="(max-width: 900px) 100vw, 480px"

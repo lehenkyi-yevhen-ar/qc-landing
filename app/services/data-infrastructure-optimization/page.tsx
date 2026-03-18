@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Data Infrastructure Optimization | QuitCode',
     description: 'Build a single source of truth for your operations with automated data pipelines and dashboards.',
     url: 'https://quitcode.com/services/data-infrastructure',
-    images: [{ url: '/ogs/og-data-infrastructure.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-data-infrastructure.webp', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Data Infrastructure Optimization | QuitCode' },
 };
@@ -293,9 +293,9 @@ export default function DataInfrastructureOptimizationPage() {
                 <Image
                   src="/right-for-you-character.png"
                   alt=""
-                  width={420}
-                  height={520}
-                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                  width={1080}
+                  height={1337}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
             </div>

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Open Position - QuitCode Careers',
     description: 'Join QuitCode and work on real automation and AI projects.',
-    images: [{ url: '/ogs/og-vaccancy.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-vaccancy.webp', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Open Position - QuitCode' },
 };

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', padding: '4rem 1rem', textAlign: 'center' }}>
+    <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', padding: '18rem 1rem', textAlign: 'center' }}>
       <p style={{ fontSize: '5rem', fontWeight: 800, color: '#4300b7', margin: 0, lineHeight: 1 }}>404</p>
       <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', margin: 0 }}>Page not found</h1>
       <p style={{ color: '#6b7280', maxWidth: '400px', margin: 0 }}>

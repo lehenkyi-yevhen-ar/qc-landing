@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Custom Web Applications | QuitCode',
     description: 'Build scalable web applications and client portals without traditional development timelines.',
     url: 'https://quitcode.com/services/custom-web-apps',
-    images: [{ url: '/ogs/og-custom-web-applications.png', width: 1200, height: 630 }],
+    images: [{ url: '/ogs/og-custom-web-applications.webp', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Custom Web Applications | QuitCode' },
 };
@@ -321,9 +321,9 @@ export default function CustomWebApplicationsPage() {
                 <Image
                   src="/right-for-you-character.png"
                   alt=""
-                  width={420}
-                  height={520}
-                  style={{ width: '100%', height: 'auto', objectFit: 'contain', maxWidth: 420 }}
+                  width={1080}
+                  height={1337}
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
             </div>
