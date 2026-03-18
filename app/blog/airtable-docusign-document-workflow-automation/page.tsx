@@ -5,16 +5,16 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { RelatedArticles } from '@/components/RelatedArticles';
 
 export const metadata: Metadata = {
-  title: 'Document Workflow Automation Powered by Airtable & Docusign – QuitCode',
+  title: 'Document Workflow Automation Powered by Airtable & Docusign - QuitCode',
   description: 'Learn how Airtable and DocuSign integration creates a synchronized, secure document workflow automation that eliminates manual steps and reduces errors.',
   alternates: { canonical: 'https://www.quitcode.com/blog/airtable-docusign-document-workflow-automation' },
   openGraph: {
-    title: 'Document Workflow Automation Powered by Airtable & Docusign – QuitCode',
+    title: 'Document Workflow Automation Powered by Airtable & Docusign - QuitCode',
     description: 'Learn how Airtable and DocuSign integration creates a synchronized, secure document workflow automation.',
     url: 'https://www.quitcode.com/blog/airtable-docusign-document-workflow-automation',
     images: [{ url: '/blog/blog-airtable-docusign-document-workflow-automation-1.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Document Workflow Automation Powered by Airtable & Docusign – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Document Workflow Automation Powered by Airtable & Docusign - QuitCode' },
 };
 
 export default function AirtableDocusignBlogPost() {
@@ -59,15 +59,15 @@ export default function AirtableDocusignBlogPost() {
             <h2 className="qc-blog-post-h2">Synchronized, Secure, and Supervised Documentation Flow</h2>
 
             <p className="qc-blog-post-p">
-              Airtable serves as the central database and workflow orchestrator, while DocuSign handles the legally binding electronic signature process. When these two platforms are connected through automation — typically via Make (formerly Integromat) — you get a seamless pipeline where every document action is tracked, timestamped, and stored without any manual intervention.
+              Airtable serves as the central database and workflow orchestrator, while DocuSign handles the legally binding electronic signature process. When these two platforms are connected through automation - typically via Make (formerly Integromat) - you get a seamless pipeline where every document action is tracked, timestamped, and stored without any manual intervention.
             </p>
 
             <p className="qc-blog-post-p">
-              The integration works by triggering document creation and sending workflows directly from Airtable records. When a record reaches a specific status — say, "Ready for Signature" — the automation creates the relevant DocuSign envelope, populates it with data from the Airtable record, and sends it to the appropriate signatories. Once signed, the completed document is automatically stored and the Airtable record is updated to reflect the new status.
+              The integration works by triggering document creation and sending workflows directly from Airtable records. When a record reaches a specific status - say, "Ready for Signature" - the automation creates the relevant DocuSign envelope, populates it with data from the Airtable record, and sends it to the appropriate signatories. Once signed, the completed document is automatically stored and the Airtable record is updated to reflect the new status.
             </p>
 
             <p className="qc-blog-post-p">
-              This creates a single source of truth: your team always knows where each document stands, who has signed, who hasn&apos;t, and what comes next — all visible directly within Airtable without having to log into DocuSign separately.
+              This creates a single source of truth: your team always knows where each document stands, who has signed, who hasn&apos;t, and what comes next - all visible directly within Airtable without having to log into DocuSign separately.
             </p>
 
             <h2 className="qc-blog-post-h2">Key Document Workflow Automation Possibilities with Airtable &amp; DocuSign</h2>
@@ -79,7 +79,7 @@ export default function AirtableDocusignBlogPost() {
             <h3 className="qc-blog-post-h3">1. Automated Contract Generation and Sending</h3>
 
             <p className="qc-blog-post-p">
-              <strong>Details:</strong> When a new client or project record is created in Airtable, the automation instantly generates a customized contract using a DocuSign template, pre-fills it with the client&apos;s details, and sends it for signature — all without anyone on your team touching a single document.
+              <strong>Details:</strong> When a new client or project record is created in Airtable, the automation instantly generates a customized contract using a DocuSign template, pre-fills it with the client&apos;s details, and sends it for signature - all without anyone on your team touching a single document.
             </p>
 
             <p className="qc-blog-post-p">
@@ -99,7 +99,7 @@ export default function AirtableDocusignBlogPost() {
             <h3 className="qc-blog-post-h3">3. Automated Reminders for Unsigned Documents</h3>
 
             <p className="qc-blog-post-p">
-              <strong>Details:</strong> Using Airtable automations or Make scenarios, the system can identify records where documents have been sent but not yet signed after a defined period — say, 48 hours — and automatically trigger a reminder email or even resend the DocuSign envelope.
+              <strong>Details:</strong> Using Airtable automations or Make scenarios, the system can identify records where documents have been sent but not yet signed after a defined period - say, 48 hours - and automatically trigger a reminder email or even resend the DocuSign envelope.
             </p>
 
             <p className="qc-blog-post-p">
@@ -109,7 +109,7 @@ export default function AirtableDocusignBlogPost() {
             <h3 className="qc-blog-post-h3">4. Post-Signature Document Storage and Notification</h3>
 
             <p className="qc-blog-post-p">
-              <strong>Details:</strong> Once all required signatures are collected, the completed PDF is automatically downloaded from DocuSign and stored in a designated location — Google Drive, Dropbox, or an Airtable attachment. Simultaneously, relevant team members receive a notification, and the record status is updated to "Completed."
+              <strong>Details:</strong> Once all required signatures are collected, the completed PDF is automatically downloaded from DocuSign and stored in a designated location - Google Drive, Dropbox, or an Airtable attachment. Simultaneously, relevant team members receive a notification, and the record status is updated to "Completed."
             </p>
 
             <p className="qc-blog-post-p">
@@ -119,7 +119,7 @@ export default function AirtableDocusignBlogPost() {
             <h2 className="qc-blog-post-h2">A Case Study: Automating Contract Signing for a Private School</h2>
 
             <p className="qc-blog-post-p">
-              One of our clients — a private school — was managing their annual enrollment process entirely through spreadsheets and email chains. Each year, they needed to send enrollment contracts to hundreds of families, track who had signed, follow up with stragglers, and file completed documents. This process took their administrative team approximately three months of intensive manual work.
+              One of our clients - a private school - was managing their annual enrollment process entirely through spreadsheets and email chains. Each year, they needed to send enrollment contracts to hundreds of families, track who had signed, follow up with stragglers, and file completed documents. This process took their administrative team approximately three months of intensive manual work.
             </p>
 
             <p className="qc-blog-post-p">
@@ -152,14 +152,14 @@ export default function AirtableDocusignBlogPost() {
             <h2 className="qc-blog-post-h2">Quitcode&apos;s Tailored Approach to Document Workflow Automation</h2>
 
             <p className="qc-blog-post-p">
-              At Quitcode, we don&apos;t build generic automation templates — we design systems tailored to your specific workflows, document types, and team structure. Our approach to Airtable-DocuSign integrations includes:
+              At Quitcode, we don&apos;t build generic automation templates - we design systems tailored to your specific workflows, document types, and team structure. Our approach to Airtable-DocuSign integrations includes:
             </p>
 
             <ul className="qc-blog-post-list">
               <li><strong>Workflow mapping:</strong> We analyze your existing document processes to identify every manual step and decision point that can be automated</li>
               <li><strong>Custom template design:</strong> We configure your DocuSign templates to dynamically populate with Airtable data, ensuring every document is accurate and professionally formatted</li>
               <li><strong>Multi-stage signing workflows:</strong> We handle complex scenarios like sequential signing (where multiple parties must sign in a specific order) or parallel signing (where multiple parties sign independently)</li>
-              <li><strong>Error handling and notifications:</strong> We build in fallback mechanisms so that if something goes wrong — a bounced email, a declined signature — your team is immediately alerted and knows exactly what action to take</li>
+              <li><strong>Error handling and notifications:</strong> We build in fallback mechanisms so that if something goes wrong - a bounced email, a declined signature - your team is immediately alerted and knows exactly what action to take</li>
               <li><strong>Training and documentation:</strong> We provide comprehensive documentation and training so your team can manage and modify the system as your needs evolve</li>
             </ul>
 

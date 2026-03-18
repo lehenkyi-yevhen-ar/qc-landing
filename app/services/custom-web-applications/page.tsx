@@ -5,48 +5,55 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Web Applications – QuitCode',
-  description: 'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
-  alternates: { canonical: 'https://www.quitcode.com/services/custom-web-applications' },
+  title: 'Custom Web Applications for Service Firms | QuitCode',
+  description: 'Build custom web applications, client portals, and internal tools using Bubble and no-code platforms - delivered in weeks.',
+  alternates: { canonical: 'https://quitcode.com/services/custom-web-apps' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Custom Web Applications – QuitCode',
-    description: 'Scalable web solutions — client portals to management systems — delivered in weeks.',
-    url: 'https://www.quitcode.com/services/custom-web-applications',
+    title: 'Custom Web Applications | QuitCode',
+    description: 'Build scalable web applications and client portals without traditional development timelines.',
+    url: 'https://quitcode.com/services/custom-web-apps',
     images: [{ url: '/ogs/og-custom-web-applications.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Custom Web Applications – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Custom Web Applications | QuitCode' },
 };
 
 const whatYouGet = [
   {
     title: 'Custom Web Application',
     description: 'Fully functional, responsive web app built on Bubble.com, tailored to your specific business requirements and branding',
-    icon: '/webapp-custom-app.png',
+    icon: '/custom-web-application.png',
+    alt: 'custom web application built with bubble platform',
   },
   {
     title: 'Database & Backend Setup',
     description: 'Structured database architecture with secure data management, user authentication, and role-based access',
-    icon: '/webapp-database.png',
+    icon: '/web-app-database-architecture.png',
+    alt: 'web application database architecture',
   },
   {
     title: 'Professional UI/UX Design',
     description: 'Intuitive, mobile-responsive interface optimized for all devices with modern aesthetics and seamless user experience',
-    icon: '/webapp-design.png',
+    icon: '/web-app-ui-design.png',
+    alt: 'modern web application interface design',
   },
   {
     title: 'Third-Party Integrations',
     description: 'Seamless connections to your existing tools (CRM, payment systems, email platforms, analytics) via APIs',
-    icon: '/webapp-integrations.png',
+    icon: '/web-app-api-integrations.png',
+    alt: 'web application API integrations',
   },
   {
     title: 'Admin Panel & Documentation',
     description: 'Comprehensive admin dashboard for content management plus detailed user guides and technical documentation',
-    icon: '/webapp-admin.png',
+    icon: '/web-app-admin-dashboard.png',
+    alt: 'web application admin dashboard',
   },
   {
     title: 'End User Training Materials',
     description: 'Comprehensive guides and tutorials for all user types to ensure smooth adoption and maximize application value',
     icon: '/webapp-training.png',
+    alt: '',
   },
 ];
 
@@ -153,7 +160,7 @@ export default function CustomWebApplicationsPage() {
                   style={{ color: '#2e2e2e', margin: '0 0 2rem', maxWidth: 440 }}
                 >
                   Build powerful, scalable web solutions that solve your unique business
-                  challenges. From client portals to management systems — delivered in weeks,
+                  challenges. From client portals to management systems - delivered in weeks,
                   not months, without traditional coding.
                 </p>
                 <a
@@ -164,15 +171,16 @@ export default function CustomWebApplicationsPage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
- background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
-                      boxShadow:'0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',                    color: '#fff',
+                    background: 'linear-gradient(90deg, #4300b7, #5e00ff, #2200ff)',
+                    boxShadow: '0 18px 45px rgba(64, 56, 133, 0.45), 0 0 0 1px rgba(255,255,255,0.2)',
+                    color: '#fff',
                     fontWeight: 700,
                     fontSize: '1rem',
                     padding: '0.75rem 1.5rem',
                     borderRadius: '10px',
                     textDecoration: 'none',
                     transition: 'opacity 0.2s',
-                    height: 56
+                    height: 56,
                   }}
                 >
                   Build Your Application
@@ -182,11 +190,11 @@ export default function CustomWebApplicationsPage() {
                 </a>
               </div>
 
-              {/* Right – mockup */}
+              {/* Right - mockup */}
               <div>
                 <Image
-                  src="/webapp-hero-mockup.png"
-                  alt="Custom web application interface"
+                  src="/custom-web-application.png"
+                  alt="custom web application built with bubble platform"
                   width={680}
                   height={460}
                   style={{ width: '100%', height: 'auto' }}
@@ -222,7 +230,7 @@ export default function CustomWebApplicationsPage() {
                 >
                   <Image
                     src={item.icon}
-                    alt=""
+                    alt={item.alt}
                     width={72}
                     height={72}
                     style={{ objectFit: 'contain' }}
@@ -300,7 +308,7 @@ export default function CustomWebApplicationsPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character */}
+              {/* Right - 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -443,7 +451,7 @@ export default function CustomWebApplicationsPage() {
               </p>
               <p className="qc-conversation-para">
                 With 10+ years in optimising service operations and 50+ projects delivered, he
-                helps firms uncover what&apos;s slowing them down—and map a clear path to
+                helps firms uncover what&apos;s slowing them down-and map a clear path to
                 automation.
               </p>
               <a
@@ -462,7 +470,7 @@ export default function CustomWebApplicationsPage() {
                 </span>
                 <span className="qc-conversation-benefit">
                   <span className="qc-conversation-star" aria-hidden>☆</span>
-                  No sales pressure—just practical insights
+                  No sales pressure-just practical insights
                 </span>
               </div>
             </div>

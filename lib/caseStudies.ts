@@ -41,13 +41,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     industryLabel: 'Education',
     title: 'Automating Annual Payroll for a 200-Person Private School',
     challenge: 'Manual workflows, scattered data, and a once-a-year payroll process that took months of accountant time.',
-    solution: 'We built a centralized payroll system using Airtable, Softr, Make, and Zapier — replacing spreadsheets with automated validation and calculations.',
-    description: 'From three months of manual work to a structured, repeatable system the school can run every year — without spreadsheets, emails, or errors.',
+    solution: 'We built a centralized payroll system using Airtable, Softr, Make, and Zapier - replacing spreadsheets with automated validation and calculations.',
+    description: 'From three months of manual work to a structured, repeatable system the school can run every year - without spreadsheets, emails, or errors.',
     cardImage: '/case-studies/getting-business-finances-in-order.png',
     location: 'USA, New York City',
     titleGradient: 'Automating Annual Payroll',
     titlePlain: 'for a 200-Person Private School',
-    subtitle: 'From three months of manual work to a structured, repeatable system the school can run every year — without spreadsheets, emails, or errors.',
+    subtitle: 'From three months of manual work to a structured, repeatable system the school can run every year - without spreadsheets, emails, or errors.',
     heroImage: '/case-studies/case-1-hero.png',
     industry: 'Private education',
     process: 'Annual payroll',
@@ -64,7 +64,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     clientContext: [
       'The client is a private school with around 200 employees, including full-time teachers, part-time instructors, and staff with different compensation rules.',
-      'Payroll calculations depended on multiple variables — class types, workloads, individual conditions, and internal policies. Once a year, all this data had to be collected, verified, calculated, and approved manually.',
+      'Payroll calculations depended on multiple variables - class types, workloads, individual conditions, and internal policies. Once a year, all this data had to be collected, verified, calculated, and approved manually.',
       'As the school grew, this process became increasingly fragile, slow, and risky.',
     ],
     startingPoint: {
@@ -109,7 +109,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         { title: 'Calculation logic', description: 'applied consistently across all records' },
         { title: 'Dashboards', description: 'for real-time progress tracking' },
       ],
-      emphasis: 'All data lived in one system — no duplicate files, no manual copying, no hidden versions.',
+      emphasis: 'All data lived in one system - no duplicate files, no manual copying, no hidden versions.',
       images: [
         '/case-studies/case-1-hero.png',
         '/case-studies/case-1-images-1.png',
@@ -150,7 +150,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     summary: [
       'This project transformed a high-risk, once-a-year manual process into a reliable operational system.',
-      'The school now runs payroll with confidence, clarity, and far less internal effort — without adding complexity for the team.',
+      'The school now runs payroll with confidence, clarity, and far less internal effort - without adding complexity for the team.',
     ],
   },
 ];

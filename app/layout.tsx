@@ -7,7 +7,7 @@ import './globals.css';
 
 const BASE_URL = 'https://www.quitcode.com';
 
-// ── Metadata (homepage – overridden per page via child layouts) ──────────────
+// ── Metadata (homepage - overridden per page via child layouts) ──────────────
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'AI & No-Code Automation for Service Firms | QuitCode',
     description:
       'Turn manual operations into structured automation systems using Airtable, Make, and custom no-code apps.',
-    images: [{ url: '/ogs/og-main.png', width: 1200, height: 630, alt: 'QuitCode – Automation & AI Studio' }],
+    images: [{ url: '/ogs/og-main.png', width: 1200, height: 630, alt: 'QuitCode - Automation & AI Studio' }],
   },
   twitter: {
     card: 'summary_large_image',

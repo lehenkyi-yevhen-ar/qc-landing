@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Careers – Join the QuitCode Team',
-  description: 'Join QuitCode and work on real no-code and AI automation projects. We\'re looking for people who want to grow, take ownership, and build systems that matter.',
-  alternates: { canonical: 'https://www.quitcode.com/company/careers' },
+  title: 'Careers at QuitCode | Join Our Automation Team',
+  description: 'Explore careers at QuitCode and join a team building real automation systems with no-code and AI. See open roles and growth opportunities.',
+  alternates: { canonical: 'https://quitcode.com/careers' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Careers at QuitCode – Join Our Automation Team',
-    description: 'Work on real no-code and AI automation projects. Join a fast-growing team building the future of operations.',
-    url: 'https://www.quitcode.com/company/careers',
-    images: [{ url: '/ogs/og-careers.png', width: 1200, height: 630 }],
+    title: 'Careers at QuitCode | Join Our Team',
+    description: 'Build real automation systems, grow with a strong team, and explore open roles at QuitCode.',
+    url: 'https://quitcode.com/careers',
+    images: [{ url: '/og-careers.jpg', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Careers at QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Careers at QuitCode | Join Our Team' },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

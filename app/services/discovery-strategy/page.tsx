@@ -5,43 +5,49 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Discovery & Strategy – QuitCode',
-  description: 'Minimize project risks and costs with thorough research, technical validation, and detailed roadmaps before committing significant resources.',
-  alternates: { canonical: 'https://www.quitcode.com/services/discovery-strategy' },
+  title: 'Automation Discovery & Strategy for Service Firms | QuitCode',
+  description: 'Validate automation ideas, assess technical feasibility, and build clear product roadmaps before investing in development.',
+  alternates: { canonical: 'https://quitcode.com/services/discovery' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Discovery & Strategy – QuitCode',
-    description: 'Thorough research and technical validation before committing to any build.',
-    url: 'https://www.quitcode.com/services/discovery-strategy',
+    title: 'Discovery & Strategy | QuitCode',
+    description: 'Reduce project risk with automation research, feasibility validation, and strategic roadmaps.',
+    url: 'https://quitcode.com/services/discovery',
     images: [{ url: '/ogs/og-discovery-and-strategy.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Discovery & Strategy – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Discovery & Strategy | QuitCode' },
 };
 
 const whatYouGet = [
   {
     title: 'Problem Research Report',
     description: 'Comprehensive analysis of your business challenge, market context, and user needs with validated problem-solution fit',
-    icon: '/ds-problem-research.png',
+    icon: '/business-problem-research.png',
+    alt: 'business problem research and analysis',
   },
   {
     title: 'Technical Feasibility Assessment',
     description: 'Detailed evaluation of technology options, implementation complexity, and resource requirements for your project',
-    icon: '/ds-feasibility.png',
+    icon: '/technical-feasibility-analysis.png',
+    alt: 'technical feasibility analysis for software projects',
   },
   {
     title: 'Product Backlog & Roadmap',
     description: 'Prioritized feature list with development timeline, milestones, and clear project phases for implementation',
-    icon: '/ds-backlog-roadmap.png',
+    icon: '/product-roadmap-planning.png',
+    alt: 'product roadmap and feature planning',
   },
   {
     title: 'Risk Assessment & Mitigation',
     description: 'Identification of potential project risks with strategies to minimize costs and avoid common pitfalls',
-    icon: '/ds-risk-assessment.png',
+    icon: '/project-risk-assessment.png',
+    alt: 'project risk assessment and mitigation planning',
   },
   {
     title: 'RFP Documentation',
     description: 'Complete request for proposal materials enabling you to confidently engage with vendors and compare solutions',
     icon: '/ds-rfp-docs.png',
+    alt: '',
   },
 ];
 
@@ -96,7 +102,7 @@ const otherServices = [
   {
     title: 'Custom Web Applications',
     description:
-      'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
+      'Build powerful, scalable web solutions - from client portals to management systems - delivered in weeks.',
     image: '/service-webapp.png',
     href: '/services/custom-web-applications',
   },
@@ -177,11 +183,11 @@ export default function DiscoveryStrategyPage() {
                 </a>
               </div>
 
-              {/* Right – mockup */}
+              {/* Right - mockup */}
               <div>
                 <Image
-                  src="/ds-hero-mockup.png"
-                  alt="Discovery and strategy interface"
+                  src="/automation-strategy-workshop.png"
+                  alt="automation strategy workshop mapping business processes"
                   width={680}
                   height={460}
                   style={{ width: '100%', height: 'auto' }}
@@ -217,7 +223,7 @@ export default function DiscoveryStrategyPage() {
                 >
                   <Image
                     src={item.icon}
-                    alt=""
+                    alt={item.alt}
                     width={72}
                     height={72}
                     style={{ objectFit: 'contain' }}
@@ -295,7 +301,7 @@ export default function DiscoveryStrategyPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character */}
+              {/* Right - 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -320,7 +326,6 @@ export default function DiscoveryStrategyPage() {
         {/* ── Our Process ── */}
         <section style={{ padding: '5rem 0', background: '#fff' }}>
           <div className="qc-container">
-            {/* Timeline panel */}
             <ProcessStepsSection variant="ds" />
           </div>
         </section>
@@ -452,7 +457,7 @@ export default function DiscoveryStrategyPage() {
               </p>
               <p className="qc-conversation-para">
                 With 10+ years in optimising service operations and 50+ projects delivered, he
-                helps firms uncover what&apos;s slowing them down—and map a clear path to
+                helps firms uncover what&apos;s slowing them down-and map a clear path to
                 automation.
               </p>
               <a
@@ -471,7 +476,7 @@ export default function DiscoveryStrategyPage() {
                 </span>
                 <span className="qc-conversation-benefit">
                   <span className="qc-conversation-star" aria-hidden>☆</span>
-                  No sales pressure—just practical insights
+                  No sales pressure-just practical insights
                 </span>
               </div>
             </div>

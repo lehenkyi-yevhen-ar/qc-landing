@@ -86,7 +86,7 @@ export function JourneyFormSection() {
             </h2>
             <p className="qc-journey-intro">
               Tell us about your biggest operational challenge, and we&apos;ll outline
-              how automation could simplify it—in plain language, not tech talk.
+              how automation could simplify it-in plain language, not tech talk.
             </p>
 
             <form onSubmit={handleSubmit} className="qc-journey-form">
@@ -303,12 +303,12 @@ export function JourneyFormSection() {
 
               <ul className="qc-journey-trust">
                 <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Response within 24 hours</li>
-                <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure—just practical ideas</li>
+                <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure-just practical ideas</li>
                 <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
               </ul>
               {formStatus === 'success' && (
                 <p className="qc-journey-form-status qc-journey-form-status-success">
-                  Thanks—your request has been sent.
+                  Thanks-your request has been sent.
                 </p>
               )}
               {formStatus === 'error' && (

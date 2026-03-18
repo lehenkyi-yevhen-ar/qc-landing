@@ -5,16 +5,16 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { RelatedArticles } from '@/components/RelatedArticles';
 
 export const metadata: Metadata = {
-  title: 'How to integrate Stripe to Airtable and send invoices with 1 click? – QuitCode',
+  title: 'How to integrate Stripe to Airtable and send invoices with 1 click? - QuitCode',
   description: 'Learn how to connect Airtable and Stripe to automate invoicing, payment tracking, and financial workflows without external tools or technical expertise.',
   alternates: { canonical: 'https://www.quitcode.com/blog/how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click' },
   openGraph: {
-    title: 'How to integrate Stripe to Airtable and send invoices with 1 click? – QuitCode',
+    title: 'How to integrate Stripe to Airtable and send invoices with 1 click? - QuitCode',
     description: 'Step-by-step guide to connecting Airtable and Stripe for seamless invoicing and payment tracking.',
     url: 'https://www.quitcode.com/blog/how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click',
     images: [{ url: '/blog/blog-how-to-integrate-stripe-to-airtable-and-send-invoices-with-1-click-1.webp', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'How to integrate Stripe to Airtable and send invoices with 1 click? – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'How to integrate Stripe to Airtable and send invoices with 1 click? - QuitCode' },
 };
 
 const IMG = (n: number) =>
@@ -209,7 +209,7 @@ hooks/catch/18924509/26xxxxx/', {
             </div>
 
             <ul className="qc-blog-post-list">
-              <li>Payment collection — to Request Payment and specify the payment deadline for the invoice.</li>
+              <li>Payment collection - to Request Payment and specify the payment deadline for the invoice.</li>
             </ul>
 
             <div className="qc-blog-post-image">

@@ -43,11 +43,11 @@ export function TestimonialsSection() {
   const slideW = Math.round(viewportW * SLIDE_RATIO);
   const trackPadding = Math.round((viewportW - slideW) / 2);
 
-  // Play active video slide, pause all others
+  // Pause all videos on slide change (no autoplay)
   useEffect(() => {
     slides.forEach((slide, i) => {
       if (slide.type !== 'video') return;
-      sendYTCommand(iframeRefs.current[i] ?? null, i === active ? 'playVideo' : 'pauseVideo');
+      sendYTCommand(iframeRefs.current[i] ?? null, 'pauseVideo');
     });
   }, [active]);
 
@@ -131,13 +131,21 @@ export function TestimonialsSection() {
                   key={i}
                   className="qc-testimonials-slide qc-testimonials-slide-video-wrapper"
                   aria-hidden={i !== active}
-                  style={{ width: slideW || undefined }}
+                  style={{
+                    width: slideW || undefined,
+                    ...(i !== active ? {
+                      background: '#f3f8ff',
+                      border: '1px solid #dfeaf7',
+                      borderRadius: '22px',
+                      boxShadow: '0 1px 3px rgba(17,24,39,0.04)',
+                    } : {}),
+                  }}
                 >
                   <div className="qc-testimonials-card qc-testimonials-card-video qc-testimonials-card-active">
                     <iframe
                       ref={el => { iframeRefs.current[i] = el; }}
                       src={`https://www.youtube.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1`}
-                      title={`Testimonial video – ${slide.item.name}`}
+                      title={`Testimonial video - ${slide.item.name}`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="qc-testimonials-yt-iframe"

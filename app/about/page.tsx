@@ -10,8 +10,8 @@ const TRACK_RECORD = [
     type: 'title' as const,
     title: 'Official Make Partner',
     highlight: 'Make',
-    image: '/about/track-make-badge.png',
-    imageAlt: 'Make Silver Professional Service Partner'
+    image: '/about/make-official-partner-badge.png',
+    imageAlt: 'Official Make Partner badge'
   },
   {
     type: 'metric' as const,
@@ -51,11 +51,11 @@ const VALUES = [
 ];
 
 const PEOPLE = [
-  { name: 'Roman Sydorak', role: 'CEO & Strategic Operations Advisor', image: '/roman-sydorak.png', linkedin: 'https://linkedin.com' },
-  { name: 'Nastia Kotsinska', role: 'Sales Manager', image: '/careers/nastia-photo.png', linkedin: 'https://linkedin.com' },
-  { name: 'Olenka Leshchyshyn', role: 'Operations', image: '/team/olenka-leshchyshyn.png', linkedin: 'https://linkedin.com' },
-  { name: 'Taras Haioshko', role: 'Solutions', image: '/team/taras-haioshko.png', linkedin: 'https://linkedin.com' },
-  { name: 'Hryhorii Haponiuk', role: 'Delivery', image: '/team/hryhorii-haponiuk.png', linkedin: 'https://linkedin.com' }
+  { name: 'Roman Sydorak', role: 'CEO & Strategic Operations Advisor', image: '/roman-sydorak.png', linkedin: 'https://www.linkedin.com/in/roman-sydorak/' },
+  { name: 'Olenka Leshchyshyn', role: 'Sales Manager', image: '/about/olena-leshchyshyn.jpeg', linkedin: 'https://www.linkedin.com/in/olena-leshchyshyn-8686a8311/' },
+  { name: 'Taras-Vasyl Haioshko', role: 'Project Manager', image: '/about/taras-hayoshko.jpg', linkedin: 'https://www.linkedin.com/in/taras-vasyl-haioshko-901494218/' },
+  { name: 'Hryhorii Haponiuk', role: 'Automation Expert, Team Lead', image: '/about/hryhorii-haponiuk.jpg', linkedin: 'https://www.linkedin.com/in/hryhorii-haponiuk-131582289/' },
+  { name: 'Maryan Andrushchak', role: 'Automation Expert, Tech Lead', image: '/about/maryan-andrushchak.jpg', linkedin: 'https://www.linkedin.com/in/mar-andrushchak/' },
 ];
 
 export default function AboutPage() {
@@ -68,9 +68,9 @@ export default function AboutPage() {
           <div className="qc-about-hero-dots" aria-hidden />
           <div className="qc-container qc-about-hero-inner">
             <span className="qc-about-pill">ABOUT US</span>
-            <h1 className="qc-about-hero-title">Automation & AI Studio</h1>
+            <h1 className="qc-about-hero-title">About QuitCode</h1>
             <p className="qc-about-hero-subtitle">
-              QuitCode is an Automation & AI Company that helps high-value service firms — from consulting agencies to private schools — transform fragmented operations into connected, intelligent systems.
+              QuitCode is an Automation &amp; AI Company that helps high-value service firms - from consulting agencies to private schools - transform fragmented operations into connected, intelligent systems.
             </p>
             <Link href="#journey" className="qc-about-hero-cta">
               <span className="qc-about-hero-cta-text">Start your automation journey</span>
@@ -80,10 +80,10 @@ export default function AboutPage() {
             </Link>
             <div className="qc-about-node-strip">
               <Image
-                src="/about/node-strip-i.png"
-                alt="Platform integrations and automation"
+                src="/about/quitcode-automation-ai-company.png"
+                alt="QuitCode automation and AI studio for service firms"
                 width={480}
-                height={120} 
+                height={120}
                 className="qc-about-node-strip-img"
               />
             </div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 <div className="qc-about-mission-top">
                   <div className="qc-about-mission-left">
                     <span className="qc-about-mission-label">OUR FOUNDATION</span>
-                    <h2 className="qc-about-mission-heading">Mission</h2>
+                    <h2 className="qc-about-mission-heading">Our Mission</h2>
                   </div>
                   <div className="qc-about-mission-right">
                     <Image src="/about/mission-cube.png" alt="" width={76} height={76} className="qc-about-mission-icon" aria-hidden />
@@ -207,14 +207,14 @@ export default function AboutPage() {
                       We deliver <strong>automation solutions</strong> that <strong>slingshot your big ideas.</strong>
                     </h3>
                     <p className="qc-about-mission-para">
-                      We help high-value service firms turn operational complexity into a strategic advantage by delivering scalable ways to automate repetitive tasks and accelerate operations, leveraging no-code/low-code technology and AI. Through intelligent, tailored Operational Hubs, we enable growth without compromising the personal touch—delivering tangible results in just 1 month.
+                      We help high-value service firms turn operational complexity into a strategic advantage by delivering scalable ways to automate repetitive tasks and accelerate operations, leveraging no-code/low-code technology and AI. Through intelligent, tailored Operational Hubs, we enable growth without compromising the personal touch-delivering tangible results in just 1 month.
                     </p>
                   </div>
                 </div>
                 <div className="qc-about-mission-values">
                   <div className="qc-about-mission-values-left">
                     <span className="qc-about-mission-label">WHAT WE STAND FOR</span>
-                    <h3 className="qc-about-mission-values-heading">Our values</h3>
+                    <h2 className="qc-about-mission-values-heading">Our Values</h2>
                   </div>
                   <ul className="qc-about-values-list">
                     {VALUES.map((v, i) => (

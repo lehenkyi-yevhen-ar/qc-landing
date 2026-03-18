@@ -5,46 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { industryOptions } from '@/lib/data';
-
-/* ── Case studies data ── */
-const caseStudies = [
-  {
-    id: 1,
-    industryLabel: 'Industry Type',
-    title: '40% Faster Task Completion after Transition from Google Sheets to Airtable Integration for SEO Backlink Agency',
-    challenge: 'Manual workflows, scattered data, and long proposal cycles slowed growth and exhausted the team.',
-    solution: 'We built a custom automation system integrating Airtable, Make, and QuickBooks—centralizing operations and reducing admin work.',
-    statsDetail: [
-      { value: '80%', label: 'faster proposal creation' },
-      { value: '40+', label: 'hours saved monthly' },
-      { value: 'Dashboard', label: 'Unified dashboards across finance and projects' },
-    ],
-  },
-  {
-    id: 2,
-    industryLabel: 'Finance',
-    title: 'Proposals generated in minutes instead of days',
-    challenge: 'Consultants were rebuilding proposals from scratch for each opportunity, losing hours to copy‑paste work.',
-    solution: 'We designed a proposal engine that assembles scopes, pricing, and case studies automatically from a structured knowledge base.',
-    statsDetail: [
-      { value: '4x', label: 'faster proposal turnaround' },
-      { value: 'Higher', label: 'close rate' },
-      { value: 'Consistent', label: 'pricing & scope' },
-    ],
-  },
-  {
-    id: 3,
-    industryLabel: 'Creative',
-    title: 'Enrollment pipeline finally visible end‑to‑end',
-    challenge: 'An education provider had no clear view of lead status, enrollment stages, or team workload.',
-    solution: 'We implemented a no-code CRM and workflow layer that tracks every applicant from first touch to orientation, with automated reminders.',
-    statsDetail: [
-      { value: 'Full-funnel', label: 'visibility' },
-      { value: 'Fewer', label: 'dropped leads' },
-      { value: 'Happier', label: 'operations team' },
-    ],
-  },
-];
+import { CASE_STUDIES } from '@/lib/caseStudies';
 
 /* ── Page data ── */
 const useCases = [
@@ -58,7 +19,7 @@ const useCases = [
 const keyCapabilities = [
   {
     title: 'Relational data (no duplication)',
-    description: 'Operational entities — clients, projects, contracts, invoices, activities — are connected within a structured data model. This eliminates shadow spreadsheets, reduces reconciliation work, and ensures decisions are based on consistent records.',
+    description: 'Operational entities - clients, projects, contracts, invoices, activities - are connected within a structured data model. This eliminates shadow spreadsheets, reduces reconciliation work, and ensures decisions are based on consistent records.',
   },
   {
     title: 'Formulas & business logic',
@@ -70,7 +31,7 @@ const keyCapabilities = [
   },
   {
     title: 'Role-based interfaces',
-    description: 'Each team operates within a focused interface aligned to their responsibilities. Sales sees pipeline movement, operations sees delivery flow, finance sees structured data — without unnecessary system complexity.',
+    description: 'Each team operates within a focused interface aligned to their responsibilities. Sales sees pipeline movement, operations sees delivery flow, finance sees structured data - without unnecessary system complexity.',
   },
   {
     title: 'Real-time reporting',
@@ -180,7 +141,7 @@ function AirtableFormSection() {
               <span style={{ color: '#2d7ff9' }}>Airtable</span>{' '}
               (or planning to), and we&apos;ll help you{' '}
               <span style={{ color: '#3985f8' }}>design a clean, scalable system</span>{' '}
-              — not just another base.{' '}
+              - not just another base.{' '}
             </h2>
             <p className="type-body" style={{ margin: 0, color: '#6b7280' }}>
               Practical recommendations. No sales pressure.
@@ -300,15 +261,15 @@ function AirtableFormSection() {
 
               <ul className="qc-journey-trust">
                 <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Response within 24 hours</li>
-                <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure — just practical ideas</li>
+                <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure - just practical ideas</li>
                 <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
               </ul>
-              {status === 'success' && <p className="qc-journey-form-status qc-journey-form-status-success">Thanks — your request has been sent.</p>}
+              {status === 'success' && <p className="qc-journey-form-status qc-journey-form-status-success">Thanks - your request has been sent.</p>}
               {status === 'error' && <p className="qc-journey-form-status qc-journey-form-status-error">Something went wrong. Please try again.</p>}
             </form>
           </div>
 
-          {/* Aside – team photo */}
+          {/* Aside - team photo */}
           <aside className="qc-journey-aside">
             <div className="qc-journey-card">
               <Image src="/make-team-photo.png" alt="Team collaboration"
@@ -329,8 +290,6 @@ function AirtableFormSection() {
 
 /* ── Page ── */
 export default function AirtablePlatformPage() {
-  const [activeCase, setActiveCase] = useState(0);
-
   return (
     <div className="qc-page">
       <main>
@@ -358,7 +317,7 @@ export default function AirtablePlatformPage() {
                   <span style={{ color: '#2d7ff9' }}>Airtable</span> Automation
                 </h1>
                 <p className="type-body-lg" style={{ color: '#6b7280', margin: '0 0 6.25rem' }}>
-                  Your operational backbone — not another spreadsheet
+                  Your operational backbone - not another spreadsheet
                 </p>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
@@ -371,7 +330,7 @@ export default function AirtablePlatformPage() {
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'left', gap: 40}}>
                   <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440, fontFamily: 'Karla', letterSpacing: -2, fontSize: 32}}>
                     <strong style={{ color: '#2d7ff9' }}>Airtable</strong> is the platform we
-                    use to build Single Source of Truth systems — where data, workflows, and
+                    use to build Single Source of Truth systems - where data, workflows, and
                     teams are aligned in one place.
                   </p>
                   <p className="type-body" style={{ color: '#8b8b8b', margin: 0, maxWidth: 440 }}>
@@ -486,73 +445,51 @@ export default function AirtablePlatformPage() {
             </div>
 
             <div className="qc-case-studies-slide">
-              {[0, 1, 2].map(slideIndex =>
-                activeCase === slideIndex ? (
-                  <div key={slideIndex} className="qc-case-cards-row">
-                    <div className="qc-case-featured-wrapper">
-                      <div className="qc-case-featured">
-                        <div className="qc-case-featured-image">
-                          <Image src="/case-studies/getting-business-finances-in-order.png" alt=""
-                            fill sizes="(max-width: 900px) 45vw, 420px" style={{ objectFit: 'cover' }} />
+              {CASE_STUDIES.map(cs => (
+                <div key={cs.slug} className="qc-case-cards-row">
+                  <div className="qc-case-featured-wrapper">
+                    <div className="qc-case-featured">
+                      <div className="qc-case-featured-image">
+                        <Image src={cs.cardImage} alt=""
+                          fill sizes="(max-width: 900px) 45vw, 420px" style={{ objectFit: 'cover' }} />
+                      </div>
+                      <div className="qc-case-featured-content">
+                        <div className="qc-case-featured-top">
+                          <span className="qc-case-pill">{cs.industryLabel}</span>
+                          <a href={`/case-studies/${cs.slug}`} className="qc-case-learn-more">Learn more <span aria-hidden>↗</span></a>
                         </div>
-                        <div className="qc-case-featured-content">
-                          <div className="qc-case-featured-top">
-                            <span className="qc-case-pill">{caseStudies[slideIndex].industryLabel}</span>
-                            <a href="#case-studies" className="qc-case-learn-more">Learn more <span aria-hidden>↗</span></a>
+                        <h3 className="type-heading-eb-32">{cs.title}</h3>
+                        <div className="qc-case-featured-sections">
+                          <div>
+                            <div className="qc-case-label">THE CHALLENGE</div>
+                            <p className="qc-case-text">{cs.challenge}</p>
                           </div>
-                          <h3 className="type-heading-eb-32">{caseStudies[slideIndex].title}</h3>
-                          <div className="qc-case-featured-sections">
-                            <div>
-                              <div className="qc-case-label">THE CHALLENGE</div>
-                              <p className="qc-case-text">{caseStudies[slideIndex].challenge}</p>
+                          <div>
+                            <div className="qc-case-label qc-case-label-solution">THE SOLUTION</div>
+                            <p className="qc-case-text">{cs.solution}</p>
+                          </div>
+                        </div>
+                        <div className="qc-case-stats-row">
+                          {cs.measuredImpact.stats.filter(s => s.value && s.label).slice(0, 3).map((stat, i) => (
+                            <div key={i} className="qc-case-stat">
+                              <span className="qc-case-stat-value">{stat.value}</span>
+                              <span className="qc-case-stat-label">{stat.label}</span>
                             </div>
-                            <div>
-                              <div className="qc-case-label qc-case-label-solution">THE SOLUTION</div>
-                              <p className="qc-case-text">{caseStudies[slideIndex].solution}</p>
-                            </div>
-                          </div>
-                          <div className="qc-case-stats-row">
-                            {caseStudies[slideIndex].statsDetail.map((stat, i) => (
-                              <div key={i} className="qc-case-stat">
-                                <span className="qc-case-stat-value">{stat.value}</span>
-                                <span className="qc-case-stat-label">{stat.label}</span>
-                              </div>
-                            ))}
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
-                    <div className="qc-case-small-card">
-                      <Image src="/case-studies/case-study-card.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
-                      <div className="qc-case-small-card-overlay" aria-hidden />
-                    </div>
-                    <div className="qc-case-small-card">
-                      <Image src="/case-studies/case-study-card-2.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
-                      <div className="qc-case-small-card-overlay" aria-hidden />
-                    </div>
                   </div>
-                ) : null
-              )}
-            </div>
-
-            <div className="qc-case-nav">
-              <div className="qc-dots">
-                {[0, 1, 2].map(index => (
-                  <button key={index} type="button"
-                    className={`qc-dot${index === activeCase ? ' qc-dot-active' : ''}`}
-                    onClick={() => setActiveCase(index)} aria-label={`Go to slide ${index + 1}`} />
-                ))}
-              </div>
-              <div className="qc-case-nav-buttons">
-                <button type="button" className="qc-case-btn qc-case-btn-prev"
-                  onClick={() => setActiveCase((activeCase - 1 + 3) % 3)} aria-label="Previous slide">
-                  <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
-                </button>
-                <button type="button" className="qc-case-btn qc-case-btn-next"
-                  onClick={() => setActiveCase((activeCase + 1) % 3)} aria-label="Next slide">
-                  <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
-                </button>
-              </div>
+                  <div className="qc-case-small-card">
+                    <Image src="/case-studies/case-study-card.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <div className="qc-case-small-card-overlay" aria-hidden />
+                  </div>
+                  <div className="qc-case-small-card">
+                    <Image src="/case-studies/case-study-card-2.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <div className="qc-case-small-card-overlay" aria-hidden />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -561,7 +498,7 @@ export default function AirtablePlatformPage() {
         <section className="qc-section" style={{ background: '#f5f9ff' }}>
           <div className="qc-container">
             <div className="plt-automation-grid">
-              {/* Left – section image */}
+              {/* Left - section image */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ position: 'relative', width: '100%' }}>
                   <Image src="/airtable-automations-section.png" alt="Airtable automation and integrations"
@@ -610,7 +547,7 @@ export default function AirtablePlatformPage() {
 
               {/* Top: 2-column grid */}
               <div className="plt-recommend-grid">
-                {/* Left – label + heading */}
+                {/* Left - label + heading */}
                 <div>
                   <div className="type-caption-sm-bold" style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '0.85rem' }}>
                     WHY &amp; WHEN
@@ -622,7 +559,7 @@ export default function AirtablePlatformPage() {
                   </h2>
                 </div>
 
-                {/* Right – icon items column */}
+                {/* Right - icon items column */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {whenClientsNeed.map((item) => (
                     <div key={item.text} style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
@@ -652,7 +589,7 @@ export default function AirtablePlatformPage() {
                   <div className="plt-recommend-arrowhead" />
                 </div>
                 <p className="plt-recommend-statement">
-                  Platform that scales with operations — not against them.
+                  Platform that scales with operations - not against them.
                 </p>
               </div>
 
@@ -681,7 +618,7 @@ export default function AirtablePlatformPage() {
                 </div>
               </div>
 
-              {/* Right – technology cards */}
+              {/* Right - technology cards */}
               <div className="plt-tech-cards">
                 {coreTechnologies.map((tech) => (
                   <div key={tech.title} style={{ borderRadius: '16px', overflow: 'hidden', background: '#fff' }}>

@@ -28,18 +28,18 @@ const WHY_JOIN = [
   {
     type: 'text' as const,
     icon: '/icons/chess-icon.png',
-    text: 'No-code and AI are the future – and we\'re already building it.',
+    text: 'No-code and AI are the future - and we\'re already building it.',
     gradient: true,
   },
   {
     type: 'photo' as const,
-    src: '/careers/photo-team-1.png',
-    alt: 'Team collaborating',
+    src: '/careers/quitcode-team-careers.png',
+    alt: 'QuitCode team building automation systems',
   },
   {
     type: 'text' as const,
     icon: '/icons/journal-icon.png',
-    text: 'We believe in people, not just CVs – we\'ll train and support you from day one.',
+    text: 'We believe in people, not just CVs - we\'ll train and support you from day one.',
     gradient: false,
   },
   {
@@ -147,8 +147,8 @@ export default function CareersPage() {
               </div>
               <div className="qc-careers-hero-photo-wrap">
                 <Image
-                  src="/careers/hero-photo.png"
-                  alt="QuitCode team member at work"
+                  src="/careers/quitcode-careers-hero.png"
+                  alt="careers at QuitCode in automation and AI"
                   fill
                   sizes="(max-width: 540px) 80svw, 520px"
                   style={{ objectFit: 'cover' }}
@@ -264,17 +264,28 @@ export default function CareersPage() {
         </section>
 
         {/* ── Apply Form ── */}
-        <section className="qc-careers-form-section">
+        <section id="application-form" className="qc-careers-form-section">
           <div className="qc-careers-form-glow" aria-hidden />
           <div className="qc-careers-form-container">
             <div className="qc-careers-form-grid">
               <div className="qc-careers-form-col">
                 <h2 className="qc-careers-form-title">
-                  Let&apos;s talk about working<br />
-                  at <span className="qc-careers-form-title-highlight">QuitCode</span>
+                  Meet <span className="qc-careers-job-title" style={{ fontSize: 'inherit', fontFamily: 'inherit', fontWeight: 'inherit', letterSpacing: 'inherit', margin: 0 }}>Nastia</span>
                 </h2>
-
-            
+                <p style={{ fontWeight: 700, color: '#111827', margin: '0 0 1rem', fontSize: '1.1rem' }}>
+                  Your first point of contact at QuitCode
+                </p>
+                <p className="qc-conversation-para" style={{ margin: '0 0 2.5rem', color: '#3d3d3d' }}>
+                  Nastia is our HR Manager and the best person to talk to about open roles, growth opportunities, and what working at QuitCode is really like.
+                  If you&apos;re curious, unsure, or just want to ask a few questions — feel free to reach out.
+                </p>
+                <a
+                  href="#application-form"
+                  className="qc-conversation-cta"
+                >
+                  <span>Let&apos;s talk about working at QuitCode</span>
+                  <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                </a>
                 <form onSubmit={handleSubmit} className="qc-journey-form">
                   <div className="qc-journey-fields">
                     <div className="qc-journey-field">
@@ -403,13 +414,13 @@ export default function CareersPage() {
                   </div>
 
                   <ul className="qc-journey-trust">
-                    <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Nastia usually replies within 1–2 business days</li>
+                    <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Nastia usually replies within 1-2 business days</li>
                     <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
                   </ul>
 
                   {formStatus === 'success' && (
                     <p className="qc-journey-form-status qc-journey-form-status-success">
-                      Thanks — your application has been sent!
+                      Thanks - your application has been sent!
                     </p>
                   )}
                   {formStatus === 'error' && (
@@ -423,8 +434,8 @@ export default function CareersPage() {
               <aside className="qc-careers-form-aside">
                 <div className="qc-careers-form-photo-wrap">
                   <Image
-                    src="/careers/nastia-photo.png"
-                    alt="Nastia from QuitCode"
+                    src="/careers/nastia-kotsinska-careers.png"
+                    alt="Nastia Kotsinska HR Manager at QuitCode"
                     fill
                     sizes="(max-width: 900px) 100vw, 480px"
                     style={{ objectFit: 'cover' }}

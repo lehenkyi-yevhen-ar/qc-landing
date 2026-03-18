@@ -42,7 +42,7 @@ export const JOBS: Job[] = [
       'Background in tech, design, or agency environment',
     ],
     benefits: [
-      'Paid probation period — 2 months',
+      'Paid probation period - 2 months',
       'Competitive salary + bonus system',
       'Professional growth and learning support',
       'Corporate English lessons',
@@ -60,7 +60,7 @@ export const JOBS: Job[] = [
     level: 'Trainee / Junior / Middle',
     featured: false,
     about:
-      'This role is a great entry point into the world of no-code development. You\'ll learn how to build automation systems, work with databases, APIs, and business logic — and gradually move into real client projects with mentor support.',
+      'This role is a great entry point into the world of no-code development. You\'ll learn how to build automation systems, work with databases, APIs, and business logic - and gradually move into real client projects with mentor support.',
     responsibilities: [
       'Learn and work with no-code platforms (Airtable, Make, Zapier)',
       'Build and maintain automations and databases',
@@ -82,7 +82,7 @@ export const JOBS: Job[] = [
       'Experience working with international clients',
     ],
     benefits: [
-      'Paid probation period — 2 months',
+      'Paid probation period - 2 months',
       'Competitive salary + bonus system',
       'Professional growth and learning support',
       'Corporate English lessons',

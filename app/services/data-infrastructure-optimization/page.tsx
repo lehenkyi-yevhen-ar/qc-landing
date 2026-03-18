@@ -5,50 +5,56 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Data Infrastructure Optimization – QuitCode',
-  description: 'Transform disconnected data sources into a unified, intelligent system with real-time analytics and clear visibility.',
-  alternates: { canonical: 'https://www.quitcode.com/services/data-infrastructure-optimization' },
+  title: 'Business Data Infrastructure for Service Firms | QuitCode',
+  description: 'Transform disconnected data sources into a unified data infrastructure with real-time dashboards and automated reporting.',
+  alternates: { canonical: 'https://quitcode.com/services/data-infrastructure' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Data Infrastructure Optimization – QuitCode',
-    description: 'Unified data systems with real-time analytics and clear visibility.',
-    url: 'https://www.quitcode.com/services/data-infrastructure-optimization',
+    title: 'Data Infrastructure Optimization | QuitCode',
+    description: 'Build a single source of truth for your operations with automated data pipelines and dashboards.',
+    url: 'https://quitcode.com/services/data-infrastructure',
     images: [{ url: '/ogs/og-data-infrastructure.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Data Infrastructure Optimization – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Data Infrastructure Optimization | QuitCode' },
 };
 
 const whatYouGet = [
   {
     title: 'Unified Data Platform',
     description: 'Centralized system connecting all your data sources with real-time synchronization and standardized formats',
-    icon: '/dio-unified-platform.png',
+    icon: '/centralized-data-platform.png',
+    alt: 'centralized data platform connecting business tools',
   },
   {
     title: 'Custom Analytics Dashboards',
     description: 'Interactive dashboards providing clear insights from raw data to business impact with automated reporting',
-    icon: '/dio-analytics-dashboards.png',
+    icon: '/analytics-dashboard.png',
+    alt: 'real-time business analytics dashboard',
   },
   {
     title: 'Data Streaming Infrastructure',
     description: 'Robust pipeline architecture that captures and processes events with full context as they happen',
-    icon: '/dio-data-streaming.png',
+    icon: '/data-streaming-pipeline.png',
+    alt: 'automated data pipeline infrastructure',
   },
   {
     title: 'Integration Documentation',
     description: 'Comprehensive mapping of data flows, transformation rules, and system architecture for ongoing maintenance',
     icon: '/dio-integration-docs.png',
+    alt: '',
   },
   {
     title: 'Data Governance Framework',
     description: 'Standardized procedures for data access, security, and compliance across your organization',
-    icon: '/dio-governance.png',
+    icon: '/data-governance-framework.png',
+    alt: 'data governance framework for business systems',
   },
 ];
 
 const rightForYouItems = [
   {
     title: 'Data Silos Everywhere',
-    description: 'Customer info in CRM, financials in accounting, projects in management tools — creating manual reporting nightmares',
+    description: 'Customer info in CRM, financials in accounting, projects in management tools - creating manual reporting nightmares',
     highlighted: true,
     icon: '/icons/data-silos-icon.png',
   },
@@ -89,7 +95,7 @@ const otherServices = [
   {
     title: 'Custom Web Applications',
     description:
-      'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
+      'Build powerful, scalable web solutions - from client portals to management systems - delivered in weeks.',
     image: '/service-webapp.png',
     href: '/services/custom-web-applications',
   },
@@ -152,15 +158,15 @@ export default function DataInfrastructureOptimizationPage() {
                   }}
                 >
                   Transform disconnected data sources into a unified, intelligent system
-                  with real-time analytics and clear visibility — delivered in weeks, not months.
+                  with real-time analytics and clear visibility - delivered in weeks, not months.
                 </p>
               </div>
 
-              {/* Right – mockup */}
+              {/* Right - mockup */}
               <div>
                 <Image
-                  src="/dio-hero-mockup.png"
-                  alt="Data infrastructure optimization interface"
+                  src="/business-data-infrastructure.png"
+                  alt="unified business data infrastructure system"
                   width={680}
                   height={460}
                   style={{ width: '100%', height: 'auto' }}
@@ -196,7 +202,7 @@ export default function DataInfrastructureOptimizationPage() {
                 >
                   <Image
                     src={item.icon}
-                    alt=""
+                    alt={item.alt}
                     width={72}
                     height={72}
                     style={{ objectFit: 'contain' }}
@@ -274,7 +280,7 @@ export default function DataInfrastructureOptimizationPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character */}
+              {/* Right - 3D character */}
               <div
                 style={{
                   display: 'flex',
@@ -430,7 +436,7 @@ export default function DataInfrastructureOptimizationPage() {
               </p>
               <p className="qc-conversation-para">
                 With 10+ years in optimising service operations and 50+ projects delivered, he
-                helps firms uncover what&apos;s slowing them down—and map a clear path to
+                helps firms uncover what&apos;s slowing them down-and map a clear path to
                 automation.
               </p>
               <a
@@ -449,7 +455,7 @@ export default function DataInfrastructureOptimizationPage() {
                 </span>
                 <span className="qc-conversation-benefit">
                   <span className="qc-conversation-star" aria-hidden>☆</span>
-                  No sales pressure—just practical insights
+                  No sales pressure-just practical insights
                 </span>
               </div>
             </div>

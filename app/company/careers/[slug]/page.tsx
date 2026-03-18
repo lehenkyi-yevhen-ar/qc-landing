@@ -305,7 +305,7 @@ export default function JobPage() {
                   </div>
 
                   {formStatus === 'success' && (
-                    <p className="qc-journey-form-status qc-journey-form-status-success">Thanks — your application has been sent!</p>
+                    <p className="qc-journey-form-status qc-journey-form-status-success">Thanks - your application has been sent!</p>
                   )}
                   {formStatus === 'error' && (
                     <p className="qc-journey-form-status qc-journey-form-status-error">Something went wrong. Please try again.</p>

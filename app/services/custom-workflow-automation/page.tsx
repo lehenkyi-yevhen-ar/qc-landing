@@ -5,48 +5,55 @@ import { ProcessStepsSection } from '@/components/ProcessStepsSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Workflow Automation – QuitCode',
-  description: 'From three months of manual work to a structured, repeatable system — without spreadsheets, emails, or errors.',
-  alternates: { canonical: 'https://www.quitcode.com/services/custom-workflow-automation' },
+  title: 'Workflow Automation for Service Firms | QuitCode',
+  description: 'Automate repetitive business processes with custom no-code workflows. We build automation systems using Airtable, Make, and modern integration tools.',
+  alternates: { canonical: 'https://quitcode.com/services/workflow-automation' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Custom Workflow Automation – QuitCode',
-    description: 'Structured, repeatable workflow automation — no spreadsheets, no errors.',
-    url: 'https://www.quitcode.com/services/custom-workflow-automation',
+    title: 'Workflow Automation for Service Firms | QuitCode',
+    description: 'Replace repetitive manual work with intelligent automation workflows built around your real business processes.',
+    url: 'https://quitcode.com/services/workflow-automation',
     images: [{ url: '/ogs/og-custom-workflow-automations.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Custom Workflow Automation – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Workflow Automation for Service Firms | QuitCode' },
 };
 
 const whatYouGet = [
   {
     title: 'Automated System',
     description: 'Fully configured no-code automation platform connecting your key tools and processes',
-    icon: '/autom-system.png',
+    icon: '/automated-workflow-platform.png',
+    alt: 'automated workflow platform connecting business tools',
   },
   {
     title: 'Documentation',
     description: 'Detailed guides and step-by-step instructions for every automated workflow',
     icon: '/documentation.png',
+    alt: '',
   },
   {
     title: 'Integrations',
     description: 'Seamless connections between CRM, email, project management, and more',
-    icon: '/integrations.png',
+    icon: '/workflow-integrations.png',
+    alt: 'integration between CRM email and project management tools',
   },
   {
     title: 'Custom Dashboards',
     description: 'Real-time monitoring to track workflow performance and key metrics',
-    icon: '/cus-dush.png',
+    icon: '/automation-dashboard.png',
+    alt: 'workflow automation performance dashboard',
   },
   {
     title: 'Team Training',
     description: 'Comprehensive resources and guides for smooth team adoption',
-    icon: '/team-train.png',
+    icon: '/workflow-team-training.png',
+    alt: 'team training for automation system adoption',
   },
   {
     title: 'ROI Report',
     description: 'Analysis of time saved, efficiency gains, and performance optimization',
-    icon: '/roi-rep.png',
+    icon: '/automation-roi-report.png',
+    alt: 'automation ROI report showing time saved',
   },
 ];
 
@@ -94,7 +101,7 @@ const otherServices = [
   {
     title: 'Custom Web Applications',
     description:
-      'Build powerful, scalable web solutions — from client portals to management systems — delivered in weeks.',
+      'Build powerful, scalable web solutions - from client portals to management systems - delivered in weeks.',
     image: '/service-webapp.png',
     href: '/services/custom-web-applications',
   },
@@ -146,16 +153,16 @@ export default function CustomWorkflowAutomationPage() {
                   Automation
                 </h1>
                 <p className="type-body" style={{ color: "#2e2e2e", margin: 0, maxWidth: 440 }}>
-                  From three months of manual work to a structured, repeatable system the school can run every year —
+                  From three months of manual work to a structured, repeatable system the school can run every year -
                   without spreadsheets, emails, or errors.
                 </p>
               </div>
 
-              {/* Right – mockup */}
+              {/* Right - mockup */}
               <div>
                 <Image
-                  src="/workflow-hero-mockup.png"
-                  alt="Make.com workflow automation interface"
+                  src="/workflow-automation-system.png"
+                  alt="workflow automation system for service business operations"
                   width={680}
                   height={460}
                   className="cwa-hero-img-desktop"
@@ -163,8 +170,8 @@ export default function CustomWorkflowAutomationPage() {
                   priority
                 />
                 <Image
-                  src="/workflow-hero-mockup-tablet.png"
-                  alt="Make.com workflow automation interface"
+                  src="/workflow-automation-system-tablet.png"
+                  alt="workflow automation system for service business operations"
                   width={680}
                   height={600}
                   className="cwa-hero-img-tablet"
@@ -196,7 +203,7 @@ export default function CustomWorkflowAutomationPage() {
                     background: "#fff",
                   }}
                 >
-                  <Image src={item.icon} alt="" width={154} height={154} style={{ objectFit: "contain" }} />
+                  <Image src={item.icon} alt={item.alt} width={154} height={154} style={{ objectFit: "contain" }} />
                   <div>
                     <h3 className="type-heading-eb-32" style={{ margin: "0 0 16px", color: "#111827" }}>
                       {item.title}
@@ -249,7 +256,7 @@ export default function CustomWorkflowAutomationPage() {
                 </div>
               </div>
 
-              {/* Right – 3D character (replace placeholder with actual image from Figma) */}
+              {/* Right - 3D character */}
               <div
                 style={{
                   display: "flex",
@@ -405,7 +412,7 @@ export default function CustomWorkflowAutomationPage() {
               <p className="qc-conversation-subtitle">Meet Roman, our founder and automation strategist.</p>
               <p className="qc-conversation-para">
                 With 10+ years in optimising service operations and 50+ projects delivered, he helps firms uncover
-                what&apos;s slowing them down—and map a clear path to automation.
+                what&apos;s slowing them down-and map a clear path to automation.
               </p>
               <a
                 href="https://calendly.com/quitcode/30min"
@@ -429,7 +436,7 @@ export default function CustomWorkflowAutomationPage() {
                   <span className="qc-conversation-star" aria-hidden>
                     ☆
                   </span>
-                  No sales pressure—just practical insights
+                  No sales pressure-just practical insights
                 </span>
               </div>
             </div>

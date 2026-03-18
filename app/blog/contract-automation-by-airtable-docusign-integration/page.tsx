@@ -5,16 +5,16 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { RelatedArticles } from '@/components/RelatedArticles';
 
 export const metadata: Metadata = {
-  title: 'Contract Automation by Airtable Docusign Integration – QuitCode',
+  title: 'Contract Automation by Airtable Docusign Integration - QuitCode',
   description: 'Learn how automated contract generation using Airtable and DocuSign simplifies legal documents, e-signatures, and contract management for your business.',
   alternates: { canonical: 'https://www.quitcode.com/blog/contract-automation-by-airtable-docusign-integration' },
   openGraph: {
-    title: 'Contract Automation by Airtable Docusign Integration – QuitCode',
+    title: 'Contract Automation by Airtable Docusign Integration - QuitCode',
     description: 'How Airtable and DocuSign integration automates contract creation, e-signatures, and document management.',
     url: 'https://www.quitcode.com/blog/contract-automation-by-airtable-docusign-integration',
     images: [{ url: '/blog/blog-contract-automation-by-airtable-docusign-integration-1.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Contract Automation by Airtable Docusign Integration – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Contract Automation by Airtable Docusign Integration - QuitCode' },
 };
 
 const IMG = (n: number) =>

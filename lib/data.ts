@@ -11,7 +11,7 @@ export const testimonialsData: Testimonial[] = [
   {
     id: 1,
     quote:
-      'These guys are an absolute pleasure to work with—fast, responsive, and incredibly easy to communicate with. Most importantly, the results are outstanding. They truly take the time to customize everything to your specific needs. If I could give more than five stars, I would. Highly recommended, and I will definitely be coming back again!',
+      'These guys are an absolute pleasure to work with-fast, responsive, and incredibly easy to communicate with. Most importantly, the results are outstanding. They truly take the time to customize everything to your specific needs. If I could give more than five stars, I would. Highly recommended, and I will definitely be coming back again!',
     name: 'Nis Lehmann-Matthaei',
     role: 'The Incredible Company GmbH',
     context: 'Verified client',

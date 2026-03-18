@@ -5,16 +5,16 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { RelatedArticles } from '@/components/RelatedArticles';
 
 export const metadata: Metadata = {
-  title: 'Automated Company Data Search Powered by OpenAI Assistant – QuitCode',
+  title: 'Automated Company Data Search Powered by OpenAI Assistant - QuitCode',
   description: 'Learn how Airtable and OpenAI Assistant integration automates startup data collection, analysis, and investor outreach for venture capital workflows.',
   alternates: { canonical: 'https://www.quitcode.com/blog/automated-company-data-search-powered-by-openai-assistant' },
   openGraph: {
-    title: 'Automated Company Data Search Powered by OpenAI Assistant – QuitCode',
+    title: 'Automated Company Data Search Powered by OpenAI Assistant - QuitCode',
     description: 'How Airtable and OpenAI Assistant automate startup research and investor outreach.',
     url: 'https://www.quitcode.com/blog/automated-company-data-search-powered-by-openai-assistant',
     images: [{ url: '/blog/blog-automated-company-data-search-powered-by-openai-assistant-1.png', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Automated Company Data Search Powered by OpenAI Assistant – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Automated Company Data Search Powered by OpenAI Assistant - QuitCode' },
 };
 
 const IMG = (n: number) =>

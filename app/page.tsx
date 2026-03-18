@@ -4,19 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { JourneyFormSection } from '@/components/JourneyFormSection';
+import { CASE_STUDIES } from '@/lib/caseStudies';
 
 type SolutionKey = 'consulting' | 'creative' | 'education';
-
-type CaseStudy = {
-  id: number;
-  label: string;
-  title: string;
-  challenge: string;
-  solution: string;
-  metrics: string[];
-  industryLabel?: string;
-  statsDetail?: { value: string; label: string }[];
-};
 
 const solutionIcons: Record<string, string> = {
   'Client Management & Sales': '/icons/id-card-h.png',
@@ -63,7 +53,7 @@ const services = [
     title: 'Custom Workflow Automation',
     pain: "Too many manual steps stealing your team's time?",
     solution:
-      'We design no-code workflows that handle data entry, task routing, and reporting—giving your team hours back every week.',
+      'We design no-code workflows that handle data entry, task routing, and reporting-giving your team hours back every week.',
     image: '/service-workflow.png',
     href: '/services/custom-workflow-automation',
     imageAlt: 'workflow automation for service business operations',
@@ -83,7 +73,7 @@ const services = [
     title: 'Custom Web Applications',
     pain: "Existing software doesn't fit your process?",
     solution:
-      'We build tailored apps and client portals on no-code platforms—built around how your firm actually operates.',
+      'We build tailored apps and client portals on no-code platforms-built around how your firm actually operates.',
     image: '/service-webapp.png',
     href: '/services/custom-web-applications',
     imageAlt: 'custom no-code web application and client portal for service business',
@@ -98,57 +88,6 @@ const services = [
     href: '/services/discovery-strategy',
     imageAlt: 'automation strategy workshop mapping business processes',
   },
-];
-const caseStudies: CaseStudy[] = [
-  {
-    id: 1,
-    label: 'Agency',
-    industryLabel: 'Industry Type',
-    title:
-      '40% Faster Task Completion after Transition from Google Sheets to Airtable Integration for SEO Backlink Agency',
-    challenge:
-      'Manual workflows, scattered data, and long proposal cycles slowed growth and exhausted the team.',
-    solution:
-      'We built a custom automation system integrating Airtable, Make, and QuickBooks—centralizing operations and reducing admin work.',
-    metrics: ['40% faster task completion', '80+ active campaigns tracked', '1 unified dashboard'],
-    statsDetail: [
-      { value: '80%', label: 'faster proposal creation' },
-      { value: '40+', label: 'hours saved monthly' },
-      { value: 'Dashboard', label: 'Unified dashboards across finance and projects' }
-    ]
-  },
-  {
-    id: 2,
-    label: 'Consulting',
-    industryLabel: 'Industry Type',
-    title: 'Proposals generated in minutes instead of days',
-    challenge:
-      'Consultants were rebuilding proposals from scratch for each opportunity, losing hours to copy\u2011paste work.',
-    solution:
-      'We designed a proposal engine that assembles scopes, pricing, and case studies automatically from a structured knowledge base.',
-    metrics: ['4x faster proposal turnaround', 'Higher close rate', 'Consistent pricing & scope'],
-    statsDetail: [
-      { value: '4x', label: 'faster proposal turnaround' },
-      { value: 'Higher', label: 'close rate' },
-      { value: 'Consistent', label: 'pricing & scope' }
-    ]
-  },
-  {
-    id: 3,
-    label: 'Education',
-    industryLabel: 'Industry Type',
-    title: 'Enrollment pipeline finally visible end\u2011to\u2011end',
-    challenge:
-      'An education provider had no clear view of lead status, enrollment stages, or team workload.',
-    solution:
-      'We implemented a no-code CRM and workflow layer that tracks every applicant from first touch to orientation, with automated reminders.',
-    metrics: ['Full-funnel visibility', 'Fewer dropped leads', 'Happier operations team'],
-    statsDetail: [
-      { value: 'Full-funnel', label: 'visibility' },
-      { value: 'Fewer', label: 'dropped leads' },
-      { value: 'Happier', label: 'operations team' }
-    ]
-  }
 ];
 
 const techCategories: {
@@ -205,12 +144,7 @@ const chaosRows = [
 
 export default function Page() {
   const [activeSolution, setActiveSolution] = useState<SolutionKey>('consulting');
-  const [activeCase, setActiveCase] = useState(0);
   const caseStudiesRef = useRef<HTMLElement>(null);
-
-  const scrollToCaseStudies = () => {
-    caseStudiesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   return (
     <div className="qc-page">
@@ -424,7 +358,7 @@ export default function Page() {
               className="qc-solutions-layout"
               data-active={activeSolution}
             >
-              {/* Each button lives in its own fixed slot — preserves position on desktop */}
+              {/* Each button lives in its own fixed slot - preserves position on desktop */}
               {(['consulting', 'creative', 'education'] as SolutionKey[]).map(key => {
                 const isActive = activeSolution === key;
                 const label =
@@ -675,7 +609,7 @@ export default function Page() {
               <span className="qc-chaos-heading-gradient">Clarity</span>
             </h2>
             <p className="qc-chaos-subtitle">
-              See how intelligent automation reshapes your firm&apos;s daily operations—from
+              See how intelligent automation reshapes your firm&apos;s daily operations-from
               scattered tasks to a centralized system.
             </p>
             <div className="qc-chaos-divider" />
@@ -749,7 +683,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Real Firms – Case studies: 3-card carousel */}
+        {/* Real Firms - Case studies: 3-card carousel */}
         <section id="case-studies" className="qc-section qc-case-studies" ref={caseStudiesRef}>
           <div className="qc-container">
             <div className="qc-case-studies-header">
@@ -763,14 +697,13 @@ export default function Page() {
             </div>
 
             <div className="qc-case-studies-slide">
-              {[0, 1, 2].map(slideIndex =>
-                activeCase === slideIndex ? (
-                  <div key={slideIndex} className="qc-case-cards-row">
+              {CASE_STUDIES.map(cs => (
+                <div key={cs.slug} className="qc-case-cards-row">
                   <div className="qc-case-featured-wrapper">
                     <div className="qc-case-featured">
                       <div className="qc-case-featured-image">
                         <Image
-                          src="/case-studies/getting-business-finances-in-order.png"
+                          src={cs.cardImage}
                           alt=""
                           fill
                           sizes="(max-width: 900px) 45vw, 420px"
@@ -779,29 +712,24 @@ export default function Page() {
                       </div>
                       <div className="qc-case-featured-content">
                         <div className="qc-case-featured-top">
-                          <span className="qc-case-pill">
-                            {caseStudies[slideIndex].industryLabel ?? caseStudies[slideIndex].label}
-                          </span>
-                          <a href="#case-studies" className="qc-case-learn-more">
+                          <span className="qc-case-pill">{cs.industryLabel}</span>
+                          <a href={`/case-studies/${cs.slug}`} className="qc-case-learn-more">
                             Learn more <span aria-hidden>↗</span>
                           </a>
                         </div>
-                        <h3 className="qc-case-featured-title">{caseStudies[slideIndex].title}</h3>
+                        <h3 className="qc-case-featured-title">{cs.title}</h3>
                         <div className="qc-case-featured-sections">
                           <div>
                             <div className="qc-case-label">THE CHALLENGE</div>
-                            <p className="qc-case-text">{caseStudies[slideIndex].challenge}</p>
+                            <p className="qc-case-text">{cs.challenge}</p>
                           </div>
                           <div>
                             <div className="qc-case-label qc-case-label-solution">THE SOLUTION</div>
-                            <p className="qc-case-text">{caseStudies[slideIndex].solution}</p>
+                            <p className="qc-case-text">{cs.solution}</p>
                           </div>
                         </div>
                         <div className="qc-case-stats-row">
-                          {(caseStudies[slideIndex].statsDetail ?? caseStudies[slideIndex].metrics.map(m => {
-                            const parts = m.split(' ');
-                            return { value: parts[0], label: parts.slice(1).join(' ') };
-                          })).map((stat, i) => (
+                          {cs.measuredImpact.stats.filter(s => s.value && s.label).slice(0, 3).map((stat, i) => (
                             <div key={i} className="qc-case-stat">
                               <span className="qc-case-stat-value">{stat.value}</span>
                               <span className="qc-case-stat-label">{stat.label}</span>
@@ -820,45 +748,12 @@ export default function Page() {
                     <div className="qc-case-small-card-overlay" aria-hidden />
                   </div>
                 </div>
-              ) : null
-              )}
-            </div>
-
-            <div className="qc-case-nav">
-              <div className="qc-dots">
-                {[0, 1, 2].map(index => (
-                  <button
-                    key={index}
-                    type="button"
-                    className={`qc-dot${index === activeCase ? ' qc-dot-active' : ''}`}
-                    onClick={() => setActiveCase(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-              <div className="qc-case-nav-buttons">
-                <button
-                  type="button"
-                  className="qc-case-btn qc-case-btn-prev"
-                  onClick={() => { setActiveCase((activeCase - 1 + 3) % 3); scrollToCaseStudies(); }}
-                  aria-label="Previous slide"
-                >
-                  <Image src="/icons/arrow-left-purple.png" alt="" width={24} height={24} />
-                </button>
-                <button
-                  type="button"
-                  className="qc-case-btn qc-case-btn-next"
-                  onClick={() => { setActiveCase((activeCase + 1) % 3); scrollToCaseStudies(); }}
-                  aria-label="Next slide"
-                >
-                  <Image src="/icons/arrow-right-purple.png" alt="" width={24} height={24} />
-                </button>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Real conversation – 2-col layout, light diagonal background, right photo card */}
+        {/* Real conversation - 2-col layout, light diagonal background, right photo card */}
         <section id="conversation" className="qc-section qc-conversation">
           <div className="qc-conversation-inner">
             <div className="qc-conversation-left">
@@ -872,7 +767,7 @@ export default function Page() {
               </p>
               <p className="qc-conversation-para">
                 With 10+ years in optimising service operations and 50+ projects delivered, he helps
-                firms uncover what&apos;s slowing them down—and map a clear path to automation.
+                firms uncover what&apos;s slowing them down-and map a clear path to automation.
               </p>
               <a
                 href="https://calendly.com/quitcode/30min"
@@ -890,7 +785,7 @@ export default function Page() {
                 </span>
                 <span className="qc-conversation-benefit">
                   <Image src="/icons/star-conv.png" alt="" width={20} height={20} className="qc-conversation-star" aria-hidden />
-                  No sales pressure—just practical insights
+                  No sales pressure-just practical insights
                 </span>
               </div>
             </div>
@@ -979,7 +874,7 @@ export default function Page() {
                 {[
                   {
                     title: 'Faster implementation',
-                    body: 'No waiting months for development. We design, test, and launch automation systems in weeks — not quarters.',
+                    body: 'No waiting months for development. We design, test, and launch automation systems in weeks - not quarters.',
                     icon: '/why-nocode/icon-faster.png'
                   },
                   {

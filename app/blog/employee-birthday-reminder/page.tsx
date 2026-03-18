@@ -5,16 +5,16 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { RelatedArticles } from '@/components/RelatedArticles';
 
 export const metadata: Metadata = {
-  title: 'Employee Birthday Reminder – QuitCode',
+  title: 'Employee Birthday Reminder - QuitCode',
   description: 'Learn how to automate birthday notifications in Slack using Airtable, sending reminders 3 days before each employee\'s birthday without any manual work.',
   alternates: { canonical: 'https://www.quitcode.com/blog/employee-birthday-reminder' },
   openGraph: {
-    title: 'Employee Birthday Reminder – QuitCode',
+    title: 'Employee Birthday Reminder - QuitCode',
     description: 'Step-by-step guide to automating Slack birthday notifications for employees using Airtable.',
     url: 'https://www.quitcode.com/blog/employee-birthday-reminder',
     images: [{ url: '/blog/blog-employee-birthday-reminder-1.webp', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Employee Birthday Reminder – QuitCode' },
+  twitter: { card: 'summary_large_image', title: 'Employee Birthday Reminder - QuitCode' },
 };
 
 const IMG = (n: number) =>
@@ -62,7 +62,7 @@ export default function EmployeeBirthdayReminderPost() {
             </p>
 
             <p className="qc-blog-post-p">
-              In any organization, the Human Resources (HR) department is at the heart of employee management, from hiring to onboarding and maintaining staff well-being. Given the complexity and volume of tasks HR teams handle daily, automating specific processes is not just a time-saver—it&apos;s a strategic necessity. For example, forgetting to send a birthday reminder might seem minor, but over time, such small oversights can affect team morale and employee recognition. Automating routine processes allows HR professionals to focus on strategic initiatives, such as improving workplace culture or recruiting top talent, rather than getting bogged down in administrative work.
+              In any organization, the Human Resources (HR) department is at the heart of employee management, from hiring to onboarding and maintaining staff well-being. Given the complexity and volume of tasks HR teams handle daily, automating specific processes is not just a time-saver-it&apos;s a strategic necessity. For example, forgetting to send a birthday reminder might seem minor, but over time, such small oversights can affect team morale and employee recognition. Automating routine processes allows HR professionals to focus on strategic initiatives, such as improving workplace culture or recruiting top talent, rather than getting bogged down in administrative work.
             </p>
 
             <p className="qc-blog-post-p">

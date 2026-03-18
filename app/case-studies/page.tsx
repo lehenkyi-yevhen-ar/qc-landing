@@ -39,8 +39,8 @@ export default function CaseStudiesPage() {
             <span className="qc-cs-pill">CASES</span>
             <h1 className="qc-cs-title">Case Studies</h1>
             <p className="qc-cs-subtitle">
-              QuitCode is an Automation &amp; AI Company that helps high-value service firms — from consulting agencies
-              to private schools — transform fragmented operations into connected, intelligent systems.
+              QuitCode is an Automation &amp; AI Company that helps high-value service firms - from consulting agencies
+              to private schools - transform fragmented operations into connected, intelligent systems.
             </p>
           </div>
         </section>

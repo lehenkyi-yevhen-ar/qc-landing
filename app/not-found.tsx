@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found – QuitCode',
+  title: 'Page Not Found - QuitCode',
   description: 'The page you are looking for does not exist.',
   robots: { index: false, follow: false },
 };

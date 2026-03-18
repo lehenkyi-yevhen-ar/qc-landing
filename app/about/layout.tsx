@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us – QuitCode | Automation & AI Studio',
-  description: 'QuitCode is an Automation & AI studio founded in 2021 in Lviv. We combine no-code technology and AI-driven logic to help service firms scale operations intelligently.',
-  alternates: { canonical: 'https://www.quitcode.com/about' },
+  title: 'About QuitCode | Automation & AI Company for Service Firms',
+  description: 'Learn about QuitCode, an automation and AI studio helping service firms build connected no-code systems for growth, efficiency, and operational clarity.',
+  alternates: { canonical: 'https://quitcode.com/about' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'About QuitCode – Automation & AI Studio',
-    description: 'We combine no-code technology and AI-driven logic to scale operations. Founded in 2021 in Lviv, Ukraine.',
-    url: 'https://www.quitcode.com/about',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    title: 'About QuitCode | Automation & AI Company',
+    description: 'Meet the team behind QuitCode and learn how we help service firms turn fragmented operations into connected intelligent systems.',
+    url: 'https://quitcode.com/about',
+    images: [{ url: '/og-about.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About QuitCode – Automation & AI Studio',
-    description: 'We combine no-code technology and AI-driven logic to scale operations.',
+    title: 'About QuitCode | Automation & AI Company',
+    description: 'Meet the team behind QuitCode and learn how we help service firms turn fragmented operations into connected intelligent systems.',
   },
 };
 
