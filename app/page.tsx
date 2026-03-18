@@ -620,7 +620,7 @@ export default function Page() {
                     <div>
                       <div
                         className="type-caption-sm-bold"
-                        style={{ color: '#374151', marginTop: '0.4rem' }}
+                        style={{ color: '#374151', marginTop: '0.4rem', marginBottom: '0.5rem' }}
                       >
                         Pain
                       </div>
@@ -638,7 +638,8 @@ export default function Page() {
                           WebkitBackgroundClip: 'text',
                           backgroundClip: 'text',
                           WebkitTextFillColor: 'transparent',
-                          color: 'transparent'
+                          color: 'transparent', 
+                          marginBottom: '0.5rem' 
                         }}
                       >
                         Solution
@@ -711,8 +712,8 @@ export default function Page() {
                     <Image
                       src={row.icon}
                       alt=""
-                      width={28}
-                      height={28}
+                      width={48}
+                      height={48}
                       className="qc-chaos-card-after-icon"
                     />
                   </div>

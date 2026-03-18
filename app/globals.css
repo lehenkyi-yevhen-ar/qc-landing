@@ -1493,27 +1493,23 @@ button {
 
 .hero-logos-track {
   display: flex;
-  align-items: flex-start;
-  height: 90px;
+  align-items: center;
+  height: auto;
   gap: 64px;
   width: max-content;
   will-change: transform;
   animation: hero-logos-marquee var(--marquee-speed, 22s) linear infinite;
 }
 
-/* Zipline: logos alternate top/bottom using 7n+x to stay consistent
-   across both the original and duplicate sets (7 logos total) */
+/* Single line on desktop: all logos centered */
 .hero-logos-logo:nth-child(7n+1),
-.hero-logos-logo:nth-child(7n+3),
-.hero-logos-logo:nth-child(7n+5),
-.hero-logos-logo:nth-child(7n+7) {
-  align-self: flex-start;
-}
-
 .hero-logos-logo:nth-child(7n+2),
+.hero-logos-logo:nth-child(7n+3),
 .hero-logos-logo:nth-child(7n+4),
-.hero-logos-logo:nth-child(7n+6) {
-  align-self: flex-end;
+.hero-logos-logo:nth-child(7n+5),
+.hero-logos-logo:nth-child(7n+6),
+.hero-logos-logo:nth-child(7n+7) {
+  align-self: center;
 }
 
 .hero-logos-marquee:hover .hero-logos-track {
@@ -1622,8 +1618,22 @@ button {
 
   .hero-logos-track {
     height: 64px;
+    align-items: flex-start;
     gap: 36px;
     animation-duration: 18s;
+  }
+
+  .hero-logos-logo:nth-child(7n+1),
+  .hero-logos-logo:nth-child(7n+3),
+  .hero-logos-logo:nth-child(7n+5),
+  .hero-logos-logo:nth-child(7n+7) {
+    align-self: flex-start;
+  }
+
+  .hero-logos-logo:nth-child(7n+2),
+  .hero-logos-logo:nth-child(7n+4),
+  .hero-logos-logo:nth-child(7n+6) {
+    align-self: flex-end;
   }
 
   .hero-logos-logo {
@@ -1932,17 +1942,26 @@ button {
 }
 
 .qc-chaos-card-after-icon {
-  width: 28px !important;
-  height: 28px !important;
-  min-width: 28px !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
   object-fit: contain;
 }
 
 .qc-chaos-card-after img {
-  width: 28px !important;
-  height: 28px !important;
-  min-width: 28px !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
   object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .qc-chaos-card-after-icon,
+  .qc-chaos-card-after img {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+  }
 }
 
 @media (max-width: 900px) {
