@@ -25,6 +25,10 @@ export async function POST(request: Request) {
 
   // ── Make.com webhook (handles email) ─────────────────────────────────────
   const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+  if (!makeWebhookUrl && process.env.NODE_ENV === 'production') {
+    console.error('[apply] MAKE_WEBHOOK_URL is not set in production');
+    return NextResponse.json({ ok: false, error: 'Webhook not configured' }, { status: 500 });
+  }
   if (makeWebhookUrl) {
     let cvBase64: string | null = null;
     let cvFilename: string | null = null;

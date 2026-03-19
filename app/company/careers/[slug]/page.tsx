@@ -318,6 +318,10 @@ export default function JobPage() {
                       <Image src="/icons/arrow-right.png" alt="" width={24} height={24} />
                     </button>
                   </div>
+                  <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '0.5rem 0 0', lineHeight: 1.5 }}>
+                    By submitting, your data is processed by QuitCode and Make.com to handle your application.{' '}
+                    <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'underline' }}>Privacy Policy</a>.
+                  </p>
 
                 </form>
               </div>

@@ -31,7 +31,12 @@ export async function POST(request: Request) {
   }
 
   if (!webhookUrl) {
-    // Dev mode — no webhook configured
+    if (process.env.NODE_ENV === 'production') {
+      console.error('[contact] MAKE_WEBHOOK_URL is not set in production');
+      return NextResponse.json({ ok: false, error: 'Webhook not configured' }, { status: 500 });
+    }
+    // Dev mode — no webhook configured, return success to allow UI testing
+    console.warn('[contact] MAKE_WEBHOOK_URL not set — skipping webhook (dev mode)');
     return NextResponse.json({ ok: true });
   }
 

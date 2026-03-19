@@ -326,6 +326,11 @@ export function JourneyFormSection() {
                 </button>
               </div>
 
+              <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '0.5rem 0 0', lineHeight: 1.5 }}>
+                By submitting, your data is processed by QuitCode and Make.com to respond to your enquiry.{' '}
+                <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'underline' }}>Privacy Policy</a>.
+              </p>
+
               <ul className="qc-journey-trust">
                 <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Response within 24 hours</li>
                 <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure-just practical ideas</li>

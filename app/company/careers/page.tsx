@@ -427,6 +427,10 @@ export default function CareersPage() {
                       <Image src="/icons/arrow-right.png" alt="" width={24} height={24} />
                     </button>
                   </div>
+                  <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '0.5rem 0 0', lineHeight: 1.5 }}>
+                    By submitting, your data is processed by QuitCode and Make.com to handle your application.{' '}
+                    <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'underline' }}>Privacy Policy</a>.
+                  </p>
 
                   <ul className="qc-journey-trust">
                     <li><span className="qc-journey-trust-icon" aria-hidden>⚡</span> Nastia usually replies within 1-2 business days</li>

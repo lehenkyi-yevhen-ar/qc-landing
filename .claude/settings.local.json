@@ -74,7 +74,9 @@
       "Bash(find c:UsersDellqc-landing/lib -type f \\\\\\(-name *.ts -o -name *.tsx \\\\\\))",
       "Bash(ls -la /c/Users/Dell/qc-landing/next.config.*)",
       "Bash(node -e \"require\\(''sharp''\\); console.log\\(''sharp ok''\\)\")",
-      "Bash(node -e \"require\\(''fs''\\).copyFileSync\\(''c:/Users/Dell/qc-landing/public/favicon.png'', ''c:/Users/Dell/qc-landing/app/icon.png''\\); console.log\\(''done''\\)\")"
+      "Bash(node -e \"require\\(''fs''\\).copyFileSync\\(''c:/Users/Dell/qc-landing/public/favicon.png'', ''c:/Users/Dell/qc-landing/app/icon.png''\\); console.log\\(''done''\\)\")",
+      "Bash(grep -r \"headers\\\\|csp\\\\|Content-Security-Policy\\\\|cookie\\\\|setCookie\\\\|cookies\" /c/Users/Dell/qc-landing/app /c/Users/Dell/qc-landing/next.config*)",
+      "Bash(grep -r \"gtag\\\\|clarity\\\\|GA4\\\\|Google Analytics\" /c/Users/Dell/qc-landing/app /c/Users/Dell/qc-landing/components /c/Users/Dell/qc-landing/lib --include=*.tsx --include=*.ts)"
     ]
   }
 }
