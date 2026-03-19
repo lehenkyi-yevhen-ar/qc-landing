@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { JourneyFormSection } from '@/components/JourneyFormSection';
@@ -292,6 +292,8 @@ export default function Page() {
                     alt="Operations dashboard preview"
                     width={1012}
                     height={345}
+                    priority
+                    fetchPriority="high"
                     style={{
                       width: '100%',
                       height: 'auto',
@@ -305,7 +307,7 @@ export default function Page() {
                 <div className="hero-logos-marquee" aria-label="Platforms we work with">
                   <div className="hero-logos-track">
                     {heroLogoCarouselLogos.map((logo, i) => (
-                      <img
+                      <Image
                         key={`a-${logo.alt}-${i}`}
                         src={logo.src}
                         alt={logo.alt}
@@ -313,11 +315,10 @@ export default function Page() {
                         width={160}
                         height={44}
                         loading="eager"
-                        decoding="async"
                       />
                     ))}
                     {heroLogoCarouselLogos.map((logo, i) => (
-                      <img
+                      <Image
                         key={`b-${logo.alt}-${i}`}
                         src={logo.src}
                         alt=""
@@ -326,7 +327,6 @@ export default function Page() {
                         width={160}
                         height={44}
                         loading="eager"
-                        decoding="async"
                       />
                     ))}
                   </div>
@@ -395,7 +395,7 @@ export default function Page() {
                         boxShadow: isActive
                           ? '0 8px 30px rgba(129, 140, 248, 0.15)'
                           : 'none',
-                        fontFamily: "'Karla', sans-serif",
+                        fontFamily: "var(--font-karla), sans-serif",
                         fontWeight: 700,
                         lineHeight: 1,
                         color: isActive ? '#3985F8' : '#374151',
@@ -592,7 +592,7 @@ export default function Page() {
                     </div>
 
                     <div style={{ marginTop: '0.3rem' }}>
-                      <a href={service.href} className="qc-button-gradient-border">
+                      <a href={service.href} className="qc-button-gradient-border" aria-label={`Learn more about ${service.title}`}>
                         Learn more
                         <span style={{ display: 'inline-flex' }}>
                           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -670,12 +670,12 @@ export default function Page() {
         <section className="qc-glass-cta" aria-label="See real client results">
           <div className="qc-glass-cta-blobs" aria-hidden="true" />
           <div className="qc-glass-cta-icons" aria-hidden="true">
-            <img src="/glass-cta/Style_Swirl.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-1" />
-            <img src="/glass-cta/Asset_Icon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-2" />
-            <img src="/glass-cta/Style_Moon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-3" />
-            <img src="/glass-cta/Style_Swirl.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-4" />
-            <img src="/glass-cta/Style_Moon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-5" />
-            <img src="/glass-cta/Asset_Icon.png" alt="" className="qc-glass-cta-icon qc-glass-cta-icon-6" />
+            <Image src="/glass-cta/Style_Swirl.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-1" />
+            <Image src="/glass-cta/Asset_Icon.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-2" />
+            <Image src="/glass-cta/Style_Moon.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-3" />
+            <Image src="/glass-cta/Style_Swirl.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-4" />
+            <Image src="/glass-cta/Style_Moon.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-5" />
+            <Image src="/glass-cta/Asset_Icon.webp" alt="" width={104} height={104} className="qc-glass-cta-icon qc-glass-cta-icon-6" />
           </div>
           <div className="qc-glass-cta-glass">
             <h2 className="qc-glass-cta-title">
@@ -686,7 +686,7 @@ export default function Page() {
             <a href="#case-studies" className="qc-glass-cta-link">
               See real client results
             </a>
-            <a href="#case-studies" className="qc-glass-cta-arrow" aria-hidden="true">
+            <a href="#case-studies" className="qc-glass-cta-arrow" aria-hidden="true" tabIndex={-1}>
               <Image src="/icons/arrow-down.png" alt="" width={64} height={64} />
             </a>
           </div>
@@ -716,7 +716,7 @@ export default function Page() {
                           alt=""
                           fill
                           sizes="(max-width: 900px) 90vw, 50vw"
-                          quality={90}
+                          quality={75}
                           style={{ objectFit: 'cover' }}
                         />
                       </div>
@@ -750,11 +750,13 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="qc-case-small-card">
-                    <Image src="/case-studies/case-study-card.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <Image src="/2ndcard.webp" alt="" fill sizes="280px" style={{ objectFit: 'cover', objectPosition: 'right center' }} />
+                    <Image src="/glow-effect.webp" alt="" fill sizes="280px" style={{ objectFit: 'cover', mixBlendMode: 'screen' }} />
                     <div className="qc-case-small-card-overlay" aria-hidden />
                   </div>
                   <div className="qc-case-small-card">
-                    <Image src="/case-studies/case-study-card-2.png" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <Image src="/careers/apply-photo.webp" alt="" fill sizes="280px" style={{ objectFit: 'cover' }} />
+                    <Image src="/glow-effect.webp" alt="" fill sizes="280px" style={{ objectFit: 'cover', mixBlendMode: 'screen' }} />
                     <div className="qc-case-small-card-overlay" aria-hidden />
                   </div>
                 </div>

@@ -61,14 +61,14 @@ export function TestimonialsSection() {
 
         {/* Header */}
         <div className="qc-testimonials-header-row">
-          <img src="/testimonials/frame-left.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-left" aria-hidden />
+          <Image src="/testimonials/frame-left.webp" alt="" width={400} height={46} className="qc-testimonials-bar qc-testimonials-bar-left" aria-hidden />
           <div className="qc-testimonials-header">
             <h2 className="qc-testimonials-title">Let our clients speak for us</h2>
             <p className="qc-testimonials-subtitle">
               The best way to understand QuitCode isn&apos;t through our words &mdash; it&apos;s through the experiences of the teams we work with.
             </p>
           </div>
-          <img src="/testimonials/frame-right.png" alt="" className="qc-testimonials-bar qc-testimonials-bar-right" aria-hidden />
+          <Image src="/testimonials/frame-right.webp" alt="" width={400} height={46} className="qc-testimonials-bar qc-testimonials-bar-right" aria-hidden />
         </div>
 
         {/* Single-card viewport */}
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
                   <div className="qc-testimonials-card qc-testimonials-card-video qc-testimonials-card-active">
                     <iframe
                       ref={el => { iframeRefs.current[i] = el; }}
-                      src={`https://www.youtube.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1`}
+                      src={`https://www.youtube-nocookie.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1`}
                       title={`Testimonial video - ${slide.item.name}`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen

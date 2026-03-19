@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import { Toast } from '@/components/Toast';
 import { industryOptions } from '@/lib/data';
 import { CASE_STUDIES } from '@/lib/caseStudies';
 
@@ -97,11 +98,15 @@ function AirtableFormSection() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, industry, challenge: message }),
-      });
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('company', company);
+      formData.append('industry', industry);
+      formData.append('challenge', message);
+      formData.append('sourceUrl', window.location.href);
+
+      const res = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!res.ok) throw new Error();
       setName(''); setEmail(''); setCompany(''); setIndustry(''); setMessage('');
       setStatus('success');
@@ -113,6 +118,13 @@ function AirtableFormSection() {
   };
 
   return (
+    <>
+    {status === 'success' && (
+      <Toast type="success" message="Thanks! Your request has been sent. We'll be in touch soon." onClose={() => setStatus('idle')} />
+    )}
+    {status === 'error' && (
+      <Toast type="error" message="Something went wrong. Please try again or contact us directly." onClose={() => setStatus('idle')} />
+    )}
     <section id="airtable-form" className="qc-section qc-journey">
       <div className="qc-journey-container">
         {/* Heading */}
@@ -264,8 +276,6 @@ function AirtableFormSection() {
                 <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure - just practical ideas</li>
                 <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
               </ul>
-              {status === 'success' && <p className="qc-journey-form-status qc-journey-form-status-success">Thanks - your request has been sent.</p>}
-              {status === 'error' && <p className="qc-journey-form-status qc-journey-form-status-error">Something went wrong. Please try again.</p>}
             </form>
           </div>
 
@@ -285,6 +295,7 @@ function AirtableFormSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
@@ -328,7 +339,7 @@ export default function AirtablePlatformPage() {
                     <Image src="/logo-airtable.png" alt="Airtable" width={86} height={86} style={{ objectFit: 'contain' }} />
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'left', gap: 40}}>
-                  <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440, fontFamily: 'Karla', letterSpacing: -2, fontSize: 32}}>
+                  <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440, fontFamily: 'var(--font-karla)', letterSpacing: -2, fontSize: 32}}>
                     <strong style={{ color: '#2d7ff9' }}>Airtable</strong> is the platform we
                     use to build Single Source of Truth systems - where data, workflows, and
                     teams are aligned in one place.
@@ -571,7 +582,7 @@ export default function AirtablePlatformPage() {
                       }}>
                         <Image src={item.icon} alt="" width={38} height={38} style={{ objectFit: 'contain' }} />
                       </div>
-                      <span style={{ color: 'rgba(255,255,255,0.82)', marginBottom: 48, marginTop: 12, fontFamily: 'Karla, sans-serif', fontSize: 32, fontWeight: 600, lineHeight: 1.2 }}>
+                      <span style={{ color: 'rgba(255,255,255,0.82)', marginBottom: 48, marginTop: 12, fontFamily: 'var(--font-karla), sans-serif', fontSize: 32, fontWeight: 600, lineHeight: 1.2 }}>
                         {item.text}
                       </span>
                     </div>

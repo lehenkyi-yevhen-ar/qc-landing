@@ -1,9 +1,30 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { Karla, Montserrat } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import './globals.css';
+
+const karla = Karla({
+  subsets: ['latin'],
+  weight: ['400', '700', '800'],
+  variable: '--font-karla',
+  display: 'swap',
+  preload: true,
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: true,
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
+  display: 'swap',
+  preload: true,
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: true,
+});
 
 const BASE_URL = 'https://www.quitcode.com';
 
@@ -84,7 +105,7 @@ const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${karla.variable} ${montserrat.variable}`}>
       <head>
         {/* Structured data */}
         <script

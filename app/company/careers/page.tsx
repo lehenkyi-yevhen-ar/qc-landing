@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import { Toast } from '@/components/Toast';
 
 const OPEN_POSITIONS = [
   {
@@ -95,18 +96,18 @@ export default function CareersPage() {
     setIsSubmitting(true);
     setFormStatus('idle');
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `${form.firstName} ${form.lastName}`,
-          linkedin: form.linkedin,
-          message: form.message,
-          type: 'careers',
-        }),
-      });
+      const formData = new FormData();
+      formData.append('firstName', form.firstName);
+      formData.append('lastName', form.lastName);
+      formData.append('linkedin', form.linkedin);
+      formData.append('message', form.message);
+      formData.append('sourceUrl', window.location.href);
+      if (form.cvFile) formData.append('cvFile', form.cvFile);
+
+      const response = await fetch('/api/apply', { method: 'POST', body: formData });
       if (!response.ok) throw new Error('Request failed');
       setForm({ firstName: '', lastName: '', linkedin: '', message: '', cvFile: null });
+      if (fileInputRef.current) fileInputRef.current.value = '';
       setFormStatus('success');
     } catch {
       setFormStatus('error');
@@ -117,6 +118,20 @@ export default function CareersPage() {
 
   return (
     <div className="qc-page">
+      {formStatus === 'success' && (
+        <Toast
+          type="success"
+          message="Your application has been sent! Nastia will be in touch within 1–2 business days."
+          onClose={() => setFormStatus('idle')}
+        />
+      )}
+      {formStatus === 'error' && (
+        <Toast
+          type="error"
+          message="Something went wrong. Please try again or email us directly."
+          onClose={() => setFormStatus('idle')}
+        />
+      )}
       <main>
         {/* ── Hero ── */}
         <section className="qc-careers-hero">
@@ -186,7 +201,7 @@ export default function CareersPage() {
                       }}>
                         <Image src={item.icon!} alt="" width={44} height={44} style={{ objectFit: 'contain' }} />
                       </div>
-                      <p style={{ margin: 0, fontFamily: 'Karla, sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
+                      <p style={{ margin: 0, fontFamily: 'var(--font-karla), sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
                     </div>
                   );
                 })}
@@ -210,7 +225,7 @@ export default function CareersPage() {
                       }}>
                         <Image src={item.icon!} alt="" width={44} height={44} style={{ objectFit: 'contain' }} />
                       </div>
-                      <p style={{ margin: 0, fontFamily: 'Karla, sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
+                      <p style={{ margin: 0, fontFamily: 'var(--font-karla), sans-serif', fontWeight: 700, fontSize: 28, color: item.gradient ? '#fff' : '#360092' }}>{item.text}</p>
                     </div>
                   );
                 })}
@@ -418,16 +433,6 @@ export default function CareersPage() {
                     <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
                   </ul>
 
-                  {formStatus === 'success' && (
-                    <p className="qc-journey-form-status qc-journey-form-status-success">
-                      Thanks - your application has been sent!
-                    </p>
-                  )}
-                  {formStatus === 'error' && (
-                    <p className="qc-journey-form-status qc-journey-form-status-error">
-                      Something went wrong. Please try again.
-                    </p>
-                  )}
                 </form>
               </div>
 

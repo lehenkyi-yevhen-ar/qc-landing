@@ -68,7 +68,13 @@
       "Bash(sed -i \"s|og-custom-workflow-automations\\\\.png|og-custom-workflow-automations.webp|g\" app/services/custom-workflow-automation/page.tsx)",
       "Bash(sed -i \"s|og-data-infrastructure\\\\.png|og-data-infrastructure.webp|g\" app/services/data-infrastructure-optimization/page.tsx)",
       "Bash(sed -i \"s|og-main\\\\.png|og-main.webp|g\" app/layout.tsx)",
-      "Bash(sed -i \"s|og-vaccancy\\\\.png|og-vaccancy.webp|g\" \"app/company/careers/[slug]/layout.tsx\")"
+      "Bash(sed -i \"s|og-vaccancy\\\\.png|og-vaccancy.webp|g\" \"app/company/careers/[slug]/layout.tsx\")",
+      "Bash(find c:UsersDellqc-landing/app -type f -name *.ts -o -name *.tsx)",
+      "Bash(xargs grep:*)",
+      "Bash(find c:UsersDellqc-landing/lib -type f \\\\\\(-name *.ts -o -name *.tsx \\\\\\))",
+      "Bash(ls -la /c/Users/Dell/qc-landing/next.config.*)",
+      "Bash(node -e \"require\\(''sharp''\\); console.log\\(''sharp ok''\\)\")",
+      "Bash(node -e \"require\\(''fs''\\).copyFileSync\\(''c:/Users/Dell/qc-landing/public/favicon.png'', ''c:/Users/Dell/qc-landing/app/icon.png''\\); console.log\\(''done''\\)\")"
     ]
   }
 }

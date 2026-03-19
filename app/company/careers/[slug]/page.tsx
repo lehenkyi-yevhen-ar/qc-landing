@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 import { getJob } from '@/lib/jobs';
+import { Toast } from '@/components/Toast';
 
 function CheckIcon() {
   return (
@@ -52,19 +53,19 @@ export default function JobPage() {
     setIsSubmitting(true);
     setFormStatus('idle');
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `${form.firstName} ${form.lastName}`,
-          linkedin: form.linkedin,
-          message: form.message,
-          role: job.title,
-          type: 'job-application',
-        }),
-      });
+      const formData = new FormData();
+      formData.append('firstName', form.firstName);
+      formData.append('lastName', form.lastName);
+      formData.append('linkedin', form.linkedin);
+      formData.append('message', form.message);
+      formData.append('role', job.title);
+      formData.append('sourceUrl', window.location.href);
+      if (form.cvFile) formData.append('cvFile', form.cvFile);
+
+      const res = await fetch('/api/apply', { method: 'POST', body: formData });
       if (!res.ok) throw new Error();
       setForm({ firstName: '', lastName: '', linkedin: '', message: '', cvFile: null });
+      if (fileInputRef.current) fileInputRef.current.value = '';
       setFormStatus('success');
     } catch {
       setFormStatus('error');
@@ -75,6 +76,20 @@ export default function JobPage() {
 
   return (
     <div className="qc-page">
+      {formStatus === 'success' && (
+        <Toast
+          type="success"
+          message="Your application has been sent! We'll be in touch within 1–2 business days."
+          onClose={() => setFormStatus('idle')}
+        />
+      )}
+      {formStatus === 'error' && (
+        <Toast
+          type="error"
+          message="Something went wrong. Please try again or email us directly."
+          onClose={() => setFormStatus('idle')}
+        />
+      )}
       <main>
         {/* ── Job Hero ── */}
         <section className="qc-job-hero">
@@ -304,12 +319,6 @@ export default function JobPage() {
                     </button>
                   </div>
 
-                  {formStatus === 'success' && (
-                    <p className="qc-journey-form-status qc-journey-form-status-success">Thanks - your application has been sent!</p>
-                  )}
-                  {formStatus === 'error' && (
-                    <p className="qc-journey-form-status qc-journey-form-status-error">Something went wrong. Please try again.</p>
-                  )}
                 </form>
               </div>
 

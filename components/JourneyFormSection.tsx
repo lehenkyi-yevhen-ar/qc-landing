@@ -7,6 +7,7 @@ import {
   interestOptions,
   industryOptions
 } from '@/lib/data';
+import { Toast } from '@/components/Toast';
 
 export function JourneyFormSection() {
   const [form, setForm] = useState(FORM_DEFAULT);
@@ -45,12 +46,14 @@ export function JourneyFormSection() {
   const handleToggleInterest = (value: string) => {
     setForm(current => {
       const exists = current.interests.includes(value);
-      return {
-        ...current,
-        interests: exists
-          ? current.interests.filter(v => v !== value)
-          : [...current.interests, value]
-      };
+      if (exists) {
+        return { ...current, interests: current.interests.filter(v => v !== value) };
+      }
+      // Selecting "Not sure yet" clears all others; selecting anything else clears "Not sure yet"
+      const filtered = value === 'Not sure yet'
+        ? []
+        : current.interests.filter(v => v !== 'Not sure yet');
+      return { ...current, interests: [...filtered, value] };
     });
   };
 
@@ -59,13 +62,20 @@ export function JourneyFormSection() {
     setIsSubmitting(true);
     setFormStatus('idle');
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      });
+      const formData = new FormData();
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('company', form.company);
+      formData.append('industry', form.industry);
+      formData.append('interests', form.interests.join(', '));
+      formData.append('challenge', form.challenge);
+      formData.append('sourceUrl', window.location.href);
+      attachedFiles.forEach(f => formData.append('files', f));
+
+      const response = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!response.ok) throw new Error('Request failed');
       setForm(FORM_DEFAULT);
+      setAttachedFiles([]);
       setFormStatus('success');
     } catch (error) {
       console.error(error);
@@ -76,6 +86,21 @@ export function JourneyFormSection() {
   };
 
   return (
+    <>
+    {formStatus === 'success' && (
+      <Toast
+        type="success"
+        message="Thanks! Your request has been sent. We'll be in touch within 24 hours."
+        onClose={() => setFormStatus('idle')}
+      />
+    )}
+    {formStatus === 'error' && (
+      <Toast
+        type="error"
+        message="Something went wrong. Please try again or contact us directly."
+        onClose={() => setFormStatus('idle')}
+      />
+    )}
     <section id="journey" className="qc-section qc-journey">
       <div className="qc-journey-container">
         <div className="qc-journey-grid">
@@ -306,16 +331,6 @@ export function JourneyFormSection() {
                 <li><span className="qc-journey-trust-icon" aria-hidden>⊘</span> No sales pressure-just practical ideas</li>
                 <li><span className="qc-journey-trust-icon" aria-hidden>🔒</span> Your data is secure</li>
               </ul>
-              {formStatus === 'success' && (
-                <p className="qc-journey-form-status qc-journey-form-status-success">
-                  Thanks-your request has been sent.
-                </p>
-              )}
-              {formStatus === 'error' && (
-                <p className="qc-journey-form-status qc-journey-form-status-error">
-                  Something went wrong. Please try again.
-                </p>
-              )}
             </form>
           </div>
 
@@ -339,5 +354,6 @@ export function JourneyFormSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

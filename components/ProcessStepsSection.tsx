@@ -574,7 +574,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
             fontSize: "0.85rem",
             color: "#6b7280",
             letterSpacing: "-0.6px",
-            fontFamily: "Montserrat, sans-serif",
+            fontFamily: "var(--font-montserrat), sans-serif",
           }}
         >
           <div style={{ textAlign: "right" }}>
@@ -640,7 +640,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
                   textTransform: "uppercase",
                   color: active ? "#3985F8" : "#9ca3af",
                   marginBottom: "8px",
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "var(--font-montserrat), sans-serif",
                 }}
               >
                 {step.step}
@@ -657,7 +657,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
                   WebkitBackgroundClip: active ? "text" : "unset",
                   color: active ? "transparent" : "#111827",
                   transition: "all 0.4s ease",
-                  fontFamily: "Karla, sans-serif",
+                  fontFamily: "var(--font-karla), sans-serif",
                 }}
               >
                 {step.title}
@@ -715,7 +715,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
                   maxWidth: 480,
                   letterSpacing: "-0.6px",
                   transition: "all 0.4s ease",
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "var(--font-montserrat), sans-serif",
                 }}
               >
                 {step.description}

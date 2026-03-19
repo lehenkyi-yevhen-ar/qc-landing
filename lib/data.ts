@@ -47,11 +47,11 @@ export const FORM_DEFAULT = {
 };
 
 export const interestOptions = [
-  'Project Management Tools',
-  'Task Scheduling',
-  'Team Collaboration',
-  'Progress Tracking',
-  'Resource Allocation'
+  'Workflow Automation',
+  'Data Infrastructure',
+  'Custom Web Apps',
+  'Discovery & Strategy',
+  'Not sure yet'
 ];
 
 export const industryOptions = ['Consulting', 'Creative', 'Education', 'Other'];

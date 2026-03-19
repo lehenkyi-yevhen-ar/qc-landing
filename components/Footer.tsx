@@ -63,11 +63,11 @@ export function Footer() {
             <div className="qc-footer-contact">
               <div className="qc-footer-contact-row">
                 <Image src="/footer/mail.png" alt="" width={18} height={18} aria-hidden />
-                <a href="mailto:hello@company.com">hello@company.com</a>
+                <a href="mailto:hello@company.com">info@quitcode.com</a>
               </div>
               <div className="qc-footer-contact-row">
                 <Image src="/footer/phone-telephone.png" alt="" width={18} height={18} aria-hidden />
-                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                <a href="tel:+15551234567">+38 067 6767609</a>
               </div>
               <div className="qc-footer-contact-row">
                 <Image src="/footer/location.png" alt="" width={18} height={18} aria-hidden />
@@ -80,7 +80,7 @@ export function Footer() {
         <div className="qc-footer-bottom">
           <div>© 2025 QuitCode. All rights reserved.</div>
           <div className="qc-footer-legal">
-            <a href="/privacy">Privacy Policy</a>
+            <a href="/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>
             <span aria-hidden> · </span>
             <a href="/terms">Terms of Service</a>
           </div>
