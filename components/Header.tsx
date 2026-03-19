@@ -194,7 +194,7 @@ export function Header() {
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 ) : (
-                  <Image src="/three-slashes.png" alt="" width={22} height={22} unoptimized />
+                  <Image src="/three-slashes.webp" alt="" width={22} height={22} />
                 )}
               </button>
             </div>

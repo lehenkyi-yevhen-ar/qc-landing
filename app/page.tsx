@@ -294,6 +294,7 @@ export default function Page() {
                     height={345}
                     priority
                     fetchPriority="high"
+                    sizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 1012px"
                     style={{
                       width: '100%',
                       height: 'auto',

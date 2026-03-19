@@ -27,6 +27,7 @@ function sendYTCommand(iframe: HTMLIFrameElement | null, func: 'playVideo' | 'pa
 export function TestimonialsSection() {
   const [active, setActive] = useState(0);
   const [viewportW, setViewportW] = useState(0);
+  const [activatedVideos, setActivatedVideos] = useState<Set<number>>(new Set());
   const viewportRef = useRef<HTMLDivElement>(null);
   const iframeRefs = useRef<Record<number, HTMLIFrameElement | null>>({});
 
@@ -142,14 +143,33 @@ export function TestimonialsSection() {
                   }}
                 >
                   <div className="qc-testimonials-card qc-testimonials-card-video qc-testimonials-card-active">
-                    <iframe
-                      ref={el => { iframeRefs.current[i] = el; }}
-                      src={`https://www.youtube-nocookie.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1`}
-                      title={`Testimonial video - ${slide.item.name}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="qc-testimonials-yt-iframe"
-                    />
+                    {activatedVideos.has(i) ? (
+                      <iframe
+                        ref={el => { iframeRefs.current[i] = el; }}
+                        src={`https://www.youtube-nocookie.com/embed/${slide.item.videoId}?enablejsapi=1&rel=0&playsinline=1&autoplay=1`}
+                        title={`Testimonial video - ${slide.item.name}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="qc-testimonials-yt-iframe"
+                      />
+                    ) : (
+                      <button
+                        className="qc-yt-facade"
+                        onClick={() => setActivatedVideos(prev => new Set(prev).add(i))}
+                        aria-label={`Play video testimonial from ${slide.item.name}`}
+                      >
+                        <img
+                          src={`https://i.ytimg.com/vi/${slide.item.videoId}/hqdefault.jpg`}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          className="qc-yt-facade-thumb"
+                        />
+                        <span className="qc-yt-facade-play" aria-hidden="true">
+                          <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.52 8.52 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.52 8.52 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.52 8.52 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.52 8.52 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#f00"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg>
+                        </span>
+                      </button>
+                    )}
                   </div>
                 </div>
               )

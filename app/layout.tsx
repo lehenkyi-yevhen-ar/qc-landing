@@ -107,6 +107,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${karla.variable} ${montserrat.variable}`}>
       <head>
+        {/* Preconnect for video facades and thumbnails */}
+        <link rel="preconnect" href="https://i.ytimg.com" />
+        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+        <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
+
         {/* Structured data */}
         <script
           type="application/ld+json"
