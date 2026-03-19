@@ -578,7 +578,7 @@ export function ProcessStepsSection({ variant = "cwa" }: { variant?: string }) {
           }}
         >
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontWeight: 600, color: "#111827", fontSize: 20 }}>Team of experts</div>
+            <div style={{ fontWeight: 600, color: "#3d3d3d", fontSize: 20 }}>Team of experts</div>
             <div style={{ fontSize: 12 }}>Tailored to your needs</div>
           </div>
           <Image

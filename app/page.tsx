@@ -384,7 +384,7 @@ export default function Page() {
                           ? '2px solid rgba(129, 140, 248, 0.6)'
                           : '2px solid #f0ebf9',
                         background: isActive
-                          ? 'linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%)'
+                          ? 'linear-gradient(135deg, #09c0ff1a, #cc99ff1a)'
                           : '#ffffff',
                         padding: isActive ? '2rem 1.6rem' : '1rem 1.4rem',
                         width: '100%',
@@ -490,8 +490,8 @@ export default function Page() {
                 }}
               >
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 500, color: '#111827', fontSize: 20 }}>Team of experts</div>
-                  <div style={{ fontWeight: 400, fontSize: 12 }}>Tailored to your needs.</div>
+                  <div style={{ fontWeight: 500, color: '#3d3d3d', fontSize: 20 }}>Team of experts</div>
+                  <div style={{ fontWeight: 400, fontSize: 12 }}>Tailored to your needs</div>
                 </div>
                 <Image
                   src="/team-avatars.png"
