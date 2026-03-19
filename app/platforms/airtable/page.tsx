@@ -655,7 +655,7 @@ export default function AirtablePlatformPage() {
                       <h3 className="type-heading-eb-40" style={{ margin: '0 0 40px', color: '#111827', fontWeight:  800 }}>
                         {tech.title}
                       </h3>
-                      <Link href={tech.href} className="qc-button-gradient-border">
+                      <Link href={tech.href} className="qc-button-gradient-border" aria-label={`Learn more about ${tech.title}`}>
                         Learn more
                         <span style={{ display: 'inline-flex', marginLeft: 6 }}>
                           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

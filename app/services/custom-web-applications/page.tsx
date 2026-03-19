@@ -422,7 +422,7 @@ export default function CustomWebApplicationsPage() {
                     >
                       {service.description}
                     </p>
-                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: 'auto' }}>
+                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: 'auto' }} aria-label={`Learn more about ${service.title}`}>
                       Learn more
                       <span style={{ display: 'inline-flex', marginLeft: 6 }}>
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

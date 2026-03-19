@@ -375,7 +375,7 @@ export default function CustomWorkflowAutomationPage() {
                     <p className="type-body" style={{ margin: "0 0 1.25rem", color: "#6b7280" }}>
                       {service.description}
                     </p>
-                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: "auto" }}>
+                    <Link href={service.href} className="qc-button-gradient-border" style={{ marginTop: "auto" }} aria-label={`Learn more about ${service.title}`}>
                       Learn more
                       <span style={{ display: "inline-flex", marginLeft: 6 }}>
                         <svg
