@@ -419,6 +419,35 @@ export default function Page() {
                         />
                       </div>
                     </button>
+                    {/* Accordion panel — visible on tablet/mobile only */}
+                    <div className={`qc-solution-panel-mobile${isActive ? ' is-open' : ''}`}>
+                      {solutions[key].map(item => (
+                        <div
+                          key={item}
+                          className="qc-solution-item"
+                          style={{
+                            borderRadius: '20px',
+                            padding: '1.5rem 1.4rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1rem',
+                            background: '#f5f9ff',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <Image
+                            src={solutionIcons[item] || '/icons/system.png'}
+                            alt=""
+                            width={36}
+                            height={36}
+                            style={{ width: 36, height: 36, objectFit: 'contain' }}
+                          />
+                          <div className="type-body-lg-medium" style={{ color: '#4300b7' }}>
+                            {item}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 );
               })}

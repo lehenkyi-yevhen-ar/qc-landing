@@ -5159,7 +5159,12 @@ box-shadow:
   min-height: 200px;
 }
 
-/* Tablet & mobile: flex column — active first, grid second, inactive last */
+/* Accordion panels — hidden on desktop, shown inline on tablet/mobile */
+.qc-solution-panel-mobile {
+  display: none;
+}
+
+/* Tablet & mobile: flex column with inline accordion panels */
 @media (max-width: 960px) {
   .qc-solutions-layout {
     display: flex;
@@ -5168,18 +5173,19 @@ box-shadow:
     max-width: 100%;
   }
 
-  .qc-solutions-btn-slot.is-active  { order: 1; }
-  .qc-solution-grid                 { order: 2; }
-  .qc-solutions-btn-slot            { order: 3; } /* inactive buttons last */
-
+  /* Hide the desktop shared grid; each button slot now has its own panel */
   .qc-solution-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: auto !important;
-    grid-auto-flow: row !important;
-    gap: 0.75rem !important;
+    display: none !important;
+  }
+
+  /* Accordion panel: shown below its button when active */
+  .qc-solution-panel-mobile.is-open {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 0.75rem;
   }
 
   .qc-solution-item {
@@ -5193,6 +5199,7 @@ box-shadow:
 }
 
 @media (min-width: 640px) and (max-width: 960px) {
+  .qc-solution-panel-mobile.is-open .qc-solution-item,
   .qc-solution-item {
     min-height: 215px !important;
   }
@@ -5346,7 +5353,7 @@ box-shadow:
   }
 
   /* Image box: fixed height when stacked */
-  .qc-service-card > :first-child {
+  .qc-service-card > div:first-of-type {
     min-height: 220px;
   }
 }
