@@ -41,6 +41,7 @@ export function TestimonialsSection() {
     return () => ro.disconnect();
   }, []);
 
+  const slideGap = viewportW < 768 ? 48 : SLIDE_GAP;
   const slideW = Math.round(viewportW * SLIDE_RATIO);
   const trackPadding = Math.round((viewportW - slideW) / 2);
 
@@ -77,10 +78,10 @@ export function TestimonialsSection() {
           <div
             className="qc-testimonials-track qc-testimonials-track-single"
             style={{
-              transform: `translateX(${-(active * (slideW + SLIDE_GAP))}px)`,
+              transform: `translateX(${-(active * (slideW + slideGap))}px)`,
               paddingLeft: `${trackPadding}px`,
               paddingRight: `${trackPadding}px`,
-              gap: `${SLIDE_GAP}px`,
+              gap: `${slideGap}px`,
             }}
           >
             {slides.map((slide, i) =>

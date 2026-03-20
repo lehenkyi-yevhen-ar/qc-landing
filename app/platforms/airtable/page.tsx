@@ -105,6 +105,7 @@ function AirtableFormSection() {
       formData.append('industry', industry);
       formData.append('challenge', message);
       formData.append('sourceUrl', window.location.href);
+      formData.append('formName', 'Airtable Platform Enquiry');
 
       const res = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!res.ok) throw new Error();
@@ -340,7 +341,7 @@ export default function AirtablePlatformPage() {
                     width: 44, height: 44, borderRadius: '10px', background: 'transparent',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginRight: 24
                   }}>
-                    <Image src="/logo-airtable.png" alt="Airtable" width={86} height={86} style={{ objectFit: 'contain' }} />
+                    <Image src="/logos/airtable-circle.png" alt="Airtable" width={118} height={118} style={{ objectFit: 'contain', marginRight: 40 }} />
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'left', gap: 40}}>
                   <p className="type-body-semibold" style={{ color: '#2e2e2e', margin: 0, maxWidth: 440, fontFamily: 'var(--font-karla)', letterSpacing: -2, fontSize: 32}}>
@@ -392,7 +393,7 @@ export default function AirtablePlatformPage() {
             <div className="plt-capabilities-section">
   <div className="plt-capabilities-logo">
     <Image
-      src="/logo-airtable.png"
+      src="/logos/airtable-circle.png"
       alt="Airtable"
       width={86}
       height={86}

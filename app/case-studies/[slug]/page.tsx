@@ -356,7 +356,7 @@ export default function CaseStudyDetailPage() {
               className="qc-cs-cta-btn"
             >
               <span>Talk to Roman</span>
-              <span aria-hidden>→</span>
+              <Image src="/icons/arrow-right.png" alt="" width={24} height={24} style={{ objectFit: 'contain' }} />
             </a>
           </div>
         </section>
@@ -371,7 +371,7 @@ export default function CaseStudyDetailPage() {
                   <span className="qc-case-studies-title-gradient">Real Transformations.</span>
                 </h2>
                 <p className="qc-case-studies-subtitle">
-                  Proof that intelligent automation delivers measurable impact.
+                  Proof that intelligent automation delivers measurable impact
                 </p>
               </div>
               <div className="qc-csd-related-grid">

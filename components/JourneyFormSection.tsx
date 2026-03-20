@@ -70,6 +70,7 @@ export function JourneyFormSection() {
       formData.append('interests', form.interests.join(', '));
       formData.append('challenge', form.challenge);
       formData.append('sourceUrl', window.location.href);
+      formData.append('formName', 'Start your automation journey');
       attachedFiles.forEach(f => formData.append('files', f));
 
       const response = await fetch('/api/contact', { method: 'POST', body: formData });
@@ -202,7 +203,7 @@ export function JourneyFormSection() {
                       aria-expanded={industryDropdownOpen}
                       aria-label="Industry"
                       onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
-                      className="qc-input qc-journey-input qc-journey-dropdown-trigger"
+                      className={`qc-input qc-journey-input qc-journey-dropdown-trigger${!form.industry ? ' qc-dropdown-placeholder' : ''}`}
                     >
                       {form.industry || 'Choose...'}
                     </button>
@@ -322,11 +323,11 @@ export function JourneyFormSection() {
                   disabled={isSubmitting}
                 >
                   <span>{isSubmitting ? 'Sending…' : 'Book Free Consultation'}</span>
-                  <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                  <Image src="/icons/arrow-right.png" alt="" width={20} height={20} className="qc-conversation-cta-arrow" aria-hidden />
                 </button>
               </div>
 
-              <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '0.5rem 0 0', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '0.75rem 0 1.5rem', lineHeight: 1.5 }}>
                 By submitting, your data is processed by QuitCode and Make.com to respond to your enquiry.{' '}
                 <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'underline' }}>Privacy Policy</a>.
               </p>

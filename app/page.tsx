@@ -54,7 +54,7 @@ const services = [
     title: 'Custom Workflow Automation',
     pain: "Too many manual steps stealing your team's time?",
     solution:
-      'We design no-code workflows that handle data entry, task routing, and reporting-giving your team hours back every week.',
+      'We design no-code workflows that handle data entry, task routing, and reporting - giving your team hours back every week.',
     image: '/service-workflow.png',
     href: '/services/custom-workflow-automation',
     imageAlt: 'workflow automation for service business operations',
@@ -377,11 +377,16 @@ export default function Page() {
                     <button
                       type="button"
                       className={`qc-solutions-btn${isActive ? ' qc-solutions-btn--active' : ''}`}
-                      onClick={() => setActiveSolution(key)}
+                      onClick={() => {
+                        setActiveSolution(key);
+                        if (window.innerWidth < 1024) {
+                          document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
                       style={{
                         borderRadius: isActive ? '20px' : '14px',
                         border: isActive
-                          ? '2px solid rgba(129, 140, 248, 0.6)'
+                          ? '3px solid #3985F8'
                           : '2px solid #f0ebf9',
                         background: isActive
                           ? 'linear-gradient(135deg, #09c0ff1a, #cc99ff1a)'
@@ -390,8 +395,8 @@ export default function Page() {
                         width: '100%',
                         textAlign: 'left',
                         display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: isActive ? 'flex-end' : 'center',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
                         cursor: 'pointer',
                         boxShadow: isActive
                           ? '0 8px 30px rgba(129, 140, 248, 0.15)'
@@ -403,10 +408,16 @@ export default function Page() {
                         transition: 'all 0.2s ease',
                       }}
                     >
-                      <span>{label}</span>
-                      <span className="qc-solutions-btn-arrow" style={{ color: isActive ? '#3985F8' : '#9ca3af' }}>
-                        {isActive ? '←' : '→'}
-                      </span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <span>{label}</span>
+                        <Image
+                          src={isActive ? '/icons/arrow-left-gradient.png' : '/icons/arrow-right-gray.png'}
+                          alt=""
+                          width={24}
+                          height={24}
+                          style={{ objectFit: 'contain' }}
+                        />
+                      </div>
                     </button>
                   </div>
                 );
@@ -458,6 +469,7 @@ export default function Page() {
         <section id="services" className="qc-section qc-gradient-hero">
           <div className="qc-container">
             <div
+              className="qc-services-inner"
               style={{
                 padding: '64px',
                 borderRadius: '50px',
@@ -481,6 +493,7 @@ export default function Page() {
               </div>
               <div
                 id="about"
+                className="qc-services-team-header"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -489,7 +502,7 @@ export default function Page() {
                   color: '#6b7280'
                 }}
               >
-                <div style={{ textAlign: 'right' }}>
+                <div style={{ textAlign: 'left' }}>
                   <div style={{ fontWeight: 500, color: '#3d3d3d', fontSize: 20 }}>Team of experts</div>
                   <div style={{ fontWeight: 400, fontSize: 12 }}>Tailored to your needs</div>
                 </div>
@@ -513,16 +526,35 @@ export default function Page() {
                   style={{
                     borderRadius: '28px',
                     padding: 0,
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    position: 'relative',
                   }}
                 >
+                  {/* Corner dots */}
+                  {[
+                    { top: 23, left: 23 },
+                    { top: 23, right: 23 },
+                    { bottom: 23, left: 23 },
+                    { bottom: 23, right: 23 },
+                  ].map((pos, i) => (
+                    <span key={i} style={{
+                      position: 'absolute',
+                      ...pos,
+                      width: 4,
+                      height: 4,
+                      borderRadius: '50%',
+                      background: '#BDA6E6',
+                      boxShadow: '0 0 10.6px 0 rgba(255,255,255,0.24)',
+                      zIndex: 2,
+                    }} />
+                  ))}
                   <div
                     style={{
                       background: '#ffffff',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      padding: '1.5rem',
+                      padding: '32px',
                       minHeight: 280
                     }}
                   >
@@ -543,7 +575,7 @@ export default function Page() {
                   <div
                     style={{
                       background: '#ffffff',
-                      padding: '1.6rem 1.5rem',
+                      padding: '32px',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '2rem',
@@ -587,7 +619,7 @@ export default function Page() {
                       >
                         Solution
                       </div>
-                      <p className="type-body-medium" style={{ margin: '0.2rem 0 0.5rem', color: '#4b5563' }}>
+                      <p className="type-body-medium" style={{ margin: '0.2rem 0 0.5rem', color: '#2e2e2e' }}>
                         {service.solution}
                       </p>
                     </div>
@@ -595,17 +627,26 @@ export default function Page() {
                     <div style={{ marginTop: '0.3rem' }}>
                       <a href={service.href} className="qc-button-gradient-border" aria-label={`Learn more about ${service.title}`}>
                         Learn more
-                        <span style={{ display: 'inline-flex' }}>
-                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="3" y1="8" x2="13" y2="8" />
-                            <polyline points="9 4 13 8 9 12" />
-                          </svg>
-                        </span>
+                        <Image src="/icons/arrow-right-gradient.png" alt="" width={13} height={18} style={{ objectFit: 'contain' }} />
                       </a>
                     </div>
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className="qc-services-team-mobile" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginTop: '21px', marginBottom: '36px' }}>
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ fontWeight: 500, color: '#3d3d3d', fontSize: 20 }}>Team of experts</div>
+                <div style={{ fontWeight: 400, fontSize: 12 }}>Tailored to your needs</div>
+              </div>
+              <Image
+                src="/team-avatars.png"
+                alt="Team of experts"
+                width={114}
+                height={42}
+                style={{ width: 114, height: 42, objectFit: 'contain' }}
+              />
             </div>
             </div>
           </div>
@@ -640,28 +681,37 @@ export default function Page() {
 
             <ul className="qc-chaos-rows">
               {chaosRows.map((row, i) => (
-                <li key={i} className="qc-chaos-row">
-                  <div className="qc-chaos-card-before"><strong>{row.beforeBold}</strong>{row.beforeRest}</div>
-                  <div className="qc-chaos-arrow-join">
-                    <Image
-                      src="/chaos-arrow.png"
-                      alt=""
-                      width={120}
-                      height={42}
-                      className="qc-chaos-arrow-img"
-                    />
-                  </div>
-                  <div className="qc-chaos-card-after">
-                    <span className="qc-chaos-card-after-text">{row.after}</span>
-                    <Image
-                      src={row.icon}
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="qc-chaos-card-after-icon"
-                    />
-                  </div>
-                </li>
+                <>
+                  <li key={i} className="qc-chaos-row">
+                    <div className="qc-chaos-card-before"><strong>{row.beforeBold}</strong>{row.beforeRest}</div>
+                    <div className="qc-chaos-arrow-join">
+                      <Image
+                        src="/chaos-arrow.png"
+                        alt=""
+                        width={120}
+                        height={42}
+                        className="qc-chaos-arrow-img"
+                      />
+                      <Image
+                        src="/connecting-line-mobile.png"
+                        alt=""
+                        width={80}
+                        height={24}
+                        className="qc-chaos-arrow-mobile"
+                      />
+                    </div>
+                    <div className="qc-chaos-card-after">
+                      <span className="qc-chaos-card-after-text">{row.after}</span>
+                      <Image
+                        src={row.icon}
+                        alt=""
+                        width={48}
+                        height={48}
+                        className="qc-chaos-card-after-icon"
+                      />
+                    </div>
+                  </li>
+                </>
               ))}
             </ul>
           </div>
@@ -702,7 +752,7 @@ export default function Page() {
                 <span className="qc-case-studies-title-gradient">Real Transformations.</span>
               </h2>
               <p className="qc-case-studies-subtitle">
-                Proof that intelligent automation delivers measurable impact.
+                Proof that intelligent automation delivers measurable impact
               </p>
             </div>
 
@@ -725,7 +775,7 @@ export default function Page() {
                         <div className="qc-case-featured-top">
                           <span className="qc-case-pill">{cs.industryLabel}</span>
                           <a href={`/case-studies/${cs.slug}`} className="qc-case-learn-more">
-                            Learn more <span aria-hidden>↗</span>
+                            Learn more <Image src="/icons/arrow-link-white.png" alt="" width={16} height={16} style={{ objectFit: 'contain' }} />
                           </a>
                         </div>
                         <h3 className="qc-case-featured-title">{cs.title}</h3>
@@ -789,7 +839,7 @@ export default function Page() {
                 className="qc-conversation-cta"
               >
                 <span>Talk to Roman</span>
-                <span className="qc-conversation-cta-arrow" aria-hidden>→</span>
+                <Image src="/icons/arrow-right.png" alt="" width={24} height={24} style={{ objectFit: 'contain' }} />
               </a>
               <div className="qc-conversation-benefits">
                 <span className="qc-conversation-benefit">
@@ -825,7 +875,7 @@ export default function Page() {
             <header className="qc-technologies-header">
               <h2 className="qc-technologies-title">Technologies</h2>
               <p className="qc-technologies-subtitle">
-                We build with trusted no-code platforms.
+                We build with trusted no-code platforms
               </p>
             </header>
 
@@ -874,7 +924,7 @@ export default function Page() {
             <div className="qc-why-nocode-panel">
               <header className="qc-why-nocode-header">
                 <h2 className="qc-why-nocode-title">
-                  Why no-code is the smarter way to
+                  Why <span style={{ color: '#E3C7FF' }}>no-code</span> is the smarter way to
                   <br />
                   scale operations
                 </h2>

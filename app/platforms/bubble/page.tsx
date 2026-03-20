@@ -107,6 +107,7 @@ function BubbleFormSection() {
       formData.append('industry', industry);
       formData.append('challenge', message);
       formData.append('sourceUrl', window.location.href);
+      formData.append('formName', 'Bubble Platform Enquiry');
 
       const res = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!res.ok) throw new Error();

@@ -421,9 +421,7 @@ export default function CustomWorkflowAutomationPage() {
                 className="qc-conversation-cta"
               >
                 <span>Talk to Roman</span>
-                <span className="qc-conversation-cta-arrow" aria-hidden>
-                  →
-                </span>
+                <Image src="/icons/arrow-right.png" alt="" width={24} height={24} style={{ objectFit: 'contain' }} />
               </a>
               <div className="qc-conversation-benefits">
                 <span className="qc-conversation-benefit">

@@ -34,7 +34,14 @@ export function Footer() {
               alt=""
               width={125}
               height={20}
-              className="qc-footer-connector-img"
+              className="qc-footer-connector-img qc-footer-connector-img--desktop"
+            />
+            <Image
+              src="/connecting-line-tablet.png"
+              alt=""
+              width={125}
+              height={20}
+              className="qc-footer-connector-img qc-footer-connector-img--tablet"
             />
           </div>
 
@@ -54,7 +61,14 @@ export function Footer() {
               alt=""
               width={125}
               height={20}
-              className="qc-footer-connector-img"
+              className="qc-footer-connector-img qc-footer-connector-img--desktop"
+            />
+            <Image
+              src="/connecting-line-tablet.png"
+              alt=""
+              width={125}
+              height={20}
+              className="qc-footer-connector-img qc-footer-connector-img--tablet"
             />
           </div>
 

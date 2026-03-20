@@ -153,7 +153,7 @@ export default function BlogPage() {
               className="qc-cs-cta-btn"
             >
               <span>Talk to Roman</span>
-<img src="/icons/arrow-right.png" alt="arrow right white" style={{width: 28, height: 28}}/>            </a>
+<Image src="/icons/arrow-right.png" alt="" width={24} height={24} style={{ objectFit: 'contain' }} />            </a>
           </div>
         </section>
       </main>
