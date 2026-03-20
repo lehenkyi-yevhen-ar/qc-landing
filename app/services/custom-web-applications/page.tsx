@@ -151,7 +151,7 @@ export default function CustomWebApplicationsPage() {
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 32px', color: '#111827',  fontSize: 64 }}
+                  style={{ margin: '0 0 32px', color: '#2E2E2E',  fontSize: 64 }}
                 >
                   Custom Web<br />Applications
                 </h1>
@@ -210,7 +210,7 @@ export default function CustomWebApplicationsPage() {
           <div className="qc-container">
             <h2
               className="type-heading-eb-48"
-              style={{ margin: '0 0 2.5rem', color: '#111827' }}
+              style={{ margin: '0 0 2.5rem', color: '#2E2E2E' }}
             >
               What You Get
             </h2>
@@ -238,13 +238,13 @@ export default function CustomWebApplicationsPage() {
                   <div>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: '0 0 16px', color: '#111827' }}
+                      style={{ margin: '0 0 16px', color: '#2E2E2E' }}
                     >
                       {item.title}
                     </h3>
                     <p
                       className="type-body"
-                      style={{ margin: 0, color: '#6b7280' }}
+                      style={{ margin: 0, color: '#8B8B8B' }}
                     >
                       {item.description}
                     </p>

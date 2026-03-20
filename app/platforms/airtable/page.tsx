@@ -77,10 +77,20 @@ function AirtableFormSection() {
   const [company, setCompany] = useState('');
   const [industry, setIndustry] = useState('');
   const [message, setMessage] = useState('');
+  const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = Array.from(e.target.files || []);
+    setAttachedFiles(prev => [...prev, ...selected].slice(0, 3));
+  };
+  const removeFile = (index: number) => {
+    setAttachedFiles(prev => prev.filter((_, i) => i !== index));
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -106,10 +116,11 @@ function AirtableFormSection() {
       formData.append('challenge', message);
       formData.append('sourceUrl', window.location.href);
       formData.append('formName', 'Airtable Platform Enquiry');
+      attachedFiles.forEach(f => formData.append('files', f));
 
       const res = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!res.ok) throw new Error();
-      setName(''); setEmail(''); setCompany(''); setIndustry(''); setMessage('');
+      setName(''); setEmail(''); setCompany(''); setIndustry(''); setMessage(''); setAttachedFiles([]);
       setStatus('success');
     } catch {
       setStatus('error');
@@ -255,13 +266,26 @@ function AirtableFormSection() {
 
               {/* File upload */}
               <div className="qc-journey-upload-wrap">
-                <button type="button" className="qc-journey-upload-btn">
+                <input ref={fileInputRef} type="file" accept=".pdf,.docx,.xlsx" multiple style={{ display: 'none' }} onChange={handleFileChange} />
+                <button type="button" className="qc-journey-upload-btn"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={attachedFiles.length >= 3}>
                   <svg className="qc-journey-upload-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
                   </svg>
                   Attach your Airtable schema, screenshots, or docs (optional)
                 </button>
                 <p className="qc-journey-upload-helper">Supported: PDF, DOCX, XLSX (max 10MB)</p>
+                {attachedFiles.length > 0 && (
+                  <ul className="qc-journey-upload-list">
+                    {attachedFiles.map((file, i) => (
+                      <li key={i} className="qc-journey-upload-item">
+                        <span>{file.name}</span>
+                        <button type="button" className="qc-journey-upload-remove" onClick={() => removeFile(i)} aria-label="Remove file">×</button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {/* Submit */}
@@ -358,10 +382,10 @@ export default function AirtablePlatformPage() {
               </div>
 
               {/* Right */}
-              <div>
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', overflow: 'hidden' }}>
                 <Image src="/airtable-hero-mockup.png" alt="Airtable interface mockup"
-                  width={680} height={460} className="cwa-hero-img-desktop"
-                  style={{ width: '100%', height: 'auto' }} priority />
+                  fill className="cwa-hero-img-desktop"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }} priority />
               </div>
             </div>
           </div>

@@ -299,7 +299,7 @@ export function JourneyFormSection() {
                   Attach a file (optional)
                 </button>
                 <p className="qc-journey-upload-helper">
-                  Supported: PDF, DOCX, XLSX (max 10MB) · up to 3 files
+                  Supported: PDF, DOCX, XLSX (max 10MB)
                 </p>
                 {attachedFiles.length > 0 && (
                   <ul className="qc-journey-upload-list">

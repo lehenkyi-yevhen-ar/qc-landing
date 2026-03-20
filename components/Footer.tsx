@@ -92,8 +92,7 @@ export function Footer() {
         </div>
 
         <div className="qc-footer-bottom">
-          <div>© 2025 QuitCode. All rights reserved.</div>
-          <div className="qc-footer-legal">
+<div>© {new Date().getFullYear()} QuitCode. All rights reserved.</div>          <div className="qc-footer-legal">
             <a href="/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>
             <span aria-hidden> · </span>
             <a href="/terms">Terms of Service</a>
