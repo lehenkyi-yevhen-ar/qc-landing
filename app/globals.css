@@ -692,7 +692,7 @@ button {
 }
 
 .qc-about-track-card {
-  padding: 1.5rem;
+  padding: 40px 1rem;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
@@ -762,13 +762,14 @@ button {
   justify-content: center;
   margin-top: auto;
   min-height: 80px;
+  max-height: 224px;
   width: 100%;
 }
 
 .qc-about-track-card-img img {
-  width: 100% !important;
+  width: auto !important;
  
-  height: auto !important;
+  height: 100% !important;
   object-fit: contain;
 }
 
@@ -4360,9 +4361,9 @@ box-shadow:
 }
 
 .qc-header-cta-book:hover {
-  background: #312e81;
-  box-shadow: 0 4px 14px rgba(30, 27, 75, 0.4);
-  transform: translateY(-1px);
+  background: #002050;
+ box-shadow: inset -4px 5px 7px #A2017AA3 , 
+            inset 4px -5px 8px #4300B7EB;
 }
 
 /* Mobile header */

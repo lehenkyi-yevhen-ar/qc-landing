@@ -343,7 +343,7 @@ export default function AboutPage() {
                 <div className="qc-about-people-join-avatars">
                   <Image src="/about/join-avatars.png" alt="" width={180} height={48} className="qc-about-people-join-avatars-img" />
                 </div>
-                <a href="/#journey" className="qc-about-people-join-link">See open vacancies</a>
+                <a href="/company/careers" className="qc-about-people-join-link">See open vacancies</a>
               </div>
             </div>
           </div>

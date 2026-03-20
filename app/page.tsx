@@ -608,7 +608,7 @@ export default function Page() {
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '2rem',
-                      justifyContent: 'center'
+                      justifyContent: 'space-around'
                     }}
                   >
                     <h3

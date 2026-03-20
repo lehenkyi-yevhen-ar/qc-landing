@@ -145,7 +145,7 @@ export default function DataInfrastructureOptimizationPage() {
                 </span>
                 <h1
                   className="type-heading-eb-48"
-                  style={{ margin: '0 0 32px', color: '#111827',  fontSize: 64 }}
+                  style={{ margin: '0 0 32px', color: '#2E2E2E',  fontSize: 64 }}
                 >
                   Data Infrastructure<br />Optimization
                 </h1>
@@ -210,13 +210,13 @@ export default function DataInfrastructureOptimizationPage() {
                   <div>
                     <h3
                       className="type-heading-eb-32"
-                      style={{ margin: '0 0 16px', color: '#111827' }}
+                      style={{ margin: '0 0 16px', color: '#2E2E2E' }}
                     >
                       {item.title}
                     </h3>
                     <p
                       className="type-body"
-                      style={{ margin: 0, color: '#6b7280' }}
+                      style={{ margin: 0, color: '#8B8B8B' }}
                     >
                       {item.description}
                     </p>

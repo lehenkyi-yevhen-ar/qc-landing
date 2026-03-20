@@ -147,7 +147,7 @@ export default function CustomWorkflowAutomationPage() {
                 >
                   Services
                 </span>
-                <h1 className="type-heading-eb-48" style={{ margin: "0 0 32px", color: "#111827",  fontSize: 64}}>
+                <h1 className="type-heading-eb-48" style={{ margin: "0 0 32px", color: "#2E2E2E",  fontSize: 64}}>
                   Custom Workflow
                   <br />
                   Automation
@@ -205,10 +205,10 @@ export default function CustomWorkflowAutomationPage() {
                 >
                   <Image src={item.icon} alt={item.alt} width={154} height={154} style={{ objectFit: "contain" }} />
                   <div>
-                    <h3 className="type-heading-eb-32" style={{ margin: "0 0 16px", color: "#111827" }}>
+                    <h3 className="type-heading-eb-32" style={{ margin: "0 0 16px", color: "#2E2E2E" }}>
                       {item.title}
                     </h3>
-                    <p className="type-body" style={{ margin: 0, color: "#6b7280" }}>
+                    <p className="type-body" style={{ margin: 0, color: "#8B8B8B" }}>
                       {item.description}
                     </p>
                   </div>

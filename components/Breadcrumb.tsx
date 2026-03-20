@@ -30,7 +30,7 @@ export function Breadcrumb({ crumbs }: { crumbs: Crumb[] }) {
             ) : crumb.inactive ? (
               <span style={{ color: '#6b7280' }}>{crumb.label}</span>
             ) : (
-              <Link href={crumb.href} style={{ color: '#6b7280' }}>
+              <Link href={crumb.href} style={{ color: '#2E2E2E' }}>
                 {crumb.label}
               </Link>
             )}
